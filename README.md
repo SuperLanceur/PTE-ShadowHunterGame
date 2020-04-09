@@ -33,7 +33,7 @@ Vous trouverez la documentation pour utliser notre application [ici].
 + NOWICKI Johann
 + POISSONIER HUGO
 + RELEVAT Chiara
-+ SRIFI 
++ SRIFI Pauline
 
 ## License
 
