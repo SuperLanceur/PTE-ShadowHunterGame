@@ -23,17 +23,17 @@ Vous trouverez la documentation pour utliser notre application [ici].
 
 ## Auteurs
 
-+ AHMED Saad
-+ BEN EL BEY Yessine
-+ GROSS Paul
-+ HERAUD Antoine
-+ HILAL Nawfel
-+ NOEL Bastien
-+ NORTIER Hugo
-+ NOWICKI Johann
-+ POISSONIER HUGO
-+ RELEVAT Chiara
-+ SRIFI Pauline
++ [AHMED Saad](https://github.com/saadeldinah)
++ [BEN EL BEY Yessine](https://github.com/Yessine-iut)
++ [GROSS Paul](https://github.com/FestPaul)
++ [HERAUD Antoine](https://github.com/herauda)
++ [HILAL Nawfel](https://github.com/NawfelHilal)
++ [NOEL Bastien](https://github.com/BastienNOEL)
++ [NORTIER Hugo](https://github.com/Razengan1915)
++ [NOWICKI Johann](https://github.com/Raptops06)
++ [POISSONIER HUGO](https://github.com/HugoPoisso)
++ [RELEVAT Chiara](https://github.com/Chiara06830)
++ [SRIFI Pauline](https://github.com/JunkJumper)
 
 ## License
 
