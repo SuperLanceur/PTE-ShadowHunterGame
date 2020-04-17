@@ -11,4 +11,11 @@ public abstract class CarteEffet extends Carte{
 		effet.utiliser(j);
 	}
 	
+	public void setEffet(Effet e) {
+		effet = e;
+	}
+	
+	public Effet getEffet() {
+		return effet;
+	}
 }
