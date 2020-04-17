@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import carte.Carte;
+import main.Joueur;
 import carte.CartePersonnage;
 import carte.Type;
-import main.Joueur;
+
 
 public class ConditionClass<T> extends Condition{
 

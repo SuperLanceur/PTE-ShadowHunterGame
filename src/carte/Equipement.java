@@ -1,5 +1,11 @@
 package carte;
 
-public class Equipement {
+import main.Joueur;
 
+public class Equipement extends CartePiochable<Type>{
+	
+	
+	public void utiliser(Joueur j) {
+		
+	}
 }
