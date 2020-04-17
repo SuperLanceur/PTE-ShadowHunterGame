@@ -6,7 +6,10 @@ public class JoueurVirtuel extends Joueur {
 	
 	private int nvDifficulte = 1; //possibilite de 1, 2 ou 3
 	
-	public JoueurVirtuel ( ) {}
+	public JoueurVirtuel (String name) {
+		super(name);
+		this.setVirtual();
+	}
 	
 	public Effet choisirEffet(List<Effet> effets) {
 		return effets.get((int)Math.floor(Math.random() * effets.size()));
