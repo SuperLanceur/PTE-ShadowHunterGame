@@ -1,15 +1,9 @@
 package effet;
 
-import java.util.List;
-
 import carte.Joueur;
 
-public class EffetTarget extends Effet{
+public abstract class EffetTarget extends Effet{
 
-	public void utiliser(Joueur joueur)
-	{
-		this.getAction().affecte()
-		
-	}
+	public abstract void utiliser(Joueur joueur);
 	
 }
