@@ -1,5 +1,6 @@
 package personnage;
 
+import condition.Condition;
 import main.Joueur;
 
 public class CartePersonnage {
@@ -7,18 +8,17 @@ public class CartePersonnage {
 		private String nom;
 		private int hp;
 		private Joueur joueur;
+		private Condition condition;
 		
 	//constructeurs
-		public CartePersonnage(String nom, int hp, Joueur joueur){
+		public CartePersonnage(String nom, int hp, Joueur joueur,Condition condition){
 			this.nom=nom;
 			this.hp=hp;
 			this.joueur=joueur;
+			this.condition=condition;
 		}
 		
 	//méthodes
-		public void tour() {
-			
-		};
 		
 		public void utiliser() {};
 		
