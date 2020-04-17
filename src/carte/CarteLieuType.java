@@ -5,7 +5,7 @@ import main.Joueur;
 public class CarteLieuType extends CarteLieu{
 	
 	public void utiliser(Joueur j) {
-		
+		super.utiliser(j);
 	}
 
 }

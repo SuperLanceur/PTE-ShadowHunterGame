@@ -7,12 +7,12 @@ public class CarteLieu extends CarteEffet{
 	
 	private Type field;
 	
-	// Liste des joueurs actuellement présent sur le lieu
+	// Liste des joueurs actuellement prï¿½sent sur le lieu
 	private List<Joueur> listeJoueur;
 	
 	
 	public void utiliser(Joueur j) {
-		
+		super.utiliser(j);
 	}
 	
 }

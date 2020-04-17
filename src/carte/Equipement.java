@@ -2,6 +2,7 @@ package carte;
 
 import main.Joueur;
 
+
 public class Equipement extends CartePiochable<Type>{
 	
 	
