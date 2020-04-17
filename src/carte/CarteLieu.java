@@ -2,6 +2,8 @@ package carte;
 
 import java.util.List;
 import main.Joueur;
+import main.Type;
+
 
 public class CarteLieu extends CarteEffet{
 	
