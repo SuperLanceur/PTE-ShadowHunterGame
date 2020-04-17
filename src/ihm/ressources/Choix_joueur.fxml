@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <bottom>
+      <Button mnemonicParsing="false" text="Commencer la partie" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" />
+         </BorderPane.margin></Button>
+   </bottom>
+   <top>
+      <VBox alignment="CENTER" prefHeight="119.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Entrez le nom des joueurs">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label text="(Il faut au moins 4 joueurs)">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="Cochez la checkbox pour que le joueur soit un joueur virtuel" />
+         </children>
+      </VBox>
+   </top>
+   <left>
+      <HBox alignment="CENTER_LEFT" prefHeight="256.0" prefWidth="306.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <TextField />
+                  <TextField>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin></TextField>
+                  <TextField>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin></TextField>
+                  <TextField>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin></TextField>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="257.0" prefWidth="78.0">
+                     <children>
+                        <Button mnemonicParsing="false" text="+" />
+                        <Button mnemonicParsing="false" text="+">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin></Button>
+                        <Button mnemonicParsing="false" text="+">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin></Button>
+                        <Button mnemonicParsing="false" text="+">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin></Button>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <CheckBox mnemonicParsing="false">
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding></CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <padding>
+                        <Insets top="15.0" />
+                     </padding></CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <padding>
+                        <Insets top="15.0" />
+                     </padding></CheckBox>
+                  <CheckBox mnemonicParsing="false">
+                     <padding>
+                        <Insets top="15.0" />
+                     </padding></CheckBox>
+               </children>
+            </VBox>
+         </children>
+         <BorderPane.margin>
+            <Insets left="20.0" />
+         </BorderPane.margin>
+      </HBox>
+   </left>
+   <right>
+      <HBox prefHeight="256.0" prefWidth="332.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="256.0" prefWidth="275.0">
+               <children>
+                  <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <TextField />
+                        <TextField>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin></TextField>
+                        <TextField>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin></TextField>
+                        <TextField>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin></TextField>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Button mnemonicParsing="false" text="+" />
+                        <Button mnemonicParsing="false" text="+">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin></Button>
+                        <Button mnemonicParsing="false" text="+">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin></Button>
+                        <Button mnemonicParsing="false" text="+">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin></Button>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <CheckBox mnemonicParsing="false">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin></CheckBox>
+                        <CheckBox mnemonicParsing="false">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin></CheckBox>
+                        <CheckBox mnemonicParsing="false">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin></CheckBox>
+                        <CheckBox mnemonicParsing="false">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin></CheckBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </right>
+</BorderPane>
