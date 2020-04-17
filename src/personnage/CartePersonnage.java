@@ -19,7 +19,7 @@ public class CartePersonnage extends CarteCondition {
 			this.condition=condition;
 		}
 		
-	//m�thodes
+	//méthodes
 		
 		public void utiliser() {};
 		

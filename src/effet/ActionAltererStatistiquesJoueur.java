@@ -13,9 +13,9 @@ public class ActionAltererStatistiquesJoueur {
 		this.ajouter = ajouter;
 	}
 	
-	public affecter(Joueur j1, Joueur j2)
+	public void affecter(Joueur j1, Joueur j2)
 	{
-		
+	
 	}
 	
 }

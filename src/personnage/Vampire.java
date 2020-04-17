@@ -10,13 +10,13 @@ public class Vampire extends CartePersonnage{
 		//this.setEffet(
 		
 		//new EffetSelf( new ActionAltererStatistiquesJoueur("HP",2,true));
-	//);
+		//);
 		//
 	}
 
 	public void utiliser(Joueur j)
 	{
-		//this.getEffet().affecte(this.joueur)
+		//this.getEffet().utiliser()
 	}
 	
 	//m�thode

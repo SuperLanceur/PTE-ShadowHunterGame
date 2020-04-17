@@ -6,11 +6,10 @@ public abstract class Effet {
 
 	private Action action;
 	
-	public Effet()
+	public Effet(Action action)
 	{
-		
+		this.action = action;
 	}
-	
 	
 	public abstract void utiliser(Joueur joueur);
 

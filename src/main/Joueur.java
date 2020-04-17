@@ -12,6 +12,10 @@ public class Joueur {
 		return null;
 	}
 	
+	public int setStat(String key, int valeur) {
+		return stats.put(key, valeur);
+	}
+	
 	public int getStat(String key) {
 		return stats.get(key);
 	}
