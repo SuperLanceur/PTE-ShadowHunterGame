@@ -9,7 +9,7 @@ public class CarteLieu extends CarteEffet{
 	
 	private Type field;
 	
-	// Liste des joueurs actuellement pr�sent sur le lieu
+	// Liste des joueurs actuellement présentsur le lieu
 	private List<Joueur> listeJoueur;
 	
 	
