@@ -1,5 +1,7 @@
 package carte;
 
+import main.Joueur;
+
 public class Carte {
 
 	private String nom;
