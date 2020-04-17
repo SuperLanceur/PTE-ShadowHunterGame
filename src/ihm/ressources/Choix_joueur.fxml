@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@style/menu.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.PlayersController">
    <bottom>
-      <Button mnemonicParsing="false" text="Commencer la partie" BorderPane.alignment="CENTER">
+      <Button fx:id="btnCommencer" mnemonicParsing="false" onMouseClicked="#commencerJeux" styleClass="bouton" stylesheets="@style/menu.css" text="Commencer la partie" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="10.0" />
          </BorderPane.margin></Button>
@@ -20,17 +20,17 @@
    <top>
       <VBox alignment="CENTER" prefHeight="119.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Entrez le nom des joueurs">
+            <Label styleClass="titre" stylesheets="@style/menu.css" text="Entrez le nom des joueurs">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label text="(Il faut au moins 4 joueurs)">
+            <Label styleClass="titre" stylesheets="@style/menu.css" text="(Il faut au moins 4 joueurs)">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label text="Cochez la checkbox pour que le joueur soit un joueur virtuel" />
+            <Label styleClass="titre" stylesheets="@style/menu.css" text="Cochez la checkbox pour que le joueur soit un joueur virtuel" />
          </children>
       </VBox>
    </top>
@@ -58,16 +58,16 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="257.0" prefWidth="78.0">
                      <children>
-                        <Button mnemonicParsing="false" text="+" />
-                        <Button mnemonicParsing="false" text="+">
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="+" />
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="+">
                            <VBox.margin>
                               <Insets top="5.0" />
                            </VBox.margin></Button>
-                        <Button mnemonicParsing="false" text="+">
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="+">
                            <VBox.margin>
                               <Insets top="5.0" />
                            </VBox.margin></Button>
-                        <Button mnemonicParsing="false" text="+">
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="+">
                            <VBox.margin>
                               <Insets top="5.0" />
                            </VBox.margin></Button>
@@ -77,19 +77,19 @@
             </VBox>
             <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <CheckBox mnemonicParsing="false">
+                  <CheckBox mnemonicParsing="false" stylesheets="@style/menu.css">
                      <padding>
                         <Insets top="5.0" />
                      </padding></CheckBox>
-                  <CheckBox mnemonicParsing="false">
+                  <CheckBox mnemonicParsing="false" stylesheets="@style/menu.css">
                      <padding>
                         <Insets top="15.0" />
                      </padding></CheckBox>
-                  <CheckBox mnemonicParsing="false">
+                  <CheckBox mnemonicParsing="false" stylesheets="@style/menu.css">
                      <padding>
                         <Insets top="15.0" />
                      </padding></CheckBox>
-                  <CheckBox mnemonicParsing="false">
+                  <CheckBox mnemonicParsing="false" stylesheets="@style/menu.css">
                      <padding>
                         <Insets top="15.0" />
                      </padding></CheckBox>
@@ -125,16 +125,16 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Button mnemonicParsing="false" text="+" />
-                        <Button mnemonicParsing="false" text="+">
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="+" />
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="+">
                            <VBox.margin>
                               <Insets top="5.0" />
                            </VBox.margin></Button>
-                        <Button mnemonicParsing="false" text="+">
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="+">
                            <VBox.margin>
                               <Insets top="5.0" />
                            </VBox.margin></Button>
-                        <Button mnemonicParsing="false" text="+">
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="+">
                            <VBox.margin>
                               <Insets top="5.0" />
                            </VBox.margin></Button>
@@ -142,19 +142,19 @@
                   </VBox>
                   <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <CheckBox mnemonicParsing="false">
+                        <CheckBox mnemonicParsing="false" stylesheets="@style/menu.css">
                            <VBox.margin>
                               <Insets top="5.0" />
                            </VBox.margin></CheckBox>
-                        <CheckBox mnemonicParsing="false">
+                        <CheckBox mnemonicParsing="false" stylesheets="@style/menu.css">
                            <VBox.margin>
                               <Insets top="15.0" />
                            </VBox.margin></CheckBox>
-                        <CheckBox mnemonicParsing="false">
+                        <CheckBox mnemonicParsing="false" stylesheets="@style/menu.css">
                            <VBox.margin>
                               <Insets top="15.0" />
                            </VBox.margin></CheckBox>
-                        <CheckBox mnemonicParsing="false">
+                        <CheckBox mnemonicParsing="false" stylesheets="@style/menu.css">
                            <VBox.margin>
                               <Insets top="15.0" />
                            </VBox.margin></CheckBox>
