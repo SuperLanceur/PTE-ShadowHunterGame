@@ -5,30 +5,23 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#afficheBonjour" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@style/menu.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.MenuController">
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@style/menu.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.MenuController">
    <children>
-<<<<<<< HEAD
-      <Button layoutX="231.0" layoutY="161.0" mnemonicParsing="false" onMouseClicked="#commencerPartie" prefHeight="39.0" prefWidth="139.0" styleClass="bouton" stylesheets="@style/menu.css" text="Jouer">
-=======
-      <Button layoutX="231.0" layoutY="161.0" mnemonicParsing="false" onMouseClicked="#changerNom" prefHeight="39.0" prefWidth="139.0" styleClass="bouton" stylesheets="@style/menu.css" text="Jouer">
->>>>>>> 88af99848491a78118cac6121fa65e6c2ffd3f56
+      <Label layoutX="126.0" layoutY="46.0" styleClass="titre" text="Shadow Hunters">
          <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-<<<<<<< HEAD
-      <Button layoutX="230.0" layoutY="244.0" mnemonicParsing="false" onMouseClicked="#afficherRegle" styleClass="bouton" stylesheets="@style/menu.css" text="Règles du jeux">
-=======
-      <Button layoutX="230.0" layoutY="244.0" mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="Règles du jeux">
->>>>>>> 88af99848491a78118cac6121fa65e6c2ffd3f56
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Label layoutX="170.0" layoutY="61.0" styleClass="titre" stylesheets="@style/menu.css" text="Shadow Hunters">
-         <font>
-            <Font size="36.0" />
+            <Font size="48.0" />
          </font>
       </Label>
+      <Button layoutX="242.0" layoutY="149.0" mnemonicParsing="false" onMouseClicked="#commencerPartie" prefHeight="51.0" prefWidth="102.0" styleClass="bouton" text="Jouer">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="242.0" layoutY="235.0" mnemonicParsing="false" onMouseClicked="#afficherRegle" styleClass="bouton" text="Regles">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
    </children>
 </Pane>

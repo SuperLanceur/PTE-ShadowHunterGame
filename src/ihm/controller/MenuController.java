@@ -1,26 +1,25 @@
 package ihm.controller;
 
+import ihm.FxmlLoader;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 public class MenuController {
-	@FXML
-    private Label label;
+	private Stage window;
 
-<<<<<<< HEAD
-    public void commencerPartie(MouseEvent mouseEvent) {
+   public void commencerPartie(MouseEvent mouseEvent) {
         System.out.println("Bonjouuuuur!");
+        FxmlLoader object = new FxmlLoader();
+        Pane view = object.getPage("Choix_joueur");
+        Scene scene = new Scene(view);
+        window.setScene(scene);
     }
     
     public void afficherRegle(MouseEvent mouseEvent) {
-=======
-    public void afficheBonjour(MouseEvent mouseEvent) {
-        System.out.println("Bonjouuuuur!");
-    }
-    
-    public void changerNom(MouseEvent mouseEvent) {
->>>>>>> 88af99848491a78118cac6121fa65e6c2ffd3f56
-    	System.out.println("clik");
+    	System.out.println("blaaaa");
     }
 }
