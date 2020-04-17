@@ -1,5 +1,5 @@
 package effet;
-
+import main.Joueur;
 public class ActionAltererStatistiquesJoueur {
 
 	private String key;

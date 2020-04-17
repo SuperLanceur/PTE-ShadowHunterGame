@@ -1,5 +1,6 @@
 package main;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Joueur {
@@ -21,6 +22,11 @@ public class Joueur {
 	
 	public int getNbEquipments() {
 		return gestionnaireEquipements.getNbEquipments();
+	}
+
+	public List<Joueur> getJoueursAdjacents() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

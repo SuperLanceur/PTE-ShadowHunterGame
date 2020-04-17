@@ -1,11 +1,10 @@
 package effet;
-
+import main.Joueur;
 import java.util.List;
-
-import carte.Joueur;
 
 public class EffetCiblerAdjacents extends EffetTarget{
 
+	@Override
 	public void utiliser(Joueur joueur)
 	{
 		List<Joueur> joueursAdjacents = joueur.getJoueursAdjacents();
@@ -17,6 +16,5 @@ public class EffetCiblerAdjacents extends EffetTarget{
 		}
 		
 	}
-	
 	
 }

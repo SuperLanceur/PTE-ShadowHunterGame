@@ -1,6 +1,6 @@
 package effet;
 
-import carte.Joueur;
+import main.Joueur;
 
 public abstract class EffetTarget extends Effet{
 
