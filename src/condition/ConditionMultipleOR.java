@@ -6,7 +6,7 @@ public class ConditionMultipleOR extends ConditionMultiple{
 
 	
 	/**
-	 * Vérifie si au moins une des conditions est vérifiée
+	 * Vérifie qu'au moins une des conditions soit vérifiée.
 	 * @param joueur Le joueur sur lequel on vérifie les conditions.
 	 * @return boolean
 	 */

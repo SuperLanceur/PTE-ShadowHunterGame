@@ -17,7 +17,7 @@ public class ConditionMultiple extends Condition {
 	}
 	
 	/**
-	 * Vérifie si toutes les conditions sont vérifiées
+	 * Vérifie que toutes les conditions soient vraies
 	 * @param joueur Le joueur sur lequel on vérifie les conditions.
 	 * @return boolean
 	 */
