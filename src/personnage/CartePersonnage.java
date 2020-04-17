@@ -1,9 +1,10 @@
 package personnage;
 
+import carte.CarteCondition;
 import condition.Condition;
 import main.Joueur;
 
-public class CartePersonnage {
+public class CartePersonnage extends CarteCondition {
 	//attributs
 		private String nom;
 		private int hp;
@@ -18,7 +19,7 @@ public class CartePersonnage {
 			this.condition=condition;
 		}
 		
-	//méthodes
+	//mï¿½thodes
 		
 		public void utiliser() {};
 		
@@ -38,6 +39,11 @@ public class CartePersonnage {
 		
 		public void deplacer() {
 			
+		}
+		
+		public void setEffet()
+		{
+			// TODO
 		}
 
 }
