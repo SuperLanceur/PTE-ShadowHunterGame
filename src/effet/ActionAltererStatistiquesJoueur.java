@@ -15,7 +15,13 @@ public class ActionAltererStatistiquesJoueur {
 	
 	public void affecter(Joueur j1, Joueur j2)
 	{
-	
+		if(ajouter)
+		{
+			j2.setStat(key, j2.getStat(key)+valeur);
+		}else {
+			j2.setStat(key, valeur);
+		}
+		
 	}
 	
 }
