@@ -180,10 +180,17 @@
                                  <children>
                                     <VBox alignment="CENTER" prefHeight="136.0" prefWidth="17.0">
                                        <children>
+<<<<<<< HEAD
                                           <Circle fill="#ff1f1f" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
                                           <Circle fill="#fccb0a" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
                                           <Circle fill="#f1ff1f" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
                                           <Circle fill="#1fff35" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+=======
+                                          <Circle fill="DODGERBLUE" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                                          <Circle fill="DODGERBLUE" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                                          <Circle fill="DODGERBLUE" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                                          <Circle fill="DODGERBLUE" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+>>>>>>> 88af99848491a78118cac6121fa65e6c2ffd3f56
                                        </children>
                                     </VBox>
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -206,10 +213,17 @@
                                     </HBox>
                                     <VBox alignment="CENTER" prefHeight="136.0" prefWidth="19.0">
                                        <children>
+<<<<<<< HEAD
                                           <Circle fill="#21e9ff" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
                                           <Circle fill="#4421ff" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
                                           <Circle fill="#ff21d8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
                                           <Circle fill="#d521ff" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+=======
+                                          <Circle fill="DODGERBLUE" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                                          <Circle fill="DODGERBLUE" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                                          <Circle fill="DODGERBLUE" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                                          <Circle fill="DODGERBLUE" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+>>>>>>> 88af99848491a78118cac6121fa65e6c2ffd3f56
                                        </children>
                                     </VBox>
                                  </children>
