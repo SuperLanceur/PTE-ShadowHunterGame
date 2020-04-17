@@ -5,19 +5,19 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane id="rootPane" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@style/menu.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.MenuController">
+<Pane id="rootPane" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="background" stylesheets="@style/menu.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.MenuController">
    <children>
-      <Label layoutX="126.0" layoutY="46.0" styleClass="titre" text="Shadow Hunters">
+      <Label layoutX="437.0" layoutY="193.0" styleClass="titre" text="Shadow Hunters">
          <font>
             <Font size="48.0" />
          </font>
       </Label>
-      <Button layoutX="242.0" layoutY="149.0" mnemonicParsing="false" onMouseClicked="#commencerPartie" prefHeight="51.0" prefWidth="102.0" styleClass="bouton" text="Jouer">
+      <Button layoutX="553.0" layoutY="296.0" mnemonicParsing="false" onMouseClicked="#commencerPartie" prefHeight="51.0" prefWidth="102.0" styleClass="bouton" text="Jouer">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="242.0" layoutY="235.0" mnemonicParsing="false" onMouseClicked="#afficherRegle" styleClass="bouton" text="Regles">
+      <Button layoutX="554.0" layoutY="387.0" mnemonicParsing="false" onMouseClicked="#afficherRegle" styleClass="bouton" text="Regles">
          <font>
             <Font size="24.0" />
          </font>
