@@ -11,10 +11,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
-public class MenuController implements Initializable{
+public class PlayersController implements Initializable{
 	@FXML
-	private Pane rootPane;
-	
+	private BorderPane rootPane;
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
@@ -22,13 +22,9 @@ public class MenuController implements Initializable{
 	}
 
 	@FXML
-	public void commencerPartie(MouseEvent mouseEvent) throws IOException{
-		System.out.println("Passage à l'écran de choix des joueurs");
-        BorderPane pane = FXMLLoader.load(getClass().getResource("../ressources/Choix_joueur.fxml"));
+	public void commencerJeux(MouseEvent mouseEvent) throws IOException{
+		System.out.println("Lancement du jeu...");
+        Pane pane = FXMLLoader.load(getClass().getResource("../ressources/Plateau.fxml"));
         rootPane.getChildren().setAll(pane);
-    }
-    
-    public void afficherRegle(MouseEvent mouseEvent) {
-    	System.out.println("blaaaa");
-    }
+	}
 }
