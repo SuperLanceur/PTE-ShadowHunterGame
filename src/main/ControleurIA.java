@@ -66,7 +66,7 @@ public class ControleurIA {
 		return false;
 	}
 
-	// metamorphe : si reçoit carte vision 50%? mentir sans se devoiler
+	// metamorphe : si reï¿½oit carte vision 50%? mentir sans se devoiler
 	public static boolean mentirIAMetamorphe(JoueurVirtuel jIA) {
 		if (getRandomPercentage() < 50)
 			return true;
@@ -79,7 +79,7 @@ public class ControleurIA {
 		String equipejIA = jIA.getEquipe();
 		double rand = getRandomPercentage();
 		if (!equipejIA.equals(jAttaquee.getEquipe())) {
-			if (rand < 940 / 9 - (40 * jIA.getHP()))
+			if (rand < 940 / 9 - (40 * jIA.getStat("HP")))
 				return true;
 		}
 		return false;
@@ -103,7 +103,7 @@ public class ControleurIA {
 		boolean devoiler = false;
 		double rand = getRandomPercentage();
 		for (Joueur j : jEnnemis) {
-			if (j.getHP() <= 4)
+			if (j.getStat("HP") <= 4)
 				devoiler = true;
 		}
 		if (devoiler && rand < 90)
@@ -118,7 +118,7 @@ public class ControleurIA {
 		boolean devoiler = false;
 		double rand = getRandomPercentage();
 		for (Joueur j : jEnnemis) {
-			if (j.getHP() <= 6)
+			if (j.getStat("HP") <= 6)
 				devoiler = true;
 		}
 		if (devoiler && rand < 90)
@@ -128,7 +128,7 @@ public class ControleurIA {
 
 	// allie : si vie<5?hp (plus vie baisse, plus proba augmente) 60%? devoilement
 	public static boolean devoilerIAAllie(JoueurVirtuel jIA) {
-		if (getRandomPercentage() < 110 - 10 * jIA.getHP())
+		if (getRandomPercentage() < 110 - 10 * jIA.getStat("HP"))
 			return true;
 		return false;
 	}
@@ -143,7 +143,7 @@ public class ControleurIA {
 	// charles : si attaque joueur possedant moins de vie que attaque de charles
 	// 85?% devoilement
 	public static boolean devoilerIACharles(JoueurVirtuel jIA, Joueur jAttaquee) {
-		if (jAttaquee.getHP() <= jIA.getDamage() && jIA.getHP() >= 2 && getRandomPercentage() <= 85)
+		if (jAttaquee.getStat("HP") <= jIA.getStat("DAMAGE") && jIA.getStat("HP") >= 2 && getRandomPercentage() <= 85)
 			return true;
 		return false;
 	}

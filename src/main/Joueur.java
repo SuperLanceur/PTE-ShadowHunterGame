@@ -12,13 +12,10 @@ public class Joueur {
 		return null;
 	}
 	
-	public int getHP() {
-		return stats.get("HP");
+	public int getStat(String key) {
+		return stats.get(key);
 	}
 	
-	public int getDamage() {
-		return stats.get("DAMAGE");
-	}
 	
 	public int getNbEquipments() {
 		return gestionnaireEquipements.getNbEquipments();
