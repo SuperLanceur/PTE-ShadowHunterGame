@@ -40,6 +40,7 @@ public class Plateau {
 	}	
 	
 	public int rollDices() {
+		//pas necessaire?
 		return 0;
 	}
 	
@@ -64,24 +65,23 @@ public class Plateau {
 	}
 	
 	public int sumRolls() {
+		//pas necessaire?
 		return 0;
 	}
 	
 	public int roll4() {
-		return 0;
-	}
-	
-	public int roll2() {
-		return 0;
+		return (int) Math.floor(Math.random() * 3)+1;
 	}
 
+	public int rollDices4() {
+		return Math.abs(roll4() - roll4());
+	}
 	
 	public int rollDices6() {
 		return roll6() + roll6();
 	}
 	
 	public int roll6() {
-		
-		return 0;
+		return (int) Math.floor(Math.random() * 5)+1;
 	}
 }

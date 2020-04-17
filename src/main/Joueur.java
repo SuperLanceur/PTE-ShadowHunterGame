@@ -9,6 +9,7 @@ public class Joueur {
 	private String name;
 	private boolean revealed;
 	private boolean virtual;
+	private Plateau plateau;
 	
 	// map keys
 	public static final String PLAYER_HP = "hp";
