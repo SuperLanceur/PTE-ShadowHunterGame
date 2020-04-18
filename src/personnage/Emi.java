@@ -1,15 +1,21 @@
 package personnage;
 
 import condition.Condition;
+import condition.ConditionStatistiques;
 import main.Joueur;
+import main.Plateau;
 
 public class Emi extends CartePersonnage{
 	//constructeur
-	public Emi(String nom, int hp, Joueur joueur, Condition condition) {
-		super(nom, hp, joueur, condition);
+	public Emi(String nom, int hp, Joueur joueur) {
+		super(nom, hp, joueur);
+		
+		int nbShadow = joueur.getPlateau().getStat(Plateau.NB_SHADOWS);
+		Condition winCondition = new ConditionStatistiques(ConditionStatistiques.PLATEAU, Plateau.NB_MORTS_SHADOW, nbShadow, ConditionStatistiques.MORE);
+		this.setCondition(winCondition);
 	}
 	
-	//méthode
+	//mï¿½thode
 	public void deplacer() {
 			
 	}

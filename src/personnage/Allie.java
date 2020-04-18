@@ -19,13 +19,13 @@ public class Allie extends Unique{
 		Effet effet = new EffetSelf(action);
 		this.setEffet(effet);
 	
-		Condition condition = new ConditionMultiple(
+		Condition winCondition = new ConditionMultiple(
 				
-				new ConditionStatistiques(ConditionStatistiques.PLATEAU, Plateau.PLATEAU_PARTIE_FINIE, 1, ConditionStatistiques.EQUAL)
+				new ConditionStatistiques(ConditionStatistiques.PLATEAU, Plateau.PARTIE_FINIE, 1, ConditionStatistiques.EQUAL)
 				, new ConditionStatistiques(ConditionStatistiques.JOUEUR, Joueur.PLAYER_HP, 0, ConditionStatistiques.MORE)
 				);
 		
-		this.setCondition(condition);
+		this.setCondition(winCondition);
 	}
 
 	/**

@@ -20,12 +20,12 @@ public class Vampire extends CartePersonnage{
 		this.setEffet(effet);
 		
 		int nbHunter = joueur.getPlateau().getStat(Plateau.NB_HUNTERS);
-		Condition condition =  new ConditionMultipleOR(
+		Condition winCondition =  new ConditionMultipleOR(
 				new ConditionStatistiques(ConditionStatistiques.PLATEAU, Plateau.NB_MORTS_HUNTER, nbHunter, ConditionStatistiques.MORE)
 				,
 				new ConditionStatistiques(ConditionStatistiques.PLATEAU, Plateau.NB_MORTS_NEUTRAL, 3, ConditionStatistiques.MORE)
 						);
-		this.setCondition(condition);
+		this.setCondition(winCondition);
 	}
 
 	public void utiliser(Joueur j)
