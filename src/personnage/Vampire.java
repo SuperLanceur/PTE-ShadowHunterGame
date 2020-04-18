@@ -1,14 +1,12 @@
 package personnage;
 
-import condition.Condition;
-import condition.ConditionMultipleOR;
-import condition.ConditionStatistiques;
+import condition.WinConditionShadow;
 import effet.Action;
 import effet.ActionAltererStatistiquesJoueur;
 import effet.Effet;
 import effet.EffetSelf;
 import main.Joueur;
-import main.Plateau;
+
 
 public class Vampire extends CartePersonnage{
 	
@@ -18,14 +16,7 @@ public class Vampire extends CartePersonnage{
 		Action action = new ActionAltererStatistiquesJoueur("HP",2,true);
 		Effet effet = new EffetSelf(action);
 		this.setEffet(effet);
-		
-		int nbHunter = joueur.getPlateau().getStat(Plateau.NB_HUNTERS);
-		Condition winCondition =  new ConditionMultipleOR(
-				new ConditionStatistiques(ConditionStatistiques.PLATEAU, Plateau.NB_MORTS_HUNTER, nbHunter, ConditionStatistiques.MORE)
-				,
-				new ConditionStatistiques(ConditionStatistiques.PLATEAU, Plateau.NB_MORTS_NEUTRAL, 3, ConditionStatistiques.MORE)
-						);
-		this.setCondition(winCondition);
+		this.setCondition(new WinConditionShadow());
 	}
 
 	public void utiliser(Joueur j)

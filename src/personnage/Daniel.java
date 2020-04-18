@@ -4,6 +4,7 @@ import condition.Condition;
 import condition.ConditionMultiple;
 import condition.ConditionMultipleOR;
 import condition.ConditionStatistiques;
+import condition.WinConditionHunter;
 import main.Joueur;
 import main.Plateau;
 
@@ -22,7 +23,7 @@ public class Daniel extends CartePersonnage{
 					   ,new ConditionStatistiques(ConditionStatistiques.PLATEAU, Plateau.NB_MORTS, 1, ConditionStatistiques.LESS)
 						)
 				// Shadows morts 
-				,new ConditionStatistiques(ConditionStatistiques.PLATEAU, Plateau.NB_MORTS_SHADOW, nbShadow, ConditionStatistiques.MORE)
+				,new WinConditionHunter()
 		);
 		this.setCondition(winCondition);
 	}

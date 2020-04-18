@@ -1,5 +1,5 @@
 package main;
 
-public class TypeTenebre {
+public class TypeTenebre implements Type{
 
 }

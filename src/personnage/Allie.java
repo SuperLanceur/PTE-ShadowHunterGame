@@ -12,8 +12,8 @@ import main.Plateau;
 
 public class Allie extends Unique{
 	
-	public Allie(String nom, int hp, Joueur joueur,boolean capaciteUsed) {
-		super(nom, hp, joueur, capaciteUsed);
+	public Allie(String nom, int hp, Joueur joueur) {
+		super(nom, hp, joueur);
 		
 		Action action = new ActionAltererStatistiquesJoueur("HP",this.getPv(),false);
 		Effet effet = new EffetSelf(action);

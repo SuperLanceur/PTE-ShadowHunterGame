@@ -3,7 +3,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import carte.CarteLieu;
 import effet.Effet;
 
 
@@ -18,10 +17,11 @@ public class Joueur {
 	// map keys
 	public static final String PLAYER_HP = "hp";
 	public static final String PLAYER_TURN = "turn";
-	public static final String PLYAYER_DAMAGE = "damage";
+	public static final String PLAYER_DAMAGE = "damage";
 	public static final String PLAYER_RESISTANCE = "resistance";
 	public static final String PLAYER_REVEAL = "reveal";
 	public static final String PLAYER_IMMUNITY = "immunity";
+	public static final String PLAYER_NB_EQUIPEMENTS = "nb_equipements";
 	
 	private Map<String, Integer> stats;
 	
@@ -67,7 +67,7 @@ public class Joueur {
 		return null;
 	}
 
-	public List<Equipement> getEquipements() {
+	public Equipement[] getEquipements() {
 		// TODO Auto-generated method stub
 		return null;
 	}

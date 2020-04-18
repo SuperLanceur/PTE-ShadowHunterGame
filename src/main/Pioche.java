@@ -1,13 +1,22 @@
 package main;
 
 import java.util.Collections;
-import java.util.List;
+import java.util.Stack;
 
-public class Pioche<Carte> {
-	private List<CartePiochable> cartesPiochables;
+import carte.CartePiochable;
+
+public class Pioche<T extends Type> {
 	
-	public CartePiochable piocher() {
+	private Stack<CartePiochable<T>> cartesPiochables;
+	
+	
+	public void melanger()
+	{
 		Collections.shuffle(cartesPiochables);
-		return cartesPiochables.get(0);
+	}
+	
+	public CartePiochable<?> piocher() {
+		
+		return cartesPiochables.pop();
 	}
 }
