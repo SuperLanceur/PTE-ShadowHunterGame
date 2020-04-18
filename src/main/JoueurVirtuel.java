@@ -1,6 +1,8 @@
 package main;
 import java.util.List;
 
+import effet.Effet;
+
 
 public class JoueurVirtuel extends Joueur {
 	
@@ -8,7 +10,7 @@ public class JoueurVirtuel extends Joueur {
 	
 	public JoueurVirtuel (String name) {
 		super(name);
-		this.setVirtual();
+	
 	}
 	
 	public Effet choisirEffet(List<Effet> effets) {

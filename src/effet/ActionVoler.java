@@ -1,7 +1,5 @@
 package effet;
 
-import java.util.List;
-
 import main.Equipement;
 import main.Joueur;
 

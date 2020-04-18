@@ -1,9 +1,12 @@
 package condition;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
+import condition.Condition;
+import condition.ConditionMultiple;
+import condition.ConditionMultipleOR;
 import main.Joueur;
 
 class ConditionMultipleTest {
@@ -12,7 +15,7 @@ class ConditionMultipleTest {
 	public void conditionMultipleVideRenvoieTrue() {
 		
 		Condition condition = new ConditionMultiple();
-		Joueur j = new Joueur();
+		Joueur j = new Joueur(null);
 		
 		assertTrue(condition.isTrue(j));	
 	}
@@ -21,9 +24,9 @@ class ConditionMultipleTest {
 	public void conditionMultipleORVideRenvoieFalse() {
 		
 		Condition condition = new ConditionMultipleOR();
-		Joueur j = new Joueur();
+		Joueur j = new Joueur(null);
 		
 		assertFalse(condition.isTrue(j));	
 	}
-	
+
 }
