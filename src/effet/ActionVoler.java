@@ -17,7 +17,7 @@ public class ActionVoler extends Action{
 	@Override
 	public void affecte(Joueur j1, Joueur j2) {
 		
-		List<Equipement> equipements = j2.getEquipements();
+		Equipement[] equipements = j2.getEquipements();
 		
 		// J1 choisit quel équipement voler
 		Equipement equipement = j1.choisir(equipements);
