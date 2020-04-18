@@ -16,10 +16,10 @@ public abstract class CarteEffet extends Carte{
 	}
 	
 	public void setEffet(Effet e) {
-		effet = e;
+		this.effet = e;
 	}
 	
 	public Effet getEffet() {
-		return effet;
+		return this.effet;
 	}
 }

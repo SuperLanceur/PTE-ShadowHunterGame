@@ -1,17 +1,21 @@
 package personnage;
 
 import condition.Condition;
+import effet.Action;
+import effet.ActionAltererStatistiquesJoueur;
+import effet.Effet;
+import effet.EffetSelf;
 import main.Joueur;
 
 public class Vampire extends CartePersonnage{
-	//constructeur
+	
 	public Vampire(String nom, int hp, Joueur joueur, Condition condition) {
 		super(nom, hp, joueur, condition);
-		//this.setEffet(
 		
-		//new EffetSelf( new ActionAltererStatistiquesJoueur("HP",2,true));
-		//);
-		//
+		Action action = new ActionAltererStatistiquesJoueur("HP",2,true);
+		Effet effet = new EffetSelf(action);
+		this.setEffet(effet);
+		
 	}
 
 	public void utiliser(Joueur j)

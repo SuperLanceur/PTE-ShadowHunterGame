@@ -1,6 +1,6 @@
 package effet;
 import main.Joueur;
-public class ActionAltererStatistiquesJoueur {
+public class ActionAltererStatistiquesJoueur extends Action{
 
 	private String key;
 	private int valeur;
@@ -38,7 +38,7 @@ public class ActionAltererStatistiquesJoueur {
 	 * @param j2 Le joueur dont les statistiques sont modifiées
 	 * @return void
 	 */
-	public void affecter(Joueur j1, Joueur j2)
+	public void affecte(Joueur j1, Joueur j2)
 	{
 		if(ajouter)
 		{
@@ -47,5 +47,7 @@ public class ActionAltererStatistiquesJoueur {
 			j2.setStat(key, valeur);
 		}
 	}
+
+
 	
 }
