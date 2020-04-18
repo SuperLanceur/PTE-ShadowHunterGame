@@ -7,14 +7,14 @@ import main.Joueur;
 public class CartePersonnage extends CarteCondition {
 	//attributs
 		private String nom;
-		private int hp;
+		private int pv;
 		private Joueur joueur;
 		private Condition condition;
 		
 	//constructeurs
-		public CartePersonnage(String nom, int hp, Joueur joueur,Condition condition){
+		public CartePersonnage(String nom, int pv, Joueur joueur,Condition condition){
 			this.nom=nom;
-			this.hp=hp;
+			this.setPv(pv);
 			this.joueur=joueur;
 			this.condition=condition;
 		}
@@ -40,10 +40,9 @@ public class CartePersonnage extends CarteCondition {
 		public void deplacer() {
 			
 		}
-		
-		public void setEffet()
-		{
-			// TODO
+
+		public int getPv() {
+			return pv;
 		}
 
 }
