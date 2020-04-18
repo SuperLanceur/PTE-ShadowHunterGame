@@ -14,4 +14,10 @@ public abstract class CarteCondition extends CarteEffet{
 	public Condition getCondition() {
 		return condition;
 	}
+
+	public void setCondition(Condition condition) {
+		this.condition = condition;
+	}
+	
+	
 }

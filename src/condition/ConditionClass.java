@@ -5,8 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import main.Joueur;
-import carte.CartePersonnage;
-import carte.Type;
 
 
 public class ConditionClass<T> extends Condition{
@@ -37,7 +35,7 @@ public class ConditionClass<T> extends Condition{
 	public boolean isTrue(Joueur joueur)
 	{
 		Class<? extends T> ccp = (Class<? extends T>) joueur.getCartePersonnage().getClass();
-		Class<? extends T> cct = (Class<? extends T>) joueur.getType().getClass();
+		Class<? extends T> cct = (Class<? extends T>) joueur.getEquipe().getClass();
 		
 		for(Class<? extends T> classe : classes) {
 			

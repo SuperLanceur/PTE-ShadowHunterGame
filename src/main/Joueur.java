@@ -110,4 +110,9 @@ public class Joueur {
 		return this.revele;
 	}
 
+	public Object getCartePersonnage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

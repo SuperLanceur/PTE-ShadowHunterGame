@@ -4,7 +4,7 @@ import carte.CarteCondition;
 import condition.Condition;
 import main.Joueur;
 
-public class CartePersonnage extends CarteCondition {
+public abstract class CartePersonnage extends CarteCondition {
 	//attributs
 		private String nom;
 		private int pv;
@@ -12,11 +12,10 @@ public class CartePersonnage extends CarteCondition {
 		private Condition condition;
 		
 	//constructeurs
-		public CartePersonnage(String nom, int pv, Joueur joueur,Condition condition){
+		public CartePersonnage(String nom, int pv, Joueur joueur){
 			this.nom=nom;
-			this.setPv(pv);
+			this.pv = pv;
 			this.joueur=joueur;
-			this.condition=condition;
 		}
 		
 	//méthodes

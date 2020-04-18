@@ -25,7 +25,7 @@ public class Vampire extends CartePersonnage{
 	
 	/**
 	 * Lance l'action d'attaquer de Vampire 
-	 * <br><br> Efffet :
+	 * <br><br> Effet :
 	 * @param j Le joueur qui subit l'attaque
 	 * @return void
 	 */

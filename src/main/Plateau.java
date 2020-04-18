@@ -16,6 +16,7 @@ public class Plateau {
 	public static final String PLATEAU_NB_MORTS_NEUTRAL = "nb_morts_neutral";
 	public static final String PLATEAU_NB_MORTS_HUNTER = "nb_morts_hunter";
 	public static final String PLATEAU_NB_MORTS_SHADOW = "nb_morts_shadow";
+	public static final String PLATEAU_PARTIE_FINIE = "partie_finie";
 	
 	private Map<String, Integer> stats;
 	
@@ -37,6 +38,8 @@ public class Plateau {
 		stats.put(PLATEAU_NB_MORTS_NEUTRAL, 0);
 		stats.put(PLATEAU_NB_MORTS_HUNTER, 0);
 		stats.put(PLATEAU_NB_MORTS_SHADOW, 0);
+		stats.put(PLATEAU_PARTIE_FINIE, 0);
+		
 	}	
 	
 	public int rollDices() {
@@ -84,5 +87,17 @@ public class Plateau {
 
 	public List<Joueur> getJoueurs() {
 		return this.joueurs;
+	}
+
+	public int getStat(String key) {
+		if(this.stats.containsKey(key))
+		{
+			return this.getStat(key);
+		}else {
+			
+			//TODO Exception
+			return -1;
+		}
+		
 	}
 }
