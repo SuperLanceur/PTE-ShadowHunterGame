@@ -56,9 +56,6 @@ public class Plateau {
 		
 	}
 	
-	public void choix(Choix choix) {
-		return 0;
-	}
 	
 	public Joueur selectionnerJoueur() {
 		return new Joueur("0");
@@ -83,5 +80,9 @@ public class Plateau {
 	
 	public int roll6() {
 		return (int) Math.floor(Math.random() * 5)+1;
+	}
+
+	public List<Joueur> getJoueurs() {
+		return this.joueurs;
 	}
 }

@@ -3,12 +3,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import carte.CarteLieu;
+import effet.Effet;
+
+
+
 public class Joueur {
 	private GestionnaireEquipements gestionnaireEquipements;
 	
-	private String name;
-	private boolean revealed;
-	private boolean virtual;
+	private String nom;
+	private boolean revele;
 	private Plateau plateau;
 	
 	// map keys
@@ -21,10 +25,10 @@ public class Joueur {
 	
 	private Map<String, Integer> stats;
 	
-	public Joueur(String name) {
-		this.name = name;
-		this.revealed = false;
-		this.virtual = false;
+	public Joueur(String nom) {
+		this.nom = nom;
+		this.revele = false;
+		
 		
 		stats = new HashMap<>();
 		
@@ -39,11 +43,7 @@ public class Joueur {
 		//stats.put(PLAYER_IMMUNITY, 0); 
 		// immunité à certains effets?
 	}
-	
-	public void setVirtual() {
-		this.virtual = true;
-	}
-	
+		
 	//shadows, hunters ou neutre
 	public String getEquipe() {
 		return null;
@@ -66,7 +66,48 @@ public class Joueur {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	
+
+	public List<Equipement> getEquipements() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void voler(Joueur j2, Equipement equipement) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Equipement choisir(Equipement[] equipements) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void piocher() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void attaquer(Joueur j2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Plateau getPlateau() {
+		return this.plateau;
+	}
+
+	public Joueur choisirAdjacents() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Effet choisir(Effet[] effets) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean getRevele() {
+		return this.revele;
+	}
 
 }

@@ -2,8 +2,13 @@ package effet;
 import main.Joueur;
 import java.util.List;
 
-public class EffetCiblerAdjacents extends EffetTarget{
+public class EffetCiblerAdjacents extends Effet{
 
+	public EffetCiblerAdjacents(Action action) {
+		super(action);
+	}
+
+	
 	@Override
 	public void utiliser(Joueur joueur)
 	{

@@ -16,14 +16,21 @@ public class Vampire extends CartePersonnage{
 
 	public void utiliser(Joueur j)
 	{
-		//this.getEffet().utiliser()
+		this.getEffet().utiliser(j);
 	}
 	
-	//m�thode
+	/**
+	 * Lance l'action d'attaquer de Vampire 
+	 * <br><br> Efffet :
+	 * @param j Le joueur qui subit l'attaque
+	 * @return void
+	 */
 	public void attaquer(Joueur j) {
 	
-		// attaquer(j)
-		//utiliser(this.joueur);
-		
+		super.attaquer(j);
+		if(this.getJoueur().getRevele())
+		{
+			utiliser(this.getJoueur());
+		}	
 	}
 }
