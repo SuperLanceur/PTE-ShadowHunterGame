@@ -6,11 +6,13 @@ import condition.ConditionStatistiques;
 import main.Joueur;
 import main.Plateau;
 
-public class LoupGarou extends CartePersonnage {
-	//constructeur
-	public LoupGarou(String nom, int hp, Joueur joueur) {
-		super(nom, hp, joueur);
+public class Metamorphe extends CartePersonnage{
+
+	public Metamorphe(String nom, int pv, Joueur joueur) {
+		super(nom, pv, joueur);
 		
+		
+		// WinCondition
 		int nbHunter = joueur.getPlateau().getStat(Plateau.NB_HUNTERS);
 		Condition condition =  new ConditionMultipleOR(
 				new ConditionStatistiques(ConditionStatistiques.PLATEAU, Plateau.NB_MORTS_HUNTER, nbHunter, ConditionStatistiques.MORE)
@@ -19,9 +21,5 @@ public class LoupGarou extends CartePersonnage {
 						);
 		this.setCondition(condition);
 	}
-	
-	//m�thodes
-	public void contreAttaquer(Joueur j) {
-		
-	}
+
 }

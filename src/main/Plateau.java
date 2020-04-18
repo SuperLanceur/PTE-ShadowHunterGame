@@ -12,11 +12,14 @@ public class Plateau {
 	private List<CarteLieu> lieux;
 	
 
-	public static final String PLATEAU_NB_MORTS = "nb_morts";
-	public static final String PLATEAU_NB_MORTS_NEUTRAL = "nb_morts_neutral";
-	public static final String PLATEAU_NB_MORTS_HUNTER = "nb_morts_hunter";
-	public static final String PLATEAU_NB_MORTS_SHADOW = "nb_morts_shadow";
-	public static final String PLATEAU_PARTIE_FINIE = "partie_finie";
+	public static final String NB_HUNTERS = "nb_hunters";
+	public static final String NB_SHADOWS = "nb_shadows";
+	public static final String NB_NEUTRES = "nb_neutres";
+	public static final String NB_MORTS = "nb_morts";
+	public static final String NB_MORTS_NEUTRAL = "nb_morts_neutral";
+	public static final String NB_MORTS_HUNTER = "nb_morts_hunter";
+	public static final String NB_MORTS_SHADOW = "nb_morts_shadow";
+	public static final String PARTIE_FINIE = "partie_finie";
 	
 	private Map<String, Integer> stats;
 	
@@ -34,11 +37,14 @@ public class Plateau {
 		stats = new HashMap<>();
 		
 		// Initialisation plateau
-		stats.put(PLATEAU_NB_MORTS, 0);
-		stats.put(PLATEAU_NB_MORTS_NEUTRAL, 0);
-		stats.put(PLATEAU_NB_MORTS_HUNTER, 0);
-		stats.put(PLATEAU_NB_MORTS_SHADOW, 0);
-		stats.put(PLATEAU_PARTIE_FINIE, 0);
+		stats.put(NB_HUNTERS, 0);
+		stats.put(NB_SHADOWS, 0);
+		stats.put(NB_NEUTRES, 0);
+		stats.put(NB_MORTS, 0);
+		stats.put(NB_MORTS_NEUTRAL, 0);
+		stats.put(NB_MORTS_HUNTER, 0);
+		stats.put(NB_MORTS_SHADOW, 0);
+		stats.put(PARTIE_FINIE, 0);
 		
 	}	
 	

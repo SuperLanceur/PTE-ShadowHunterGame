@@ -5,6 +5,10 @@ import main.Joueur;
 public class ConditionMultipleOR extends ConditionMultiple{
 
 	
+	public ConditionMultipleOR(Condition ...conditions) {
+		super(conditions);
+	}
+	
 	/**
 	 * Vérifie qu'au moins une des conditions soit vérifiée.
 	 * @param joueur Le joueur sur lequel on vérifie les conditions.
