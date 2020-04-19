@@ -3,8 +3,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import carte.CarteLieu;
 import effet.Effet;
+import personnage.CartePersonnage;
 
 
 
@@ -14,6 +14,8 @@ public class Joueur {
 	private String nom;
 	private boolean revele;
 	private Plateau plateau;
+	private CartePersonnage cartePersonnage;
+	private Equipe equipe;
 	
 	// map keys
 	public static final String PLAYER_HP = "hp";
@@ -25,6 +27,12 @@ public class Joueur {
 	public static final String PLAYER_NB_EQUIPEMENTS = "nb_equipements";
 	
 	private Map<String, Integer> stats;
+	
+	public enum Equipe{
+		NEUTRE,
+		SHADOW,
+		HUNTER
+	}
 	
 	public Joueur(String nom) {
 		this.nom = nom;
@@ -46,8 +54,8 @@ public class Joueur {
 	}
 		
 	//shadows, hunters ou neutre
-	public String getEquipe() {
-		return null;
+	public Equipe getEquipe() {
+		return this.equipe;
 	}
 	
 	public int setStat(String key, int valeur) {
@@ -111,9 +119,19 @@ public class Joueur {
 		return this.revele;
 	}
 
-	public Object getCartePersonnage() {
-		// TODO Auto-generated method stub
-		return null;
+	public CartePersonnage getCartePersonnage() {
+		return this.cartePersonnage;
+	}
+
+	public void setCartePersonnage(CartePersonnage cp) {
+		
+		this.cartePersonnage = cp;
+		
+	}
+
+	public void setEquipe(Equipe equipe) {
+		this.equipe = equipe;
+		
 	}
 
 }

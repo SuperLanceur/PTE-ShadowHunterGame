@@ -4,9 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import condition.Condition;
-import condition.ConditionMultiple;
-import condition.ConditionMultipleOR;
 import main.Joueur;
 
 class ConditionMultipleTest {

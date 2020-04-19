@@ -2,6 +2,8 @@ package main;
 import java.util.ArrayList;
 import java.util.List;
 
+import main.Joueur.Equipe;
+
 public class ControleurIA {
 
 	public static boolean choixUtiliserPouvoirLieu() {
@@ -43,8 +45,8 @@ public class ControleurIA {
 
 	public static List<Joueur> getEnnemisJoueurs(JoueurVirtuel jIA, List<Joueur> joueursLieu) {
 		List<Joueur> res = new ArrayList<>();
-		String equipejIA = jIA.getEquipe();
-		if (equipejIA.equals("NEUTRE"))
+		Equipe equipejIA = jIA.getEquipe();
+		if (equipejIA == Joueur.Equipe.NEUTRE)
 			res = joueursLieu;
 		else {
 			for (Joueur j : joueursLieu) {
@@ -57,7 +59,7 @@ public class ControleurIA {
 
 	// loup-garou : si attaquee par joueur pas du meme camps 60%? devoilement
 	public static boolean devoilerIALoupGarou(JoueurVirtuel jIA, Joueur jAttaquant) {
-		String equipejIA = jIA.getEquipe();
+		Equipe equipejIA = jIA.getEquipe();
 		double rand = getRandomPercentage();
 		if (!equipejIA.equals(jAttaquant.getEquipe())) {
 			if (rand < 60)
@@ -76,7 +78,7 @@ public class ControleurIA {
 	// vampire : si attaque joueur et propre vie<10?hp 60%? (plus vie baisse, plus
 	// proba augmente) devoilement
 	public static boolean devoilerIAVampire(JoueurVirtuel jIA, Joueur jAttaquee) {
-		String equipejIA = jIA.getEquipe();
+		Equipe equipejIA = jIA.getEquipe();
 		double rand = getRandomPercentage();
 		if (!equipejIA.equals(jAttaquee.getEquipe())) {
 			if (rand < 940 / 9 - (40 * jIA.getStat("HP")))
