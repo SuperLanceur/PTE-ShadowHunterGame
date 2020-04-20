@@ -33,7 +33,7 @@
                   <Font size="36.0" />
                </font>
             </Label>
-            <Label styleClass="titre" stylesheets="@style/menu.css" text="Cochez la checkbox pour que le joueur soit un joueur virtuel">
+            <Label styleClass="titre" stylesheets="@style/menu.css" text="Cochez la case pour que le joueur soit un joueur virtuel">
                <font>
                   <Font size="36.0" />
                </font></Label>
@@ -45,7 +45,7 @@
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="533.0" prefWidth="1142.0">
                <children>
-                  <TextField>
+                  <TextField fx:id="tfJ1">
                      <font>
                         <Font size="24.0" />
                      </font></TextField>
