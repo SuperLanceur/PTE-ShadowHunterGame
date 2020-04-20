@@ -1,7 +1,5 @@
-package effet;
+package effet.action;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import main.Joueur;
@@ -10,10 +8,10 @@ public class ActionMultiple extends Action{
 
 	private List<Action> actions;
 	
-	public ActionMultiple(Action...actions)
+	public ActionMultiple(List<Action> actions)
 	{
 		super();
-		this.actions = new ArrayList<Action>(Arrays.asList(actions));
+		this.actions = actions;
 	}
 
 	/**

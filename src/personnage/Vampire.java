@@ -1,10 +1,10 @@
 package personnage;
 
 import condition.WinConditionShadow;
-import effet.Action;
-import effet.ActionAltererStatistiquesJoueur;
 import effet.Effet;
 import effet.EffetSelf;
+import effet.action.Action;
+import effet.action.ActionAltererStatistiquesJoueur;
 import main.Joueur;
 
 

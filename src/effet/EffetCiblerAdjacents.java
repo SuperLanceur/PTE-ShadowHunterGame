@@ -2,6 +2,8 @@ package effet;
 import main.Joueur;
 import java.util.List;
 
+import effet.action.Action;
+
 public class EffetCiblerAdjacents extends Effet{
 
 	public EffetCiblerAdjacents(Action action) {

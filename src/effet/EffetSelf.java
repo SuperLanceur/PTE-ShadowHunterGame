@@ -1,5 +1,6 @@
 package effet;
 
+import effet.action.Action;
 import main.Joueur;
 
 public class EffetSelf extends Effet{

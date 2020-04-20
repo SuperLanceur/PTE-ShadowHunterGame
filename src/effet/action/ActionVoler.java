@@ -1,4 +1,4 @@
-package effet;
+package effet.action;
 
 import main.Equipement;
 import main.Joueur;
