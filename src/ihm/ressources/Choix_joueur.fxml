@@ -42,117 +42,117 @@
    </top>
    <left>
       <HBox alignment="CENTER_LEFT" prefHeight="533.0" prefWidth="520.0" BorderPane.alignment="CENTER">
-         <children>
-            <VBox alignment="CENTER_LEFT" prefHeight="533.0" prefWidth="1142.0">
-               <children>
-                  <TextField fx:id="tfJ1">
-                     <font>
-                        <Font size="24.0" />
-                     </font></TextField>
-                  <TextField>
-                     <VBox.margin>
-                        <Insets top="5.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="24.0" />
-                     </font></TextField>
-                  <TextField>
-                     <VBox.margin>
-                        <Insets top="5.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="24.0" />
-                     </font></TextField>
-                  <TextField>
-                     <VBox.margin>
-                        <Insets top="5.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="24.0" />
-                     </font></TextField>
-               </children>
-            </VBox>
-            <VBox prefHeight="533.0" prefWidth="18.0">
-               <children>
-                  <VBox alignment="CENTER" prefHeight="533.0" prefWidth="258.0">
-                     <children>
-                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="+">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets left="10.0" top="5.0" />
-                           </VBox.margin></Button>
-                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="+">
-                           <VBox.margin>
-                              <Insets left="10.0" top="5.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font size="24.0" />
-                           </font></Button>
-                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="+">
-                           <VBox.margin>
-                              <Insets left="10.0" top="5.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font size="24.0" />
-                           </font></Button>
-                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="+">
-                           <VBox.margin>
-                              <Insets left="10.0" top="5.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font size="24.0" />
-                           </font></Button>
-                     </children>
-                  </VBox>
-               </children>
-               <HBox.margin>
-                  <Insets left="5.0" />
-               </HBox.margin>
-            </VBox>
-            <VBox alignment="CENTER_LEFT" prefHeight="533.0" prefWidth="76.0">
-               <children>
-                  <CheckBox mnemonicParsing="false" stylesheets="@style/menu.css">
-                     <padding>
-                        <Insets top="5.0" />
-                     </padding>
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="10.0" />
-                     </VBox.margin></CheckBox>
-                  <CheckBox mnemonicParsing="false" stylesheets="@style/menu.css">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="10.0" top="30.0" />
-                     </VBox.margin></CheckBox>
-                  <CheckBox mnemonicParsing="false" stylesheets="@style/menu.css">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="10.0" top="30.0" />
-                     </VBox.margin></CheckBox>
-                  <CheckBox mnemonicParsing="false" stylesheets="@style/menu.css">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="10.0" top="30.0" />
-                     </VBox.margin></CheckBox>
-               </children>
-               <HBox.margin>
-                  <Insets left="5.0" />
-               </HBox.margin>
-            </VBox>
-         </children>
          <BorderPane.margin>
             <Insets left="20.0" />
          </BorderPane.margin>
+         <children>
+            <HBox prefHeight="533.0" prefWidth="697.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="525.0" prefWidth="342.0">
+                     <children>
+                        <TextField fx:id="tf" prefWidth="230.0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </TextField>
+                        <TextField>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </TextField>
+                        <TextField>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </TextField>
+                        <TextField>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Button mnemonicParsing="false" onMouseClicked="#ajoutJoueur" prefHeight="42.0" prefWidth="53.0" styleClass="bouton" stylesheets="@style/menu.css" text="+">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="+">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="+">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="+">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="530.0" prefWidth="68.0">
+                     <children>
+                        <CheckBox mnemonicParsing="false" stylesheets="@style/menu.css">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" stylesheets="@style/menu.css">
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" stylesheets="@style/menu.css">
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" stylesheets="@style/menu.css">
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </CheckBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
       </HBox>
    </left>
    <right>

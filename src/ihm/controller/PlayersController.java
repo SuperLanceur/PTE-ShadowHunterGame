@@ -15,11 +15,12 @@ import javafx.scene.layout.Pane;
 public class PlayersController implements Initializable{
 	@FXML
 	private BorderPane rootPane;
-
+	@FXML
+	private TextField tf;
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
-		
+		tf.setEditable(false);
 	}
 
 	@FXML
@@ -28,4 +29,9 @@ public class PlayersController implements Initializable{
         BorderPane pane = FXMLLoader.load(getClass().getResource("../ressources/Plateau.fxml"));
         rootPane.getChildren().setAll(pane);
 	}
+	@FXML
+	public void ajoutJoueur(MouseEvent mouseEvent) throws IOException{
+		tf.setEditable(true);
+	}
+	
 }
