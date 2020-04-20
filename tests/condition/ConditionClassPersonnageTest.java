@@ -19,7 +19,7 @@ class ConditionClassPersonnageTest {
 	
 	
 	@Test
-	public void conditionClass_RenvoieAppartenancePersonnage() {
+	public void conditionClass_RenvoieAppartenancePersonnage() throws Exception {
 		
 		
 		List<Class<? extends CartePersonnage>> classes = new ArrayList<Class<? extends CartePersonnage>>();
@@ -44,7 +44,7 @@ class ConditionClassPersonnageTest {
 	}
 	
 	@Test
-	public void conditionClass_ListClassVide_RenvoieFalse() {
+	public void conditionClass_ListClassVide_RenvoieFalse() throws Exception {
 		
 		
 		List<Class<? extends CartePersonnage>> classes = new ArrayList<Class<? extends CartePersonnage>>();

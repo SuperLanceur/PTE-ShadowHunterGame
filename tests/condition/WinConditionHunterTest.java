@@ -37,7 +37,7 @@ class WinConditionHunterTest {
 	}
 	
 	@Test
-	void isTrue_NotAllShadowsAreDead_False() {
+	void isTrue_NotAllShadowsAreDead_False(){
 	
 		WinConditionHunter wch = new WinConditionHunter();
 		plateau.setStat(Plateau.NB_SHADOWS, 20);

@@ -6,7 +6,7 @@ import main.Joueur;
 
 public class Bob extends CartePersonnage{
 	
-	public Bob(String nom, int hp, Joueur joueur) {
+	public Bob(String nom, int hp, Joueur joueur) throws Exception {
 		super(nom, hp, joueur);
 		Condition condition = new ConditionStatistiques(ConditionStatistiques.JOUEUR, Joueur.PLAYER_NB_EQUIPEMENTS, 5, ConditionStatistiques.MORE);
 		this.setCondition(condition);

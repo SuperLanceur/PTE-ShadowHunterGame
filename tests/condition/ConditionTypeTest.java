@@ -9,17 +9,13 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import main.Joueur;
-import personnage.Allie;
-import personnage.Bob;
-import personnage.CartePersonnage;
-import personnage.Daniel;
 
 class ConditionTypeTest {
 
 	
 	
 	@Test
-	public void conditionType_RenvoieAppartenanceEquipe() {
+	public void isTrue_RenvoieAppartenanceEquipe() {
 		
 		
 		List<Joueur.Equipe> equipes  = new ArrayList<Joueur.Equipe>();
@@ -39,7 +35,7 @@ class ConditionTypeTest {
 	}
 	
 	@Test
-	public void conditionClass_ListTypeVide_RenvoieFalse() {
+	public void isTrue_ListTypeVide_False() {
 		
 		
 		List<Joueur.Equipe> equipes  = new ArrayList<Joueur.Equipe>();

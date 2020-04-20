@@ -27,7 +27,7 @@ class WinConditionShadowTest {
 	}
 		
 	@Test
-	void isTrue_AllHuntersAreDead_LessThan3NeutralsAreDead_True() {
+	void isTrue_AllHuntersAreDead_LessThan3NeutralsAreDead_True(){
 	
 		WinConditionShadow wch = new WinConditionShadow();
 		plateau.setStat(Plateau.NB_HUNTERS, 2);
@@ -39,7 +39,7 @@ class WinConditionShadowTest {
 	}
 
 	@Test
-	void isTrue_AllHuntersAreDead_MoreThan3NeutralsAreDead_True() {
+	void isTrue_AllHuntersAreDead_MoreThan3NeutralsAreDead_True(){
 	
 		WinConditionShadow wch = new WinConditionShadow();
 		plateau.setStat(Plateau.NB_HUNTERS, 2);
@@ -51,7 +51,7 @@ class WinConditionShadowTest {
 	}
 	
 	@Test
-	void isTrue_NotAllHuntersAreDead_MoreThan3NeutralsAreDead_True() {
+	void isTrue_NotAllHuntersAreDead_MoreThan3NeutralsAreDead_True(){
 	
 		WinConditionShadow wch = new WinConditionShadow();
 		plateau.setStat(Plateau.NB_HUNTERS, 20);
@@ -64,7 +64,7 @@ class WinConditionShadowTest {
 	
 	
 	@Test
-	void isTrue_NotAllHuntersAreDead_LessThan3NeutralsAreDead_False() {
+	void isTrue_NotAllHuntersAreDead_LessThan3NeutralsAreDead_False(){
 	
 		WinConditionShadow wch = new WinConditionShadow();
 		plateau.setStat(Plateau.NB_HUNTERS, 20);

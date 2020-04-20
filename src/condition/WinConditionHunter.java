@@ -11,7 +11,7 @@ public class WinConditionHunter extends Condition{
 		int nbShadow = j.getPlateau().getStat(Plateau.NB_SHADOWS);
 		
 		Condition winCondition = new ConditionStatistiques(
-				ConditionStatistiques.PLATEAU, Plateau.NB_MORTS_SHADOW, nbShadow, ConditionStatistiques.LESS);
+				ConditionStatistiques.PLATEAU, Plateau.NB_MORTS_SHADOW, nbShadow, ConditionStatistiques.MORE);
 		return winCondition.isTrue(j);
 	}
 	

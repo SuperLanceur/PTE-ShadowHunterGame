@@ -26,9 +26,7 @@ public class ConditionStatistiques extends Condition {
 	 */
 	public ConditionStatistiques(boolean plateauJoueur,String key,int value,int equalMoreLess) {
 		
-		if(equalMoreLess >= 0 && equalMoreLess <= 2) this.equalMoreLess = equalMoreLess;
-		else {} // TODO exception
-		
+		this.equalMoreLess = equalMoreLess;
 		this.key = key;
 		this.value = value;
 		this.plateauJoueur = plateauJoueur;
@@ -36,10 +34,11 @@ public class ConditionStatistiques extends Condition {
 	
 	/**
 	 * @param joueur sur lequel on vérifie la condition
+	 * @throws Exception 
 	 * 
 	 */
 	@Override
-	public boolean isTrue(Joueur joueur) {
+	public boolean isTrue(Joueur joueur){
 		
 		int valeur;
 		if(this.plateauJoueur)
@@ -55,11 +54,11 @@ public class ConditionStatistiques extends Condition {
 			case EQUAL:
 				return this.value == valeur;
 			case MORE:
-				return this.value >= valeur;
-			case LESS:
 				return this.value <= valeur;
+			case LESS:
+				return this.value >= valeur;
 			default:
 				return false;
-		}
+	}
 	}
 }

@@ -1,5 +1,8 @@
 package personnage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import condition.Condition;
 import condition.ConditionMultiple;
 import condition.ConditionStatistiques;
@@ -12,18 +15,19 @@ import main.Plateau;
 
 public class Allie extends Unique{
 	
-	public Allie(String nom, int hp, Joueur joueur) {
+	public Allie(String nom, int hp, Joueur joueur) throws Exception {
 		super(nom, hp, joueur);
 		
 		Action action = new ActionAltererStatistiquesJoueur("HP",this.getPv(),false);
 		Effet effet = new EffetSelf(action);
 		this.setEffet(effet);
 	
-		Condition winCondition = new ConditionMultiple(
-				
-				new ConditionStatistiques(ConditionStatistiques.PLATEAU, Plateau.PARTIE_FINIE, 1, ConditionStatistiques.EQUAL)
-				, new ConditionStatistiques(ConditionStatistiques.JOUEUR, Joueur.PLAYER_HP, 0, ConditionStatistiques.MORE)
-				);
+		List<Condition> conditions = new ArrayList<Condition>();
+		
+		conditions.add(new ConditionStatistiques(ConditionStatistiques.PLATEAU, Plateau.PARTIE_FINIE, 1, ConditionStatistiques.EQUAL));
+		conditions.add(new ConditionStatistiques(ConditionStatistiques.JOUEUR, Joueur.PLAYER_HP, 0, ConditionStatistiques.MORE));
+		
+		Condition winCondition = new ConditionMultiple(conditions);
 		
 		this.setCondition(winCondition);
 	}
