@@ -3,527 +3,562 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Rectangle?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <VBox prefHeight="801.0" prefWidth="1284.0">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="background" stylesheets="@style/plateau.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <HBox alignment="CENTER" prefHeight="149.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" prefHeight="331.0" prefWidth="1284.0">
+            <VBox alignment="CENTER" prefHeight="164.0" prefWidth="212.0" rotate="180.0">
                <children>
-                  <VBox alignment="CENTER" prefHeight="146.0" prefWidth="244.0">
+                  <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom Faction" />
+                  <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom Perssonage" />
+                  <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
+                  <HBox alignment="CENTER" prefHeight="46.0" prefWidth="212.0">
                      <children>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="5.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="22.0" prefWidth="223.0">
-                           <children>
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" rotate="180.0" text="Se r�v�ler" />
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" rotate="180.0" text="Carte personnage">
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </HBox>
-                        <Label prefHeight="28.0" prefWidth="126.0" rotate="-180.0" text="Nom Faction" textAlignment="JUSTIFY" />
-                        <Label prefHeight="28.0" prefWidth="126.0" rotate="-180.0" text="Nom Personnage" textAlignment="CENTER" />
-                        <Label prefHeight="28.0" prefWidth="126.0" rotate="-180.0" text="Nom Joueur" textAlignment="JUSTIFY" />
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Carte personnage" />
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Se révéler">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </Button>
                      </children>
-                  </VBox>
-                  <VBox alignment="CENTER" prefHeight="146.0" prefWidth="244.0">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="70.0" prefWidth="212.0" styleClass="carteEquipement" stylesheets="@style/plateau.css">
                      <children>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="5.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="22.0" prefWidth="223.0">
-                           <children>
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" rotate="180.0" text="Se r�v�ler" />
-                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0" rotate="180.0" text="Carte personnage">
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </HBox>
-                        <Label prefHeight="28.0" prefWidth="126.0" rotate="-180.0" text="Nom Faction" textAlignment="JUSTIFY" />
-                        <Label prefHeight="28.0" prefWidth="126.0" rotate="-180.0" text="Nom Personnage" textAlignment="CENTER" />
-                        <Label prefHeight="28.0" prefWidth="126.0" rotate="-180.0" text="Nom Joueur" textAlignment="JUSTIFY" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
                      </children>
-                     <HBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
-                     </HBox.margin>
-                  </VBox>
-                  <VBox alignment="CENTER" prefHeight="146.0" prefWidth="244.0">
-                     <children>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="5.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="22.0" prefWidth="223.0">
-                           <children>
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" rotate="180.0" text="Se r�v�ler" />
-                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0" rotate="180.0" text="Carte personnage">
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </HBox>
-                        <Label prefHeight="28.0" prefWidth="126.0" rotate="-180.0" text="Nom Faction" textAlignment="JUSTIFY" />
-                        <Label prefHeight="28.0" prefWidth="126.0" rotate="-180.0" text="Nom Personnage" textAlignment="CENTER" />
-                        <Label prefHeight="28.0" prefWidth="126.0" rotate="-180.0" text="Nom Joueur" textAlignment="JUSTIFY" />
-                     </children>
-                  </VBox>
-                  <VBox alignment="CENTER" prefHeight="146.0" prefWidth="244.0">
-                     <children>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="5.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="22.0" prefWidth="223.0">
-                           <children>
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" rotate="180.0" text="Se r�v�ler" />
-                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0" rotate="180.0" text="Carte personnage">
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </HBox>
-                        <Label prefHeight="28.0" prefWidth="126.0" rotate="-180.0" text="Nom Faction" textAlignment="JUSTIFY" />
-                        <Label prefHeight="28.0" prefWidth="126.0" rotate="-180.0" text="Nom Personnage" textAlignment="CENTER" />
-                        <Label prefHeight="28.0" prefWidth="126.0" rotate="-180.0" text="Nom Joueur" textAlignment="JUSTIFY" />
-                     </children>
-                  </VBox>
+                  </HBox>
                </children>
-               <padding>
-                  <Insets bottom="5.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="465.0" prefWidth="1284.0">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="164.0" prefWidth="212.0" rotate="180.0">
                <children>
-                  <VBox alignment="TOP_CENTER" prefHeight="279.0" prefWidth="88.0">
+                  <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom Faction" />
+                  <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom Perssonage" />
+                  <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
+                  <HBox alignment="CENTER" prefHeight="46.0" prefWidth="212.0">
                      <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="63.0" stroke="BLACK" strokeType="INSIDE" width="50.0">
-                           <VBox.margin>
-                              <Insets bottom="15.0" top="15.0" />
-                           </VBox.margin>
-                        </Rectangle>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="63.0" stroke="BLACK" strokeType="INSIDE" width="50.0">
-                           <VBox.margin>
-                              <Insets bottom="15.0" top="15.0" />
-                           </VBox.margin>
-                        </Rectangle>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="63.0" stroke="BLACK" strokeType="INSIDE" width="50.0">
-                           <VBox.margin>
-                              <Insets bottom="15.0" top="15.0" />
-                           </VBox.margin>
-                        </Rectangle>
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Carte personnage" />
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Se révéler">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </Button>
                      </children>
-                  </VBox>
-                  <HBox prefHeight="282.0" prefWidth="795.0">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="70.0" prefWidth="212.0" styleClass="carteEquipement" stylesheets="@style/plateau.css">
                      <children>
-                        <VBox prefHeight="279.0" prefWidth="771.0">
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+   </top>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="155.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="164.0" prefWidth="212.0">
+               <children>
+                  <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom Faction" />
+                  <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom Personnage" />
+                  <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
+                  <HBox alignment="CENTER" prefHeight="44.0" prefWidth="274.0">
+                     <children>
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Carte personnage" />
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Se reveler">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="72.0" prefWidth="274.0" styleClass="carteEquipement" stylesheets="@style/plateau.css">
+                     <children>
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="164.0" prefWidth="212.0">
+               <children>
+                  <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom Faction" />
+                  <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom Personnage" />
+                  <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
+                  <HBox alignment="CENTER" prefHeight="44.0" prefWidth="274.0">
+                     <children>
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Carte personnage" />
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Se reveler">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="72.0" prefWidth="274.0" styleClass="carteEquipement" stylesheets="@style/plateau.css">
+                     <children>
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+   </bottom>
+   <left>
+      <VBox alignment="CENTER" prefHeight="496.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="181.0" prefWidth="333.0" rotate="90.0">
+               <children>
+                  <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom Faction" />
+                  <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom personnage" />
+                  <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
+                  <HBox alignment="CENTER" prefHeight="53.0" prefWidth="198.0">
+                     <children>
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Carte perssonage" />
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Se révéler">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="53.0" prefWidth="329.0" styleClass="carteEquipement" stylesheets="@style/plateau.css">
+                     <children>
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="100.0" left="-80.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="179.0" prefWidth="329.0" rotate="90.0">
+               <children>
+                  <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom Faction" />
+                  <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom personnage" />
+                  <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
+                  <HBox alignment="CENTER" prefHeight="53.0" prefWidth="198.0">
+                     <children>
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Carte perssonage" />
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Se révéler">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="24.0" prefWidth="329.0" styleClass="carteEquipement" stylesheets="@style/plateau.css">
+                     <children>
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="-80.0" top="100.0" />
+               </VBox.margin>
+            </VBox>
+         </children>
+      </VBox>
+   </left>
+   <right>
+      <VBox prefHeight="496.0" prefWidth="214.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="163.0" prefWidth="329.0" rotate="270.0">
+               <children>
+                  <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom Faction" />
+                  <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom perssonage" />
+                  <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
+                  <HBox alignment="CENTER" prefHeight="39.0" prefWidth="214.0">
+                     <children>
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Carte personnage" />
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Se révéler">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="52.0" prefWidth="329.0" styleClass="carteEquipement" stylesheets="@style/plateau.css">
+                     <children>
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="100.0" right="-80.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="163.0" prefWidth="329.0" rotate="270.0">
+               <children>
+                  <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom Faction" />
+                  <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom perssonage" />
+                  <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
+                  <HBox alignment="CENTER" prefHeight="39.0" prefWidth="214.0">
+                     <children>
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Carte personnage" />
+                        <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Se révéler">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="52.0" prefWidth="329.0" styleClass="carteEquipement" stylesheets="@style/plateau.css">
+                     <children>
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="65.2" fitWidth="46.7" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets right="-80.0" top="100.0" />
+               </VBox.margin>
+            </VBox>
+         </children>
+      </VBox>
+   </right>
+   <center>
+      <HBox prefHeight="496.0" prefWidth="869.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="496.0" prefWidth="22.0">
+               <children>
+                  <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets bottom="30.0" top="30.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+            <VBox prefHeight="496.0" prefWidth="739.0">
+               <children>
+                  <HBox prefHeight="339.0" prefWidth="676.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="223.0" prefWidth="0.0">
                            <children>
-                              <HBox alignment="CENTER" prefHeight="199.0" prefWidth="734.0">
-                                 <children>
-                                    <VBox alignment="CENTER" prefHeight="136.0" prefWidth="17.0">
-                                       <children>
-                                          <Circle fill="#ff1f1f" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                                          <Circle fill="#fccb0a" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                                          <Circle fill="#f1ff1f" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                                          <Circle fill="#1fff35" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                                       </children>
-                                    </VBox>
-                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                                       <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="100.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="100.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                                       <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="100.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="100.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                                       <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="100.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="100.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
-                                       </children>
-                                    </HBox>
-                                    <VBox alignment="CENTER" prefHeight="136.0" prefWidth="19.0">
-                                       <children>
-                                          <Circle fill="#21e9ff" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                                          <Circle fill="#4421ff" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                                          <Circle fill="#ff21d8" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                                          <Circle fill="#d521ff" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                                       </children>
-                                    </VBox>
-                                 </children>
-                              </HBox>
-                              <VBox prefHeight="143.0" prefWidth="775.0">
-                                 <children>
-                                    <HBox alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="733.0">
-                                       <children>
-                                          <Label text="Allie">
-                                             <HBox.margin>
-                                                <Insets right="65.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <VBox alignment="CENTER" prefHeight="34.0" prefWidth="44.0">
-                                             <children>
-                                                <Label text="Bob" />
-                                                <Label text="Emi" />
-                                             </children>
-                                          </VBox>
-                                          <VBox alignment="CENTER" prefHeight="34.0" prefWidth="55.0">
-                                             <children>
-                                                <Label text="Inconnu" />
-                                                <Label text="Charles" />
-                                             </children>
-                                          </VBox>
-                                          <Label text="Franklin" />
-                                          <VBox alignment="CENTER" prefHeight="34.0" prefWidth="56.0">
-                                             <children>
-                                                <Label text="Vampire" />
-                                                <Label text="Daniel" />
-                                             </children>
-                                          </VBox>
-                                          <VBox alignment="CENTER" prefHeight="34.0" prefWidth="69.0">
-                                             <children>
-                                                <Label text="Loup-garou" />
-                                                <Label text="George" />
-                                             </children>
-                                          </VBox>
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="54.0" prefWidth="733.0">
-                                       <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="75.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="75.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="75.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="75.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="75.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="75.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="75.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="75.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="75.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="75.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="75.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="75.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="75.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="75.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="75.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="7.0" prefWidth="733.0">
-                                       <children>
-                                          <VBox prefHeight="34.0" prefWidth="44.0">
-                                             <children>
-                                                <Label text="Pas de" />
-                                                <Label text="dégats" />
-                                             </children>
-                                          </VBox>
-                                          <Label text="1">
-                                             <HBox.margin>
-                                                <Insets left="25.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <Label text="2">
-                                             <HBox.margin>
-                                                <Insets left="42.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <Label text="3">
-                                             <HBox.margin>
-                                                <Insets left="42.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <Label text="4">
-                                             <HBox.margin>
-                                                <Insets left="42.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <Label text="5">
-                                             <HBox.margin>
-                                                <Insets left="42.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <Label text="6">
-                                             <HBox.margin>
-                                                <Insets left="42.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <Label text="7">
-                                             <HBox.margin>
-                                                <Insets left="42.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <Label text="8">
-                                             <HBox.margin>
-                                                <Insets left="42.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <Label text="9">
-                                             <HBox.margin>
-                                                <Insets left="42.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <Label text="10">
-                                             <HBox.margin>
-                                                <Insets left="42.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <Label text="11">
-                                             <HBox.margin>
-                                                <Insets left="42.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <Label text="12">
-                                             <HBox.margin>
-                                                <Insets left="42.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <Label text="13">
-                                             <HBox.margin>
-                                                <Insets left="42.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <Label text="14">
-                                             <HBox.margin>
-                                                <Insets left="42.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
+                              <Circle fill="#ff1f1f" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="#ffd71f" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="#ecff1f" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="#64ff1f" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                        </VBox>
+                        <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="lieux" stylesheets="@style/plateau.css">
+                           <children>
+                              <ImageView fitHeight="132.03" fitWidth="94.5675" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="132.03" fitWidth="94.5675" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </HBox>
+                        <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="lieux" stylesheets="@style/plateau.css">
+                           <children>
+                              <ImageView fitHeight="132.03" fitWidth="94.5675" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="132.03" fitWidth="94.5675" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" prefHeight="223.0" prefWidth="193.0" styleClass="lieux" stylesheets="@style/plateau.css">
+                           <children>
+                              <ImageView fitHeight="132.03" fitWidth="94.5675" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="132.03" fitWidth="94.5675" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="5.0" right="10.0" />
+                           </HBox.margin>
+                        </HBox>
+                        <VBox alignment="CENTER" prefHeight="223.0" prefWidth="0.0">
+                           <children>
+                              <Circle fill="#21ffee" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="#2168ff" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="#d921ff" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="#ff21ad" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
                            </children>
                         </VBox>
                      </children>
                   </HBox>
-                  <VBox alignment="TOP_CENTER" prefHeight="279.0" prefWidth="95.0">
+                  <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="63.0" stroke="BLACK" strokeType="INSIDE" width="50.0">
-                           <VBox.margin>
-                              <Insets bottom="15.0" top="15.0" />
-                           </VBox.margin>
-                        </Rectangle>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="63.0" stroke="BLACK" strokeType="INSIDE" width="50.0">
-                           <VBox.margin>
-                              <Insets bottom="15.0" top="15.0" />
-                           </VBox.margin>
-                        </Rectangle>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="63.0" stroke="BLACK" strokeType="INSIDE" width="50.0">
-                           <VBox.margin>
-                              <Insets bottom="15.0" top="15.0" />
-                           </VBox.margin>
-                        </Rectangle>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="671.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="Allie" />
+                              <VBox alignment="CENTER" prefHeight="60.0" prefWidth="50.0">
+                                 <children>
+                                    <Label styleClass="text" stylesheets="@style/plateau.css" text="Bob" />
+                                    <Label styleClass="text" stylesheets="@style/plateau.css" text="Emi" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="60.0" prefWidth="50.0">
+                                 <children>
+                                    <Label styleClass="text" stylesheets="@style/plateau.css" text="Inconnu" />
+                                    <Label styleClass="text" stylesheets="@style/plateau.css" text="Charles" />
+                                 </children>
+                              </VBox>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="Franklin" />
+                              <VBox alignment="CENTER" prefHeight="60.0" prefWidth="50.0">
+                                 <children>
+                                    <Label styleClass="text" stylesheets="@style/plateau.css" text="Vampire" />
+                                    <Label styleClass="text" stylesheets="@style/plateau.css" text="Daniel" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="60.0" prefWidth="50.0">
+                                 <children>
+                                    <Label styleClass="text" stylesheets="@style/plateau.css" text="Loup-" />
+                                    <Label styleClass="text" stylesheets="@style/plateau.css" text="garou" />
+                                    <Label styleClass="text" stylesheets="@style/plateau.css" text="George" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="58.0" prefWidth="655.0">
+                           <children>
+                              <HBox prefHeight="100.0" prefWidth="0.0" />
+                              <HBox alignment="CENTER" prefHeight="64.0" prefWidth="40.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <VBox prefHeight="87.0" prefWidth="2.0">
+                                       <children>
+                                          <Circle fill="#ff1f1f" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                                          <Circle fill="#ffd71f" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                                          <Circle fill="#ecff1f" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                                          <Circle fill="#64ff1f" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="87.0" prefWidth="4.0">
+                                       <children>
+                                          <Circle fill="#21ffee" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                                          <Circle fill="#2168ff" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                                          <Circle fill="#d921ff" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                                          <Circle fill="#ff21ad" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <VBox prefHeight="64.0" prefWidth="25.0" />
+                                    <VBox prefHeight="200.0" prefWidth="25.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <VBox prefHeight="64.0" prefWidth="25.0" />
+                                    <VBox prefHeight="200.0" prefWidth="25.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <VBox prefHeight="64.0" prefWidth="25.0" />
+                                    <VBox prefHeight="200.0" prefWidth="25.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <VBox prefHeight="64.0" prefWidth="25.0" />
+                                    <VBox prefHeight="200.0" prefWidth="25.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <VBox prefHeight="64.0" prefWidth="25.0" />
+                                    <VBox prefHeight="200.0" prefWidth="25.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <VBox prefHeight="64.0" prefWidth="25.0" />
+                                    <VBox prefHeight="200.0" prefWidth="25.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <VBox prefHeight="64.0" prefWidth="25.0" />
+                                    <VBox prefHeight="200.0" prefWidth="25.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <VBox prefHeight="64.0" prefWidth="25.0" />
+                                    <VBox prefHeight="200.0" prefWidth="25.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <VBox prefHeight="64.0" prefWidth="25.0" />
+                                    <VBox prefHeight="200.0" prefWidth="25.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <VBox prefHeight="64.0" prefWidth="25.0" />
+                                    <VBox prefHeight="200.0" prefWidth="25.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <VBox prefHeight="64.0" prefWidth="25.0" />
+                                    <VBox prefHeight="200.0" prefWidth="25.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <VBox prefHeight="64.0" prefWidth="25.0" />
+                                    <VBox prefHeight="200.0" prefWidth="25.0" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <VBox prefHeight="64.0" prefWidth="25.0" />
+                                    <VBox prefHeight="200.0" prefWidth="25.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="18.0" prefWidth="655.0">
+                           <children>
+                              <VBox prefHeight="41.0" prefWidth="50.0">
+                                 <children>
+                                    <Label styleClass="text" stylesheets="@style/plateau.css" text="Pas de" />
+                                    <Label styleClass="text" stylesheets="@style/plateau.css" text="dégats" />
+                                 </children>
+                              </VBox>
+                              <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="1" />
+                              <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="2" textAlignment="CENTER" />
+                              <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="3" textAlignment="CENTER" />
+                              <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="4" textAlignment="CENTER" />
+                              <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="5" textAlignment="CENTER" />
+                              <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="6" textAlignment="CENTER" />
+                              <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="7" textAlignment="CENTER" />
+                              <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="8" textAlignment="CENTER" />
+                              <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="9" textAlignment="CENTER" />
+                              <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="10" textAlignment="CENTER" />
+                              <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="11" textAlignment="CENTER" />
+                              <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="12" textAlignment="CENTER" />
+                              <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="13" textAlignment="CENTER" />
+                              <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="14" textAlignment="CENTER" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
                </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="379.0" prefWidth="1284.0">
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="496.0" prefWidth="29.0">
                <children>
-                  <VBox alignment="CENTER" prefHeight="146.0" prefWidth="244.0" rotate="180.0">
-                     <children>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="5.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="22.0" prefWidth="223.0">
-                           <children>
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" rotate="180.0" text="Se r�v�ler" />
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" rotate="180.0" text="Carte personnage">
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                           <padding>
-                              <Insets bottom="5.0" />
-                           </padding>
-                        </HBox>
-                        <Label prefHeight="28.0" prefWidth="126.0" rotate="-180.0" text="Nom Faction" textAlignment="JUSTIFY" />
-                        <Label prefHeight="28.0" prefWidth="126.0" rotate="-180.0" text="Nom Personnage" textAlignment="CENTER" />
-                        <Label prefHeight="28.0" prefWidth="126.0" rotate="-180.0" text="Nom Joueur" textAlignment="JUSTIFY" />
-                     </children>
-                  </VBox>
-                  <VBox alignment="CENTER" prefHeight="146.0" prefWidth="244.0" rotate="180.0">
-                     <children>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="5.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="22.0" prefWidth="223.0">
-                           <children>
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" rotate="180.0" text="Se r�v�ler" />
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="113.0" rotate="180.0" text="Carte personnage">
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                           <padding>
-                              <Insets bottom="5.0" />
-                           </padding>
-                        </HBox>
-                        <Label prefHeight="28.0" prefWidth="126.0" rotate="-180.0" text="Nom Faction" textAlignment="JUSTIFY" />
-                        <Label prefHeight="28.0" prefWidth="126.0" rotate="-180.0" text="Nom Personnage" textAlignment="CENTER" />
-                        <Label prefHeight="28.0" prefWidth="126.0" rotate="-180.0" text="Nom Joueur" textAlignment="JUSTIFY" />
-                     </children>
-                  </VBox>
-                  <VBox alignment="CENTER" prefHeight="146.0" prefWidth="244.0" rotate="180.0">
-                     <children>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="5.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="22.0" prefWidth="223.0">
-                           <children>
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" rotate="180.0" text="Se r�v�ler" />
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" rotate="180.0" text="Carte personnage">
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </HBox>
-                        <Label prefHeight="28.0" prefWidth="126.0" rotate="-180.0" text="Nom Faction" textAlignment="JUSTIFY" />
-                        <Label prefHeight="28.0" prefWidth="126.0" rotate="-180.0" text="Nom Personnage" textAlignment="CENTER" />
-                        <Label prefHeight="28.0" prefWidth="126.0" rotate="-180.0" text="Nom Joueur" textAlignment="JUSTIFY" />
-                     </children>
-                     <padding>
-                        <Insets bottom="5.0" />
-                     </padding>
-                  </VBox>
-                  <VBox alignment="CENTER" prefHeight="146.0" prefWidth="244.0" rotate="180.0">
-                     <children>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                           <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="57.0" stroke="BLACK" strokeType="INSIDE" width="37.0" />
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="5.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="22.0" prefWidth="223.0">
-                           <children>
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" rotate="180.0" text="Se r�v�ler" />
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" rotate="180.0" text="Carte personnage">
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                           <padding>
-                              <Insets bottom="5.0" />
-                           </padding>
-                        </HBox>
-                        <Label prefHeight="28.0" prefWidth="126.0" rotate="-180.0" text="Nom Faction" textAlignment="JUSTIFY" />
-                        <Label prefHeight="28.0" prefWidth="126.0" rotate="-180.0" text="Nom Personnage" textAlignment="CENTER" />
-                        <Label prefHeight="28.0" prefWidth="126.0" rotate="-180.0" text="Nom Joueur" textAlignment="JUSTIFY" />
-                     </children>
-                  </VBox>
+                  <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets bottom="30.0" top="30.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" />
                </children>
-               <VBox.margin>
-                  <Insets top="8.0" />
-               </VBox.margin>
-            </HBox>
+            </VBox>
          </children>
-      </VBox>
-   </children>
-</Pane>
+      </HBox>
+   </center>
+</BorderPane>
