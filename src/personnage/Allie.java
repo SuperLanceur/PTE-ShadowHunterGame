@@ -6,10 +6,10 @@ import java.util.List;
 import condition.Condition;
 import condition.ConditionMultiple;
 import condition.ConditionStatistiques;
-import effet.Action;
-import effet.ActionAltererStatistiquesJoueur;
 import effet.Effet;
 import effet.EffetSelf;
+import effet.action.Action;
+import effet.action.ActionAltererStatistiquesJoueur;
 import main.Joueur;
 import main.Plateau;
 

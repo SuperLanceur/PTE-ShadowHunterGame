@@ -2,6 +2,7 @@ package effet;
 
 import java.util.List;
 
+import effet.action.Action;
 import main.Joueur;
 import main.Plateau;
 

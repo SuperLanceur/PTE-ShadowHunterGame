@@ -1,7 +1,9 @@
-package effet;
+package effet.action;
 import main.Joueur;
 public class ActionAltererStatistiquesJoueur extends Action{
 
+	
+	
 	private String key;
 	private int valeur;
 	private boolean ajouter;
