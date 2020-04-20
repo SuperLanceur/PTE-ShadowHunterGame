@@ -11,6 +11,15 @@ public class ConditionClassPersonnage extends Condition{
 
 	private List<Class<? extends CartePersonnage>> classes;
 	
+	
+	/**
+	 * Construit une condition qui vérifie la possession d'un certain Personnage dans une liste définie.
+	 * exemple : 
+	 * 
+	 * classes = { Emi.class, Metamorphe.class, ... etc }
+	 * 
+	 * @param classes Les Class des différents Personnage's.
+	 */
 	public ConditionClassPersonnage(List<Class<? extends CartePersonnage>> classes){
 		
 		this.classes = new ArrayList<Class<? extends CartePersonnage>>();

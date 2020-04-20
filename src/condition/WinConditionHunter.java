@@ -9,7 +9,9 @@ public class WinConditionHunter extends Condition{
 	public boolean isTrue(Joueur j)
 	{
 		int nbShadow = j.getPlateau().getStat(Plateau.NB_SHADOWS);
-		Condition winCondition = new ConditionStatistiques(ConditionStatistiques.PLATEAU, Plateau.NB_MORTS_SHADOW, nbShadow, ConditionStatistiques.MORE);
+		
+		Condition winCondition = new ConditionStatistiques(
+				ConditionStatistiques.PLATEAU, Plateau.NB_MORTS_SHADOW, nbShadow, ConditionStatistiques.LESS);
 		return winCondition.isTrue(j);
 	}
 	

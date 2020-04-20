@@ -34,17 +34,18 @@ public class Plateau {
 		this.joueurs = joueurs;
 		this.lieux = new ArrayList<>();
 		
-		stats = new HashMap<>();
+		this.stats = new HashMap<>();
 		
 		// Initialisation plateau
-		stats.put(NB_HUNTERS, 0);
-		stats.put(NB_SHADOWS, 0);
-		stats.put(NB_NEUTRES, 0);
-		stats.put(NB_MORTS, 0);
-		stats.put(NB_MORTS_NEUTRAL, 0);
-		stats.put(NB_MORTS_HUNTER, 0);
-		stats.put(NB_MORTS_SHADOW, 0);
-		stats.put(PARTIE_FINIE, 0);
+		this.stats.put(NB_HUNTERS, 0);
+		this.stats.put(NB_SHADOWS, 0);
+		this.stats.put(NB_NEUTRES, 0);
+		this.stats.put(NB_MORTS, 0);
+		this.stats.put(NB_MORTS_NEUTRAL, 0);
+		this.stats.put(NB_MORTS_HUNTER, 0);
+		this.stats.put(NB_MORTS_SHADOW, 0);
+		this.stats.put(PARTIE_FINIE, 0);
+		
 		
 	}	
 	
@@ -95,10 +96,15 @@ public class Plateau {
 		return this.joueurs;
 	}
 
+	public void setStat(String key, int valeur) {
+		this.stats.put(key, valeur);
+	}
+	
 	public int getStat(String key) {
+		
 		if(this.stats.containsKey(key))
 		{
-			return this.getStat(key);
+			return this.stats.get(key);
 		}else {
 			
 			//TODO Exception

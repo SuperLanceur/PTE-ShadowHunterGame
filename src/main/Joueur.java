@@ -58,12 +58,17 @@ public class Joueur {
 		return this.equipe;
 	}
 	
-	public int setStat(String key, int valeur) {
-		return stats.put(key, valeur);
+	public void setStat(String key, int valeur) {
+		this.stats.put(key, valeur);
 	}
 	
 	public int getStat(String key) {
-		return stats.get(key);
+	
+		if(stats.containsKey(key)) {
+			return stats.get(key);
+		}else {
+			return -1;
+		}		
 	}
 	
 	
@@ -132,6 +137,10 @@ public class Joueur {
 	public void setEquipe(Equipe equipe) {
 		this.equipe = equipe;
 		
+	}
+
+	public void setPlateau(Plateau plateau2) {
+		this.plateau = plateau2;
 	}
 
 }

@@ -7,8 +7,6 @@ public class CarteLieu {
 	private String nom;
 	private CarteLieu voisin;
 	private Plateau plateau;
-	// TODO connaitre carte voisine sur un autre territoire pour emi?
-
 	
 	public CarteLieu(String n, List<Integer> vals, CarteLieu vois, Plateau plat){
 		nom = n;
