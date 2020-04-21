@@ -94,5 +94,15 @@ class PlateauTest {
 		
 		assertNotEquals(lieuDepart, j1.getCarteLieu());
 	}
+	
+	@Test
+	void deplacer_lieuDepartDifferentLieuArrive() {
+		p.deplacer(j1);
+		CarteLieu lieuDepart = j1.getCarteLieu();
+		
+		p.deplacer(j1);
+		
+		assertNotEquals(lieuDepart, j1.getCarteLieu());
+	}
 
 }

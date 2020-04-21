@@ -7,17 +7,37 @@
 }
 
 .barreDeVie{
-	-fx-border-color: #e2e2e2;
+	-fx-border-color: black;
 	-fx-border-width: 2;
+	-fx-background-color: #9b47a1;
+}
+
+.zero {
+	-fx-background-color: #7ab9e4;
+}
+
+.un {
+	-fx-background-color: #8e96d7;
+}
+
+.deux {
+	-fx-background-color: #9272bb;
+}
+
+.trois {
+	-fx-background-color: #9466b1;
+}
+
+.quatre {
+	-fx-background-color: #9855a5;
 }
 
 .carteEquipement{
-	-fx-border-color: #e2e2e2;
-	-fx-border-width: 2;
+	-fx-background-color: #353535;
 }
 
 .lieux{
-	-fx-border-color: #e2e2e2;
+	-fx-border-color: #936b4a;
 	-fx-border-width: 2;
 }
 
@@ -28,4 +48,22 @@
     -fx-background-color: #1d1d1d;
     -fx-text-fill: #d8d8d8;
     -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+.carteLumiere {
+	-fx-background-color: #edebea;
+	-fx-border-color: #cecece;
+	-fx-border-width: 2;
+}
+
+.carteVision {
+	-fx-background-color: #727e40;
+	-fx-border-color: #53593a;
+	-fx-border-width: 2;
+}
+
+.carteTenebre {
+	-fx-background-color: #2a2823;
+	-fx-border-color: #5b5648;
+	-fx-border-width: 2;
 }

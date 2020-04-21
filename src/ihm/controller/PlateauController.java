@@ -11,6 +11,7 @@ import ihm.PopUp;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
@@ -38,9 +39,7 @@ public class PlateauController implements Initializable {
 
 
 	/**
-	 * attribuer les cartes
-	 * ecrire le nom des joueurs au bon endroit 
-	 * placer les cartes lieux
+	 * initialise les données du plateau
 	 */
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -84,8 +83,7 @@ public class PlateauController implements Initializable {
 	/**
 	 * Affiche aux yeux de tous la carte personnage du joueur
 	 * 
-	 * @param mouseEvent : clique sur le bouton "Se reveler"
-	 * @throws IOException 
+	 * @param j : Le joueur sur lequel on a cliqué
 	 */
 	public void seReveler(Joueur j) throws IOException {
 		System.out.println("Le joueur ... se revèle");
@@ -97,12 +95,13 @@ public class PlateauController implements Initializable {
 	/**
 	 * Permet de consulter sa carte perssonage en cas d'oublie
 	 * 
-	 * @param mouseEvent : clique sur le bouton "Carte personnage"
-	 * @throws IOException
+	 * @param j : Le joueur sur lequel on a cliqué
 	 */
 	public void consulterSaCarte(Joueur j) throws IOException {
 		System.out.println("Le joueur ... consulte sa carte");
 		Pane pane = FXMLLoader.load(getClass().getResource("../ressources/afficher_carte_perso.fxml"));
+		pane.setUserData("blblblb");
+		System.out.println(pane.getUserData());
 		PopUp popup = new PopUp(pane, "Consulter sa carte");
 		popup.display();
 	}
