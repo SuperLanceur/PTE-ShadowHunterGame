@@ -4,13 +4,13 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import main.Joueur;
 import main.Plateau;
+import personnage.Allie;
 
 class ActionAttaquerTest {
 
@@ -24,6 +24,9 @@ class ActionAttaquerTest {
 		List<Joueur> joueurs = new ArrayList<Joueur>();
 		j1 = new Joueur("Michel");
 		j2 = new Joueur("Gérard");
+		
+		Allie allie1 = new Allie(j1);
+		Allie allie2 = new Allie(j2);
 		
 		joueurs.add(j1);
 		joueurs.add(j2);
@@ -67,5 +70,4 @@ class ActionAttaquerTest {
 			assertTrue(Math.abs(countNb-80) <= error);
 			}
 	}
-
 }

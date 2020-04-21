@@ -9,8 +9,6 @@ import main.Joueur;
 
 public class CarteLieu extends CarteEffet{
 	
-	
-
 	private List<Joueur> listeJoueurs;
 	private Point coordinates;
 	private CarteLieu voisin;

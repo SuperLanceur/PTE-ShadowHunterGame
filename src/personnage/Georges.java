@@ -21,13 +21,13 @@ public class Georges extends Unique{
 	public void utiliser() {
 		Joueur joueur = this.getJoueur();
 		
-		if(this.isCapaciteUsed() && joueur.getRevele()) {
+		if(!this.isCapaciteUsed() && joueur.getRevele()) {
 			
 			Plateau p = joueur.getPlateau();
 			int roll = p.roll4();
 			
 			Joueur joueur2 = joueur.choisirTous();
-			joueur2.addToStat(Joueur.PLAYER_HP, -roll);	
+			super.attaquer(joueur2, roll);
 		}
 	}
 

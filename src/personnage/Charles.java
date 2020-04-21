@@ -18,14 +18,17 @@ public class Charles extends CartePersonnage{
 
 	}
 
+	@Override
 	public void attaquer(Joueur j, int blessure) {
 		
-		if(this.getJoueur().getRevele()){
+		Joueur joueur = this.getJoueur();
+		super.attaquer(j, blessure);
 		
-			// TODO Choisir effet
+		if(joueur.getStat(Joueur.PLAYER_HP) > 2 && joueur.getRevele()){
+			
 			Plateau p = j.getPlateau();
 			utiliser();
-			p.attaquer(this.getJoueur(), j);	
+			p.attaquer(this.getJoueur(), j);
 		}	
 	}
 

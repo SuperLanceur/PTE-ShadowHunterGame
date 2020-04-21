@@ -10,9 +10,7 @@ public abstract class Unique extends CartePersonnage{
 		super(nom,desc, hp, joueur);
 		
 	}
-
-
-
+	
 	public boolean isCapaciteUsed() {
 		return capaciteUsed;
 	}
@@ -20,11 +18,4 @@ public abstract class Unique extends CartePersonnage{
 	public void setCapaciteUsed(boolean capaciteUsed) {
 		this.capaciteUsed = capaciteUsed;
 	}
-	
-	@Override
-	public void utiliser() {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

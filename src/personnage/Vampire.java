@@ -33,6 +33,7 @@ public class Vampire extends CartePersonnage{
 	 */
 	public void attaquer(Joueur j, int blessure) {
 	
+		super.attaquer(j, blessure);
 		if(this.getJoueur().getRevele())
 		{
 			utiliser(this.getJoueur());

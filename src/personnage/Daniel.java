@@ -34,13 +34,7 @@ public class Daniel extends CartePersonnage{
 
 	@Override
 	public void utiliser() {
-		// TODO Listener mort
-		
+		this.getJoueur().setRevele(true);
 	}
 
-	@Override
-	public void attaquer(Joueur j, int blessure) {
-		// TODO Auto-generated method stub
-		
-	}
 }

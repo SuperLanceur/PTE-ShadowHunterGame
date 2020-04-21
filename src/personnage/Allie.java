@@ -40,16 +40,9 @@ public class Allie extends Unique{
 	 */
 	public void utiliser() {
 			
-		if(!this.isCapaciteUsed()) {
+		if(this.getJoueur().getRevele() && !this.isCapaciteUsed()) {
 			this.getEffet().utiliser(this.getJoueur());
 			this.setCapaciteUsed(true);
 		}
 	}
-
-	@Override
-	public void attaquer(Joueur j, int blessure) {
-		
-		
-	}
-
 }

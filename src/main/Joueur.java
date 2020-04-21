@@ -108,7 +108,6 @@ public class Joueur {
 		
 		if(blessure > 0)
 		{
-			j2.addToStat(PLAYER_HP, -blessure);
 			this.cartePersonnage.attaquer(j2, blessure);
 		}
 	}
@@ -193,6 +192,11 @@ public class Joueur {
 
 	public CarteLieu getCarteLieu() {
 		return this.carteLieu;
+	}
+
+	public void setRevele(boolean b) {
+		this.revele = true;
+		
 	}
 
 }
