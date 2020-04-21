@@ -13,7 +13,7 @@ public class Charles extends CartePersonnage{
 	public Charles(String nom, int hp, Joueur joueur) {
 		super(nom, nom, hp, joueur);
 		
-		Action action = new ActionAltererStatistiquesJoueur("HP",2,true);
+		Action action = new ActionAltererStatistiquesJoueur("HP",-2,true);
 		Effet effet = new EffetSelf(action);
 		this.setEffet(effet);
 
@@ -31,7 +31,6 @@ public class Charles extends CartePersonnage{
 
 	@Override
 	public void utiliser() {
-		// TODO Auto-generated method stub
 		this.getEffet().utiliser(this.getJoueur());
 	}
 }

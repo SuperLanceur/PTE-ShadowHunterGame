@@ -72,12 +72,15 @@ public class Plateau {
 	
 	public void deplacer(Joueur currentJoueur) {
 		
-		int roll = sumRolls();
+		
 		boolean attributed = false;
 		
 		while(!attributed) {
+			int roll = sumRolls();
 			for(CarteLieu cl : lieux) {
+				
 				if(cl.coordinatesContains(roll) && currentJoueur.getCarteLieu() != cl){
+					
 					currentJoueur.deplacer(cl);
 					attributed = true;
 					break;

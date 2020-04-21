@@ -109,7 +109,7 @@ public class Joueur {
 		if(blessure > 0)
 		{
 			j2.addStat(PLAYER_HP, -blessure);
-			this.cartePersonnage.attaquer(j2);
+			//this.cartePersonnage.attaquer(j2);
 		}
 	}
 	

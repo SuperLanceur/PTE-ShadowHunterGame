@@ -50,6 +50,11 @@ public class CarteLieu extends CarteEffet{
 		this.voisin = cl;
 	}
 
+	public Point getCoordinates() {
+		return this.coordinates;
+	}
+
+
 
 	
 }

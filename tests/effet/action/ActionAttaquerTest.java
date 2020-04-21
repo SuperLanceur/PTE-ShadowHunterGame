@@ -50,8 +50,6 @@ class ActionAttaquerTest {
 		ActionAttaquer aa = new ActionAttaquer();
 		
 		int pvBaseJ2 = 100;
-		j2.setStat(Joueur.PLAYER_HP, pvBaseJ2);
-		aa.affecte(j1, j2);
 		
 		for(int j = 0; j< 1000; j++) {
 		

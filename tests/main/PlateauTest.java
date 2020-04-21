@@ -1,7 +1,7 @@
 package main;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.fail;
 
 import java.awt.Point;
 import java.util.ArrayList;
@@ -18,6 +18,7 @@ import effet.EffetChoisirEffet;
 import effet.EffetSelf;
 import effet.action.ActionAltererStatistiquesJoueur;
 import effet.action.ActionVoler;
+import personnage.Allie;
 
 class PlateauTest {
 
@@ -36,6 +37,12 @@ class PlateauTest {
 		
 		j1 = new Joueur("Mohamed");
 		j2 = new Joueur("Pierrot");
+		
+		Allie allie1 = new Allie(j1);
+		Allie allie2 = new Allie(j2);
+		
+		j1.setCartePersonnage(allie1);
+		j2.setCartePersonnage(allie2);
 		
 		List<Joueur> joueurs = new ArrayList<Joueur>();
 		joueurs.add(j2);
@@ -93,6 +100,37 @@ class PlateauTest {
 		p.deplacer(j1);
 		
 		assertNotEquals(lieuDepart, j1.getCarteLieu());
+	}
+	
+	/*
+	 * L'attaque du plateau se base sur des tirages aléatoires de dés.
+	 * La réussite moyenne d'une attaque est d'environ 80 %
+	 * En autorisant une erreur d'environ 2 %
+	 * 
+	 * ,on vérifie que la différence du nombre d'attaques réussie avec la moyenne 
+	 * des attaques réussie est bien inférieure à 2 %.
+	 */
+	@Test
+	void attaquer_attaqueBienEnvoyee() {
+		
+		int error = 2;
+		int pvBaseJ2 = 100;
+		
+		
+		for(int j = 0; j< 1000; j++) {
+		
+			int countNb = 0;
+			
+			for(int i = 0; i < 10000; i++)
+			{
+				j2.setStat(Joueur.PLAYER_HP, pvBaseJ2);
+				p.attaquer(j1, j2);
+				if(j2.getStat(Joueur.PLAYER_HP) < 100) countNb++;
+			}
+					
+			countNb /= 100;
+			assertTrue(Math.abs(countNb-80) <= error);
+			}
 	}
 	
 }
