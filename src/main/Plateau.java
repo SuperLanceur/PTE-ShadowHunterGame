@@ -23,13 +23,7 @@ public class Plateau {
 	
 	private Map<String, Integer> stats;
 	
-	
-	private Pioche<TypeLumiere> piocheLumiere;
-	private Pioche<TypeTenebre> piocheTenebre;
-	private Pioche<TypeVision> piocheVision;
-	
-	
-	
+
 	public Plateau(List<Joueur> joueurs) {
 		this.joueurs = joueurs;
 		this.lieux = new ArrayList<>();
@@ -54,8 +48,8 @@ public class Plateau {
 		return 0;
 	}
 	
-	public void fairePiocher(Joueur joueur, Type type) {
-		
+	public void piocher(Joueur joueur, Type type) {
+	
 	}
 	
 	public void déplacerJoueur(Joueur joueur, int indexLieu) {
@@ -70,7 +64,6 @@ public class Plateau {
 			
 			joueur1.attaquer(joueur2,attaque);
 		}
-		
 	}
 	
 	
@@ -85,8 +78,6 @@ public class Plateau {
 	public int roll4() {
 		return (int) Math.floor(Math.random() * 3)+1;
 	}
-	
-	
 	
 	public int rollDices4() {
 		return Math.abs(roll4() - roll4());

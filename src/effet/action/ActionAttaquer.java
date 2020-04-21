@@ -13,7 +13,7 @@ public class ActionAttaquer extends Action {
 	 */
 	@Override
 	public void affecte(Joueur j1, Joueur j2) {
-		
+	
 		Plateau p = j1.getPlateau();
 		p.attaquer(j1, j2);
 	

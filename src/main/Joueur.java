@@ -10,12 +10,13 @@ import personnage.CartePersonnage;
 
 public class Joueur {
 	private GestionnaireEquipements gestionnaireEquipements;
-	
 	private String nom;
 	private boolean revele;
 	private Plateau plateau;
 	private CartePersonnage cartePersonnage;
 	private Equipe equipe;
+	private CarteLieu carteLieu;
+	
 	
 	// map keys
 	public static final String PLAYER_HP = "hp";
@@ -79,8 +80,10 @@ public class Joueur {
 	}
 
 	public List<Joueur> getJoueursAdjacents() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<Joueur> joueurs = this.carteLieu.getJoueursAdjacents();
+		joueurs.remove(this);
+		return joueurs;
 	}
 
 	public Equipement[] getEquipements() {
@@ -96,11 +99,6 @@ public class Joueur {
 	public Equipement choisir(Equipement[] equipements) {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	public void piocher() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	public void attaquer(Joueur j2, int attaqueDice) {
@@ -155,9 +153,7 @@ public class Joueur {
 	}
 
 	public void setCartePersonnage(CartePersonnage cp) {
-		
 		this.cartePersonnage = cp;
-		
 	}
 
 	public void setEquipe(Equipe equipe) {
