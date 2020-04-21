@@ -8,8 +8,10 @@ import javafx.stage.Stage;
 public class PopUp {
 	private Scene scene; 
 	private Stage popupwindow;
+	private Pane pane;
 	
 	public PopUp (Pane p, String titre) {
+		
 		popupwindow = new Stage();
 		popupwindow.initModality(Modality.APPLICATION_MODAL);
 		popupwindow.setTitle(titre);
