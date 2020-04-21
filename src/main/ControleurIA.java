@@ -5,8 +5,17 @@ import java.util.List;
 import main.Joueur.Equipe;
 
 public class ControleurIA {
+	int seed;
+	
+	public ControleurIA() {
+		seed = 100;
+	}
+	
+	public void setSeed(int i) {
+		seed = i;
+	}
 
-	public static boolean choixUtiliserPouvoirLieu() {
+	public boolean choixUtiliserPouvoirLieu() {
 		double res = getRandomPercentage();
 		if (res < 80)
 			return true;
@@ -15,7 +24,7 @@ public class ControleurIA {
 
 	// precondition 1 : la liste joueursLieu ne contiendra pas jIA lui-meme
 	// precondition 2 : on n'appellera pas cette methode si jIA est seul sur le lieu
-	public static boolean choixSiAttaquer(JoueurVirtuel jIA, List<Joueur> joueursLieu) {
+	public boolean choixSiAttaquer(JoueurVirtuel jIA, List<Joueur> joueursLieu) {
 		double res = getRandomPercentage();
 		if (getEnnemisJoueurs(jIA, joueursLieu).size() > 0) {
 			int diff = jIA.getDifficulte();
@@ -39,8 +48,8 @@ public class ControleurIA {
 		return false;
 	}
 
-	public static double getRandomPercentage() {
-		return Math.floor(Math.random() * 100);
+	public double getRandomPercentage() {
+		return Math.floor(Math.random() * seed);
 	}
 
 	public static List<Joueur> getEnnemisJoueurs(JoueurVirtuel jIA, List<Joueur> joueursLieu) {
@@ -58,7 +67,7 @@ public class ControleurIA {
 	}
 
 	// loup-garou : si attaquee par joueur pas du meme camps 60%? devoilement
-	public static boolean devoilerIALoupGarou(JoueurVirtuel jIA, Joueur jAttaquant) {
+	public boolean devoilerIALoupGarou(JoueurVirtuel jIA, Joueur jAttaquant) {
 		Equipe equipejIA = jIA.getEquipe();
 		double rand = getRandomPercentage();
 		if (!equipejIA.equals(jAttaquant.getEquipe())) {
@@ -68,8 +77,8 @@ public class ControleurIA {
 		return false;
 	}
 
-	// metamorphe : si re�oit carte vision 50%? mentir sans se devoiler
-	public static boolean mentirIAMetamorphe(JoueurVirtuel jIA) {
+	// metamorphe : si recoit carte vision 50%? mentir sans se devoiler
+	public boolean mentirIAMetamorphe() {
 		if (getRandomPercentage() < 50)
 			return true;
 		return false;
@@ -77,11 +86,11 @@ public class ControleurIA {
 
 	// vampire : si attaque joueur et propre vie<10?hp 60%? (plus vie baisse, plus
 	// proba augmente) devoilement
-	public static boolean devoilerIAVampire(JoueurVirtuel jIA, Joueur jAttaquee) {
+	public boolean devoilerIAVampire(JoueurVirtuel jIA, Joueur jAttaquee) {
 		Equipe equipejIA = jIA.getEquipe();
 		double rand = getRandomPercentage();
-		if (!equipejIA.equals(jAttaquee.getEquipe())) {
-			if (rand < 940 / 9 - (40 * jIA.getStat("HP")))
+		if (!equipejIA.equals(jAttaquee.getEquipe()) && jIA.getStat("HP")<11) {
+			if (rand < 940 / 9 - (40 * jIA.getStat("HP")/9))
 				return true;
 		}
 		return false;
@@ -89,7 +98,7 @@ public class ControleurIA {
 
 	// emi : si pas de shadow sur lieu actuel mais un sur lieu adjacent 60%?
 	// devoilement
-	public static boolean devoilerIAEmi(JoueurVirtuel jIA, CarteLieu cl) {
+	public boolean devoilerIAEmi(JoueurVirtuel jIA, CarteLieu cl) {
 		List<Joueur> joueursProx = cl.getJoueurs();
 		if (getEnnemisJoueurs(jIA, joueursProx).size() > 0)
 			return false;
@@ -100,7 +109,7 @@ public class ControleurIA {
 	}
 
 	// georges: si vie d'un shadow <=4hp 90%? devoilement avant de commencer le tour
-	public static boolean devoilerIAGeorges(JoueurVirtuel jIA, List<Joueur> jPlateau) {
+	public boolean devoilerIAGeorges(JoueurVirtuel jIA, List<Joueur> jPlateau) {
 		List<Joueur> jEnnemis = getEnnemisJoueurs(jIA, jPlateau);
 		boolean devoiler = false;
 		double rand = getRandomPercentage();
@@ -115,7 +124,7 @@ public class ControleurIA {
 
 	// franklin: si vie d'un shadow <=6hp 90%? devoilement avant de commencer le
 	// tour
-	public static boolean devoilerIAFranklin(JoueurVirtuel jIA, List<Joueur> jPlateau) {
+	public boolean devoilerIAFranklin(JoueurVirtuel jIA, List<Joueur> jPlateau) {
 		List<Joueur> jEnnemis = getEnnemisJoueurs(jIA, jPlateau);
 		boolean devoiler = false;
 		double rand = getRandomPercentage();
@@ -129,14 +138,14 @@ public class ControleurIA {
 	}
 
 	// allie : si vie<5?hp (plus vie baisse, plus proba augmente) 60%? devoilement
-	public static boolean devoilerIAAllie(JoueurVirtuel jIA) {
-		if (getRandomPercentage() < 110 - 10 * jIA.getStat("HP"))
+	public boolean devoilerIAAllie(JoueurVirtuel jIA) {
+		if (getRandomPercentage() < 110 - 10 * jIA.getStat("HP") && jIA.getStat("HP")<6)
 			return true;
 		return false;
 	}
 
 	// bob : si attaque joueur possedant equipement 70?% devoilement
-	public static boolean devoilerIABob(JoueurVirtuel jIA, Joueur jAttaquee) {
+	public boolean devoilerIABob(JoueurVirtuel jIA, Joueur jAttaquee) {
 		if (jAttaquee.getNbEquipments() > 0 && getRandomPercentage() < 70)
 			return true;
 		return false;
@@ -144,7 +153,7 @@ public class ControleurIA {
 
 	// charles : si attaque joueur possedant moins de vie que attaque de charles
 	// 85?% devoilement
-	public static boolean devoilerIACharles(JoueurVirtuel jIA, Joueur jAttaquee) {
+	public boolean devoilerIACharles(JoueurVirtuel jIA, Joueur jAttaquee) {
 		if (jAttaquee.getStat("HP") <= jIA.getStat("DAMAGE") && jIA.getStat("HP") >= 2 && getRandomPercentage() <= 85)
 			return true;
 		return false;

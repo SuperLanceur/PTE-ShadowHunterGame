@@ -28,4 +28,8 @@ public class JoueurVirtuel extends Joueur {
 	public int getDifficulte() {
 		return nvDifficulte;
 	}
+	
+	public void setDifficulte(int i) {
+		nvDifficulte = i;
+	}
 }
