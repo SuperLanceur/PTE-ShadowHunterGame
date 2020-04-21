@@ -5,11 +5,10 @@ import effet.EffetSelf;
 import effet.action.Action;
 import effet.action.ActionAltererStatistiquesJoueur;
 import main.Joueur;
+import main.Plateau;
 
 public class Charles extends CartePersonnage{
 	
-	//constructeur
-
 	public Charles(String nom, int hp, Joueur joueur) {
 		super(nom, nom, hp, joueur);
 		
@@ -19,13 +18,14 @@ public class Charles extends CartePersonnage{
 
 	}
 
-	//m�thode
-	public void attaquer(Joueur j) {
-		super.attaquer(j);
-		if(this.getJoueur().getRevele())
-		{
-			utiliser(this.getJoueur());
-			super.attaquer(j);
+	public void attaquer(Joueur j, int blessure) {
+		
+		if(this.getJoueur().getRevele()){
+		
+			// TODO Choisir effet
+			Plateau p = j.getPlateau();
+			utiliser();
+			p.attaquer(this.getJoueur(), j);	
 		}	
 	}
 

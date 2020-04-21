@@ -22,4 +22,10 @@ public class Emi extends CartePersonnage{
 		
 	}
 
+	@Override
+	public void attaquer(Joueur j, int blessure) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

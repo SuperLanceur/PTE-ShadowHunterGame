@@ -15,9 +15,7 @@ public class Daniel extends CartePersonnage{
 
 	public Daniel(String nom, String desc ,int hp, Joueur joueur) throws Exception {
 		super(nom,desc, hp, joueur);
-		
-		int nbShadow = joueur.getPlateau().getStat(Plateau.NB_SHADOWS);
-		
+				
 		List<Condition> conditions = new ArrayList<Condition>();
 		List<Condition> conditions2 = new ArrayList<Condition>();
 		
@@ -36,6 +34,12 @@ public class Daniel extends CartePersonnage{
 
 	@Override
 	public void utiliser() {
+		// TODO Listener mort
+		
+	}
+
+	@Override
+	public void attaquer(Joueur j, int blessure) {
 		// TODO Auto-generated method stub
 		
 	}

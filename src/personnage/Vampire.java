@@ -31,9 +31,8 @@ public class Vampire extends CartePersonnage{
 	 * @param j Le joueur qui subit l'attaque
 	 * @return void
 	 */
-	public void attaquer(Joueur j) {
+	public void attaquer(Joueur j, int blessure) {
 	
-		super.attaquer(j);
 		if(this.getJoueur().getRevele())
 		{
 			utiliser(this.getJoueur());

@@ -46,4 +46,10 @@ public class Allie extends Unique{
 		}
 	}
 
+	@Override
+	public void attaquer(Joueur j, int blessure) {
+		
+		
+	}
+
 }

@@ -108,8 +108,8 @@ public class Joueur {
 		
 		if(blessure > 0)
 		{
-			j2.addStat(PLAYER_HP, -blessure);
-			//this.cartePersonnage.attaquer(j2);
+			j2.addToStat(PLAYER_HP, -blessure);
+			this.cartePersonnage.attaquer(j2, blessure);
 		}
 	}
 	
@@ -125,7 +125,7 @@ public class Joueur {
 		return nbToursImmune > 0 ? 0 : 1;
 	}
 	
-	private void addStat(String key, int valeur)
+	public void addToStat(String key, int valeur)
 	{
 		int valeurBase = this.getStat(key);
 		this.setStat(Joueur.PLAYER_HP,valeurBase+valeur);

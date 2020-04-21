@@ -21,4 +21,10 @@ public class LoupGarou extends CartePersonnage {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void attaquer(Joueur j, int blessure) {
+		// TODO Auto-generated method stub
+		
+	}
 }

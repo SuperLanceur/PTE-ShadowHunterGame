@@ -2,7 +2,7 @@ package personnage;
 
 import main.Joueur;
 
-public class Unique extends CartePersonnage{
+public abstract class Unique extends CartePersonnage{
 	
 	private boolean capaciteUsed;
 	
