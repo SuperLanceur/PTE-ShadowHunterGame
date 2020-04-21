@@ -28,7 +28,7 @@ class ConditionClassPersonnageTest {
 		ConditionClassPersonnage cc = new ConditionClassPersonnage(classes);
 		
 		Joueur j = new Joueur(null);
-		CartePersonnage cp1 = new Allie(null, 0, j);
+		CartePersonnage cp1 = new Allie(j);
 		
 		
 		// Le personnage fait partie des classes.
@@ -51,7 +51,7 @@ class ConditionClassPersonnageTest {
 	
 		ConditionClassPersonnage cc = new ConditionClassPersonnage(classes);
 		Joueur j = new Joueur(null);
-		CartePersonnage cp1 = new Allie(null, 0, j);
+		CartePersonnage cp1 = new Allie(j);
 		j.setCartePersonnage(cp1);
 		assertFalse(cc.isTrue(j));
 		

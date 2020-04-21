@@ -34,4 +34,9 @@ public class Daniel extends CartePersonnage{
 		this.setCondition(winCondition);
 	}
 
+	@Override
+	public void utiliser() {
+		// TODO Auto-generated method stub
+		
+	}
 }

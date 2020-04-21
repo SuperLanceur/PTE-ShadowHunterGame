@@ -13,4 +13,10 @@ public class Charles extends CartePersonnage{
 	public void attaquer(Joueur j) {
 		
 	}
+
+	@Override
+	public void utiliser() {
+		// TODO Auto-generated method stub
+		
+	}
 }

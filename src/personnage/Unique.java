@@ -20,5 +20,11 @@ public class Unique extends CartePersonnage{
 	public void setCapaciteUsed(boolean capaciteUsed) {
 		this.capaciteUsed = capaciteUsed;
 	}
+	
+	@Override
+	public void utiliser() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

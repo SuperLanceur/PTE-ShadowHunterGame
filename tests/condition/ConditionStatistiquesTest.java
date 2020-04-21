@@ -61,8 +61,6 @@ class ConditionStatistiquesTest {
 		cs = new ConditionStatistiques(false,"test",randInt2,ConditionStatistiques.LESS);
 		assertEquals(cs.isTrue(joueur),randInt3 <= randInt2);
 		
-		cs = new ConditionStatistiques(false,"test",randInt3,ConditionStatistiques.LESS);
-		assertEquals(cs.isTrue(joueur),randInt3 <= randInt2);
 	}
 	
 	@Test
@@ -79,6 +77,7 @@ class ConditionStatistiquesTest {
 		//Valeur censée être comprise entre 0 et 2
 		-1);
 		
+		assertFalse(cs.isTrue(joueur));
 	}
 	
 

@@ -20,7 +20,7 @@ public abstract class CartePersonnage extends CarteCondition {
 		
 	//méthodes
 		
-		public void utiliser() {};
+		public abstract void utiliser();
 		
 		public void attaquer(Joueur j) {};
 		

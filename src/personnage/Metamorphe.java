@@ -9,5 +9,11 @@ public class Metamorphe extends CartePersonnage{
 		super(nom, pv, joueur);
 		this.setCondition(new WinConditionShadow());
 	}
+	
+	@Override
+	public void utiliser() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

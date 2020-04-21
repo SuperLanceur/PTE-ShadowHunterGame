@@ -59,6 +59,8 @@ public class Joueur {
 	}
 	
 	public void setStat(String key, int valeur) {
+		
+		// TODO Il faut créer des observers de mort
 		this.stats.put(key, valeur);
 	}
 	
@@ -101,10 +103,34 @@ public class Joueur {
 		
 	}
 
-	public void attaquer(Joueur j2) {
-		// TODO Auto-generated method stub
+	public void attaquer(Joueur j2, int attaqueDice) {
 		
+		int blessure = evaluerImmunite(j2)*(this.evaluerAttaque(j2) + attaqueDice);
+		
+		if(blessure > 0)
+		{
+			j2.addStat(PLAYER_HP, -blessure);
+		}
 	}
+	
+	private int evaluerAttaque(Joueur j2) {
+		
+		return this.getStat(PLAYER_DAMAGE)-j2.getStat(PLAYER_RESISTANCE);
+	}
+
+	private int evaluerImmunite(Joueur j2) {
+		
+		int nbToursImmune = j2.getStat(PLAYER_IMMUNITY);
+		
+		return nbToursImmune > 0 ? 0 : 1;
+	}
+	
+	private void addStat(String key, int valeur)
+	{
+		int valeurBase = this.getStat(key);
+		this.setStat(Joueur.PLAYER_HP,valeurBase+valeur);
+	}
+
 
 	public Plateau getPlateau() {
 		return this.plateau;

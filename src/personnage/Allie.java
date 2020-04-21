@@ -15,8 +15,8 @@ import main.Plateau;
 
 public class Allie extends Unique{
 	
-	public Allie(String nom, int hp, Joueur joueur) throws Exception {
-		super(nom, hp, joueur);
+	public Allie(Joueur joueur) {
+		super("ALLIE", 8, joueur);
 		
 		Action action = new ActionAltererStatistiquesJoueur("HP",this.getPv(),false);
 		Effet effet = new EffetSelf(action);
@@ -38,10 +38,11 @@ public class Allie extends Unique{
 	 * @param j 
 	 * @return void
 	 */
-	public void utiliser(Joueur j) {
+	public void utiliser() {
 			
 		if(!this.isCapaciteUsed()) {
-			this.getEffet().utiliser(j);
+			this.getEffet().utiliser(this.getJoueur());
+			this.setCapaciteUsed(true);
 		}
 	}
 

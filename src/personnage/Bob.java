@@ -12,12 +12,14 @@ public class Bob extends CartePersonnage{
 		this.setCondition(condition);
 	}
 
-	@Override
-	public void utiliser(Joueur j){
-		
-	}
 	
 	public void attaquer(Joueur j) {
+		
+	}
+
+	@Override
+	public void utiliser() {
+		// TODO Auto-generated method stub
 		
 	}
 }

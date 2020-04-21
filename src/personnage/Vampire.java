@@ -19,9 +19,10 @@ public class Vampire extends CartePersonnage{
 		this.setCondition(new WinConditionShadow());
 	}
 
-	public void utiliser(Joueur j)
+	@Override
+	public void utiliser()
 	{
-		this.getEffet().utiliser(j);
+		this.getEffet().utiliser(this.getJoueur());
 	}
 	
 	/**
@@ -38,4 +39,6 @@ public class Vampire extends CartePersonnage{
 			utiliser(this.getJoueur());
 		}	
 	}
+	
+	
 }
