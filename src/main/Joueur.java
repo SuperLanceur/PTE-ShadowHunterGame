@@ -3,6 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import carte.CarteLieu;
 import effet.Effet;
 import personnage.CartePersonnage;
 
@@ -163,6 +164,26 @@ public class Joueur {
 
 	public void setPlateau(Plateau plateau2) {
 		this.plateau = plateau2;
+	}
+
+	public boolean choisir() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void utiliserEffetLieu() {
+		this.carteLieu.utiliser(this);	
+	}
+
+	public void deplacer(CarteLieu cl) {
+
+		if(this.carteLieu != null)
+		{
+			this.carteLieu.remove(this);
+		}
+		
+		this.carteLieu = cl;
+		
 	}
 
 }

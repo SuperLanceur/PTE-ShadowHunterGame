@@ -2,6 +2,7 @@ package main;
 import java.util.ArrayList;
 import java.util.List;
 
+import carte.CarteLieu;
 import main.Joueur.Equipe;
 
 public class ControleurIA {
@@ -102,7 +103,7 @@ public class ControleurIA {
 		List<Joueur> joueursProx = cl.getJoueurs();
 		if (getEnnemisJoueurs(jIA, joueursProx).size() > 0)
 			return false;
-		List<Joueur> joueursAdj = cl.getJoueursAdjacents();
+		List<Joueur> joueursAdj = jIA.getJoueursAdjacents();
 		if (getEnnemisJoueurs(jIA, joueursAdj).size() > 0)
 			return true;
 		return false;

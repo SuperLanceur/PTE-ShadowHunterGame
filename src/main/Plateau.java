@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import carte.Carte;
+import carte.CarteLieu;
 
 public class Plateau {
 	private List<Joueur> joueurs;
@@ -43,18 +43,41 @@ public class Plateau {
 		
 	}	
 	
-	public int rollDices() {
-		//pas necessaire?
-		return 0;
-	}
-	
-	public void piocher(Joueur joueur, Type type) {
-	
-	}
-	
-	public void déplacerJoueur(Joueur joueur, int indexLieu) {
+	public void jeu() {
+		int nbJoueurs = this.joueurs.size();
+		int i = 0;
 		
+		while(true) {
+			
+			Joueur currentJoueur = this.joueurs.get(nbJoueurs % i);
+			deplacer(currentJoueur);
+			
+			if(currentJoueur.choisir()) {
+				currentJoueur.utiliserEffetLieu();
+			}
+			
+			if(currentJoueur.choisir()){
+				Joueur cible = currentJoueur.choisirAdjacents();
+				attaquer(currentJoueur,cible);
+			}
+			
+			i++;
+		}
 	}
+	
+	private void deplacer(Joueur currentJoueur) {
+		
+		int roll = sumRolls();
+		
+		for(CarteLieu cl : lieux) {
+			if(cl.coordinatesContains(roll)){
+				
+				currentJoueur.deplacer(cl);
+				break;
+			}
+		}
+	}
+	
 	
 	public void attaquer(Joueur joueur1, Joueur joueur2) {
 		
@@ -79,16 +102,13 @@ public class Plateau {
 		return (int) Math.floor(Math.random() * 3)+1;
 	}
 	
-	public int rollDices4() {
-		return Math.abs(roll4() - roll4());
-	}
-	
-	public int rollDices6() {
-		return roll6() + roll6();
-	}
-	
 	public int roll6() {
 		return (int) Math.floor(Math.random() * 5)+1;
+	}
+	
+	public int sumRolls()
+	{
+		return roll6() + roll4();
 	}
 	
 	public List<Joueur> getJoueurs() {
