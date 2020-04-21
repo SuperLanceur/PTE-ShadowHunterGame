@@ -13,8 +13,8 @@ import main.Plateau;
 
 public class Daniel extends CartePersonnage{
 
-	public Daniel(String nom, int pv, Joueur joueur) throws Exception {
-		super(nom, pv, joueur);
+	public Daniel(String nom, String desc ,int hp, Joueur joueur) throws Exception {
+		super(nom,desc, hp, joueur);
 		
 		int nbShadow = joueur.getPlateau().getStat(Plateau.NB_SHADOWS);
 		

@@ -9,13 +9,16 @@ import main.Joueur;
 
 public class CarteLieu extends CarteEffet{
 	
+	
+
 	private List<Joueur> listeJoueurs;
 	private Point coordinates;
 	private CarteLieu voisin;
 	
-	public CarteLieu(Point coordinates) {
+	public CarteLieu(String nom, String description, Point p) {
+		super(nom, description);
+		this.coordinates = p;
 		this.listeJoueurs = new ArrayList<Joueur>();
-		this.coordinates = coordinates;
 	}
 
 	public void utiliser(Joueur j) {
@@ -38,10 +41,13 @@ public class CarteLieu extends CarteEffet{
 
 	public void remove(Joueur joueur) {
 		
-		if(this.listeJoueurs.contains(joueur))
-		{
+		if(this.listeJoueurs.contains(joueur)){
 			this.listeJoueurs.remove(joueur);
 		}	
+	}
+
+	public void setVoisin(CarteLieu cl) {
+		this.voisin = cl;
 	}
 
 

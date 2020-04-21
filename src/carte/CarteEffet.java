@@ -5,6 +5,11 @@ import effet.Effet;
 
 public abstract class CarteEffet extends Carte{
 
+	public CarteEffet(String nom, String description) {
+		super(nom, description);
+
+	}
+
 	private Effet effet;
 	
 	

@@ -11,8 +11,8 @@ public class CarteLieuType<T extends Type> extends CarteLieu{
 	private Pioche<T> pioche;
 	
 	
-	public CarteLieuType(Point coordinates,Pioche<T> pioche) {
-		super(coordinates);
+	public CarteLieuType(String name, String description ,Point coordinates,Pioche<T> pioche) {
+		super(name , description , coordinates);
 		this.pioche = pioche;
 	}
 

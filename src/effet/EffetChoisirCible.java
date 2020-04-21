@@ -12,7 +12,7 @@ public class EffetChoisirCible extends Effet{
 	@Override
 	public void utiliser(Joueur joueur) {
 		
-		Joueur j2 = joueur.choisirAdjacents();
+		Joueur j2 = joueur.choisirTous();
 		Action action = this.getAction();
 		
 		action.affecte(joueur, j2);

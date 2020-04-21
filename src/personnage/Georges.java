@@ -7,7 +7,7 @@ public class Georges extends Unique{
 
 	//constructeur
 	public Georges(String nom, int hp, Joueur joueur) {
-		super(nom, hp, joueur);
+		super(nom, nom, hp, joueur);
 		this.setCondition(new WinConditionHunter());
 	}
 

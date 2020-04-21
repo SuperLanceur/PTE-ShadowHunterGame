@@ -6,8 +6,8 @@ public class Unique extends CartePersonnage{
 	
 	private boolean capaciteUsed;
 	
-	public Unique(String nom, int hp, Joueur joueur) {
-		super(nom, hp, joueur);
+	public Unique(String nom, String desc ,int hp, Joueur joueur) {
+		super(nom,desc, hp, joueur);
 		
 	}
 

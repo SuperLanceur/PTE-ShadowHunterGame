@@ -1,6 +1,7 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,6 +9,7 @@ import java.util.Map;
 import carte.CarteLieu;
 
 public class Plateau {
+	
 	private List<Joueur> joueurs;
 	private List<CarteLieu> lieux;
 	
@@ -41,11 +43,14 @@ public class Plateau {
 		this.stats.put(PARTIE_FINIE, 0);
 		
 		
+		
+		
 	}	
 	
 	public void jeu() {
-		int nbJoueurs = this.joueurs.size();
-		int i = 0;
+		
+		int nbJoueurs = this.joueurs.size()-1;
+		int i = 1;
 		
 		while(true) {
 			
@@ -65,15 +70,18 @@ public class Plateau {
 		}
 	}
 	
-	private void deplacer(Joueur currentJoueur) {
+	public void deplacer(Joueur currentJoueur) {
 		
 		int roll = sumRolls();
+		boolean attributed = false;
 		
-		for(CarteLieu cl : lieux) {
-			if(cl.coordinatesContains(roll)){
-				
-				currentJoueur.deplacer(cl);
-				break;
+		while(!attributed) {
+			for(CarteLieu cl : lieux) {
+				if(cl.coordinatesContains(roll) && currentJoueur.getCarteLieu() != cl){
+					currentJoueur.deplacer(cl);
+					attributed = true;
+					break;
+				}
 			}
 		}
 	}
@@ -130,5 +138,30 @@ public class Plateau {
 			return -1;
 		}
 		
+	}
+	
+	public void shuffleLieux(){
+		
+		this.lieux.forEach(x -> x.setVoisin(null));
+		
+		if(lieux.size() % 2 == 0) {
+			
+			Collections.shuffle(lieux);
+			
+			for(int i = 0; i < lieux.size()-2; i += 2) {
+				
+				lieux.get(i).setVoisin(lieux.get(i+2));
+				lieux.get(i+2).setVoisin(lieux.get(i));
+			}
+			
+		}else {
+			
+			//TODO Throw exception 
+		}
+	}
+	
+	public void setLieux(List<CarteLieu> lieux) {
+		this.lieux = lieux;
+		shuffleLieux();
 	}
 }

@@ -5,8 +5,8 @@ import main.Joueur;
 
 public class Metamorphe extends CartePersonnage{
 
-	public Metamorphe(String nom, int pv, Joueur joueur) {
-		super(nom, pv, joueur);
+	public Metamorphe(String nom, String desc ,int hp, Joueur joueur) {
+		super(nom,desc, hp, joueur);
 		this.setCondition(new WinConditionShadow());
 	}
 	

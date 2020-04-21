@@ -109,6 +109,7 @@ public class Joueur {
 		if(blessure > 0)
 		{
 			j2.addStat(PLAYER_HP, -blessure);
+			this.cartePersonnage.attaquer(j2);
 		}
 	}
 	
@@ -177,13 +178,21 @@ public class Joueur {
 
 	public void deplacer(CarteLieu cl) {
 
-		if(this.carteLieu != null)
-		{
+		if(this.carteLieu != null){
 			this.carteLieu.remove(this);
 		}
 		
 		this.carteLieu = cl;
 		
+	}
+
+	public Joueur choisirTous() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public CarteLieu getCarteLieu() {
+		return this.carteLieu;
 	}
 
 }

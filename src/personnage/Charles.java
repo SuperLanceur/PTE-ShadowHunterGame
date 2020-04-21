@@ -5,8 +5,8 @@ import main.Joueur;
 public class Charles extends CartePersonnage{
 	
 	//constructeur
-	public Charles(String nom, int hp, Joueur joueur) {
-		super(nom, hp, joueur);
+	public Charles(String nom, String desc ,int hp, Joueur joueur) {
+		super(nom,desc, hp, joueur);
 	}
 
 	//m�thode

@@ -10,8 +10,8 @@ import main.Joueur;
 
 public class Vampire extends CartePersonnage{
 	
-	public Vampire(String nom, int hp, Joueur joueur) {
-		super(nom, hp, joueur);
+	public Vampire(String nom, String desc ,int hp, Joueur joueur) {
+		super(nom,desc, hp, joueur);
 		
 		Action action = new ActionAltererStatistiquesJoueur("HP",2,true);
 		Effet effet = new EffetSelf(action);
@@ -27,7 +27,7 @@ public class Vampire extends CartePersonnage{
 	
 	/**
 	 * Lance l'action d'attaquer de Vampire 
-	 * <br><br> Effet :
+	 * <br><br> Effet : Soin 2 PV
 	 * @param j Le joueur qui subit l'attaque
 	 * @return void
 	 */

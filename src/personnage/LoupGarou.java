@@ -5,8 +5,8 @@ import main.Joueur;
 
 public class LoupGarou extends CartePersonnage {
 	//constructeur
-	public LoupGarou(String nom, int hp, Joueur joueur) {
-		super(nom, hp, joueur);
+	public LoupGarou(String nom, String desc ,int hp, Joueur joueur) {
+		super(nom,desc, hp, joueur);
 
 		this.setCondition(new WinConditionShadow());
 	}

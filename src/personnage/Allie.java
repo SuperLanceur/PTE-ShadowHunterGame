@@ -16,7 +16,7 @@ import main.Plateau;
 public class Allie extends Unique{
 	
 	public Allie(Joueur joueur) {
-		super("ALLIE", 8, joueur);
+		super("ALLIE","desc", 8, joueur);
 		
 		Action action = new ActionAltererStatistiquesJoueur("HP",this.getPv(),false);
 		Effet effet = new EffetSelf(action);
