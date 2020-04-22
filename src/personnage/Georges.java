@@ -19,7 +19,7 @@ public class Georges extends Unique{
 			Plateau p = joueur.getPlateau();
 			int roll = p.roll4();
 			
-			Joueur joueur2 = joueur.choisirTous();
+			Joueur joueur2 = joueur.choisiParmisTous();
 			super.attaquer(joueur2, roll);
 		}
 	}
