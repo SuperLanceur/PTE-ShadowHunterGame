@@ -1,16 +1,15 @@
 package ihm;
 
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class PopUp {
 	private Scene scene; 
 	private Stage popupwindow;
-	private Pane pane;
 	
-	public PopUp (Pane p, String titre) {
+	public PopUp (Parent p, String titre) {
 		
 		popupwindow = new Stage();
 		popupwindow.initModality(Modality.APPLICATION_MODAL);

@@ -10,7 +10,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -19,7 +18,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
 import main.Joueur;
 import main.JoueurVirtuel;
 
@@ -80,6 +78,7 @@ public class PlayersController implements Initializable{
 	@FXML
 	public void commencerJeux(MouseEvent mouseEvent) throws IOException{
 		//ajout des joueurs finalement selectionner
+		int nbJoueur = 0;
 		for (HBox hb : ligne) {
 			TextField tf = (TextField) hb.getChildren().get(0);
 			CheckBox cb = (CheckBox) hb.getChildren().get(2);
@@ -89,13 +88,13 @@ public class PlayersController implements Initializable{
 					j = new JoueurVirtuel(tf.getText());
 				else
 					j = new Joueur(tf.getText());
-				
-				joueur.add(j);
-			}
+				nbJoueur++;
+			}else j = null;
+			joueur.add(j);
 		}
 		
-		if (joueur.size() <4) {
-			Alert alert = new Alert(AlertType.WARNING, "Vous avez moins de 4 joueurs !");
+		if (nbJoueur <4) {
+			Alert alert = new Alert(AlertType.WARNING, "Il faut au moins de 4 joueurs !");
 	        alert.showAndWait();
 		}else {
 			System.out.println("Lancement du jeu...");
@@ -123,7 +122,7 @@ public class PlayersController implements Initializable{
 	}
 	
 	/**
-	 * Retire le joueur précedemnt ajouter
+	 * Retire le joueur précedement ajouter
 	 * 
 	 * @param indice : pour savoir quel bouton a été cliqué
 	 */

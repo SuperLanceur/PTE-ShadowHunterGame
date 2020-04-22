@@ -11,17 +11,132 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="background" stylesheets="@style/menu.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.PlayersController">
-   <bottom>
-      <Button fx:id="btnCommencer" mnemonicParsing="false" onMouseClicked="#commencerJeux" styleClass="bouton" stylesheets="@style/menu.css" text="Commencer la partie" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="10.0" />
-         </BorderPane.margin>
-         <font>
-            <Font size="24.0" />
-         </font></Button>
-   </bottom>
-   <top>
-      <VBox alignment="CENTER" prefHeight="119.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+   <left>
+      <VBox alignment="CENTER" prefHeight="688.0" prefWidth="240.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox fx:id="hb5" alignment="CENTER" prefHeight="67.0" prefWidth="340.0" rotate="90.0">
+               <children>
+                  <TextField>
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </TextField>
+                  <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" styleClass="bouton" stylesheets="@style/menu.css" text="+">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets right="5.0" />
+                     </padding>
+                  </Button>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="150.0" left="-100.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox fx:id="hb7" alignment="CENTER" rotate="90.0">
+               <children>
+                  <TextField prefHeight="51.0" prefWidth="298.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </TextField>
+                  <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" styleClass="bouton" stylesheets="@style/menu.css" text="+">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets right="5.0" />
+                     </padding>
+                  </Button>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="-100.0" top="200.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </left>
+   <right>
+      <VBox alignment="CENTER" prefHeight="688.0" prefWidth="248.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox fx:id="hb6" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" rotate="270.0">
+               <children>
+                  <TextField>
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </TextField>
+                  <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" styleClass="bouton" stylesheets="@style/menu.css" text="+">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets right="5.0" />
+                     </padding>
+                  </Button>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="150.0" right="-100.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox fx:id="hb8" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" rotate="270.0">
+               <children>
+                  <TextField>
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </TextField>
+                  <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="100.0" styleClass="bouton" stylesheets="@style/menu.css" text="+">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets right="5.0" />
+                     </padding>
+                  </Button>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+               <VBox.margin>
+                  <Insets right="-100.0" top="150.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </right>
+   <center>
+      <VBox alignment="CENTER" prefHeight="486.0" prefWidth="392.0" BorderPane.alignment="CENTER">
          <children>
             <Label styleClass="titre" stylesheets="@style/menu.css" text="Entrez le nom des joueurs">
                <font>
@@ -33,199 +148,129 @@
                   <Font size="36.0" />
                </font>
             </Label>
-            <Label styleClass="titre" stylesheets="@style/menu.css" text="Cochez la case pour que le joueur soit un joueur virtuel">
+            <Label styleClass="titre" stylesheets="@style/menu.css" text="Cochez la case pour avoir un joueur virtuel">
                <font>
                   <Font size="36.0" />
                </font></Label>
+            <Button fx:id="btnCommencer" mnemonicParsing="false" onMouseClicked="#commencerJeux" styleClass="bouton" stylesheets="@style/menu.css" text="Commencer la partie">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Button>
          </children>
       </VBox>
+   </center>
+   <top>
+      <HBox alignment="CENTER" prefHeight="110.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox fx:id="hb1" alignment="CENTER" rotate="180.0">
+               <children>
+                  <TextField>
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </TextField>
+                  <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" styleClass="bouton" stylesheets="@style/menu.css" text="+">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+            </HBox>
+            <HBox fx:id="hb2" alignment="CENTER" rotate="180.0">
+               <children>
+                  <TextField>
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </TextField>
+                  <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" styleClass="bouton" stylesheets="@style/menu.css" text="+">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin>
+            </HBox>
+         </children>
+      </HBox>
    </top>
-   <left>
-      <VBox alignment="CENTER" prefHeight="559.0" prefWidth="642.0" BorderPane.alignment="CENTER">
+   <bottom>
+      <VBox alignment="CENTER" prefHeight="94.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox fx:id="hb1" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <TextField>
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </TextField>
-                  <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="+">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
+                  <HBox fx:id="hb3" alignment="CENTER">
+                     <children>
+                        <TextField prefHeight="51.0" prefWidth="298.0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </TextField>
+                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" styleClass="bouton" stylesheets="@style/menu.css" text="+">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <CheckBox mnemonicParsing="false">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </CheckBox>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="hb4" alignment="CENTER">
+                     <children>
+                        <TextField>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </TextField>
+                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" styleClass="bouton" stylesheets="@style/menu.css" text="+">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <CheckBox mnemonicParsing="false">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </CheckBox>
+                     </children>
                      <HBox.margin>
-                        <Insets left="10.0" right="10.0" />
+                        <Insets left="30.0" />
                      </HBox.margin>
-                  </Button>
-                  <CheckBox mnemonicParsing="false">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </CheckBox>
-               </children>
-            </HBox>
-            <HBox fx:id="hb2" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <TextField>
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </TextField>
-                  <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="+">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="10.0" right="10.0" />
-                     </HBox.margin>
-                  </Button>
-                  <CheckBox mnemonicParsing="false">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </CheckBox>
-               </children>
-            </HBox>
-            <HBox fx:id="hb3" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <TextField>
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </TextField>
-                  <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="+">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="10.0" right="10.0" />
-                     </HBox.margin>
-                  </Button>
-                  <CheckBox mnemonicParsing="false">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </CheckBox>
-               </children>
-            </HBox>
-            <HBox fx:id="hb4" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <TextField>
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </TextField>
-                  <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="+">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="10.0" right="10.0" />
-                     </HBox.margin>
-                  </Button>
-                  <CheckBox mnemonicParsing="false">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </CheckBox>
+                  </HBox>
                </children>
             </HBox>
          </children>
       </VBox>
-   </left>
-   <right>
-      <VBox alignment="CENTER" prefHeight="559.0" prefWidth="694.0" BorderPane.alignment="CENTER">
-         <children>
-            <HBox fx:id="hb5" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <TextField>
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </TextField>
-                  <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="+">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="10.0" right="10.0" />
-                     </HBox.margin>
-                  </Button>
-                  <CheckBox mnemonicParsing="false">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </CheckBox>
-               </children>
-            </HBox>
-            <HBox fx:id="hb6" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <TextField>
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </TextField>
-                  <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="+">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="10.0" right="10.0" />
-                     </HBox.margin>
-                  </Button>
-                  <CheckBox mnemonicParsing="false">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </CheckBox>
-               </children>
-            </HBox>
-            <HBox fx:id="hb7" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <TextField>
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </TextField>
-                  <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="+">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="10.0" right="10.0" />
-                     </HBox.margin>
-                  </Button>
-                  <CheckBox mnemonicParsing="false">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </CheckBox>
-               </children>
-            </HBox>
-            <HBox fx:id="hb8" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <TextField>
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </TextField>
-                  <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="+">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="10.0" right="10.0" />
-                     </HBox.margin>
-                  </Button>
-                  <CheckBox mnemonicParsing="false">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </CheckBox>
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-   </right>
+   </bottom>
 </BorderPane>
