@@ -22,8 +22,7 @@ public class Pioche<T extends Type> {
 		Collections.shuffle(cartesPiochables);
 	}
 	
-	public CartePiochable<?> piocher() {
-		
+	public CartePiochable<?> piocher() {	
 		return cartesPiochables.pop();
 	}
 }

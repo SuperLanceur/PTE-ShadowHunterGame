@@ -31,8 +31,8 @@ public class Daniel extends CartePersonnage{
 		this.setCondition(winCondition);
 	}
 	
-	
 	public void utiliser() {
 		this.getJoueur().reveal();
 	}
+	
 }

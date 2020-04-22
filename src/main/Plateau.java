@@ -162,7 +162,6 @@ public class Plateau {
 			
 		}else {
 			
-			//TODO Throw exception 
 		}
 	}
 	

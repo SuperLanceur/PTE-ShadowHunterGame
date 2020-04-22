@@ -1,6 +1,6 @@
 package effet.action;
 
-import main.Equipement;
+import carte.Equipement;
 import main.Joueur;
 
 public class ActionVoler extends Action{

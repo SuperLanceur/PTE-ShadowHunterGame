@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import carte.CarteLieu;
+import carte.Equipement;
 import effet.Effet;
 import personnage.CartePersonnage;
 

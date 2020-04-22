@@ -41,24 +41,24 @@ class ActionAttaquerTest {
 	/*
 	 * L'attaque du plateau se base sur des tirages aléatoires de dés.
 	 * La réussite moyenne d'une attaque est d'environ 80 %
-	 * En autorisant une erreur d'environ 2 %
+	 * En autorisant une erreur d'environ 5 %
 	 * 
 	 * On vérifie que la différence du nombre d'attaques réussie avec la moyenne 
-	 * des attaques réussie est bien inférieure à 2 %.
+	 * des attaques réussie est bien inférieure à 5 %.
 	 */
 	@Test
 	void attaquer_BaissePV() {
 	
-		int error = 2;
+		int error = 5;
 		ActionAttaquer aa = new ActionAttaquer();
 		
 		int pvBaseJ2 = 100;
 		
-		for(int j = 0; j< 1000; j++) {
+		for(int j = 0; j< 100; j++) {
 		
 			int countNb = 0;
 			
-			for(int i = 0; i < 10000; i++)
+			for(int i = 0; i < 2000; i++)
 			{
 				j2.setStat(Joueur.PLAYER_HP, pvBaseJ2);
 				aa.affecte(j1, j2);
@@ -66,7 +66,7 @@ class ActionAttaquerTest {
 				if(j2.getStat(Joueur.PLAYER_HP) < pvBaseJ2) countNb++;
 			}
 			
-			countNb /= 100;
+			countNb /= 20;
 			assertTrue(Math.abs(countNb-80) <= error);
 			}
 	}
