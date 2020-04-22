@@ -15,22 +15,18 @@ public class GestionnaireEquipements {
 		this.equipements = new ArrayList<Equipement>();
 	}
 	
-	public void ajouterEquipement(Equipement e) {
+	public void ajouter(Equipement e) {
 		this.equipements.add(e);
 		e.utiliser(this.j);
 		this.j.addToStat(Joueur.PLAYER_NB_EQUIPEMENTS, 1);
 	}
 	
-	public void retirerEquipement(Equipement e) {
+	public void retirer(Equipement e) {
 		if(this.equipements.contains(e)) {
 			e.reverse(j);
 			this.equipements.remove(e);
 			this.j.addToStat(Joueur.PLAYER_NB_EQUIPEMENTS, -1);
 		}
-	}
-	
-	public void reverseEffect(Equipement e) {
-		e.reverse(j);
 	}
 
 	public List<Equipement> getEquipements() {

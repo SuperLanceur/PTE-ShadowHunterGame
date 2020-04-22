@@ -1,7 +1,12 @@
 package main;
 
+import java.util.List;
+
+import effet.Effet;
+
 public class GestionnaireJeu {
 	private Plateau plateau;
+	private View view;
 	
 	public GestionnaireJeu (Plateau p) {
 		plateau = p;
@@ -24,4 +29,27 @@ public class GestionnaireJeu {
 		return null;
 	}
 
+	public Joueur choisirParmisTous(Joueur joueur, List<Joueur> joueurs) {
+		return joueur;
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Effet choisirEffet(Joueur joueur, Effet[] effets) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Joueur choisirAdjacents(Joueur joueur, List<Joueur> joueurs) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean choisir(Joueur joueur) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+
+	
 }

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import carte.CarteLieu;
 import carte.Equipement;
+import carte.EquipementStat;
 import effet.Effet;
 import personnage.CartePersonnage;
 
@@ -40,7 +41,7 @@ public class Joueur {
 	public Joueur(String nom) {
 		this.nom = nom;
 		this.revele = false;
-		
+		this.gestionnaireEquipements = new GestionnaireEquipements(this);
 		
 		stats = new HashMap<>();
 		
@@ -49,7 +50,8 @@ public class Joueur {
 		
 		//stats.put(PLAYER_HP, char.getHP());
 		//stats.put(PLAYER_TURN, 1);		
-		//stats.put(PLAYER_DAMAGE, 0); - dégats en +
+		stats.put(PLAYER_DAMAGE, 0);
+		stats.put(PLAYER_NB_EQUIPEMENTS, 0);
 		//stats.put(PLAYER_RESISTANCE, 0);
 		//stats.put(PLAYER_REVEAL, 0);
 		//stats.put(PLAYER_IMMUNITY, 0); 
@@ -72,6 +74,7 @@ public class Joueur {
 		if(stats.containsKey(key)) {
 			return stats.get(key);
 		}else {
+			
 			return -1;
 		}		
 	}
@@ -90,8 +93,8 @@ public class Joueur {
 
 	public void voler(Joueur j2, Equipement equipement) {
 		
-		j2.gestionnaireEquipements.retirerEquipement(equipement);
-		this.gestionnaireEquipements.ajouterEquipement(equipement);	}
+		j2.gestionnaireEquipements.retirer(equipement);
+		this.gestionnaireEquipements.ajouter(equipement);	}
 
 	public Equipement choisir(List<Equipement> equipements) {
 		// TODO Auto-generated method stub
@@ -123,22 +126,28 @@ public class Joueur {
 	public void addToStat(String key, int valeur)
 	{
 		int valeurBase = this.getStat(key);
-		this.setStat(Joueur.PLAYER_HP,valeurBase+valeur);
+		this.setStat(key,valeurBase+valeur);
 	}
 
 
 	public Plateau getPlateau() {
 		return this.plateau;
 	}
-
+	
+	public boolean choisir() {
+		return this.plateau.choisir(this);
+	}
+	
 	public Joueur choisirAdjacents() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.plateau.choisirAdjacents(this);
 	}
 
 	public Effet choisir(Effet[] effets) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.plateau.choisirEffet(this,effets);
+	}
+	
+	public Joueur choisiParmisTous() {
+		return this.plateau.choisirParmisTous(this);
 	}
 
 	public boolean getRevele() {
@@ -162,10 +171,7 @@ public class Joueur {
 		this.plateau = plateau2;
 	}
 
-	public boolean choisir() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
 
 	public void utiliserEffetLieu() {
 		this.carteLieu.utiliser(this);	
@@ -181,10 +187,7 @@ public class Joueur {
 		
 	}
 
-	public Joueur choisirTous() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	public CarteLieu getCarteLieu() {
 		return this.carteLieu;
@@ -200,6 +203,14 @@ public class Joueur {
 	
 	public void setRevele(boolean b) {
 		this.revele = b;
+	}
+
+	public void ajouterEquipement(Equipement equipement) {
+		this.gestionnaireEquipements.ajouter(equipement);	
+	}
+
+	public void retirerEquipement(Equipement equipement) {
+		this.gestionnaireEquipements.retirer(equipement);	
 	}
 
 }
