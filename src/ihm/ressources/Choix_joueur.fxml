@@ -41,7 +41,7 @@
       </VBox>
    </top>
    <left>
-      <VBox alignment="CENTER" prefHeight="559.0" prefWidth="642.0" BorderPane.alignment="CENTER">
+      <VBox fx:id="vb1" alignment="CENTER" prefHeight="559.0" prefWidth="642.0" BorderPane.alignment="CENTER">
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
@@ -135,7 +135,7 @@
       </VBox>
    </left>
    <right>
-      <VBox alignment="CENTER" prefHeight="559.0" prefWidth="694.0" BorderPane.alignment="CENTER">
+      <VBox fx:id="vb2" alignment="CENTER" prefHeight="559.0" prefWidth="694.0" BorderPane.alignment="CENTER">
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
