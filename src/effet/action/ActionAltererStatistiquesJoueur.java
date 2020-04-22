@@ -45,4 +45,8 @@ public class ActionAltererStatistiquesJoueur extends Action{
 			j2.setStat(key, valeur);
 		}
 	}
+	
+	public ActionAltererStatistiquesJoueur getReverseAction() {
+		return new ActionAltererStatistiquesJoueur(key, -valeur, true);
+	}
 }

@@ -75,11 +75,7 @@ public class Joueur {
 			return -1;
 		}		
 	}
-	
-	
-	public int getNbEquipments() {
-		return gestionnaireEquipements.getNbEquipments();
-	}
+
 
 	public List<Joueur> getJoueursAdjacents() {
 		
@@ -88,17 +84,16 @@ public class Joueur {
 		return joueurs;
 	}
 
-	public Equipement[] getEquipements() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Equipement> getEquipements() {
+		return this.gestionnaireEquipements.getEquipements();
 	}
 
 	public void voler(Joueur j2, Equipement equipement) {
-		// TODO Auto-generated method stub
 		
-	}
+		j2.gestionnaireEquipements.retirerEquipement(equipement);
+		this.gestionnaireEquipements.ajouterEquipement(equipement);	}
 
-	public Equipement choisir(Equipement[] equipements) {
+	public Equipement choisir(List<Equipement> equipements) {
 		// TODO Auto-generated method stub
 		return null;
 	}

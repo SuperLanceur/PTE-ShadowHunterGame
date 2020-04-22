@@ -16,8 +16,6 @@ import personnage.Daniel;
 
 class ConditionClassPersonnageTest {
 
-	
-	
 	@Test
 	public void conditionClass_RenvoieAppartenancePersonnage() throws Exception {
 		
