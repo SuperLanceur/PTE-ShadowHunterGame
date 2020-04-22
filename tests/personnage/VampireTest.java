@@ -33,7 +33,7 @@ class VampireTest {
 		joueurs.add(j2);
 
 		p = new Plateau(joueurs);
-		v = new Vampire("Vampire",12,j1,null);
+		v = new Vampire(j1);
 		a = new Allie(j2);
 	}
 	
