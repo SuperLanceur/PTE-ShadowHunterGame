@@ -1,5 +1,7 @@
 package ihm.controller;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,8 +22,14 @@ public class MenuController implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		//Image image = new Image("../ressources/img/logo.png");
-		//titre.setImage(image);
+		FileInputStream input;
+		try {
+			input = new FileInputStream("src\\ihm\\ressources\\img\\logo.png");
+			Image image = new Image(input);
+			titre.setImage(image);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FXML

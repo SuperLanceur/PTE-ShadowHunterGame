@@ -6,14 +6,13 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
 import main.Joueur;
 
-public class AfficherCarteController implements Initializable{
+public class RevelationController implements Initializable{
 	
-	@FXML private Label nom;
-	@FXML private Label competence;
-	@FXML private Pane root;
+	@FXML private Label nomJoueur;
+	@FXML private Label nomPerso;
+	@FXML private Label factionPerso;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -21,7 +20,8 @@ public class AfficherCarteController implements Initializable{
 
 	
 	public void showInformation(Joueur j) {
-		//nom.setText(j.getCartePersonnage().getNom());
-		//competence.setText(j.getCartePersonnage().getDescription());
+		nomJoueur.setText(j.getNom());
+		//nomPerso.setText(j.getCartePersonnage().getNom());
+		//factionPerso.setText(j.getCartePersonnage().getDescription());
 	}
 }

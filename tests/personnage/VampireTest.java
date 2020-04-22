@@ -33,7 +33,7 @@ class VampireTest {
 		joueurs.add(j2);
 
 		p = new Plateau(joueurs);
-		v = new Vampire(j1);
+		v = new Vampire("Vampire",12,j1,null);
 		a = new Allie(j2);
 	}
 	
@@ -59,6 +59,7 @@ class VampireTest {
 				j2.setStat(Joueur.PLAYER_HP, pvAllieBase);
 				
 				p.attaquer(j1, j2);
+				
 				// Vampire n'a pas récupéré de pv's lors de son attaque
 				assertTrue(j1.getStat(Joueur.PLAYER_HP) == 0);
 				

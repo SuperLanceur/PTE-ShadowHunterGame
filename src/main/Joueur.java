@@ -196,7 +196,6 @@ public class Joueur {
 	public String getNom() {
 		return this.nom;
 	}
-
 	public void reveal() {
 		this.revele = true;
 	}

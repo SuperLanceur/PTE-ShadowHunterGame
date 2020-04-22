@@ -78,6 +78,7 @@ public class PlayersController implements Initializable{
 	@FXML
 	public void commencerJeux(MouseEvent mouseEvent) throws IOException{
 		//ajout des joueurs finalement selectionner
+		int nbJoueur = 0;
 		for (HBox hb : ligne) {
 			TextField tf = (TextField) hb.getChildren().get(0);
 			CheckBox cb = (CheckBox) hb.getChildren().get(2);
@@ -87,13 +88,13 @@ public class PlayersController implements Initializable{
 					j = new JoueurVirtuel(tf.getText());
 				else
 					j = new Joueur(tf.getText());
-				
-				joueur.add(j);
-			}
+				nbJoueur++;
+			}else j = null;
+			joueur.add(j);
 		}
 		
-		if (joueur.size() <4) {
-			Alert alert = new Alert(AlertType.WARNING, "Vous avez moins de 4 joueurs !");
+		if (nbJoueur <4) {
+			Alert alert = new Alert(AlertType.WARNING, "Il faut au moins de 4 joueurs !");
 	        alert.showAndWait();
 		}else {
 			System.out.println("Lancement du jeu...");
@@ -121,7 +122,7 @@ public class PlayersController implements Initializable{
 	}
 	
 	/**
-	 * Retire le joueur pr�cedemnt ajouter
+	 * Retire le joueur précedemnt ajouter
 	 * 
 	 * @param indice : pour savoir quel bouton a �t� cliqu�
 	 */

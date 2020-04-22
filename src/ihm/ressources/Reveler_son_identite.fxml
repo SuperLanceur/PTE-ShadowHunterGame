@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.RevelationController">
    <children>
       <Pane layoutX="33.0" layoutY="41.0" prefHeight="325.0" prefWidth="561.0" style="-fx-border-color: blue;">
          <children>
@@ -15,7 +15,7 @@
                <children>
                   <HBox prefHeight="36.0" prefWidth="334.0">
                      <children>
-                        <Label prefHeight="35.0" prefWidth="75.0" text="Joueur x " textFill="WHITE">
+                        <Label fx:id="nomJoueur" prefHeight="35.0" prefWidth="75.0" text="Joueur x " textFill="WHITE">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -34,7 +34,7 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="34.0" prefWidth="182.0" text="*nom de personnage*" textFill="WHITE">
+                        <Label fx:id="nomPerso" prefHeight="34.0" prefWidth="182.0" text="*nom de personnage*" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -48,7 +48,7 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="34.0" prefWidth="233.0" text="*insérer le nom de la faction*" textFill="WHITE">
+                        <Label fx:id="factionPerso" prefHeight="34.0" prefWidth="233.0" text="*insérer le nom de la faction*" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
                            </font>

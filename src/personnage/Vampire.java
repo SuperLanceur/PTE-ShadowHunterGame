@@ -14,16 +14,17 @@ public class Vampire extends CartePersonnage{
 		//
 	}
 
-	public void utiliser(Joueur j)
-	{
-		//this.getEffet().utiliser()
-	}
-	
 	//m�thode
 	public void attaquer(Joueur j) {
 	
 		// attaquer(j)
 		//utiliser(this.joueur);
+		
+	}
+
+	@Override
+	public void utiliser() {
+		// TODO Auto-generated method stub
 		
 	}
 }
