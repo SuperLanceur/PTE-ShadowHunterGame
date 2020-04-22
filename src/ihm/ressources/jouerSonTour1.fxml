@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="589.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="589.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.JouerSonTour1Controller">
    <children>
       <Label layoutX="265.0" layoutY="29.0" text="C'est au tour du ">
          <font>
@@ -16,7 +16,7 @@
       </Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="221.0" layoutY="135.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
       <Polygon fill="DODGERBLUE" layoutX="551.0" layoutY="216.0" points="-75.79998779296875, 98.80001831054688, 97.0, 98.80001831054688, 8.20001220703125, -59.199981689453125" stroke="BLACK" strokeType="INSIDE" />
-      <Button layoutX="401.0" layoutY="394.0" mnemonicParsing="false" text="Lancer les dés" />
+      <Button layoutX="401.0" layoutY="394.0" mnemonicParsing="false" onMouseClicked="#lancerDes" text="Lancer les dés" />
       <Label layoutX="275.0" layoutY="222.0" text="Score dés 1">
          <font>
             <Font size="18.0" />

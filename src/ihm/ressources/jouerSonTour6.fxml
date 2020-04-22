@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="419.0" prefWidth="614.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="419.0" prefWidth="614.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.JouerSonTour6Controller">
    <children>
       <HBox alignment="CENTER" layoutX="97.0" layoutY="49.0" prefHeight="340.0" prefWidth="489.0" spacing="60.0">
          <children>
@@ -19,9 +18,9 @@
             </Label>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="60.0">
                <children>
-                  <Button mnemonicParsing="false" text="Carte vision" />
-                  <Button mnemonicParsing="false" text="Carte ténébre" />
-                  <Button mnemonicParsing="false" text="Carte lumière" />
+                  <Button mnemonicParsing="false" onMouseClicked="#piocherVision" text="Carte vision" />
+                  <Button mnemonicParsing="false" onMouseClicked="#piocherTenebre" text="Carte ténébre" />
+                  <Button mnemonicParsing="false" onMouseClicked="#piocherTenebre" text="Carte lumière" />
                </children>
             </VBox>
          </children>
