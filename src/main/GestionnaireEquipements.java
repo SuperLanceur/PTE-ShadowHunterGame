@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import carte.Equipement;
+import carte.EquipementStat;
 import condition.Condition;
 
 public class GestionnaireEquipements {
@@ -47,6 +48,17 @@ public class GestionnaireEquipements {
 	// pour methode choisir de joueur
 	public Equipement[] getArrayEquipements() {
 		return (Equipement[]) equipements.values().toArray();
+	}
+	
+	public int getDamageUpdate() {
+		int res = 0;
+		Equipement[] e = (Equipement[]) equipements.values().toArray();
+		for(int i = 0; i<equipements.values().toArray().length;i++) {
+			if(e[i] instanceof EquipementStat) {
+				//res+=(EquipementStat)e[i].get
+			}
+		}
+		return res;
 	}
 
 }
