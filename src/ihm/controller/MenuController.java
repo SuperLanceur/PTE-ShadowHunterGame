@@ -12,16 +12,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.AnchorPane;
 
 public class MenuController implements Initializable{
-	@FXML private Pane rootPane;
+	@FXML private AnchorPane rootPane;
 	@FXML private ImageView titre;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+		
 		FileInputStream input;
 		try {
 			input = new FileInputStream("src\\ihm\\ressources\\img\\logo.png");
@@ -34,8 +33,8 @@ public class MenuController implements Initializable{
 
 	@FXML
 	public void commencerPartie(MouseEvent mouseEvent) throws IOException{
-		System.out.println("Passage à l'�cran de choix des joueurs");
-        BorderPane pane = FXMLLoader.load(getClass().getResource("../ressources/Choix_joueur.fxml"));
+		System.out.println("Passage à l'écran de choix des joueurs");
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("../ressources/Choix_joueur.fxml"));
         rootPane.getChildren().setAll(pane);
     }
     
