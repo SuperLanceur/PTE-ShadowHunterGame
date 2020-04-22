@@ -12,12 +12,16 @@ public abstract class CartePersonnage extends CarteCondition {
 			super(nom, description);
 			this.pv = pv;
 			this.joueur = joueur;
+			joueur.setCartePersonnage(this);
 		}
-		
+
 		public abstract void utiliser();
+			
 		
-		public abstract void attaquer(Joueur j, int blessure);
-		
+		public void attaquer(Joueur j, int blessure) {
+			j.addToStat(Joueur.PLAYER_HP, -blessure);
+		}
+
 		public boolean victoire(){
 			return this.getCondition().isTrue(this.joueur);
 		}
@@ -27,7 +31,7 @@ public abstract class CartePersonnage extends CarteCondition {
 		}
 		
 		public void setJoueur(Joueur j) {
-			joueur=j;
+			this.joueur=j;
 		}
 		
 		public void deplacer() {
@@ -37,5 +41,7 @@ public abstract class CartePersonnage extends CarteCondition {
 		public int getPv() {
 			return pv;
 		}
+
+		
 
 }

@@ -6,12 +6,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="451.0" prefWidth="654.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="451.0" prefWidth="654.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.JouerSonTour3Controller">
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="661.0" spacing="60.0">
          <children>
-            <Button mnemonicParsing="false" text="Joueur 1" />
+            <Button mnemonicParsing="false" onMouseClicked="#choixJoueur" text="Joueur 1" />
             <Button mnemonicParsing="false" text="Joueur 2" />
             <Button mnemonicParsing="false" text="Joueur 3" />
             <Button mnemonicParsing="false" text="Joueur 4" />

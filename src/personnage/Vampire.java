@@ -1,43 +1,29 @@
 package personnage;
 
-import condition.WinConditionShadow;
-import effet.Effet;
-import effet.EffetSelf;
-import effet.action.Action;
-import effet.action.ActionAltererStatistiquesJoueur;
+import condition.Condition;
 import main.Joueur;
 
-
 public class Vampire extends CartePersonnage{
-	
-	public Vampire(String nom, String desc ,int hp, Joueur joueur) {
-		super(nom,desc, hp, joueur);
+	//constructeur
+	public Vampire(String nom, int hp, Joueur joueur, Condition condition) {
+		super(nom, hp, joueur, condition);
+		//this.setEffet(
 		
-		Action action = new ActionAltererStatistiquesJoueur("HP",2,true);
-		Effet effet = new EffetSelf(action);
-		this.setEffet(effet);
-		this.setCondition(new WinConditionShadow());
+		//new EffetSelf( new ActionAltererStatistiquesJoueur("HP",2,true));
+		//);
+		//
 	}
 
-	@Override
-	public void utiliser()
+	public void utiliser(Joueur j)
 	{
-		this.getEffet().utiliser(this.getJoueur());
+		//this.getEffet().utiliser()
 	}
 	
-	/**
-	 * Lance l'action d'attaquer de Vampire 
-	 * <br><br> Effet : Soin 2 PV
-	 * @param j Le joueur qui subit l'attaque
-	 * @return void
-	 */
-	public void attaquer(Joueur j, int blessure) {
+	//m�thode
+	public void attaquer(Joueur j) {
 	
-		if(this.getJoueur().getRevele())
-		{
-			utiliser(this.getJoueur());
-		}	
+		// attaquer(j)
+		//utiliser(this.joueur);
+		
 	}
-	
-	
 }

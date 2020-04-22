@@ -34,8 +34,6 @@ class ActionAltererStatistiquesJoueurTest {
 		
 		j1.setPlateau(p);
 		j2.setPlateau(p);
-		
-		
 	}
 	
 	@Test
@@ -52,7 +50,6 @@ class ActionAltererStatistiquesJoueurTest {
 	void affecte_StatsAddedUp() {
 		
 		int entier = rand.nextInt();
-		
 		int pvBaseJoueur = j2.getStat(Joueur.PLAYER_HP);
 		ActionAltererStatistiquesJoueur aasj = new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, entier, true);
 		aasj.affecte(j1, j2);

@@ -1,6 +1,8 @@
 package effet.action;
 
-import main.Equipement;
+import java.util.List;
+
+import carte.Equipement;
 import main.Joueur;
 
 public class ActionVoler extends Action{
@@ -15,7 +17,7 @@ public class ActionVoler extends Action{
 	@Override
 	public void affecte(Joueur j1, Joueur j2) {
 		
-		Equipement[] equipements = j2.getEquipements();
+		List<Equipement> equipements = j2.getEquipements();
 		
 		// J1 choisit quel équipement voler
 		Equipement equipement = j1.choisir(equipements);

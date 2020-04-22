@@ -2,12 +2,9 @@ package effet.action;
 import main.Joueur;
 public class ActionAltererStatistiquesJoueur extends Action{
 
-	
-	
 	private String key;
 	private int valeur;
 	private boolean ajouter;
-	
 	
 	/**
 	 * Constructeur ActionAltererStatistiquesJoueur
@@ -24,16 +21,15 @@ public class ActionAltererStatistiquesJoueur extends Action{
 	 * ActionAltererStatistiquesJoueur("PV", 2, false)
 	 * <br>
 	 * Change les PV's du joueur à 2
-	 * 
 	 */
+	
 	public ActionAltererStatistiquesJoueur(String key, int valeur, boolean ajouter)
 	{
 		this.key = key;
 		this.valeur = valeur;
 		this.ajouter = ajouter;
 	}
-	
-	
+
 	/**
 	 * Lance l'action de modification de statistiques 
 	 * @param j1 Le joueur qui modifie
@@ -44,12 +40,13 @@ public class ActionAltererStatistiquesJoueur extends Action{
 	{
 		if(ajouter)
 		{
-			j2.setStat(key, j2.getStat(key)+valeur);
+			j2.addToStat(key, valeur);
 		}else {
 			j2.setStat(key, valeur);
 		}
 	}
-
-
 	
+	public ActionAltererStatistiquesJoueur getReverseAction() {
+		return new ActionAltererStatistiquesJoueur(key, -valeur, true);
+	}
 }

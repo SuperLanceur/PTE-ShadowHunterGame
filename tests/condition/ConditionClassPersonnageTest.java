@@ -16,8 +16,6 @@ import personnage.Daniel;
 
 class ConditionClassPersonnageTest {
 
-	
-	
 	@Test
 	public void conditionClass_RenvoieAppartenancePersonnage() throws Exception {
 		
@@ -36,7 +34,7 @@ class ConditionClassPersonnageTest {
 		assertTrue(cc.isTrue(j));
 		
 		
-		CartePersonnage cp2 = new Bob(null, null, 0, j);
+		CartePersonnage cp2 = new Bob(j);
 		// Le personnage ne fait pas partie des classes
 		j.setCartePersonnage(cp2);
 		assertFalse(cc.isTrue(j));

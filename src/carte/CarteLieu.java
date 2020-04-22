@@ -9,8 +9,6 @@ import main.Joueur;
 
 public class CarteLieu extends CarteEffet{
 	
-	
-
 	private List<Joueur> listeJoueurs;
 	private Point coordinates;
 	private CarteLieu voisin;
@@ -20,7 +18,10 @@ public class CarteLieu extends CarteEffet{
 		this.coordinates = p;
 		this.listeJoueurs = new ArrayList<Joueur>();
 	}
-
+	
+	/*
+	 * 	@param j Appel la méthode utiliser de effet sur le joueur j
+	 */
 	public void utiliser(Joueur j) {
 
 		this.getEffet().utiliser(j);

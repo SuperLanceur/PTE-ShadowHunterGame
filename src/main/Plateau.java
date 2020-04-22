@@ -7,9 +7,11 @@ import java.util.List;
 import java.util.Map;
 
 import carte.CarteLieu;
+import effet.Effet;
 
 public class Plateau {
 	
+	private GestionnaireJeu gj;
 	private List<Joueur> joueurs;
 	private List<CarteLieu> lieux;
 	
@@ -27,6 +29,9 @@ public class Plateau {
 	
 
 	public Plateau(List<Joueur> joueurs) {
+		
+		joueurs.forEach(x -> x.setPlateau(this));
+		
 		this.joueurs = joueurs;
 		this.lieux = new ArrayList<>();
 		
@@ -159,12 +164,37 @@ public class Plateau {
 			
 		}else {
 			
-			//TODO Throw exception 
 		}
 	}
 	
 	public void setLieux(List<CarteLieu> lieux) {
 		this.lieux = lieux;
 		shuffleLieux();
+	}
+
+	public boolean choisir(Joueur joueur) {
+		return gj.choisir(joueur);
+	}
+
+	public Joueur choisirAdjacents(Joueur joueur) {
+		List<Joueur> joueurs = new ArrayList<Joueur>();
+		CarteLieu cl = joueur.getCarteLieu();
+		
+		joueurs.addAll(cl.getJoueurs());
+		joueurs.remove(joueur);
+		joueurs.addAll(cl.getJoueursAdjacents());
+		
+		return gj.choisirAdjacents(joueur, joueurs);
+			
+		}
+	
+
+	public Effet choisirEffet(Joueur joueur, Effet[] effets) {
+		return gj.choisirEffet(joueur,effets);
+	}
+
+	public Joueur choisirParmisTous(Joueur joueur) {
+		List<Joueur> joueurs = this.getJoueurs();
+		return gj.choisirParmisTous(joueur,joueurs);
 	}
 }

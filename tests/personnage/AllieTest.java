@@ -1,6 +1,7 @@
 package personnage;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,18 +40,35 @@ class AllieTest {
 	@Test
 	void utiliser_SoinTotal() {
 		
-		j1.setStat("HP", 0);
+		j1.setStat(Joueur.PLAYER_HP, 0);
 		j1.getCartePersonnage().utiliser();
 		
 		int pvAllie = j1.getCartePersonnage().getPv();
 		
-		assertEquals(pvAllie,j1.getStat("HP"));
+		// Le joueur n'est pas révélé, le soin n'a pas eu lieu.
+		assertEquals(j1.getStat(Joueur.PLAYER_HP),0);
 		
-		j1.setStat("HP", 0);
+		j1.setRevele(true);
 		j1.getCartePersonnage().utiliser();
 		
-		// Le soin n'a fonctionné qu'une seule fois
-		assertEquals(0,j1.getStat("HP"));
+		// Le soin a fonctionné la première fois, il est désormais "utilisé".
+		assertEquals(j1.getStat(Joueur.PLAYER_HP),pvAllie);
+		
+		
+		j1.setStat(Joueur.PLAYER_HP, 0);
+		j1.getCartePersonnage().utiliser();
+		
+		// Le soin a déjà été utilisé
+		assertEquals(0,j1.getStat(Joueur.PLAYER_HP));
+		
+	}
+	
+	@Test
+	void victoire() {
+		
+		j1.setStat(Joueur.PLAYER_HP, 0);
+		p.setStat(Plateau.PARTIE_FINIE, 1);
+		assertTrue(a.victoire());
 		
 	}
 	

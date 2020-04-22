@@ -147,7 +147,7 @@ public class ControleurIA {
 
 	// bob : si attaque joueur possedant equipement 70?% devoilement
 	public boolean devoilerIABob(JoueurVirtuel jIA, Joueur jAttaquee) {
-		if (jAttaquee.getNbEquipments() > 0 && getRandomPercentage() < 70)
+		if (jAttaquee.getStat(Joueur.PLAYER_NB_EQUIPEMENTS) > 0 && getRandomPercentage() < 70)
 			return true;
 		return false;
 	}

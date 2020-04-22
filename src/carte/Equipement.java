@@ -4,7 +4,7 @@ import main.Joueur;
 import main.Type;
 
 
-public class Equipement extends CartePiochable<Type>{
+public abstract class Equipement extends CartePiochable<Type>{
 	
 	
 	public Equipement(String nom, String description) {
@@ -13,6 +13,11 @@ public class Equipement extends CartePiochable<Type>{
 	}
 
 	public void utiliser(Joueur j) {
-		
+		if(!j.getEquipements().contains(this)) {
+			j.ajouterEquipement(this);	
+		}
+		super.utiliser(j);
 	}
+	
+	public abstract void reverse(Joueur j);
 }

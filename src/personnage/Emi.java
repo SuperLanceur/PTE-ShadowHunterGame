@@ -11,21 +11,12 @@ public class Emi extends CartePersonnage{
 		this.setCondition(new WinConditionHunter());
 	}
 	
-	//m�thode
+	
 	public void deplacer() {
 			
 	}
-	
-	@Override
+
+
 	public void utiliser() {
-		// TODO Auto-generated method stub
-		
 	}
-
-	@Override
-	public void attaquer(Joueur j, int blessure) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

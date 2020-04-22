@@ -1,6 +1,7 @@
 package main;
 import java.util.List;
 
+import carte.Equipement;
 import effet.Effet;
 
 

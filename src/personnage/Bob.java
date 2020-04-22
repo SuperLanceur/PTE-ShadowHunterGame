@@ -8,8 +8,8 @@ import main.Joueur;
 
 public class Bob extends CartePersonnage{
 	
-	public Bob(String nom, String desc ,int hp, Joueur joueur) throws Exception {
-		super(nom,desc, hp, joueur);
+	public Bob(Joueur joueur){
+		super("BOB","desc", 10, joueur);
 		Condition condition = new ConditionStatistiques(ConditionStatistiques.JOUEUR, Joueur.PLAYER_NB_EQUIPEMENTS, 5, ConditionStatistiques.MORE);
 		this.setCondition(condition);
 		
@@ -19,25 +19,24 @@ public class Bob extends CartePersonnage{
 	}
 
 	@Override
-	public void attaquer(Joueur j, int attaque) {
+	public void attaquer(Joueur j, int blessure) {
 		
-		if(attaque >= 2 && j.getRevele()) {
+		if(blessure >= 2 && j.getRevele()) {
 			
 			Joueur thisJoueur = this.getJoueur();
 			
 			if(thisJoueur.choisir()) {
 				((EffetTarget)this.getEffet()).setTarget(j);
-				utiliser();
+				this.utiliser(thisJoueur);
+			}else {
+				super.attaquer(j, blessure);
 			}
-			}
+		}
 	}
 
 	@Override
 	public void utiliser() {
-		Joueur j = this.getJoueur();
-		this.getEffet().utiliser(j);
+		// TODO Auto-generated method stub
+		
 	}
-
-
-	
 }

@@ -26,21 +26,13 @@ public class Daniel extends CartePersonnage{
 		
 		conditions.add(new ConditionMultiple(conditions2));
 		
-		
 		Condition winCondition = new ConditionMultipleOR(conditions);
 		
 		this.setCondition(winCondition);
 	}
-
-	@Override
+	
 	public void utiliser() {
-		// TODO Listener mort
-		
+		this.getJoueur().reveal();
 	}
-
-	@Override
-	public void attaquer(Joueur j, int blessure) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }
