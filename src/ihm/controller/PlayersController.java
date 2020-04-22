@@ -10,7 +10,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -19,7 +18,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
 import main.Joueur;
 import main.JoueurVirtuel;
 
@@ -45,7 +43,7 @@ public class PlayersController implements Initializable{
 
 	
 	/**
-	 * recupère chaque bouton textField et Checkebox a partir des hbox 
+	 * recupï¿½re chaque bouton textField et Checkebox a partir des hbox 
 	 */
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -110,9 +108,9 @@ public class PlayersController implements Initializable{
 	}
 	
 	/**
-	 * Autorise a écrire dans le text filed le nom du joueur ajouter
+	 * Autorise a ï¿½crire dans le text filed le nom du joueur ajouter
 	 * 
-	 * @param indice : pour savoir quel bouton a été cliqué
+	 * @param indice : pour savoir quel bouton a ï¿½tï¿½ cliquï¿½
 	 */
 	public void ajoutJoueur(int indice){
 		System.out.println("Ajout du joueur " + (indice+1));
@@ -123,9 +121,9 @@ public class PlayersController implements Initializable{
 	}
 	
 	/**
-	 * Retire le joueur précedemnt ajouter
+	 * Retire le joueur prï¿½cedemnt ajouter
 	 * 
-	 * @param indice : pour savoir quel bouton a été cliqué
+	 * @param indice : pour savoir quel bouton a ï¿½tï¿½ cliquï¿½
 	 */
 	public void enleverJoueur(int indice) {
 		System.out.println("Desistement du joueur " + (indice+1));

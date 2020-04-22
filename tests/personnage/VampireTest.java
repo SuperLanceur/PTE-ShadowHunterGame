@@ -59,7 +59,6 @@ class VampireTest {
 				j2.setStat(Joueur.PLAYER_HP, pvAllieBase);
 				
 				p.attaquer(j1, j2);
-				
 				// Vampire n'a pas récupéré de pv's lors de son attaque
 				assertTrue(j1.getStat(Joueur.PLAYER_HP) == 0);
 				
