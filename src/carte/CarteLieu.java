@@ -18,7 +18,10 @@ public class CarteLieu extends CarteEffet{
 		this.coordinates = p;
 		this.listeJoueurs = new ArrayList<Joueur>();
 	}
-
+	
+	/*
+	 * 	@param j Appel la méthode utiliser de effet sur le joueur j
+	 */
 	public void utiliser(Joueur j) {
 
 		this.getEffet().utiliser(j);

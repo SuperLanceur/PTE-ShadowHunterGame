@@ -12,6 +12,10 @@ public abstract class CarteCondition extends CarteEffet{
 
 	private Condition condition;
 	
+
+	/*
+	 * @param j le joueur utilisant son effet
+	*/
 	@Override
 	public void utiliser(Joueur j) {
 		if(this.condition.isTrue(j)) {

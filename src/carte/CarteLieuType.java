@@ -16,6 +16,9 @@ public class CarteLieuType<T extends Type> extends CarteLieu{
 		this.pioche = pioche;
 	}
 
+	/*
+	 * 	@param j Appel la méthode utiliser de effet sur le joueur j
+	 */
 	public void utiliser(Joueur j) {
 		
 		CartePiochable<?> carte = pioche.piocher();
