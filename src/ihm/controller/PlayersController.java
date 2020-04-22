@@ -1,83 +1,138 @@
 package ihm.controller;
 
-
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputControl;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import main.Joueur;
+import main.JoueurVirtuel;
 
 public class PlayersController implements Initializable{
 
 	@FXML private BorderPane rootPane;
-	@FXML private TextField tf;
-	@FXML private VBox vb1;
-	@FXML private VBox vb2;
-	private HBox hb10;
-	private HBox hb11;
-    private HBox hb12;
-    private HBox hb13;
-    private TextField tf0;
-    private Button btn;
+	
+	@FXML private HBox hb1;
+	@FXML private HBox hb2;
+	@FXML private HBox hb3;
+	@FXML private HBox hb4;
+	@FXML private HBox hb5;
+	@FXML private HBox hb6;
+	@FXML private HBox hb7;
+	@FXML private HBox hb8;
+	
+	private List<HBox> ligne = new ArrayList<HBox>();
+	private List<Button> plus = new ArrayList<Button>();
+	private List<TextField> txt = new ArrayList<TextField>();
+	private List<CheckBox> ia = new ArrayList<CheckBox>();
+	
+	private List<Joueur> joueur = new ArrayList<Joueur>();
 
 	
-	
-	
-	
-	
-
-	
+	/**
+	 * recupère chaque bouton textField et Checkebox a partir des hbox 
+	 */
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		for(int i=0;i<4;i++) {
-			hb10=(HBox) vb1.getChildren().get(i);
-			tf0=(TextField) hb10.getChildren().get(0);
-			
-			tf0.setEditable(false);
-			
-			}
-		for(int i=0;i<4;i++) {
-			hb10=(HBox) vb1.getChildren().get(i);
-			tf0=(TextField) hb10.getChildren().get(0);
-			btn=(Button) hb10.getChildren().get(1);
-			btn.setOnAction((e) -> {
-				tf0.setEditable(true);});
-			
+		ligne.add(hb1);
+		ligne.add(hb2);
+		ligne.add(hb3);
+		ligne.add(hb4);
+		ligne.add(hb5);
+		ligne.add(hb6);
+		ligne.add(hb7);
+		ligne.add(hb8);
+		for (HBox hb : ligne) {
+			txt.add((TextField) hb.getChildren().get(0));
+			plus.add((Button) hb.getChildren().get(1));
+			ia.add((CheckBox) hb.getChildren().get(2));
 		}
 		
+		int i=0;
+		for (Button btn : plus) {
+			int compteur = i;
+				btn.setOnAction(e -> {ajoutJoueur(compteur);});
+			i++;
+		}
+		
+		for (TextField tf : txt) {
+			tf.setEditable(false);
+			tf.setStyle("-fx-background-color: silver;");
+		}
 	}
-			//liaison.put( (Button)vb11.getChildren().get(i), maListe);
-			
-
-		
-		
-		
-		//Partie2 pas prendre en compte pour le moment
 	
 		
 	@FXML
 	public void commencerJeux(MouseEvent mouseEvent) throws IOException{
-		System.out.println("Lancement du jeu...");
-        BorderPane pane = FXMLLoader.load(getClass().getResource("../ressources/Plateau.fxml"));
-        rootPane.getChildren().setAll(pane);
-	}
-	@FXML
-	public void ajoutJoueur(MouseEvent mouseEvent) throws IOException{
-		tf.setEditable(true);
+		//ajout des joueurs finalement selectionner
+		for (HBox hb : ligne) {
+			TextField tf = (TextField) hb.getChildren().get(0);
+			CheckBox cb = (CheckBox) hb.getChildren().get(2);
+			Joueur j;
+			if (tf.isEditable()) {
+				if(cb.isSelected())
+					j = new JoueurVirtuel(tf.getText());
+				else
+					j = new Joueur(tf.getText());
+				
+				joueur.add(j);
+			}
+		}
+		
+		if (joueur.size() <4) {
+			Alert alert = new Alert(AlertType.WARNING, "Vous avez moins de 4 joueurs !");
+	        alert.showAndWait();
+		}else {
+			System.out.println("Lancement du jeu...");
+	        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ressources/Plateau.fxml"));
+	        Parent root = loader.load();
+	        
+	        PlateauController pc = loader.getController();
+	        pc.showInformation(joueur);
+	        
+	        rootPane.getChildren().setAll(root);
+		}
 	}
 	
+	/**
+	 * Autorise a écrire dans le text filed le nom du joueur ajouter
+	 * 
+	 * @param indice : pour savoir quel bouton a été cliqué
+	 */
+	public void ajoutJoueur(int indice){
+		System.out.println("Ajout du joueur " + (indice+1));
+		plus.get(indice).setText("- ");
+		txt.get(indice).setEditable(true);
+		txt.get(indice).setStyle("-fx-background-color: white;");
+		plus.get(indice).setOnAction(e -> {enleverJoueur(indice);});
+	}
+	
+	/**
+	 * Retire le joueur précedemnt ajouter
+	 * 
+	 * @param indice : pour savoir quel bouton a été cliqué
+	 */
+	public void enleverJoueur(int indice) {
+		System.out.println("Desistement du joueur " + (indice+1));
+		plus.get(indice).setText("+");
+		txt.get(indice).setEditable(false);
+		txt.get(indice).setText("");
+		txt.get(indice).setStyle("-fx-background-color: silver;");
+		plus.get(indice).setOnAction(e -> {ajoutJoueur(indice);});
+	}
 }
