@@ -11,15 +11,16 @@ import ihm.PopUp;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import main.Joueur;
 
 public class PlateauController implements Initializable {
+	@FXML private BorderPane root;
 	
 	private List<Joueur> listJoueur = new ArrayList<Joueur>();
 	private List<VBox> vboxJoueur = new ArrayList<VBox>();
@@ -27,6 +28,7 @@ public class PlateauController implements Initializable {
 	private List<Button> btnCartePerso = new ArrayList<Button>();
 	private List<Label> nomPerso = new ArrayList<Label>();
 	private List<Label> factionPerso = new ArrayList<Label>();
+	private List<Label> nomJoueur = new ArrayList<Label>();
 	
 	@FXML private VBox joueur1;
 	@FXML private VBox joueur2;
@@ -36,8 +38,7 @@ public class PlateauController implements Initializable {
 	@FXML private VBox joueur6;
 	@FXML private VBox joueur7;
 	@FXML private VBox joueur8;
-
-
+	
 	/**
 	 * initialise les données du plateau
 	 */
@@ -58,6 +59,7 @@ public class PlateauController implements Initializable {
 		for (VBox vbox : vboxJoueur) {
 			nomPerso.add((Label) vbox.getChildren().get(1));
 			factionPerso.add((Label) vbox.getChildren().get(0));
+			nomJoueur.add((Label) vbox.getChildren().get(2));
 			HBox enfant = (HBox) vbox.getChildren().get(3);
 			btnCartePerso.add((Button) enfant.getChildren().get(0));
 			btnRevelation.add((Button) enfant.getChildren().get(1));
@@ -104,6 +106,13 @@ public class PlateauController implements Initializable {
 		System.out.println(pane.getUserData());
 		PopUp popup = new PopUp(pane, "Consulter sa carte");
 		popup.display();
+	}
+	
+	public void showInformation(List<Joueur> j) {
+		System.out.println("Ecriture des noms des joueurs");
+		for (int i=0; i<j.size(); i++) {
+			nomJoueur.get(i).setText(j.get(i).getNom());
+		}
 	}
 	
 	public void attribuerPerso(List<Joueur> lj) {

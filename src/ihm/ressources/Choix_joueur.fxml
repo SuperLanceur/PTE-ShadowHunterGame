@@ -41,31 +41,9 @@
       </VBox>
    </top>
    <left>
-      <VBox fx:id="vb1" alignment="CENTER" prefHeight="559.0" prefWidth="642.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="559.0" prefWidth="642.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <TextField fx:id="tf">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </TextField>
-                  <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="+">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="10.0" right="10.0" />
-                     </HBox.margin>
-                  </Button>
-                  <CheckBox mnemonicParsing="false">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </CheckBox>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox fx:id="hb1" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <TextField>
                      <font>
@@ -87,7 +65,7 @@
                   </CheckBox>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox fx:id="hb2" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <TextField>
                      <font>
@@ -109,7 +87,29 @@
                   </CheckBox>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox fx:id="hb3" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TextField>
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </TextField>
+                  <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="+">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <CheckBox mnemonicParsing="false">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+            </HBox>
+            <HBox fx:id="hb4" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <TextField>
                      <font>
@@ -135,9 +135,9 @@
       </VBox>
    </left>
    <right>
-      <VBox fx:id="vb2" alignment="CENTER" prefHeight="559.0" prefWidth="694.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="559.0" prefWidth="694.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox fx:id="hb5" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <TextField>
                      <font>
@@ -159,7 +159,7 @@
                   </CheckBox>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox fx:id="hb6" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <TextField>
                      <font>
@@ -181,7 +181,7 @@
                   </CheckBox>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox fx:id="hb7" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <TextField>
                      <font>
@@ -203,7 +203,7 @@
                   </CheckBox>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox fx:id="hb8" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <TextField>
                      <font>

@@ -193,6 +193,10 @@ public class Joueur {
 	public CarteLieu getCarteLieu() {
 		return this.carteLieu;
 	}
+	
+	public String getNom() {
+		return this.nom;
+	}
 
 	public void reveal() {
 		this.revele = true;
