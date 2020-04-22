@@ -8,7 +8,7 @@ public abstract class Unique extends CartePersonnage{
 	
 	public Unique(String nom, String desc ,int hp, Joueur joueur) {
 		super(nom,desc, hp, joueur);
-		
+		this.capaciteUsed = false;
 	}
 	
 	public boolean isCapaciteUsed() {

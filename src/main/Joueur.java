@@ -194,9 +194,12 @@ public class Joueur {
 		return this.carteLieu;
 	}
 
-	public void setRevele(boolean b) {
+	public void reveal() {
 		this.revele = true;
-		
+	}
+	
+	public void setRevele(boolean b) {
+		this.revele = b;
 	}
 
 }

@@ -27,13 +27,11 @@ public class Charles extends CartePersonnage{
 		if(joueur.getStat(Joueur.PLAYER_HP) > 2 && joueur.getRevele()){
 			
 			Plateau p = j.getPlateau();
-			utiliser();
+			utiliser(joueur);
 			p.attaquer(this.getJoueur(), j);
 		}	
 	}
-
-	@Override
+	
 	public void utiliser() {
-		this.getEffet().utiliser(this.getJoueur());
 	}
 }

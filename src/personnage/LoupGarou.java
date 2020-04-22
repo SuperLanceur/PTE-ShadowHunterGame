@@ -10,10 +10,8 @@ public class LoupGarou extends CartePersonnage {
 
 		this.setCondition(new WinConditionShadow());
 	}
-		
-	@Override
+
 	public void utiliser() {
-		// TODO Auto-generated method stub
-		
 	}
+		
 }

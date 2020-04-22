@@ -5,19 +5,18 @@ import effet.Effet;
 
 public abstract class CarteEffet extends Carte{
 
+	private Effet effet;
+	
 	public CarteEffet(String nom, String description) {
 		super(nom, description);
 
 	}
-
-	private Effet effet;
-	
 	
 	/*
 	 * 	@param j Appel la méthode utiliser de effet sur le joueur j
 	 */
 	public void utiliser(Joueur j) {
-		effet.utiliser(j);
+		this.effet.utiliser(j);
 	}
 	
 	public void setEffet(Effet e) {

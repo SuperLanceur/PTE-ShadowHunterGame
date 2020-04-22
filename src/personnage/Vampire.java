@@ -10,19 +10,13 @@ import main.Joueur;
 
 public class Vampire extends CartePersonnage{
 	
-	public Vampire(String nom, String desc ,int hp, Joueur joueur) {
-		super(nom,desc, hp, joueur);
+	public Vampire(Joueur joueur) {
+		super("Vampire","desc", 13, joueur);
 		
-		Action action = new ActionAltererStatistiquesJoueur("HP",2,true);
+		Action action = new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,2,true);
 		Effet effet = new EffetSelf(action);
 		this.setEffet(effet);
 		this.setCondition(new WinConditionShadow());
-	}
-
-	@Override
-	public void utiliser()
-	{
-		this.getEffet().utiliser(this.getJoueur());
 	}
 	
 	/**
@@ -36,9 +30,10 @@ public class Vampire extends CartePersonnage{
 		super.attaquer(j, blessure);
 		if(this.getJoueur().getRevele())
 		{
-			utiliser(this.getJoueur());
+			this.utiliser(this.getJoueur());
 		}	
 	}
-	
-	
+
+	public void utiliser() {
+	}
 }

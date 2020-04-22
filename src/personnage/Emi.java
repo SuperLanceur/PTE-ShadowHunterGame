@@ -15,10 +15,8 @@ public class Emi extends CartePersonnage{
 	public void deplacer() {
 			
 	}
-	
-	@Override
+
+
 	public void utiliser() {
-		// TODO Auto-generated method stub
-		
 	}
 }

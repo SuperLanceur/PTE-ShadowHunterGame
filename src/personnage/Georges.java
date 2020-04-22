@@ -11,13 +11,6 @@ public class Georges extends Unique{
 		this.setCondition(new WinConditionHunter());
 	}
 
-	@Override
-	public void attaquer(Joueur j, int blessure) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	@Override
 	public void utiliser() {
 		Joueur joueur = this.getJoueur();
 		

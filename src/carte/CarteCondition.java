@@ -12,8 +12,11 @@ public abstract class CarteCondition extends CarteEffet{
 
 	private Condition condition;
 	
+	@Override
 	public void utiliser(Joueur j) {
-		super.utiliser(j);
+		if(this.condition.isTrue(j)) {
+			super.utiliser(j);
+		}
 	}
 	
 	public Condition getCondition() {
@@ -23,6 +26,4 @@ public abstract class CarteCondition extends CarteEffet{
 	public void setCondition(Condition condition) {
 		this.condition = condition;
 	}
-	
-	
 }

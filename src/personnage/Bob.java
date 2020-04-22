@@ -27,7 +27,7 @@ public class Bob extends CartePersonnage{
 			
 			if(thisJoueur.choisir()) {
 				((EffetTarget)this.getEffet()).setTarget(j);
-				utiliser();
+				this.utiliser(thisJoueur);
 			}else {
 				super.attaquer(j, blessure);
 			}
@@ -36,7 +36,7 @@ public class Bob extends CartePersonnage{
 
 	@Override
 	public void utiliser() {
-		Joueur j = this.getJoueur();
-		this.getEffet().utiliser(j);
-	}	
+		// TODO Auto-generated method stub
+		
+	}
 }

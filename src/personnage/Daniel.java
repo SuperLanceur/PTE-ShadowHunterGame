@@ -26,15 +26,13 @@ public class Daniel extends CartePersonnage{
 		
 		conditions.add(new ConditionMultiple(conditions2));
 		
-		
 		Condition winCondition = new ConditionMultipleOR(conditions);
 		
 		this.setCondition(winCondition);
 	}
-
-	@Override
+	
+	
 	public void utiliser() {
-		this.getJoueur().setRevele(true);
+		this.getJoueur().reveal();
 	}
-
 }

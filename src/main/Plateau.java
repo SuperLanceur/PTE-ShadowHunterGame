@@ -27,6 +27,9 @@ public class Plateau {
 	
 
 	public Plateau(List<Joueur> joueurs) {
+		
+		joueurs.forEach(x -> x.setPlateau(this));
+		
 		this.joueurs = joueurs;
 		this.lieux = new ArrayList<>();
 		

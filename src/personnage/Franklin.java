@@ -17,7 +17,6 @@ public class Franklin extends Unique{
 		
 	}
 	
-	@Override
 	public void utiliser() {
 		Joueur joueur = this.getJoueur();
 		
