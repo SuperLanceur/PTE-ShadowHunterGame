@@ -8,7 +8,7 @@
 
 <Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" stylesheets="@style/popUp.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.JouerSonTour2Controller">
    <children>
-      <Label layoutX="315.0" layoutY="151.0" text="Description capacité de la carte lieux  ">
+      <Label fx:id="descriptionLieu" layoutX="315.0" layoutY="151.0" text="Description capacité de la carte lieux  ">
          <font>
             <Font size="18.0" />
          </font>

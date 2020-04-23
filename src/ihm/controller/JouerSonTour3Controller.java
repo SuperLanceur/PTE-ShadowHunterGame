@@ -26,6 +26,7 @@ public class JouerSonTour3Controller implements Initializable{
        rootPane.getChildren().setAll(pane);
 
     }*/
+	
 	@FXML
 	public void pasAttaquer(MouseEvent mouseEvent) throws IOException{
 		Stage appStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
