@@ -21,8 +21,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import main.Configuration;
-import main.Joueur;
-import main.JoueurVirtuel;
 import main.View;
 
 public class PlayersController implements Initializable{
@@ -91,15 +89,16 @@ public class PlayersController implements Initializable{
 			CheckBox cb = (CheckBox) hb.getChildren().get(2);
 			if (tf.isEditable()) {
 				if(cb.isSelected()) {
-					joueurs.put(i, new Couple(tf.getText(), false));
-					nbJoueursH++;
-				}
-				else {
 					joueurs.put(i, new Couple(tf.getText(), true));
 					nbJoueursV++;
 				}
+				else {
+					joueurs.put(i, new Couple(tf.getText(), false));
+					nbJoueursH++;
+				}
 					
 			}
+			i++;
 		}
 		
 		if (nbJoueursH + nbJoueursV < 4) {
@@ -107,17 +106,11 @@ public class PlayersController implements Initializable{
 	        alert.showAndWait();
 		}else {
 			System.out.println("Lancement du jeu...");
-<<<<<<< HEAD
-	        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ressources/Plateau.fxml"));
-=======
 	
-			
 			// Creer une configuration
-			View.applyConfiguration(new Configuration(new ArrayList<String>(),1,1));
-			
+			//View.applyConfiguration(new Configuration(joueurs, nbJoueursV, nbJoueursH));
 			
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ressources/Plateau.fxml"));
->>>>>>> 5cc7a5a0537704392111697bd4e529f62109d5f9
 	        Parent root = loader.load();
 	        
 	        PlateauController pc = loader.getController();

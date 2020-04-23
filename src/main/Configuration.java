@@ -1,6 +1,8 @@
 package main;
 
 import java.util.HashMap;
+import java.util.List;
+
 import ihm.Couple;
 
 public class Configuration {

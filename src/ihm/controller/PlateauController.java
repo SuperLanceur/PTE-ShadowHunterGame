@@ -4,8 +4,10 @@ package ihm.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
+import ihm.Couple;
 
 import ihm.PopUp;
 import javafx.fxml.FXML;
@@ -117,16 +119,14 @@ public class PlateauController implements Initializable {
 		popup.display();
 	}
 	
-	public void showInformation(List<Joueur> j) {
+	public void showInformation(HashMap<Integer, Couple> j) {
 		System.out.println("\tplacement des joueurs");
-		for (int i=0; i<j.size(); i++) {
+		for (int i=0; i<this.vboxJoueur.size(); i++) {
 			if (j.get(i) != null)
 				nomJoueur.get(i).setText(j.get(i).getNom());
 			else {
 				vboxJoueur.get(i).setVisible(false);
 			}
 		}
-		
-		listJoueur = j;
 	}
 }
