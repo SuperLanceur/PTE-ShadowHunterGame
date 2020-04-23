@@ -95,6 +95,7 @@ public class PlayersController implements Initializable{
 				}
 				nbJoueurs++;	
 			}
+			joueurs.add(null);
 		}
 		
 		if (nbJoueurs < 4) {
