@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import ihm.Couple;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -42,7 +43,7 @@ public class PlayersController implements Initializable{
 	private List<CheckBox> ia = new ArrayList<CheckBox>();
 	
 	//private List<Joueur> joueurs = new ArrayList<Joueur>();
-	private HashMap<Integer, Joueur> joueurs = new HashMap<Integer, Joueur>();
+	private HashMap<Integer, Couple> joueurs = new HashMap<Integer, Couple>();
 
 	
 	/**
@@ -81,34 +82,30 @@ public class PlayersController implements Initializable{
 	@FXML
 	public void commencerJeux(MouseEvent mouseEvent) throws IOException{
 		//ajout des joueurs finalement selectionner
-		int nbJoueurs = 0;
-				
+		int nbJoueursH = 0;
+		int nbJoueursV = 0;
+		int i = 0;
 		for (HBox hb : ligne) {
 			TextField tf = (TextField) hb.getChildren().get(0);
 			CheckBox cb = (CheckBox) hb.getChildren().get(2);
 			if (tf.isEditable()) {
 				if(cb.isSelected()) {
-					joueurs.add(new Joueur(tf.getText()));
+					joueurs.put(i, new Couple(tf.getText(), false));
+					nbJoueursH++;
 				}
 				else {
-					joueurs.add(new JoueurVirtuel(tf.getText()));
+					joueurs.put(i, new Couple(tf.getText(), true));
+					nbJoueursV++;
 				}
-				joueurs.add(null);
-				nbJoueurs++;	
-<<<<<<< HEAD
-			}else joueurs.add(null);
-=======
+					
 			}
-			
->>>>>>> df68d70f3dad8a8f3d9ab5269759a897a0d959ed
 		}
 		
-		if (nbJoueurs < 4) {
+		if (nbJoueursH + nbJoueursV < 4) {
 			Alert alert = new Alert(AlertType.WARNING, "Il faut au moins de 4 joueurs !");
 	        alert.showAndWait();
 		}else {
 			System.out.println("Lancement du jeu...");
-			View.initPartie(joueurs);
 	        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ressources/Plateau.fxml"));
 	        Parent root = loader.load();
 	        

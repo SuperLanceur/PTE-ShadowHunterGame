@@ -13,11 +13,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-<<<<<<< HEAD
 import javafx.scene.layout.Pane;
-=======
 import main.View;
->>>>>>> df68d70f3dad8a8f3d9ab5269759a897a0d959ed
 
 public class MenuController implements Initializable{
 	@FXML private Pane rootPane;
