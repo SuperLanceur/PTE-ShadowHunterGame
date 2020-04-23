@@ -1,5 +1,6 @@
 package main;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
@@ -19,6 +20,9 @@ import effet.EffetSelf;
 import effet.action.ActionAltererStatistiquesJoueur;
 import effet.action.ActionVoler;
 import personnage.Allie;
+import personnage.CartePersonnage;
+import personnage.Franklin;
+import personnage.Vampire;
 
 class PlateauTest {
 
@@ -132,5 +136,72 @@ class PlateauTest {
 			assertTrue(Math.abs(countNb-80) <= error);
 			}
 	}
+	
+	@Test
+	void initCartePersonnage() throws Exception {
+		
+		
+		Joueur j;
+		
+		for(int k = 4 ; k < 9 ;k++) {
+			
+		
+			int nbJoueurs = k;
+			List<Joueur> joueurs = new ArrayList<Joueur>();
+			List<CartePersonnage> personnages = new ArrayList<CartePersonnage>(5);
+			
+			int nbShadowHunters = 0;
+			int nbNeutres = 0;
+			
+			switch(nbJoueurs) {
+			
+			case 4:
+				nbShadowHunters = 2;
+				nbNeutres = 0;
+				break;
+			case 5:
+				nbShadowHunters = 2;
+				nbNeutres = 1;
+				break;
+			case 6:
+				nbShadowHunters = 2;
+				nbNeutres = 2;
+				break;
+			case 7:
+				nbShadowHunters = 2;
+				nbNeutres = 3;
+				break;
+			case 8:
+				nbShadowHunters = 3;
+				nbNeutres = 2;
+				break;}
+			
+			
+			
+			
+			for (int i = 0; i < nbJoueurs; i++) {
+				j = new Joueur("Michel");
+				joueurs.add(new Joueur("Michel"));
+			}
+			
+			for(int i = 0 ; i <nbShadowHunters ; i++) {
+				
+				personnages.add(new Franklin());
+				personnages.add(new Vampire());
+			}
+			
+			for(int i = 0; i < nbNeutres; i++) {
+				personnages.add(new Allie());
+			}
+			
+			Plateau plateau = new Plateau(joueurs);
+			plateau.initCartePersonnage(personnages);
+			
+			
+			for(Joueur js : joueurs) {
+				assertNotNull(js.getCartePersonnage());
+			}
+			
+	}}
 	
 }

@@ -10,6 +10,18 @@ import main.Joueur;
 
 public class Vampire extends CartePersonnage{
 	
+	
+	public Vampire() {
+		super("Vampire","desc", 13,null);
+
+		Action action = new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,2,true);
+		Effet effet = new EffetSelf(action);
+		this.setEffet(effet);
+		this.setCondition(new WinConditionShadow());
+		this.setEquipe(CartePersonnage.Equipe.SHADOW);
+		
+	}
+	
 	public Vampire(Joueur joueur) {
 		super("Vampire","desc", 13, joueur);
 		
@@ -19,7 +31,12 @@ public class Vampire extends CartePersonnage{
 		this.setEffet(effet);
 		this.setCondition(new WinConditionShadow());
 		this.setEquipe(CartePersonnage.Equipe.SHADOW);
+		this.setJoueur(joueur);
+		joueur.setCartePersonnage(this);
 	}
+	
+	
+	
 	
 	/**
 	 * Lance l'action d'attaquer de Vampire 

@@ -42,7 +42,6 @@ class GestionnaireEquipementsTest {
 		j1.setCartePersonnage(a1);
 		j2.setCartePersonnage(a2);
 		
-	
 	}
 	
 	@Test
@@ -55,13 +54,10 @@ class GestionnaireEquipementsTest {
 			EquipementStat es = new EquipementStat("AddDamage", "desc");
 			es.setEffet(new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_DAMAGE, 2, true)));
 			es.setCondition(new Condition());
-			j1.ajouterEquipement(es);
-			
+			j1.ajouterEquipement(es);	
 		}
-		
 		assertEquals(nbEffets, j1.getStat(Joueur.PLAYER_NB_EQUIPEMENTS));
 	}
-	
 	
 	@Test
 	void ajouterEquipement_StackingStats() {

@@ -19,7 +19,7 @@ public abstract class CartePersonnage extends CarteCondition {
 			super(nom, description);
 			this.pv = pv;
 			this.joueur = joueur;
-			joueur.setCartePersonnage(this);
+			
 		}
 
 		public abstract void utiliser();

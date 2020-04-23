@@ -28,14 +28,14 @@ public class Plateau {
 	
 	private Map<String, Integer> stats;
 	
-
 	public Plateau(List<Joueur> joueurs) {
 		
-		this.joueurs = joueurs;
+		
 		this.lieux = new ArrayList<>();
 		this.stats = new HashMap<>();
 		
 		joueurs.forEach(x -> x.setPlateau(this));
+		this.joueurs = joueurs;
 		
 		
 		this.stats.put(NB_MORTS, 0);
@@ -49,10 +49,14 @@ public class Plateau {
 		this.stats.put(NB_NEUTRES, 0);
 	}	
 	
-	private void initCartePersonnage(List<CartePersonnage> cps, int nbJoueurs) throws Exception {
+	public void initCartePersonnage(List<CartePersonnage> cps) throws Exception {
 		
+		
+		int nbJoueurs = this.joueurs.size();
 		List<CartePersonnage> lcp = new ArrayList<>(nbJoueurs);
 		
+		
+		System.out.println(this.joueurs);
 		switch(nbJoueurs) {
 		
 		case 4:
@@ -76,26 +80,44 @@ public class Plateau {
 		
 		for(int i = 0; i< nbJoueurs; i++) {
 			
-			this.joueurs.get(i).setCartePersonnage(lcp.get(i));
+			Joueur j = joueurs.get(i);
+			j.setCartePersonnage(lcp.get(i));
 		}
-
 	}
 	
 	private List<CartePersonnage> getRandomListPersonnages(List<CartePersonnage> cps,int nbEquipeShadowHunter, int nbNeutres) {
 		
 		List<CartePersonnage> lcp = new ArrayList<CartePersonnage>();
 		
-		Collections.shuffle(lcp);
+		Collections.shuffle(cps);
+		
 		
 		int nbShadow = nbEquipeShadowHunter;
 		int nbHunter = nbEquipeShadowHunter;
+		int nbNeutre = nbNeutres;
 		
+		
+	
 		for(CartePersonnage cp : cps) {
 			
-		
+			
+			if(nbHunter > 0 && cp.getEquipe() == CartePersonnage.Equipe.HUNTER) {
+				nbHunter--;
+				lcp.add(cp);
+			}
+			
+			if(nbNeutre > 0 && cp.getEquipe() == CartePersonnage.Equipe.NEUTRE) {
+				nbNeutre--;
+				lcp.add(cp);
+			}
+			
+			if(nbShadow > 0 && cp.getEquipe() == CartePersonnage.Equipe.SHADOW) {
+				nbShadow--;
+				lcp.add(cp);
+			}
 		}
-		
-		return cps;
+		System.out.println(lcp);
+		return lcp;
 	}
 
 	public void jeu() {
@@ -123,7 +145,6 @@ public class Plateau {
 	
 	public void deplacer(Joueur currentJoueur) {
 		
-		
 		boolean attributed = false;
 		
 		while(!attributed) {
@@ -140,7 +161,6 @@ public class Plateau {
 		}
 	}
 	
-	
 	public void attaquer(Joueur joueur1, Joueur joueur2) {
 		
 		int attaque = diffRolls();
@@ -150,7 +170,6 @@ public class Plateau {
 			joueur1.attaquer(joueur2,attaque);
 		}
 	}
-	
 	
 	public Joueur selectionnerJoueur() {
 		return new Joueur("0");
@@ -187,8 +206,7 @@ public class Plateau {
 		{
 			return this.stats.get(key);
 		}else {
-			
-			//TODO Exception
+		
 			return -1;
 		}
 		
@@ -233,7 +251,6 @@ public class Plateau {
 		return gj.choisirAdjacents(joueur, joueurs);
 			
 		}
-	
 
 	public Effet choisirEffet(Joueur joueur, Effet[] effets) {
 		return gj.choisirEffet(joueur,effets);

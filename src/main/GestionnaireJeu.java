@@ -47,9 +47,7 @@ public class GestionnaireJeu {
 		
 	}
 	
-	public static Configuration lancerConfiguration() {
-	
-		
+	public static Configuration lancerConfiguration() {	
 		//TODO
 		return null;
 	}

@@ -11,6 +11,12 @@ public class Franklin extends Unique{
 		this.setCondition(new WinConditionHunter());
 		this.setEquipe(CartePersonnage.Equipe.HUNTER);
 	}
+	
+	public Franklin() {
+		super("Franklin", "desc", 12, null);
+		this.setCondition(new WinConditionHunter());
+		this.setEquipe(CartePersonnage.Equipe.HUNTER);
+	}
 
 	@Override
 	public void attaquer(Joueur j, int blessure) {
