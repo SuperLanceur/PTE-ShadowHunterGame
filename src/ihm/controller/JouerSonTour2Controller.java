@@ -19,19 +19,17 @@ public class JouerSonTour2Controller implements Initializable{
 		// TODO Auto-generated method stub
 		
 	}
+	
 	@FXML
 	public void ignorerEtape(MouseEvent mouseEvent) throws IOException{
-		
-        Pane pane = FXMLLoader.load(getClass().getResource("../ressources/jouerSonTour3.fxml"));
+       Pane pane = FXMLLoader.load(getClass().getResource("../ressources/Jouer_tour(3)attaquer.fxml"));
        rootPane.getChildren().setAll(pane);
-
     }
+	
 	@FXML
 	public void capaciteLieu(MouseEvent mouseEvent) throws IOException{
-		
-        Pane pane = FXMLLoader.load(getClass().getResource("../ressources/jouerSonTour5.fxml"));
-       rootPane.getChildren().setAll(pane);
-
+        //Pane pane = FXMLLoader.load(getClass().getResource("../ressources/jouerSonTour5.fxml"));
+        //rootPane.getChildren().setAll(pane);
     }
 	
 }
