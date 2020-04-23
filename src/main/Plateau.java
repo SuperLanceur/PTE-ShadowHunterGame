@@ -8,6 +8,7 @@ import java.util.Map;
 
 import carte.CarteLieu;
 import effet.Effet;
+import personnage.CartePersonnage;
 
 public class Plateau {
 	
@@ -30,22 +31,25 @@ public class Plateau {
 
 	public Plateau(List<Joueur> joueurs) {
 		
-		joueurs.forEach(x -> x.setPlateau(this));
-		
 		this.joueurs = joueurs;
 		this.lieux = new ArrayList<>();
-		
 		this.stats = new HashMap<>();
 		
-		// Initialisation plateau
-		this.stats.put(NB_HUNTERS, 0);
-		this.stats.put(NB_SHADOWS, 0);
-		this.stats.put(NB_NEUTRES, 0);
+		joueurs.forEach(x -> x.setPlateau(this));
+		
+		
 		this.stats.put(NB_MORTS, 0);
 		this.stats.put(NB_MORTS_NEUTRAL, 0);
 		this.stats.put(NB_MORTS_HUNTER, 0);
 		this.stats.put(NB_MORTS_SHADOW, 0);
 		this.stats.put(PARTIE_FINIE, 0);
+		
+		initCartePersonnage();
+		
+		// Initialisation plateau
+		this.stats.put(NB_HUNTERS, 0);
+		this.stats.put(NB_SHADOWS, 0);
+		this.stats.put(NB_NEUTRES, 0);
 		
 		
 		

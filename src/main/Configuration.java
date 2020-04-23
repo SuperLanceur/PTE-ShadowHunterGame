@@ -23,5 +23,10 @@ public class Configuration {
 	public int getNombreJoueursHumains() {
 		return nombreJoueursHumains;
 	}
+
+	public List<Joueur> toJoueurs() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

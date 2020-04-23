@@ -4,23 +4,6 @@ import java.util.List;
 
 public class View{
 	
-	private static View view;
-	
-	private View() {}
-	
-	
-	static {
-		try {
-			view = new View();
-		}catch(Exception e) {
-			throw new RuntimeException("View Singleton");
-		}
-	}
-	
-	public static View getView() {
-		return view;
-	}
-	
 	
 	public static void initPartie(List<Joueur> joueurs) {
 				
@@ -34,8 +17,10 @@ public class View{
 		
 	}
 	
-	public void applyConfiguration(GestionnaireJeu gj,Configuration c) {
+	public static void applyConfiguration(Configuration c) {
 		
+		GestionnaireJeu gj = GestionnaireJeu.getGestionnaireJeu();
+		gj.setConfiguration(c);
 	}
 	
 	public List<Joueur> getJoueurs() {

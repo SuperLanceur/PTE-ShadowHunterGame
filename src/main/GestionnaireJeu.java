@@ -1,6 +1,5 @@
 package main;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.sun.tools.javac.Main;
@@ -10,20 +9,23 @@ import effet.Effet;
 public class GestionnaireJeu {
 	
 	
+	private static GestionnaireJeu gj;	
 	private Plateau plateau;
 	
+	private GestionnaireJeu() {}
 	
-	public GestionnaireJeu() {
-		this.plateau = new Plateau(new ArrayList<Joueur>());
-		
-	}
+	public static synchronized GestionnaireJeu getGestionnaireJeu(){
+        if(gj == null){
+            gj = new GestionnaireJeu();
+        }
+        return gj;
+    }
 	
 	public static void main(String[] args) {
 	
 		try {
 			Main.main(null);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -72,7 +74,10 @@ public class GestionnaireJeu {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
 
-	
+	public void setConfiguration(Configuration c) {
+		
+		List<Joueur> joueurs = c.toJoueurs();
+		this.plateau = new Plateau(joueurs);	
+	}
 }
