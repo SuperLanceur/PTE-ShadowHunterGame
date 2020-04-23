@@ -18,6 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import main.Configuration;
 import main.Joueur;
 import main.JoueurVirtuel;
 import main.View;
@@ -97,7 +98,6 @@ public class PlayersController implements Initializable{
 				joueurs.add(null);
 				nbJoueurs++;	
 			}
-			
 		}
 		
 		if (nbJoueurs < 4) {
@@ -105,8 +105,13 @@ public class PlayersController implements Initializable{
 	        alert.showAndWait();
 		}else {
 			System.out.println("Lancement du jeu...");
-			View.initPartie(joueurs);
-	        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ressources/Plateau.fxml"));
+	
+			
+			// Creer une configuration
+			View.applyConfiguration(new Configuration(new ArrayList<String>(),1,1));
+			
+			
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ressources/Plateau.fxml"));
 	        Parent root = loader.load();
 	        
 	        PlateauController pc = loader.getController();
