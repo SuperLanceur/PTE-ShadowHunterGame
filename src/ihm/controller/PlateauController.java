@@ -37,7 +37,7 @@ public class PlateauController implements Initializable {
 	@FXML private VBox joueur8;
 	
 	/**
-	 * initialise les données du plateau
+	 * initialise les donnï¿½es du plateau
 	 */
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -86,7 +86,7 @@ public class PlateauController implements Initializable {
 	/**
 	 * Affiche aux yeux de tous la carte personnage du joueur
 	 * 
-	 * @param j : Le joueur sur lequel on a cliqué
+	 * @param j : Le joueur sur lequel on a cliquï¿½
 	 */
 	public void seReveler(int numJoueur) throws IOException {
 		System.out.println(listJoueur.get(numJoueur).getNom() + " se revele");
@@ -103,7 +103,7 @@ public class PlateauController implements Initializable {
 	/**
 	 * Permet de consulter sa carte perssonage en cas d'oublie
 	 * 
-	 * @param j : Le joueur sur lequel on a cliqué
+	 * @param j : Le joueur sur lequel on a cliquï¿½
 	 */
 	public void consulterSaCarte(int numJoueur) throws IOException {
 		System.out.println(listJoueur.get(numJoueur).getNom() + " consulte sa carte");

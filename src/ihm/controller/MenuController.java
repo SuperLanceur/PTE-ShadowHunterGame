@@ -13,7 +13,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+<<<<<<< HEAD
 import javafx.scene.layout.Pane;
+=======
+import main.View;
+>>>>>>> df68d70f3dad8a8f3d9ab5269759a897a0d959ed
 
 public class MenuController implements Initializable{
 	@FXML private Pane rootPane;
@@ -37,9 +41,11 @@ public class MenuController implements Initializable{
 		System.out.println("Passage à  l'écran de choix des joueurs");
         AnchorPane pane = FXMLLoader.load(getClass().getResource("../ressources/Choix_joueur.fxml"));
         rootPane.getChildren().setAll(pane);
+        View.lancerPartie();
     }
     
     public void afficherRegle(MouseEvent mouseEvent) {
     	System.out.println("blaaaa");
+    
     }
 }

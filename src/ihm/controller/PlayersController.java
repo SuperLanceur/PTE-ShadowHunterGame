@@ -21,6 +21,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import main.Joueur;
 import main.JoueurVirtuel;
+import main.View;
 
 public class PlayersController implements Initializable{
 
@@ -92,8 +93,14 @@ public class PlayersController implements Initializable{
 				else {
 					joueurs.add(new JoueurVirtuel(tf.getText()));
 				}
+				joueurs.add(null);
 				nbJoueurs++;	
+<<<<<<< HEAD
 			}else joueurs.add(null);
+=======
+			}
+			
+>>>>>>> df68d70f3dad8a8f3d9ab5269759a897a0d959ed
 		}
 		
 		if (nbJoueurs < 4) {
@@ -101,6 +108,7 @@ public class PlayersController implements Initializable{
 	        alert.showAndWait();
 		}else {
 			System.out.println("Lancement du jeu...");
+			View.initPartie(joueurs);
 	        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ressources/Plateau.fxml"));
 	        Parent root = loader.load();
 	        

@@ -1,25 +1,44 @@
 package main;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import java.util.List;
 
-public class View extends Application{
+public class View{
+	
+	private static View view;
+	
+	private View() {}
 	
 	
+	static {
+		try {
+			view = new View();
+		}catch(Exception e) {
+			throw new RuntimeException("View Singleton");
+		}
+	}
 	
-	@Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("ressources/Plateau.fxml"));
-        primaryStage.setTitle("Shadow Hunters");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
-    }
+	public static View getView() {
+		return view;
+	}
+	
+	
+	public static void initPartie(List<Joueur> joueurs) {
+				
+	}
+	
+	public static void lancerPartie() {
+			
+	}
 
-    public static void main(String[] args) {
-        launch(args);
-    }
-    
+	public static void menu() throws Exception {
+		
+	}
+	
+	public void applyConfiguration(GestionnaireJeu gj,Configuration c) {
+		
+	}
+	
+	public List<Joueur> getJoueurs() {
+		return null;
+	}
 }

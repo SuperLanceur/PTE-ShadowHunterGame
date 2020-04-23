@@ -3,14 +3,14 @@ package main;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sun.tools.javac.Main;
+
 import effet.Effet;
 
 public class GestionnaireJeu {
 	
 	
 	private Plateau plateau;
-	private View view;
-	
 	
 	
 	public GestionnaireJeu() {
@@ -19,16 +19,14 @@ public class GestionnaireJeu {
 	}
 	
 	public static void main(String[] args) {
-		
-		switch(1){
-		
-		case 1:
-			lancerPartie();
-		case 2:
-			lancerConfiguration();
-		default:
-			break;
+	
+		try {
+			Main.main(null);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+
 	}
 	
 	public Plateau getPlateau() {
@@ -48,6 +46,8 @@ public class GestionnaireJeu {
 	}
 	
 	public static Configuration lancerConfiguration() {
+	
+		
 		//TODO
 		return null;
 	}
