@@ -10,7 +10,8 @@ import javafx.stage.Stage;
 public class Main extends Application{
 	@Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("ressources/jouerSonTour6.fxml"));
+		System.out.println("Lancement de l'application");
+        Parent root = FXMLLoader.load(getClass().getResource("ressources/Menu.fxml"));
         primaryStage.setTitle("Shadow Hunters");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

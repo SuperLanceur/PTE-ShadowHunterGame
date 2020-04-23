@@ -34,7 +34,7 @@ public class MenuController implements Initializable{
 
 	@FXML
 	public void commencerPartie(MouseEvent mouseEvent) throws IOException{
-		System.out.println("Passage Ã  l'écran de choix des joueurs");
+		System.out.println("Passage à  l'écran de choix des joueurs");
         BorderPane pane = FXMLLoader.load(getClass().getResource("../ressources/Choix_joueur.fxml"));
         rootPane.getChildren().setAll(pane);
     }

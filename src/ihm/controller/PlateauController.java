@@ -118,7 +118,7 @@ public class PlateauController implements Initializable {
 	}
 	
 	public void showInformation(List<Joueur> j) {
-		System.out.println("\tEcriture des noms des joueurs");
+		System.out.println("\técriture des noms des joueurs");
 		for (int i=0; i<j.size(); i++) {
 			if (j.get(i) != null)
 				nomJoueur.get(i).setText(j.get(i).getNom());
