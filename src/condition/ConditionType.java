@@ -4,15 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import main.Joueur;
+import personnage.CartePersonnage;
 
 
 public class ConditionType extends Condition{
 
-	private List<Joueur.Equipe> equipes;
+	private List<CartePersonnage.Equipe> equipes;
 	
-	public ConditionType(List<Joueur.Equipe> equipes){
+	public ConditionType(List<CartePersonnage.Equipe> equipes){
 		
-		this.equipes = new ArrayList<Joueur.Equipe>();
+		this.equipes = new ArrayList<CartePersonnage.Equipe>();
 		this.equipes.addAll(equipes);
 	}
 
@@ -34,9 +35,9 @@ public class ConditionType extends Condition{
 	@Override
 	public boolean isTrue(Joueur joueur)
 	{
-		Joueur.Equipe equipeJoueur = joueur.getEquipe();
+		CartePersonnage.Equipe equipeJoueur = joueur.getEquipe();
 		
-		for(Joueur.Equipe equipe : equipes) {
+		for(CartePersonnage.Equipe equipe : equipes) {
 		
 			if(equipeJoueur == equipe) return true;
 		}

@@ -18,6 +18,7 @@ public class Vampire extends CartePersonnage{
 		Effet effet = new EffetSelf(action);
 		this.setEffet(effet);
 		this.setCondition(new WinConditionShadow());
+		this.setEquipe(CartePersonnage.Equipe.SHADOW);
 	}
 	
 	/**

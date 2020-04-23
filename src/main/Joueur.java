@@ -5,9 +5,9 @@ import java.util.Map;
 
 import carte.CarteLieu;
 import carte.Equipement;
-import carte.EquipementStat;
 import effet.Effet;
 import personnage.CartePersonnage;
+import personnage.CartePersonnage.Equipe;
 
 
 
@@ -17,7 +17,7 @@ public class Joueur {
 	private boolean revele;
 	private Plateau plateau;
 	private CartePersonnage cartePersonnage;
-	private Equipe equipe;
+	
 	private CarteLieu carteLieu;
 	
 	
@@ -32,11 +32,7 @@ public class Joueur {
 	
 	private Map<String, Integer> stats;
 	
-	public enum Equipe{
-		NEUTRE,
-		SHADOW,
-		HUNTER
-	}
+	
 	
 	public Joueur(String nom) {
 		this.nom = nom;
@@ -60,7 +56,7 @@ public class Joueur {
 		
 	//shadows, hunters ou neutre
 	public Equipe getEquipe() {
-		return this.equipe;
+		return this.cartePersonnage.getEquipe();
 	}
 	
 	public void setStat(String key, int valeur) {
@@ -160,11 +156,6 @@ public class Joueur {
 
 	public void setCartePersonnage(CartePersonnage cp) {
 		this.cartePersonnage = cp;
-	}
-
-	public void setEquipe(Equipe equipe) {
-		this.equipe = equipe;
-		
 	}
 
 	public void setPlateau(Plateau plateau2) {

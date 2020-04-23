@@ -7,6 +7,13 @@ public abstract class CartePersonnage extends CarteCondition {
 
 		private int pv;
 		private Joueur joueur;
+		private Equipe equipe;
+		
+		public enum Equipe{
+			NEUTRE,
+			SHADOW,
+			HUNTER
+		}
 		
 		public CartePersonnage(String nom, String description, int pv, Joueur joueur) {
 			super(nom, description);
@@ -40,6 +47,15 @@ public abstract class CartePersonnage extends CarteCondition {
 
 		public int getPv() {
 			return pv;
+		}
+
+		public Equipe getEquipe() {
+			return this.equipe;
+		}
+		
+		protected void setEquipe(Equipe equipe) {
+			this.equipe = equipe;
+			
 		}
 
 		

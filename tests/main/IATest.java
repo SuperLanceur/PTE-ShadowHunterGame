@@ -1,13 +1,17 @@
 package main;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import main.Joueur.Equipe;
+import personnage.Allie;
+import personnage.CartePersonnage.Equipe;
+import personnage.Franklin;
+import personnage.Vampire;
 
 public class IATest {
 	ControleurIA cIA = new ControleurIA();
@@ -19,9 +23,11 @@ public class IATest {
 	@Test
 	public void choixAttaquerTest() {
 		//setup
-		jIA.setEquipe(Equipe.SHADOW);
-		j1.setEquipe(Equipe.HUNTER);
-		j2.setEquipe(Equipe.SHADOW);
+
+		jIA.setCartePersonnage(new Vampire(jIA));
+		j1.setCartePersonnage(new Franklin(j1));
+		j2.setCartePersonnage(new Allie(j2));
+		
 		jIA.setDifficulte(1);
 		cIA.setSeed(24);
 		
@@ -54,9 +60,10 @@ public class IATest {
 	public void devoilerLoupGarouTest() {
 		//setup
 		cIA.setSeed(59);
-		jIA.setEquipe(Equipe.SHADOW);
-		j1.setEquipe(Equipe.HUNTER);
-		j2.setEquipe(Equipe.SHADOW);
+		
+		jIA.setCartePersonnage(new Vampire(jIA));
+		j1.setCartePersonnage(new Franklin(j1));
+		j2.setCartePersonnage(new Vampire(j2));
 		
 		//test 1 : joueur ami, on ne se devoile pas
 		assertFalse(cIA.devoilerIALoupGarou(jIA, j2));
@@ -70,9 +77,10 @@ public class IATest {
 	public void devoilerVampireTest() {
 		//setup
 		cIA.setSeed(59);
-		jIA.setEquipe(Equipe.SHADOW);
-		j1.setEquipe(Equipe.HUNTER);
-		j2.setEquipe(Equipe.SHADOW);
+		
+		jIA.setCartePersonnage(new Vampire(jIA));
+		j1.setCartePersonnage(new Franklin(j1));
+		j2.setCartePersonnage(new Vampire(j2));
 		
 		//test 1 : joueur ami, on ne se devoile pas
 		jIA.setStat("HP", 10);
@@ -91,9 +99,11 @@ public class IATest {
 	public void devoilerGeorgesTest() {
 		//setup
 		cIA.setSeed(89);
-		jIA.setEquipe(Equipe.HUNTER);
-		j1.setEquipe(Equipe.HUNTER);
-		j2.setEquipe(Equipe.SHADOW);
+		
+		jIA.setCartePersonnage(new Franklin(jIA));
+		j1.setCartePersonnage(new Franklin(j1));
+		j2.setCartePersonnage(new Vampire(j2));
+
 		joueurs.add(j1);
 		joueurs.add(j2);
 		
@@ -111,9 +121,9 @@ public class IATest {
 	public void devoilerFranklinTest() {
 		//setup
 		cIA.setSeed(89);
-		jIA.setEquipe(Equipe.HUNTER);
-		j1.setEquipe(Equipe.HUNTER);
-		j2.setEquipe(Equipe.SHADOW);
+		jIA.setCartePersonnage(new Franklin(jIA));
+		j1.setCartePersonnage(new Franklin(j1));
+		j2.setCartePersonnage(new Vampire(j2));
 		joueurs.add(j1);
 		joueurs.add(j2);
 		

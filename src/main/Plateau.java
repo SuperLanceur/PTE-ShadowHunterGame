@@ -44,18 +44,60 @@ public class Plateau {
 		this.stats.put(NB_MORTS_SHADOW, 0);
 		this.stats.put(PARTIE_FINIE, 0);
 		
-		initCartePersonnage();
-		
-		// Initialisation plateau
 		this.stats.put(NB_HUNTERS, 0);
 		this.stats.put(NB_SHADOWS, 0);
 		this.stats.put(NB_NEUTRES, 0);
-		
-		
-		
-		
 	}	
 	
+	private void initCartePersonnage(List<CartePersonnage> cps, int nbJoueurs) throws Exception {
+		
+		List<CartePersonnage> lcp = new ArrayList<>(nbJoueurs);
+		
+		switch(nbJoueurs) {
+		
+		case 4:
+			lcp = getRandomListPersonnages(cps,2,0);
+			break;
+		case 5:
+			lcp = getRandomListPersonnages(cps,2,1);
+			break;
+		case 6:
+			lcp = getRandomListPersonnages(cps,2,2);
+			break;
+		case 7:
+			lcp = getRandomListPersonnages(cps,2,3);
+			break;
+		case 8:
+			lcp = getRandomListPersonnages(cps,3,2);
+			break;
+		default:
+			throw new Exception();
+		}
+		
+		for(int i = 0; i< nbJoueurs; i++) {
+			
+			this.joueurs.get(i).setCartePersonnage(lcp.get(i));
+		}
+
+	}
+	
+	private List<CartePersonnage> getRandomListPersonnages(List<CartePersonnage> cps,int nbEquipeShadowHunter, int nbNeutres) {
+		
+		List<CartePersonnage> lcp = new ArrayList<CartePersonnage>();
+		
+		Collections.shuffle(lcp);
+		
+		int nbShadow = nbEquipeShadowHunter;
+		int nbHunter = nbEquipeShadowHunter;
+		
+		for(CartePersonnage cp : cps) {
+			
+		
+		}
+		
+		return cps;
+	}
+
 	public void jeu() {
 		
 		int nbJoueurs = this.joueurs.size()-1;

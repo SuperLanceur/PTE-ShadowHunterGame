@@ -3,7 +3,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import carte.CarteLieu;
-import main.Joueur.Equipe;
+import personnage.CartePersonnage;
+import personnage.CartePersonnage.Equipe;
 
 public class ControleurIA {
 	int seed;
@@ -56,7 +57,7 @@ public class ControleurIA {
 	public static List<Joueur> getEnnemisJoueurs(JoueurVirtuel jIA, List<Joueur> joueursLieu) {
 		List<Joueur> res = new ArrayList<>();
 		Equipe equipejIA = jIA.getEquipe();
-		if (equipejIA == Joueur.Equipe.NEUTRE)
+		if (equipejIA == CartePersonnage.Equipe.NEUTRE)
 			res = joueursLieu;
 		else {
 			for (Joueur j : joueursLieu) {

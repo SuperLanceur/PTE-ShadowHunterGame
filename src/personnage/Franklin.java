@@ -6,9 +6,10 @@ import main.Plateau;
 
 public class Franklin extends Unique{
 
-	public Franklin(String nom, int hp, Joueur joueur) {
-		super(nom, nom, hp, joueur);
+	public Franklin(Joueur joueur) {
+		super("Franklin", "desc", 12, joueur);
 		this.setCondition(new WinConditionHunter());
+		this.setEquipe(CartePersonnage.Equipe.HUNTER);
 	}
 
 	@Override

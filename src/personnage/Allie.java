@@ -30,6 +30,7 @@ public class Allie extends Unique{
 		Condition winCondition = new ConditionMultiple(conditions);
 		
 		this.setCondition(winCondition);
+		this.setEquipe(CartePersonnage.Equipe.NEUTRE);
 	}
 
 	/**
