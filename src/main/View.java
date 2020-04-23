@@ -23,7 +23,7 @@ public class View{
 		gj.setConfiguration(c);
 	}
 	
-	public List<Joueur> getJoueurs() {
+	public static List<Joueur> getJoueurs() {
 		return null;
 	}
 }

@@ -1,22 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane id="rootPane" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="background" stylesheets="@style/menu.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.MenuController">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="background" stylesheets="@style/plateau.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.MenuController">
    <children>
-      <Button layoutX="575.0" layoutY="303.0" mnemonicParsing="false" onMouseClicked="#commencerPartie" prefHeight="51.0" prefWidth="102.0" styleClass="bouton" text="Jouer">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Button>
-      <Button layoutX="574.0" layoutY="389.0" mnemonicParsing="false" onMouseClicked="#afficherRegle" styleClass="bouton" text="Regles">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Button>
-      <ImageView fx:id="titre" fitHeight="190.0" fitWidth="528.0" layoutX="364.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" />
+      <VBox alignment="CENTER" prefHeight="802.0" prefWidth="1290.0">
+         <children>
+            <ImageView fx:id="titre" fitHeight="190.0" fitWidth="528.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets top="-250.0" />
+               </VBox.margin>
+            </ImageView>
+            <Button mnemonicParsing="false" onMouseClicked="#commencerPartie" prefHeight="51.0" prefWidth="102.0" styleClass="bouton" text="Jouer">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="150.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#afficherRegle" prefHeight="59.0" prefWidth="106.0" styleClass="bouton" text="Regles">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
    </children>
-</Pane>
+</AnchorPane>

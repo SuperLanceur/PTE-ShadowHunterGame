@@ -19,6 +19,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import main.Joueur;
+import main.View;
 
 public class PlateauController implements Initializable {
 	private List<Joueur> listJoueur = new ArrayList<Joueur>();
@@ -83,6 +84,8 @@ public class PlateauController implements Initializable {
 		for (Label l : factionPerso) {
 			l.setText("???");
 		}
+		
+		listJoueur = View.getJoueurs();
 	}
 	
 	/**

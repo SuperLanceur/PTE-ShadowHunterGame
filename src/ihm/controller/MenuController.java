@@ -9,19 +9,20 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import javafx.scene.Node;
 
 public class MenuController implements Initializable{
-	@FXML private Pane rootPane;
+	@FXML private AnchorPane rootPane;
 	@FXML private ImageView titre;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
 		FileInputStream input;
 		try {
 			input = new FileInputStream("src\\ihm\\ressources\\img\\logo.png");
@@ -36,8 +37,10 @@ public class MenuController implements Initializable{
 	public void commencerPartie(MouseEvent mouseEvent) throws IOException{
 		System.out.println("Passage à  l'écran de choix des joueurs");
         AnchorPane pane = FXMLLoader.load(getClass().getResource("../ressources/Choix_joueur.fxml"));
-        rootPane.getChildren().setAll(pane);
-       
+        Scene scene = new Scene(pane);
+        Stage appStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        appStage.setScene(scene);
+        appStage.show();
     }
     
     public void afficherRegle(MouseEvent mouseEvent) {

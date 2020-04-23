@@ -11,21 +11,23 @@ import ihm.Couple;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import main.Configuration;
-import main.View;
+import javafx.stage.Stage;
 
 public class PlayersController implements Initializable{
 
-	@FXML private BorderPane rootPane;
+	@FXML private AnchorPane rootPane;
 	
 	@FXML private HBox hb1;
 	@FXML private HBox hb2;
@@ -112,11 +114,12 @@ public class PlayersController implements Initializable{
 			
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ressources/Plateau.fxml"));
 	        Parent root = loader.load();
-	        
 	        PlateauController pc = loader.getController();
 	        pc.showInformation(joueurs);
-	        
-	        rootPane.getChildren().setAll(root);
+	        Scene scene = new Scene(root);
+	        Stage appStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+	        appStage.setScene(scene);
+	        appStage.show();
 		}
 	}
 	
