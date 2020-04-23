@@ -3,6 +3,7 @@ package ihm.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -39,7 +40,8 @@ public class PlayersController implements Initializable{
 	private List<TextField> txt = new ArrayList<TextField>();
 	private List<CheckBox> ia = new ArrayList<CheckBox>();
 	
-	private List<Joueur> joueurs = new ArrayList<Joueur>();
+	//private List<Joueur> joueurs = new ArrayList<Joueur>();
+	private HashMap<Integer, Joueur> joueurs = new HashMap<Integer, Joueur>();
 
 	
 	/**
@@ -81,11 +83,8 @@ public class PlayersController implements Initializable{
 		int nbJoueurs = 0;
 				
 		for (HBox hb : ligne) {
-			
 			TextField tf = (TextField) hb.getChildren().get(0);
 			CheckBox cb = (CheckBox) hb.getChildren().get(2);
-			Joueur j;
-			
 			if (tf.isEditable()) {
 				if(cb.isSelected()) {
 					joueurs.add(new Joueur(tf.getText()));
@@ -94,7 +93,7 @@ public class PlayersController implements Initializable{
 					joueurs.add(new JoueurVirtuel(tf.getText()));
 				}
 				nbJoueurs++;	
-			}
+			}else joueurs.add(null);
 		}
 		
 		if (nbJoueurs < 4) {
