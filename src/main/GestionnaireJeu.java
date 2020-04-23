@@ -1,15 +1,34 @@
 package main;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import effet.Effet;
 
 public class GestionnaireJeu {
+	
+	
 	private Plateau plateau;
 	private View view;
 	
-	public GestionnaireJeu (Plateau p) {
-		plateau = p;
+	
+	
+	public GestionnaireJeu() {
+		this.plateau = new Plateau(new ArrayList<Joueur>());
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		switch(1){
+		
+		case 1:
+			lancerPartie();
+		case 2:
+			lancerConfiguration();
+		default:
+			break;
+		}
 	}
 	
 	public Plateau getPlateau() {
@@ -20,11 +39,15 @@ public class GestionnaireJeu {
 		this.plateau = plateau;
 	}
 
-	public void lancerPartie(Configuration c) {
-		//TODO
+	public static void lancerPartie() {
+		
 	}
 	
-	public Configuration lancerConfiguration() {
+	public void jouer(Configuration c) {
+		
+	}
+	
+	public static Configuration lancerConfiguration() {
 		//TODO
 		return null;
 	}

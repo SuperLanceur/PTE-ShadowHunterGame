@@ -9,8 +9,8 @@ import main.Plateau;
 
 public class Charles extends CartePersonnage{
 	
-	public Charles(String nom, int hp, Joueur joueur) {
-		super(nom, nom, hp, joueur);
+	public Charles(Joueur joueur) {
+		super("Charles", "desc", 11, joueur);
 		
 		Action action = new ActionAltererStatistiquesJoueur("HP",-2,true);
 		Effet effet = new EffetSelf(action);

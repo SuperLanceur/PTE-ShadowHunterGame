@@ -39,7 +39,7 @@ public class PlayersController implements Initializable{
 	private List<TextField> txt = new ArrayList<TextField>();
 	private List<CheckBox> ia = new ArrayList<CheckBox>();
 	
-	private List<Joueur> joueur = new ArrayList<Joueur>();
+	private List<Joueur> joueurs = new ArrayList<Joueur>();
 
 	
 	/**
@@ -78,22 +78,26 @@ public class PlayersController implements Initializable{
 	@FXML
 	public void commencerJeux(MouseEvent mouseEvent) throws IOException{
 		//ajout des joueurs finalement selectionner
-		int nbJoueur = 0;
+		int nbJoueurs = 0;
+				
 		for (HBox hb : ligne) {
+			
 			TextField tf = (TextField) hb.getChildren().get(0);
 			CheckBox cb = (CheckBox) hb.getChildren().get(2);
 			Joueur j;
+			
 			if (tf.isEditable()) {
-				if(cb.isSelected())
-					j = new JoueurVirtuel(tf.getText());
-				else
-					j = new Joueur(tf.getText());
-				nbJoueur++;
-			}else j = null;
-			joueur.add(j);
+				if(cb.isSelected()) {
+					joueurs.add(new Joueur(tf.getText()));
+				}
+				else {
+					joueurs.add(new JoueurVirtuel(tf.getText()));
+				}
+				nbJoueurs++;	
+			}
 		}
 		
-		if (nbJoueur <4) {
+		if (nbJoueurs < 4) {
 			Alert alert = new Alert(AlertType.WARNING, "Il faut au moins de 4 joueurs !");
 	        alert.showAndWait();
 		}else {
@@ -102,11 +106,13 @@ public class PlayersController implements Initializable{
 	        Parent root = loader.load();
 	        
 	        PlateauController pc = loader.getController();
-	        pc.showInformation(joueur);
+	        pc.showInformation(joueurs);
 	        
 	        rootPane.getChildren().setAll(root);
 		}
 	}
+	
+	
 	
 	/**
 	 * Autorise a �crire dans le text filed le nom du joueur ajouter
