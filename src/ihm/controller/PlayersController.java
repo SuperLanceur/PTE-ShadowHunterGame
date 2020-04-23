@@ -20,6 +20,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import main.Joueur;
 import main.JoueurVirtuel;
+import main.View;
 
 public class PlayersController implements Initializable{
 
@@ -104,6 +105,7 @@ public class PlayersController implements Initializable{
 	        alert.showAndWait();
 		}else {
 			System.out.println("Lancement du jeu...");
+			View.initPartie(joueurs);
 	        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ressources/Plateau.fxml"));
 	        Parent root = loader.load();
 	        
