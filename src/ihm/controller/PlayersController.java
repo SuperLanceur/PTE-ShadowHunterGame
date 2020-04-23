@@ -93,9 +93,10 @@ public class PlayersController implements Initializable{
 				else {
 					joueurs.add(new JoueurVirtuel(tf.getText()));
 				}
+				joueurs.add(null);
 				nbJoueurs++;	
 			}
-			joueurs.add(null);
+			
 		}
 		
 		if (nbJoueurs < 4) {
