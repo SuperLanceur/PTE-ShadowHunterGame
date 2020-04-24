@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.AfficherCarteController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" stylesheets="@style/popUp.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.AfficherCarteController">
    <children>
-      <VBox fx:id="root" alignment="CENTER" layoutY="-1.0" prefHeight="400.0" prefWidth="600.0">
+      <VBox fx:id="root" alignment="CENTER" layoutY="-1.0" prefHeight="480.0" prefWidth="640.0">
          <children>
             <Label text="Vous êtes :">
                <font>
@@ -42,6 +42,9 @@
                            <VBox.margin>
                               <Insets top="50.0" />
                            </VBox.margin>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
                         </Button>
                      </children>
                   </VBox>
