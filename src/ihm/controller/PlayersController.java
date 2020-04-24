@@ -31,6 +31,7 @@ import main.Joueur;
 public class PlayersController implements Initializable{
 
 	@FXML private AnchorPane rootPane;
+	@FXML private Button btnCommencer;
 	
 	@FXML private HBox hb1;
 	@FXML private HBox hb2;
@@ -46,8 +47,10 @@ public class PlayersController implements Initializable{
 	private List<TextField> txt = new ArrayList<TextField>();
 	private List<CheckBox> ia = new ArrayList<CheckBox>();
 	
-	//private List<Joueur> joueurs = new ArrayList<Joueur>();
 	private HashMap<Integer, Couple> joueurs = new HashMap<Integer, Couple>();
+	
+	private int nbJoueursH = 0;
+	private int nbJoueursV = 0;
 
 	
 	/**
@@ -72,7 +75,7 @@ public class PlayersController implements Initializable{
 		int i=0;
 		for (Button btn : plus) {
 			int compteur = i;
-				btn.setOnAction(e -> {ajoutJoueur(compteur);});
+			btn.setOnAction(e -> {ajoutJoueur(compteur);});
 			i++;
 		}
 		
@@ -80,57 +83,55 @@ public class PlayersController implements Initializable{
 			tf.setEditable(false);
 			tf.setStyle("-fx-background-color: silver;");
 		}
+		
+		int j=0;
+		for (CheckBox cb : ia) {
+			int compteur = j;
+			cb.setOnAction(e -> {mettreNomDefaut(compteur);});
+			j++;
+		}
+		
+		btnCommencer.setStyle("-fx-background-color: gray; -fx-text-fill: black;");
 	}
 	
 		
 	@FXML
 	public void commencerJeux(MouseEvent mouseEvent) throws IOException{
-		//ajout des joueurs finalement selectionner
-		int nbJoueursH = 0;
-		int nbJoueursV = 0;
-		int i = 0;
-		for (HBox hb : ligne) {
-			TextField tf = (TextField) hb.getChildren().get(0);
-			CheckBox cb = (CheckBox) hb.getChildren().get(2);
-			if (tf.isEditable()) {
-				if(cb.isSelected()) {
-					joueurs.put(i, new Couple(tf.getText(), true));
-					nbJoueursV++;
+		if (nbJoueursH + nbJoueursV >= 4) {
+			//ajout des joueurs finalement selectionner
+			int i = 0;
+			for (HBox hb : ligne) {
+				TextField tf = (TextField) hb.getChildren().get(0);
+				CheckBox cb = (CheckBox) hb.getChildren().get(2);
+				if (tf.isEditable()) {
+					if(cb.isSelected()) {
+						joueurs.put(i, new Couple(tf.getText(), true));
+					}
+					else {
+						joueurs.put(i, new Couple(tf.getText(), false));
+					}
 				}
-				else {
-					joueurs.put(i, new Couple(tf.getText(), false));
-					nbJoueursH++;
-				}
-					
+				i++;
 			}
-			i++;
-		}
-		
-		if (nbJoueursH + nbJoueursV < 4) {
-			Alert alert = new Alert(AlertType.WARNING, "Il faut au moins de 4 joueurs !");
-	        alert.showAndWait();
-		}else {
-			System.out.println("Lancement du jeu...");
-	
-			// Creer une configuration
-			//View.applyConfiguration(new Configuration(joueurs, nbJoueursV, nbJoueursH));
-			
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ressources/Plateau.fxml"));
-	        Parent root = loader.load();
-	        
-	        
-	        PlateauController pc = loader.getController();
-	        GestionnaireJeu.setPlateauController(pc);
-	        GestionnaireJeu.setConfiguration(new Configuration(this.joueurs));
-	        Map<Integer, Joueur> map = GestionnaireJeu.getJoueursMap(new Configuration(this.joueurs));
-	        
-	        
-	        pc.showInformation(map);
-	        Scene scene = new Scene(root);
-	        Stage appStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
-	        appStage.setScene(scene);
-	        appStage.show();
-	        GestionnaireJeu.lancerPartie();
+				// Creer une configuration
+				//View.applyConfiguration(new Configuration(joueurs, nbJoueursV, nbJoueursH));
+				
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("../ressources/Plateau.fxml"));
+		        Parent root = loader.load();
+		        
+		        
+		        PlateauController pc = loader.getController();
+		        GestionnaireJeu.setPlateauController(pc);
+		        GestionnaireJeu.setConfiguration(new Configuration(this.joueurs));
+		        Map<Integer, Joueur> map = GestionnaireJeu.getJoueursMap(new Configuration(this.joueurs));
+		        
+		        
+		        pc.showInformation(map);
+		        Scene scene = new Scene(root);
+		        Stage appStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+		        appStage.setScene(scene);
+		        appStage.show();
+		        GestionnaireJeu.lancerPartie();
 		}
 	}
 	
@@ -147,6 +148,15 @@ public class PlayersController implements Initializable{
 		txt.get(indice).setEditable(true);
 		txt.get(indice).setStyle("-fx-background-color: white;");
 		plus.get(indice).setOnAction(e -> {enleverJoueur(indice);});
+		
+		if (ia.get(indice).isSelected()) {
+			nbJoueursV++;
+		}else 
+			nbJoueursH++;
+		
+		if (nbJoueursH + nbJoueursV >= 4) {
+			btnCommencer.setStyle("-fx-background-color: #1d1d1d; -fx-text-fill: #d8d8d8;");
+		}
 	}
 	
 	/**
@@ -161,5 +171,22 @@ public class PlayersController implements Initializable{
 		txt.get(indice).setText("");
 		txt.get(indice).setStyle("-fx-background-color: silver;");
 		plus.get(indice).setOnAction(e -> {ajoutJoueur(indice);});
+		
+		if (ia.get(indice).isSelected())
+			nbJoueursV--;
+		else 
+			nbJoueursH--;
+		
+		if (nbJoueursH + nbJoueursV < 4) {
+			btnCommencer.setStyle("-fx-background-color: gray; -fx-text-fill: black;");
+		}
+	}
+	
+	public void mettreNomDefaut(int indice) {
+		if (ia.get(indice).isSelected()) {
+			ajoutJoueur(indice);
+			txt.get(indice).setText("Joueur" + indice);
+		}else 
+			enleverJoueur(indice);
 	}
 }

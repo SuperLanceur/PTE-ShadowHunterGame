@@ -12,7 +12,11 @@ public class Main extends Application{
 	@Override
     public void start(Stage primaryStage) throws Exception{
 		System.out.println("Lancement de l'application");
+<<<<<<< HEAD
         Pane root = FXMLLoader.load(getClass().getResource("ressources/Menu.fxml")); // "ressources/Jouer_tour(1)lancer_des.fxml"
+=======
+        Pane root = FXMLLoader.load(getClass().getResource("ressources/Menu.fxml"));
+>>>>>>> 962e4e4abd757404ab08839e67817494b857931a
         primaryStage.setTitle("Shadow Hunters");
         primaryStage.setScene(new Scene(root));
         primaryStage.centerOnScreen();
