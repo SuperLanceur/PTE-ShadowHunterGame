@@ -2,16 +2,11 @@ package main;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import com.sun.tools.javac.Main;
-
 import effet.Effet;
 import ihm.controller.PlateauController;
-import ihm.controller.PlayersController;
 
 public class GestionnaireJeu {
 	
@@ -30,16 +25,7 @@ public class GestionnaireJeu {
         }
         return gj;
     }
-	
-	public static void main(String[] args) {
-	
-		try {
-			Main.main(null);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 
-	}
 	
 	public Plateau getPlateau() {
 		return plateau;
