@@ -25,7 +25,7 @@ public class Main extends Application {
 		String filepath = "src//ihm//ressources//musique//The_Red_Fox_Tavern.wav"; // lien vers la musique :
 																					// https://www.youtube.com/watch?v=LBpKUIyOHdo
 		Musique musiqueObjet = new Musique();
-		musiqueObjet.playMusique(filepath);
+		//musiqueObjet.playMusique(filepath);
 		launch(args);
 
 	}
