@@ -7,39 +7,38 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
+
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="170.0" layoutY="61.0">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="105.0" layoutX="239.0" layoutY="118.0" stroke="BLACK" strokeType="INSIDE" width="331.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="248.0" layoutX="45.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" width="172.0" />
-      <VBox layoutX="239.0" layoutY="118.0" prefHeight="105.0" prefWidth="331.0">
+      <VBox prefHeight="400.0" prefWidth="600.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="59.0" prefWidth="331.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label prefHeight="27.0" prefWidth="76.0" text="Joueur X">
+                  <Label prefHeight="27.0" prefWidth="54.0" text="%carte">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label text="%utiliser.capacite">
+                  <Label prefHeight="27.0" prefWidth="175.0" text="*Lumiere ou Tenebre">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="54.0" prefWidth="331.0">
+            <HBox alignment="CENTER" prefHeight="190.0" prefWidth="600.0">
                <children>
-                  <Label prefHeight="27.0" prefWidth="76.0" text="%effet">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="198.0" stroke="BLACK" strokeType="INSIDE" width="130.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="111.0" prefWidth="600.0">
+               <children>
+                  <Label prefHeight="27.0" prefWidth="54.0" text="%effet">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="27.0" prefWidth="118.0" text="*inserrer effet*">
+                  <Label prefHeight="27.0" prefWidth="142.0" text="*effet de la carte">
                      <font>
                         <Font size="18.0" />
                      </font>

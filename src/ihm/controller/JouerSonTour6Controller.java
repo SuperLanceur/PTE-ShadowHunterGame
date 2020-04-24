@@ -2,6 +2,7 @@ package ihm.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -20,15 +21,21 @@ public class JouerSonTour6Controller implements Initializable{
 	}
 	@FXML
 	public void piocherVision(MouseEvent mouseEvent) throws IOException{
-		
-        Pane pane = FXMLLoader.load(getClass().getResource("../ressources/jouer_Son_Tour_piocher_vision.fxml"));
+
+		final URL fxmlURL = getClass().getResource("../ressources/jouer_Son_Tour_piocher_vision.fxml");
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+		Pane pane = fxmlLoader.load();
        rootPane.getChildren().setAll(pane);
 
     }
 	@FXML
 	public void piocherTenebre(MouseEvent mouseEvent) throws IOException{
-		
-        Pane pane = FXMLLoader.load(getClass().getResource("../ressources/jouer_Son_Tour_piocher_lum_et_ten.fxml"));
+
+		final URL fxmlURL = getClass().getResource("../ressources/jouer_Son_Tour_piocher_lum_et_ten.fxml");
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+		Pane pane = fxmlLoader.load();
        rootPane.getChildren().setAll(pane);
 
     }

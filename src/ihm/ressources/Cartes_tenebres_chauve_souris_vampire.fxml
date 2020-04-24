@@ -45,7 +45,7 @@
                   </Rectangle>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="148.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Effet de la carte" textAlignment="CENTER">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%effet.carte" textAlignment="CENTER">
                            <VBox.margin>
                               <Insets bottom="55.0" />
                            </VBox.margin>
@@ -53,7 +53,7 @@
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Choisissez un joueur à qui infliger 2 blessures" textAlignment="CENTER">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%choisir.joueur.infliger.blessures" textAlignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
