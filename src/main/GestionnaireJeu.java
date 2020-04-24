@@ -1,16 +1,26 @@
 package main;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import com.sun.tools.javac.Main;
 
 import effet.Effet;
+import ihm.controller.PlateauController;
+import ihm.controller.PlayersController;
 
 public class GestionnaireJeu {
 	
-	
 	private static GestionnaireJeu gj;	
-	private Plateau plateau;
+
+	private View view;
+	
+	private static Plateau plateau;
+	private static PlateauController pc;
 	
 	private GestionnaireJeu() {}
 	
@@ -35,12 +45,8 @@ public class GestionnaireJeu {
 		return plateau;
 	}
 
-	public void setPlateau(Plateau plateau) {
-		this.plateau = plateau;
-	}
-
 	public static void lancerPartie() {
-		
+		plateau.jeu();
 	}
 	
 	public void jouer(Configuration c) {
@@ -53,29 +59,46 @@ public class GestionnaireJeu {
 	}
 
 	public Joueur choisirParmisTous(Joueur joueur, List<Joueur> joueurs) {
-		return joueur;
-		// TODO Auto-generated method stub
+		return joueurs.get(0);
 		
 	}
 
 	public Effet choisirEffet(Joueur joueur, Effet[] effets) {
-		// TODO Auto-generated method stub
-		return null;
+		return effets[0];
 	}
 
 	public Joueur choisirAdjacents(Joueur joueur, List<Joueur> joueurs) {
-		// TODO Auto-generated method stub
-		return null;
+		return joueurs.get(0);
 	}
 
 	public boolean choisir(Joueur joueur) {
-		// TODO Auto-generated method stub
+		try {
+			return pc.choisir(joueur);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return false;
 	}
 
-	public void setConfiguration(Configuration c) {
+	public static void setConfiguration(Configuration c) {
 		
-		List<Joueur> joueurs = c.toJoueurs();
-		this.plateau = new Plateau(joueurs);	
+		List<Joueur> joueurs = new ArrayList<Joueur>();
+		
+		for(Joueur j : c.toJoueurs().values()) {
+			joueurs.add(j);
+		}
+		
+		plateau = new Plateau(joueurs);	
+	}
+
+	public static Map<Integer, Joueur> getJoueursMap(Configuration c) {
+		return c.toJoueurs();
+		
+	}
+
+	public static void setPlateauController(PlateauController pc2) {
+		pc = pc2;
+		
 	}
 }

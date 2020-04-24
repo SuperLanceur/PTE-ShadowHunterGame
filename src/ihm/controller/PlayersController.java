@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import ihm.Couple;
@@ -21,9 +22,11 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import main.Configuration;
+import main.GestionnaireJeu;
+import main.Joueur;
 
 public class PlayersController implements Initializable{
 
@@ -114,12 +117,20 @@ public class PlayersController implements Initializable{
 			
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ressources/Plateau.fxml"));
 	        Parent root = loader.load();
+	        
+	        
 	        PlateauController pc = loader.getController();
-	        pc.showInformation(joueurs);
+	        GestionnaireJeu.setPlateauController(pc);
+	        GestionnaireJeu.setConfiguration(new Configuration(this.joueurs));
+	        Map<Integer, Joueur> map = GestionnaireJeu.getJoueursMap(new Configuration(this.joueurs));
+	        
+	        
+	        pc.showInformation(map);
 	        Scene scene = new Scene(root);
 	        Stage appStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
 	        appStage.setScene(scene);
 	        appStage.show();
+	        GestionnaireJeu.lancerPartie();
 		}
 	}
 	

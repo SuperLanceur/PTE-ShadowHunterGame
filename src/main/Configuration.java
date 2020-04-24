@@ -1,34 +1,38 @@
 package main;
 
 import java.util.HashMap;
-import java.util.List;
+import java.util.Map;
 
 import ihm.Couple;
 
 public class Configuration {
-	private int nombreJoueurs;
-	private int nombreJoueursHumains;
+	
 	private HashMap<Integer, Couple> nomsJoueurs;
 	
 	//TODO : attribut pour prendre en compte si jeu est normal ou demarrage rapide?
 	
-	public Configuration (HashMap<Integer, Couple> nomsJoueurs,int nj, int njh) {
+	public Configuration (HashMap<Integer, Couple> nomsJoueurs) {
 		this.nomsJoueurs = nomsJoueurs;
-		nombreJoueurs = nj;
-		nombreJoueursHumains = njh;
+
 	}
 
-	public int getNombreJoueurs() {
-		return nombreJoueurs;
-	}
-
-	public int getNombreJoueursHumains() {
-		return nombreJoueursHumains;
-	}
-
-	public List<Joueur> toJoueurs() {
-		// TODO Auto-generated method stub
-		return null;
+	public Map<Integer,Joueur> toJoueurs() {
+		
+		Map<Integer, Joueur> joueurs = new HashMap<Integer, Joueur>();
+		
+		for(Integer i : nomsJoueurs.keySet()) {
+			
+			Couple c = nomsJoueurs.get(i);
+			
+			if(c.isIa()) {
+				joueurs.put(i,new JoueurVirtuel(c.getNom()));
+			}else {
+				joueurs.put(i,new Joueur(c.getNom()));
+			}
+		}
+		
+		return joueurs;
+		
 	}
 	
 }

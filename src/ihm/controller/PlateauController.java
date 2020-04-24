@@ -4,20 +4,21 @@ package ihm.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
-import ihm.Couple;
 
 import ihm.PopUp;
+import ihm.PopUpBoolean;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import main.GestionnaireJeu;
 import main.Joueur;
 import main.View;
 
@@ -45,6 +46,11 @@ public class PlateauController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		//initialisation des attributs des joueurs
+		
+		
+		
+		
+		
 		this.vboxJoueur.add(joueur1);
 		this.vboxJoueur.add(joueur2);
 		this.vboxJoueur.add(joueur3);
@@ -105,6 +111,17 @@ public class PlateauController implements Initializable {
 		popup.display();
 	}
 	
+	public boolean choisir(Joueur j) throws IOException {
+		
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("../ressources/choisirBoolean.fxml"));
+		Parent root = loader.load();
+        
+		PopUpBoolean popup = new PopUpBoolean(root, "Consulter sa carte");
+		return popup.display();
+		
+		
+	}
+	
 	/**
 	 * Permet de consulter sa carte perssonage en cas d'oublie
 	 * 
@@ -122,8 +139,9 @@ public class PlateauController implements Initializable {
 		popup.display();
 	}
 	
-	public void showInformation(HashMap<Integer, Couple> j) {
+	public void showInformation(Map<Integer, Joueur> j) {
 		System.out.println("\tplacement des joueurs");
+		
 		for (int i=0; i<this.vboxJoueur.size(); i++) {
 			if (j.get(i) != null)
 				nomJoueur.get(i).setText(j.get(i).getNom());

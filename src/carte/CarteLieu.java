@@ -55,6 +55,10 @@ public class CarteLieu extends CarteEffet{
 		return this.coordinates;
 	}
 
+	public void ajouterJoueur(Joueur joueur) {
+		this.listeJoueurs.add(joueur);
+	}
+
 
 
 	

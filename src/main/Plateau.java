@@ -1,5 +1,7 @@
 package main;
 
+import java.awt.Point;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -7,8 +9,18 @@ import java.util.List;
 import java.util.Map;
 
 import carte.CarteLieu;
+import carte.CarteLieuType;
+import carte.CartePiochable;
 import effet.Effet;
+import effet.EffetChoisirCible;
+import effet.EffetChoisirEffet;
+import effet.EffetSelf;
+import effet.action.ActionAltererStatistiquesJoueur;
+import effet.action.ActionVoler;
+import personnage.Allie;
 import personnage.CartePersonnage;
+import personnage.Franklin;
+import personnage.Vampire;
 
 public class Plateau {
 	
@@ -30,6 +42,7 @@ public class Plateau {
 	
 	public Plateau(List<Joueur> joueurs) {
 		
+		gj = GestionnaireJeu.getGestionnaireJeu();
 		
 		this.lieux = new ArrayList<>();
 		this.stats = new HashMap<>();
@@ -47,6 +60,65 @@ public class Plateau {
 		this.stats.put(NB_HUNTERS, 0);
 		this.stats.put(NB_SHADOWS, 0);
 		this.stats.put(NB_NEUTRES, 0);
+		
+		List<CartePiochable<TypeLumiere>> list1 = new ArrayList<>();
+		List<CartePiochable<TypeTenebre>> list2 = new ArrayList<>();
+		
+		for(int i = 0; i < 60; i++) {
+			
+			CartePiochable<TypeLumiere> carte1 = new CartePiochable<TypeLumiere>("Eau bénite", "Soin 2");
+			carte1.setEffet(new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, 2, true)));
+			list1.add(carte1);
+			
+			CartePiochable<TypeTenebre> carte2 = new CartePiochable<TypeTenebre>("Eau maudite", "Damage 2");
+			carte2.setEffet(new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -2, true)));
+			list2.add(carte2);
+		}
+		
+		Pioche<TypeLumiere> piocheLumiere = new Pioche<TypeLumiere>(list1);
+		Pioche<TypeTenebre> piocheTenebre = new Pioche<TypeTenebre>(list2);
+		
+		CarteLieu lieu1 = new CarteLieuType<TypeTenebre>("Antre de l'Ermite","desc",new Point(2,3),piocheTenebre);
+		CarteLieu lieu2 = new CarteLieuType<TypeTenebre>("Cimetière","desc",new Point(-1,8),piocheTenebre);
+		CarteLieu lieu3 = new CarteLieu("Forêt hantée","desc",new Point(-1,9));
+		lieu3.setEffet(new EffetChoisirEffet(new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-2,true)),
+											new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,1,true))));
+		CarteLieu lieu4 = new CarteLieuType<TypeLumiere>("Monastère","desc",new Point(-1,6),piocheLumiere);
+		
+		CarteLieu lieu5 = new CarteLieuType<TypeTenebre>("Sanctuaire Ancien","desc",new Point(4,5),piocheTenebre);
+		CarteLieu lieu6 = new CarteLieu("Sanctuaire Ancien","desc",new Point(-1,9));
+		lieu6.setEffet(new EffetChoisirCible(new ActionVoler()));
+	
+		List<CarteLieu> cls = new ArrayList<CarteLieu>();
+		cls.add(lieu6);
+		cls.add(lieu5);
+		cls.add(lieu4);
+		cls.add(lieu3);
+		cls.add(lieu2);
+		cls.add(lieu1);
+		
+		List<CartePersonnage> personnages = new ArrayList<CartePersonnage>();
+		
+		
+		for(int i = 0 ; i <3 ; i++) {
+			
+			personnages.add(new Franklin());
+			personnages.add(new Vampire());
+		}
+		
+		for(int i = 0; i < 2; i++) {
+			personnages.add(new Allie());
+		}
+		
+		try {
+			initCartePersonnage(personnages);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		setLieux(cls);
+		shuffleLieux();
+		
 	}	
 	
 	public void initCartePersonnage(List<CartePersonnage> cps) throws Exception {
@@ -55,8 +127,6 @@ public class Plateau {
 		int nbJoueurs = this.joueurs.size();
 		List<CartePersonnage> lcp = new ArrayList<>(nbJoueurs);
 		
-		
-		System.out.println(this.joueurs);
 		switch(nbJoueurs) {
 		
 		case 4:
@@ -82,6 +152,7 @@ public class Plateau {
 			
 			Joueur j = joueurs.get(i);
 			j.setCartePersonnage(lcp.get(i));
+			lcp.get(i).setJoueur(j);
 		}
 	}
 	
@@ -116,7 +187,6 @@ public class Plateau {
 				lcp.add(cp);
 			}
 		}
-		System.out.println(lcp);
 		return lcp;
 	}
 
@@ -127,16 +197,45 @@ public class Plateau {
 		
 		while(true) {
 			
+			
+			
 			Joueur currentJoueur = this.joueurs.get(nbJoueurs % i);
+			System.out.println("\n\n\n\n\n");
+			System.out.println("Au tour de "+currentJoueur.getNom());
+			System.out.println("Lancement des dés.");
 			deplacer(currentJoueur);
+			System.out.println("Vous êtes désormais sur le lieu "+currentJoueur.getCarteLieu().getNom());
 			
+			System.out.println("Voulez vous activer l'effet du lieu ?");
 			if(currentJoueur.choisir()) {
+				System.out.println("Vous activez l'effet du lieu.");
+				System.out.println("Vous avez "+currentJoueur.getStat(Joueur.PLAYER_HP)+" pv");
 				currentJoueur.utiliserEffetLieu();
+				System.out.println("Vous passez a "+currentJoueur.getStat(Joueur.PLAYER_HP)+" pv");
 			}
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("\n");
 			
+			System.out.println("Souhaitez vous attaquer quelqu'un ?");
 			if(currentJoueur.choisir()){
-				Joueur cible = currentJoueur.choisirAdjacents();
-				attaquer(currentJoueur,cible);
+				if(currentJoueur.hasOpponents()) {
+					Joueur cible = currentJoueur.choisirAdjacents();
+					attaquer(currentJoueur,cible);
+				}else {
+					System.out.println("Il n'y a personne a attaquer.");
+				}
+				
+				try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+			
+					e.printStackTrace();
+				}
 			}
 			
 			i++;
@@ -166,8 +265,11 @@ public class Plateau {
 		int attaque = diffRolls();
 		
 		if(attaque != 0) {
-			
+			System.out.println(joueur1.getNom()+" attaque "+joueur2.getNom());
+			System.out.println(joueur2.getNom()+" a "+joueur2.getStat(Joueur.PLAYER_HP)+" pv");
 			joueur1.attaquer(joueur2,attaque);
+			System.out.println(joueur2.getNom()+" passe à "+joueur2.getStat(Joueur.PLAYER_HP)+" pv");
+			
 		}
 	}
 	
@@ -220,10 +322,10 @@ public class Plateau {
 			
 			Collections.shuffle(lieux);
 			
-			for(int i = 0; i < lieux.size()-2; i += 2) {
+			for(int i = 0; i < lieux.size(); i += 2) {
 				
-				lieux.get(i).setVoisin(lieux.get(i+2));
-				lieux.get(i+2).setVoisin(lieux.get(i));
+				lieux.get(i).setVoisin(lieux.get(i+1));
+				lieux.get(i+1).setVoisin(lieux.get(i));
 			}
 			
 		}else {

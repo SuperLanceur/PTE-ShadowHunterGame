@@ -1,4 +1,5 @@
 package main;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,6 +36,10 @@ public class Joueur {
 	
 	
 	public Joueur(String nom) {
+		
+		if(nom == null) {
+			this.nom = "errorNamePlayer";
+		}
 		this.nom = nom;
 		this.revele = false;
 		this.gestionnaireEquipements = new GestionnaireEquipements(this);
@@ -44,13 +49,13 @@ public class Joueur {
 		
 		// Initialisation joueur depuis valeurs perso
 		
-		//stats.put(PLAYER_HP, char.getHP());
+		stats.put(PLAYER_HP, 20);
 		//stats.put(PLAYER_TURN, 1);		
 		stats.put(PLAYER_DAMAGE, 0);
 		stats.put(PLAYER_NB_EQUIPEMENTS, 0);
-		//stats.put(PLAYER_RESISTANCE, 0);
-		//stats.put(PLAYER_REVEAL, 0);
-		//stats.put(PLAYER_IMMUNITY, 0); 
+		stats.put(PLAYER_RESISTANCE, 0);
+		stats.put(PLAYER_REVEAL, 0);
+		stats.put(PLAYER_IMMUNITY, 0); 
 		// immunité à certains effets?
 	}
 		
@@ -173,9 +178,9 @@ public class Joueur {
 		if(this.carteLieu != null){
 			this.carteLieu.remove(this);
 		}
-		
+	
 		this.carteLieu = cl;
-		
+		cl.ajouterJoueur(this);
 	}
 
 	
@@ -201,6 +206,17 @@ public class Joueur {
 
 	public void retirerEquipement(Equipement equipement) {
 		this.gestionnaireEquipements.retirer(equipement);	
+	}
+
+	public boolean hasOpponents() {
+		CarteLieu cl = this.carteLieu;
+		List<Joueur> joueurs = new ArrayList<Joueur>();
+				
+		joueurs.addAll(cl.getJoueurs());
+		joueurs.addAll(cl.getJoueursAdjacents());
+		joueurs.remove(this);
+		
+		return !joueurs.isEmpty();
 	}
 
 }
