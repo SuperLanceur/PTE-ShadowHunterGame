@@ -2,7 +2,6 @@ package ihm.controller;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 import carte.CarteLieu;
@@ -27,11 +26,7 @@ public class JouerSonTour2Controller implements Initializable{
 	
 	@FXML
 	public void ignorerEtape(MouseEvent mouseEvent) throws IOException{
-		final URL fxmlURL = getClass().getResource("../ressources/Jouer_tour(3)attaquer.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
-		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
-		Pane pane = fxmlLoader.load();
-
+       Pane pane = FXMLLoader.load(getClass().getResource("../ressources/Jouer_tour(3)attaquer.fxml"));
        rootPane.getChildren().setAll(pane);
     }
 	

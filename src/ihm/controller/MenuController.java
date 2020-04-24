@@ -4,7 +4,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -15,7 +14,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
@@ -38,11 +36,8 @@ public class MenuController implements Initializable{
 
 	@FXML
 	public void commencerPartie(MouseEvent mouseEvent) throws IOException{
-		System.out.println("Passage à l'écran de choix des joueurs");
-		final URL fxmlURL = getClass().getResource("../ressources/Choix_joueur.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
-		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
-		AnchorPane pane = fxmlLoader.load();
+		System.out.println("Passage � l'�cran de choix des joueurs");
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("../ressources/Choix_joueur.fxml"));
         Scene scene = new Scene(pane);
         Stage appStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         appStage.setScene(scene);

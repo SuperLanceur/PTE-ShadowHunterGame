@@ -2,7 +2,6 @@ package ihm.controller;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Locale;
 import java.util.Random;
 import java.util.ResourceBundle;
 
@@ -10,7 +9,6 @@ import carte.CarteLieu;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -41,12 +39,8 @@ public class JouerSonTour1Controller implements Initializable{
 		this.d6.setText(Integer.toString(d4));
 		
 		Thread.sleep(1000);
-
-		final URL fxmlURL = getClass().getResource("../ressources/Jouer_tour(2)carte_lieux.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
-		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
-		Pane pane = fxmlLoader.load();
-
+		
+		Pane pane = FXMLLoader.load(getClass().getResource("../ressources/Jouer_tour(2)carte_lieux.fxml"));
         rootPane.getChildren().setAll(pane);
 	}
 	

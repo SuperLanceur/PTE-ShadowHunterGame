@@ -2,26 +2,17 @@ package ihm;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
-import java.net.URL;
-import java.util.Locale;
-import java.util.ResourceBundle;
 
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		System.out.println("Lancement de l'application");
 
-		final URL fxmlURL = getClass().getResource("ressources/Menu.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
-		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
-		Parent root = fxmlLoader.load();
-
+		Pane root = FXMLLoader.load(getClass().getResource("ressources/Menu.fxml")); // "ressources/Jouer_tour(1)lancer_des.fxml"
 
 		primaryStage.setTitle("Shadow Hunters");
 		primaryStage.setScene(new Scene(root));
@@ -34,7 +25,7 @@ public class Main extends Application {
 		String filepath = "src//ihm//ressources//musique//The_Red_Fox_Tavern.wav"; // lien vers la musique :
 																					// https://www.youtube.com/watch?v=LBpKUIyOHdo
 		Musique musiqueObjet = new Musique();
-		musiqueObjet.playMusique(filepath);
+		//musiqueObjet.playMusique(filepath);
 		launch(args);
 
 	}

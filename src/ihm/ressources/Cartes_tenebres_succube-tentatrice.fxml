@@ -32,7 +32,7 @@
                               </Rectangle>
                            </children>
                         </HBox>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%carte.equipement">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cartes équipements">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -53,7 +53,7 @@
                               </Rectangle>
                            </children>
                         </HBox>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%carte.equipement">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cartes équipements">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -80,7 +80,7 @@
                               <Insets right="20.0" />
                            </VBox.margin>
                         </HBox>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%carte.equipement">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cartes équipements">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -97,7 +97,7 @@
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d8dbdd" height="80.0" layoutX="126.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="58.0" />
                            </children>
                         </HBox>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%carte.equipement">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cartes équipements">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -115,7 +115,7 @@
                   </Rectangle>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="148.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%effet.carte" textAlignment="CENTER">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Effet de la carte" textAlignment="CENTER">
                            <VBox.margin>
                               <Insets bottom="55.0" />
                            </VBox.margin>
@@ -123,7 +123,7 @@
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%choisir.equipement.a.voler" textAlignment="CENTER">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Choisissez un équipement à voler" textAlignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -152,7 +152,7 @@
                               </Rectangle>
                            </children>
                         </HBox>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%carte.equipement">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cartes équipements">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -173,7 +173,7 @@
                               </Rectangle>
                            </children>
                         </HBox>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%carte.equipement">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cartes équipements">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -197,7 +197,7 @@
                               <Insets right="20.0" />
                            </VBox.margin>
                         </HBox>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%carte.equipement">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cartes équipements">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -214,7 +214,7 @@
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d8dbdd" height="80.0" layoutX="126.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="58.0" />
                            </children>
                         </HBox>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%carte.equipement">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cartes équipements">
                            <font>
                               <Font size="13.0" />
                            </font>

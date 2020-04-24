@@ -44,7 +44,7 @@
                         </Polygon>
                      </children>
                   </HBox>
-                  <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="135.0" text="%lancer.de.des">
+                  <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="135.0" text="Lancer les dés">
                      <font>
                         <Font size="18.0" />
                      </font>

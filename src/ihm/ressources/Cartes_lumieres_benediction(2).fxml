@@ -8,7 +8,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="137.0" layoutY="100.0" prefHeight="46.0" prefWidth="362.0" text="%joueur1.soigne.joueur2">
+      <Label layoutX="137.0" layoutY="100.0" prefHeight="46.0" prefWidth="362.0" text="Joueur 1  soigne  Joueur 2">
          <font>
             <Font size="29.0" />
          </font>
@@ -18,6 +18,6 @@
             <Font size="47.0" />
          </font>
       </Button>
-      <Button layoutX="243.0" layoutY="313.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="116.0" text="%lancer.de.des" />
+      <Button layoutX="243.0" layoutY="313.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="116.0" text="Lancer les dès" />
    </children>
 </Pane>

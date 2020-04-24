@@ -2,7 +2,11 @@ package ihm.controller;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.ResourceBundle;
 
 import ihm.Couple;
 import javafx.fxml.FXML;
@@ -111,14 +115,12 @@ public class PlayersController implements Initializable{
 			}
 				// Creer une configuration
 				//View.applyConfiguration(new Configuration(joueurs, nbJoueursV, nbJoueursH));
-			final URL fxmlURL = getClass().getResource("../ressources/Plateau.fxml");
-			final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRENCH);
-			final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
-			Parent root = fxmlLoader.load();
-
+				
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("../ressources/Plateau.fxml"));
+		        Parent root = loader.load();
 		        
 		        
-		        PlateauController pc = fxmlLoader.getController();
+		        PlateauController pc = loader.getController();
 		        GestionnaireJeu.setPlateauController(pc);
 		        GestionnaireJeu.setConfiguration(new Configuration(this.joueurs));
 		        Map<Integer, Joueur> map = GestionnaireJeu.getJoueursMap(new Configuration(this.joueurs));

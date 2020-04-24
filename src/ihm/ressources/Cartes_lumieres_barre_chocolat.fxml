@@ -13,9 +13,9 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="387.0" layoutY="302.0" mnemonicParsing="false" prefHeight="155.0" prefWidth="195.0" text="%reveler.et.soigner" />
-      <Button layoutX="628.0" layoutY="302.0" mnemonicParsing="false" prefHeight="155.0" prefWidth="171.0" text="%rien.faire" />
-      <Label layoutX="414.0" layoutY="147.0" prefHeight="89.0" prefWidth="249.0" text="%effet.carte">
+      <Button layoutX="387.0" layoutY="302.0" mnemonicParsing="false" prefHeight="155.0" prefWidth="195.0" text="Se révéler et soigner mes lessures" />
+      <Button layoutX="628.0" layoutY="302.0" mnemonicParsing="false" prefHeight="155.0" prefWidth="171.0" text="Ne rien faire" />
+      <Label layoutX="414.0" layoutY="147.0" prefHeight="89.0" prefWidth="249.0" text="Effet carte">
          <font>
             <Font size="52.0" />
          </font>

@@ -18,7 +18,7 @@
             </Rectangle>
             <VBox alignment="CENTER" prefHeight="533.0" prefWidth="753.0">
                <children>
-                  <Label text="%effet.carte">
+                  <Label text="Effet de la carte">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -28,12 +28,12 @@
                   </Label>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="338.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="333.0" text="%reveler.et.soigner">
+                        <Button mnemonicParsing="false" prefHeight="48.0" prefWidth="333.0" text="Se révéler et soigner ses blessures">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Button>
-                        <Button layoutX="89.0" layoutY="38.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="289.0" text="%rien.faire">
+                        <Button layoutX="89.0" layoutY="38.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="289.0" text="Ne rien faire">
                            <font>
                               <Font size="18.0" />
                            </font>

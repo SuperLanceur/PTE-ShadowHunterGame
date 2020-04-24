@@ -1,40 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" stylesheets="@style/popUp.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.RevelationController">
    <children>
-      <Pane layoutX="33.0" layoutY="41.0" prefHeight="325.0" prefWidth="561.0" style="-fx-border-color: blue;">
+      <HBox alignment="CENTER" prefHeight="480.0" prefWidth="640.0">
          <children>
-            <VBox alignment="CENTER" layoutX="199.0" layoutY="101.0" prefHeight="151.0" prefWidth="333.0" spacing="5.0" style="-fx-background-color: blue;">
+            <ImageView fitHeight="326.0" fitWidth="233.5" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </ImageView>
+            <VBox alignment="CENTER" prefHeight="151.0" prefWidth="333.0" spacing="5.0">
                <children>
                   <HBox prefHeight="36.0" prefWidth="334.0">
                      <children>
-                        <Label prefHeight="35.0" prefWidth="75.0" text="Joueur x " textFill="WHITE">
+                        <Label fx:id="nomJoueur" prefHeight="35.0" prefWidth="75.0" text="Joueur x " textFill="WHITE">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="34.0" prefWidth="154.0" text="%reveler.identite" textFill="WHITE">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="36.0" prefWidth="334.0">
-                     <children>
-                        <Label prefHeight="35.0" prefWidth="55.0" text="%c.est" textFill="WHITE">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label prefHeight="34.0" prefWidth="182.0" text="*nom de personnage*" textFill="WHITE">
+                        <Label prefHeight="34.0" prefWidth="154.0" text="révèle son identité!" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -43,12 +35,26 @@
                   </HBox>
                   <HBox prefHeight="36.0" prefWidth="334.0">
                      <children>
-                        <Label prefHeight="35.0" prefWidth="75.0" text="%faction" textFill="WHITE">
+                        <Label prefHeight="35.0" prefWidth="55.0" text="C'est" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="34.0" prefWidth="233.0" text="*insérer le nom de la faction*" textFill="WHITE">
+                        <Label fx:id="nomPerso" prefHeight="34.0" prefWidth="182.0" text="*nom de personnage*" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="36.0" prefWidth="334.0">
+                     <children>
+                        <Label prefHeight="35.0" prefWidth="75.0" text="Faction : " textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="factionPerso" prefHeight="34.0" prefWidth="233.0" text="*insérer le nom de la faction*" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -57,8 +63,7 @@
                   </HBox>
                </children>
             </VBox>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="205.0" layoutX="35.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" width="130.0" />
          </children>
-      </Pane>
+      </HBox>
    </children>
 </Pane>

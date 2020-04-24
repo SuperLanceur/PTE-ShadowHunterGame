@@ -21,12 +21,12 @@
             <Font size="23.0" />
          </font>
       </Button>
-      <Label layoutX="524.0" layoutY="134.0" prefHeight="105.0" prefWidth="254.0" text="%effet.carte">
+      <Label layoutX="524.0" layoutY="134.0" prefHeight="105.0" prefWidth="254.0" text="Effet carte">
          <font>
             <Font size="37.0" />
          </font>
       </Label>
-      <Label layoutX="438.0" layoutY="306.0" prefHeight="115.0" prefWidth="385.0" text="%choisir.joueur.soigner" wrapText="true">
+      <Label layoutX="438.0" layoutY="306.0" prefHeight="115.0" prefWidth="385.0" text="Choisissez un joueur que vous voulez soigner" wrapText="true">
          <font>
             <Font size="35.0" />
          </font>

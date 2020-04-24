@@ -47,7 +47,7 @@
                   </Rectangle>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="148.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%effet.carte" textAlignment="CENTER">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Effet de la carte" textAlignment="CENTER">
                            <VBox.margin>
                               <Insets bottom="30.0" top="50.0" />
                            </VBox.margin>
@@ -55,7 +55,7 @@
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%carte.equipement.a.donner" textAlignment="CENTER">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Choisissez la carte équipement que vous allez donner" textAlignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -75,7 +75,7 @@
                               <Insets bottom="55.0" />
                            </VBox.margin>
                         </HBox>
-                        <Text layoutX="10.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%joueur.a.qui.donner.carte.equipement" textAlignment="CENTER">
+                        <Text layoutX="10.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choisissez un joueur à qui donner cette carte équipement" textAlignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
