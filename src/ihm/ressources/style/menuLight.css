@@ -1,0 +1,16 @@
+.background {
+    -fx-background-color: white;
+}
+
+.titre {
+	-fx-text-fill: black;
+}
+
+.bouton {
+	-fx-border-color: black;
+	-fx-border-width: 2;
+    -fx-background-radius: 0;
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}

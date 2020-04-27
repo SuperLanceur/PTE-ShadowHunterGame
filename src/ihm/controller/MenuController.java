@@ -36,7 +36,7 @@ public class MenuController implements Initializable{
 
 	@FXML
 	public void commencerPartie(MouseEvent mouseEvent) throws IOException{
-		System.out.println("Passage ï¿½ l'ï¿½cran de choix des joueurs");
+		System.out.println("Passage à l'écran de choix des joueurs");
         AnchorPane pane = FXMLLoader.load(getClass().getResource("../ressources/Choix_joueur.fxml"));
         Scene scene = new Scene(pane);
         Stage appStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();

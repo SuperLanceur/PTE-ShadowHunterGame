@@ -27,6 +27,5 @@ public class Main extends Application {
 		Musique musiqueObjet = new Musique();
 		//musiqueObjet.playMusique(filepath);
 		launch(args);
-
 	}
 }

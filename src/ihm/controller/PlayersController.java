@@ -131,7 +131,7 @@ public class PlayersController implements Initializable{
 		        Stage appStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
 		        appStage.setScene(scene);
 		        appStage.show();
-		        GestionnaireJeu.lancerPartie();
+		        //GestionnaireJeu.lancerPartie();
 		}
 	}
 	
