@@ -19,8 +19,6 @@ public class JouerSonTour1Controller implements Initializable{
 	private Joueur joueur;
 	
 	@FXML private Pane rootPane;
-	@FXML private Label d6;
-	@FXML private Label d4;
 	@FXML private Label nomJoueur;
 	
 	@Override
@@ -30,13 +28,7 @@ public class JouerSonTour1Controller implements Initializable{
 	
 	@FXML 
 	public void lancerDes(MouseEvent mouseEvent) throws IOException, InterruptedException{
-		//lancer d6
-		int d6 = new Random().nextInt(6) + 1;
-		this.d6.setText(Integer.toString(d6));
 		
-		//lancer d4
-		int d4 = new Random().nextInt(4) + 1;
-		this.d6.setText(Integer.toString(d4));
 		
 		Thread.sleep(1000);
 		

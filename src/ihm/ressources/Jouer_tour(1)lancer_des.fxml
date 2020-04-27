@@ -20,14 +20,6 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Label fx:id="d6" layoutX="199.0" layoutY="190.0" styleClass="des" text="6">
-         <font>
-            <Font size="64.0" />
-         </font></Label>
-      <Label fx:id="d4" layoutX="433.0" layoutY="211.0" styleClass="des" text="4">
-         <font>
-            <Font size="64.0" />
-         </font></Label>
       <Label fx:id="nomJoueur" layoutX="405.0" layoutY="29.0" text="joueur 1">
          <font>
             <Font size="36.0" />
