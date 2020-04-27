@@ -16,7 +16,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		System.out.println("Lancement de l'application");
 		
-		 final URL fxmlURL = getClass().getResource("ressources/Menu.fxml");  // "ressources/Jouer_tour(1)lancer_des.fxml"
+		 final URL fxmlURL = getClass().getResource("ressources/Jouer_tour(1)lancer_des.fxml");  // "ressources/Jouer_tour(1)lancer_des.fxml"
 	     final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
 	     final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 	     Pane root = fxmlLoader.load();
