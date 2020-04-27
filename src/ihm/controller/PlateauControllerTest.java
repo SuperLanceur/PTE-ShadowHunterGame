@@ -24,13 +24,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 import main.Joueur;
-import main.View;
 
-public class PlateauController implements Initializable {
+public class PlateauControllerTest implements Initializable {
 	private List<Joueur> listJoueur = new ArrayList<Joueur>();
 	private List<VBox> vboxJoueur = new ArrayList<VBox>();
 	private List<Button> btnRevelation = new ArrayList<Button>();
@@ -39,19 +37,16 @@ public class PlateauController implements Initializable {
 	private List<Label> factionPerso = new ArrayList<Label>();
 	private List<Label> nomJoueur = new ArrayList<Label>();
 	
-	@FXML private VBox joueur1;
-	@FXML private VBox joueur2;
-	@FXML private VBox joueur3;
-	@FXML private VBox joueur4;
-	@FXML private VBox joueur5;
-	@FXML private VBox joueur6;
-	@FXML private VBox joueur7;
-	@FXML private VBox joueur8;
 	
-	public static int DICE_SIX = 2;
-	public static int DICE_QUATRE = 1;
-	public static int DICE_BOTH = 0;
-	
+	@FXML private AnchorPane anchorPane1;
+	@FXML private AnchorPane anchorPane2;
+	@FXML private AnchorPane anchorPane3;
+	@FXML private AnchorPane anchorPane4;
+	@FXML private AnchorPane anchorPane5;
+	@FXML private AnchorPane anchorPane6;
+	@FXML private AnchorPane anchorPane7;
+	@FXML private AnchorPane anchorPane8;
+
 	/**
 	 * initialise les donn�es du plateau
 	 */
@@ -59,49 +54,50 @@ public class PlateauController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		//initialisation des attributs des joueurs
 		
-		this.vboxJoueur.add(joueur1);
-		this.vboxJoueur.add(joueur2);
-		this.vboxJoueur.add(joueur3);
-		this.vboxJoueur.add(joueur4);
-		this.vboxJoueur.add(joueur5);
-		this.vboxJoueur.add(joueur6);
-		this.vboxJoueur.add(joueur7);
-		this.vboxJoueur.add(joueur8);
-		for (VBox vbox : vboxJoueur) {
-			nomPerso.add((Label) vbox.getChildren().get(1));
-			factionPerso.add((Label) vbox.getChildren().get(0));
-			nomJoueur.add((Label) vbox.getChildren().get(2));
-			HBox enfant = (HBox) vbox.getChildren().get(3);
-			btnCartePerso.add((Button) enfant.getChildren().get(0));
-			btnRevelation.add((Button) enfant.getChildren().get(1));
-		}
-		//initilaisation des boutons se reveler
-		int i = 0;
-		for (Button b : btnRevelation) {
-			int compteur = i;
-			b.setOnAction(e -> {try {seReveler(compteur);} catch (IOException e1) {e1.printStackTrace();}});
-			i++;
-		}
-		//initialisation des bouton carte personnage
-		int j = 0;
-		for (Button b : btnCartePerso) {
-			int compteur = j;
-			b.setOnAction(e -> {try {consulterSaCarte(compteur);} catch (IOException e1) {e1.printStackTrace();}});
-			j++;
-		}
-		
-		//initialisation nom personnage
-		for (Label l : nomPerso) {
-			l.setText("???");
-		}
-		//initialisation nom personnage
-		for (Label l : factionPerso) {
-			l.setText("???");
-		}
-		
-		listJoueur = View.getJoueurs();
-	}
 	
+		int OFFSET_X = 0;
+		int OFFSET_Y = 0;
+		int WIDTH = 557;
+		int HEIGHT = 557;
+		int COUNT = 6;
+		int COLUMNS = 6;
+	
+		//anchorPane1.getChildren().setAll(imageView);
+		
+		
+		ImageView imageView;
+		try {
+			imageView = FXMLLoader.load(getClass().getResource("../ressources/Dés.fxml"));
+			imageView.setViewport(new Rectangle2D(OFFSET_X, OFFSET_Y, WIDTH, HEIGHT));
+
+			imageView.fitWidthProperty().bind(anchorPane1.widthProperty()); 
+			final SpriteAnimation animation = new SpriteAnimation(
+			        imageView,
+			        Duration.millis(250),
+			        COUNT, COLUMNS,
+			        OFFSET_X, OFFSET_Y,
+			        WIDTH, HEIGHT
+			);
+			animation.setCycleCount(Animation.INDEFINITE);
+			animation.play();
+			anchorPane1.getChildren().addAll(new Group(imageView));
+			anchorPane1.setOnMousePressed(new EventHandler<Event>(
+					
+					) {
+
+						@Override
+						public void handle(Event arg0) {
+							animation.stop();
+						
+						}
+			});
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
 	/**
 	 * Affiche aux yeux de tous la carte personnage du joueur
 	 * 
@@ -125,7 +121,13 @@ public class PlateauController implements Initializable {
 		Parent root = loader.load();
         
 		PopUpBoolean popup = new PopUpBoolean(root, "Consulter sa carte");
-		return popup.display();	
+		return popup.display();
+		
+		
+	}
+	
+	public void rollDice(Joueur j, int typeDice, int[] resultats) {
+		
 	}
 	
 	/**
@@ -156,11 +158,4 @@ public class PlateauController implements Initializable {
 			}
 		}
 	}
-
-	public void rollDice(Joueur joueur, int typeDice, int[] rolls) {
-		
-		
-		
-	}
-
 }
