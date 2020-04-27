@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -86,10 +87,12 @@ public class PlateauController implements Initializable {
 	 */
 	public void seReveler(int numJoueur) throws IOException {
 		System.out.println(listJoueur.get(numJoueur).getNom() + " se revele");
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("../ressources/Reveler_son_identite.fxml"));
-		Parent root = loader.load();
+		final URL fxmlURL = getClass().getResource("../ressources/Reveler_son_identite.fxml");
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+		Parent root = fxmlLoader.load();
         
-        RevelationController rc = loader.getController();
+        RevelationController rc = fxmlLoader.getController();
         rc.showInformation(listJoueur.get(numJoueur));
 		
 		PopUp popup = new PopUp(root, "Consulter sa carte");
@@ -114,10 +117,13 @@ public class PlateauController implements Initializable {
 	 */
 	public void consulterSaCarte(int numJoueur) throws IOException {
 		System.out.println(listJoueur.get(numJoueur).getNom() + " consulte sa carte");
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("../ressources/afficher_carte_perso.fxml"));
-		Parent root = loader.load();
+		final URL fxmlURL = getClass().getResource("../ressources/afficher_carte_perso.fxml");
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+		Parent root = fxmlLoader.load();
+	
         
-        AfficherCarteController acc = loader.getController();
+        AfficherCarteController acc = fxmlLoader.getController();
         acc.showInformation(listJoueur.get(numJoueur));
 		
 		PopUp popup = new PopUp(root, "Consulter sa carte");

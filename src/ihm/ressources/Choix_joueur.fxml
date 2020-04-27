@@ -141,22 +141,22 @@
          <center>
             <VBox alignment="CENTER" prefHeight="486.0" prefWidth="392.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label styleClass="titre" stylesheets="@style/menu.css" text="Entrez le nom des joueurs">
+                  <Label styleClass="titre" stylesheets="@style/menu.css" text="%entrez.nom.joueur">
                      <font>
                         <Font size="48.0" />
                      </font>
                   </Label>
-                  <Label styleClass="titre" stylesheets="@style/menu.css" text="(Il faut au moins 4 joueurs)">
+                  <Label styleClass="titre" stylesheets="@style/menu.css" text="%nombre.joueur.minimum">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
-                  <Label styleClass="titre" stylesheets="@style/menu.css" text="Cochez la case pour avoir un joueur virtuel">
+                  <Label styleClass="titre" stylesheets="@style/menu.css" text="%cocher.case">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnCommencer" mnemonicParsing="false" onMouseClicked="#commencerJeux" styleClass="bouton" stylesheets="@style/menu.css" text="Commencer la partie">
+                  <Button fx:id="btnCommencer" mnemonicParsing="false" onMouseClicked="#commencerJeux" styleClass="bouton" stylesheets="@style/menu.css" text="%commencer.partie">
                      <font>
                         <Font size="24.0" />
                      </font>

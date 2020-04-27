@@ -22,8 +22,8 @@
                         <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
                         <HBox alignment="CENTER" prefHeight="46.0" prefWidth="212.0">
                            <children>
-                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Carte personnage" />
-                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Se révéler">
+                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%carte.personnage" />
+                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler">
                                  <HBox.margin>
                                     <Insets left="5.0" />
                                  </HBox.margin>
@@ -55,8 +55,8 @@
                         <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
                         <HBox alignment="CENTER" prefHeight="46.0" prefWidth="212.0">
                            <children>
-                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Carte personnage" />
-                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Se révéler">
+                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%carte.personnage" />
+                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler">
                                  <HBox.margin>
                                     <Insets left="5.0" />
                                  </HBox.margin>
@@ -94,8 +94,8 @@
                         <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
                         <HBox alignment="CENTER" prefHeight="44.0" prefWidth="274.0">
                            <children>
-                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Carte personnage" />
-                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Se reveler">
+                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%carte.personnage" />
+                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler">
                                  <HBox.margin>
                                     <Insets left="5.0" />
                                  </HBox.margin>
@@ -126,8 +126,8 @@
                         <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
                         <HBox alignment="CENTER" prefHeight="44.0" prefWidth="274.0">
                            <children>
-                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Carte personnage" />
-                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Se reveler">
+                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%carte.personnage" />
+                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler">
                                  <HBox.margin>
                                     <Insets left="5.0" />
                                  </HBox.margin>
@@ -164,8 +164,8 @@
                         <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
                         <HBox alignment="CENTER" prefHeight="53.0" prefWidth="198.0">
                            <children>
-                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Carte perssonage" />
-                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Se révéler">
+                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%carte.personnage" />
+                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler">
                                  <HBox.margin>
                                     <Insets left="5.0" />
                                  </HBox.margin>
@@ -196,8 +196,8 @@
                         <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
                         <HBox alignment="CENTER" prefHeight="53.0" prefWidth="198.0">
                            <children>
-                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Carte perssonage" />
-                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Se révéler">
+                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%carte.personnage" />
+                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler">
                                  <HBox.margin>
                                     <Insets left="5.0" />
                                  </HBox.margin>
@@ -234,8 +234,8 @@
                         <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
                         <HBox alignment="CENTER" prefHeight="39.0" prefWidth="214.0">
                            <children>
-                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Carte personnage" />
-                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Se révéler">
+                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%carte.personnage" />
+                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler">
                                  <HBox.margin>
                                     <Insets left="5.0" />
                                  </HBox.margin>
@@ -266,8 +266,8 @@
                         <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
                         <HBox alignment="CENTER" prefHeight="39.0" prefWidth="214.0">
                            <children>
-                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Carte personnage" />
-                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="Se révéler">
+                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%carte.personnage" />
+                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler">
                                  <HBox.margin>
                                     <Insets left="5.0" />
                                  </HBox.margin>
@@ -541,8 +541,8 @@
                                  <children>
                                     <VBox prefHeight="41.0" prefWidth="50.0">
                                        <children>
-                                          <Label styleClass="text" stylesheets="@style/plateau.css" text="Pas de" />
-                                          <Label styleClass="text" stylesheets="@style/plateau.css" text="dégats" />
+                                          <Label styleClass="text" stylesheets="@style/plateau.css" text="%pas.de" />
+                                          <Label styleClass="text" stylesheets="@style/plateau.css" text="%dégats" />
                                        </children>
                                     </VBox>
                                     <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="1" />

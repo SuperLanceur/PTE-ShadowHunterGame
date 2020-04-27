@@ -16,7 +16,7 @@
                   <Insets top="-250.0" />
                </VBox.margin>
             </ImageView>
-            <Button mnemonicParsing="false" onMouseClicked="#commencerPartie" prefHeight="51.0" prefWidth="102.0" styleClass="bouton" text="Jouer">
+            <Button mnemonicParsing="false" onMouseClicked="#commencerPartie" prefHeight="51.0" prefWidth="102.0" styleClass="bouton" text="%jouer">
                <font>
                   <Font size="24.0" />
                </font>
@@ -24,7 +24,7 @@
                   <Insets top="150.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onMouseClicked="#afficherRegle" prefHeight="59.0" prefWidth="106.0" styleClass="bouton" text="Regles">
+            <Button mnemonicParsing="false" onMouseClicked="#afficherRegle" prefHeight="59.0" prefWidth="106.0" styleClass="bouton" text="%regles">
                <font>
                   <Font size="24.0" />
                </font>
