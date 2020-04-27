@@ -27,8 +27,6 @@ public class PlateauController implements Initializable {
 	private List<VBox> vboxJoueur = new ArrayList<VBox>();
 	private List<Button> btnRevelation = new ArrayList<Button>();
 	private List<Button> btnCartePerso = new ArrayList<Button>();
-	private List<Label> nomPerso = new ArrayList<Label>();
-	private List<Label> factionPerso = new ArrayList<Label>();
 	private List<Label> nomJoueur = new ArrayList<Label>();
 	
 	@FXML private VBox joueur1;
@@ -41,7 +39,7 @@ public class PlateauController implements Initializable {
 	@FXML private VBox joueur8;
 	
 	/**
-	 * initialise les données du plateau
+	 * initialise les donnï¿½es du plateau
 	 */
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -56,10 +54,8 @@ public class PlateauController implements Initializable {
 		this.vboxJoueur.add(joueur7);
 		this.vboxJoueur.add(joueur8);
 		for (VBox vbox : vboxJoueur) {
-			nomPerso.add((Label) vbox.getChildren().get(1));
-			factionPerso.add((Label) vbox.getChildren().get(0));
-			nomJoueur.add((Label) vbox.getChildren().get(2));
-			HBox enfant = (HBox) vbox.getChildren().get(3);
+			nomJoueur.add((Label) vbox.getChildren().get(0));
+			HBox enfant = (HBox) vbox.getChildren().get(1);
 			btnCartePerso.add((Button) enfant.getChildren().get(0));
 			btnRevelation.add((Button) enfant.getChildren().get(1));
 		}
@@ -78,14 +74,7 @@ public class PlateauController implements Initializable {
 			j++;
 		}
 		
-		//initialisation nom personnage
-		for (Label l : nomPerso) {
-			l.setText("???");
-		}
-		//initialisation nom personnage
-		for (Label l : factionPerso) {
-			l.setText("???");
-		}
+
 		
 		listJoueur = View.getJoueurs();
 	}
@@ -93,7 +82,7 @@ public class PlateauController implements Initializable {
 	/**
 	 * Affiche aux yeux de tous la carte personnage du joueur
 	 * 
-	 * @param j : Le joueur sur lequel on a cliqué
+	 * @param j : Le joueur sur lequel on a cliquï¿½
 	 */
 	public void seReveler(int numJoueur) throws IOException {
 		System.out.println(listJoueur.get(numJoueur).getNom() + " se revele");
@@ -121,7 +110,7 @@ public class PlateauController implements Initializable {
 	/**
 	 * Permet de consulter sa carte perssonage en cas d'oublie
 	 * 
-	 * @param j : Le joueur sur lequel on a cliqué
+	 * @param j : Le joueur sur lequel on a cliquï¿½
 	 */
 	public void consulterSaCarte(int numJoueur) throws IOException {
 		System.out.println(listJoueur.get(numJoueur).getNom() + " consulte sa carte");
