@@ -19,8 +19,6 @@
                <children>
                   <VBox fx:id="joueur1" alignment="CENTER" prefHeight="164.0" prefWidth="212.0" rotate="180.0">
                      <children>
-                        <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom Faction" />
-                        <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom Perssonage" />
                         <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
                         <HBox alignment="CENTER" prefHeight="46.0" prefWidth="212.0">
                            <children>
@@ -54,8 +52,6 @@
                   </VBox>
                   <VBox fx:id="joueur2" alignment="CENTER" prefHeight="164.0" prefWidth="212.0" rotate="180.0">
                      <children>
-                        <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom Faction" />
-                        <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom Perssonage" />
                         <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
                         <HBox alignment="CENTER" prefHeight="46.0" prefWidth="212.0">
                            <children>
@@ -95,8 +91,6 @@
                <children>
                   <VBox fx:id="joueur3" alignment="CENTER" prefHeight="164.0" prefWidth="212.0">
                      <children>
-                        <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom Faction" />
-                        <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom Personnage" />
                         <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
                         <HBox alignment="CENTER" prefHeight="44.0" prefWidth="274.0">
                            <children>
@@ -129,8 +123,6 @@
                   </VBox>
                   <VBox fx:id="joueur4" alignment="CENTER" prefHeight="164.0" prefWidth="212.0">
                      <children>
-                        <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom Faction" />
-                        <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom Personnage" />
                         <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
                         <HBox alignment="CENTER" prefHeight="44.0" prefWidth="274.0">
                            <children>
@@ -169,8 +161,6 @@
                <children>
                   <VBox fx:id="joueur5" alignment="CENTER" prefHeight="181.0" prefWidth="333.0" rotate="90.0">
                      <children>
-                        <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom Faction" />
-                        <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom personnage" />
                         <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
                         <HBox alignment="CENTER" prefHeight="53.0" prefWidth="198.0">
                            <children>
@@ -203,8 +193,6 @@
                   </VBox>
                   <VBox fx:id="joueur7" alignment="CENTER" prefHeight="179.0" prefWidth="329.0" rotate="90.0">
                      <children>
-                        <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom Faction" />
-                        <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom personnage" />
                         <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
                         <HBox alignment="CENTER" prefHeight="53.0" prefWidth="198.0">
                            <children>
@@ -243,8 +231,6 @@
                <children>
                   <VBox fx:id="joueur6" alignment="CENTER" prefHeight="163.0" prefWidth="329.0" rotate="270.0">
                      <children>
-                        <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom Faction" />
-                        <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom perssonage" />
                         <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
                         <HBox alignment="CENTER" prefHeight="39.0" prefWidth="214.0">
                            <children>
@@ -277,8 +263,6 @@
                   </VBox>
                   <VBox fx:id="joueur8" alignment="CENTER" prefHeight="163.0" prefWidth="329.0" rotate="270.0">
                      <children>
-                        <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom Faction" />
-                        <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom perssonage" />
                         <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
                         <HBox alignment="CENTER" prefHeight="39.0" prefWidth="214.0">
                            <children>
@@ -411,7 +395,6 @@
                                     </VBox>
                                     <VBox alignment="CENTER" prefHeight="60.0" prefWidth="50.0">
                                        <children>
-                                          <Label styleClass="text" stylesheets="@style/plateau.css" text="Inconnu" />
                                           <Label styleClass="text" stylesheets="@style/plateau.css" text="Charles" />
                                        </children>
                                     </VBox>
