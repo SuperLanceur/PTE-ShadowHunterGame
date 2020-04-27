@@ -144,7 +144,7 @@ public class PlayersController implements Initializable{
 	 */
 	public void ajoutJoueur(int indice){
 		System.out.println("Ajout du joueur " + (indice+1));
-		plus.get(indice).setText("- ");
+		plus.get(indice).setText("-");
 		txt.get(indice).setEditable(true);
 		txt.get(indice).setStyle("-fx-background-color: white;");
 		plus.get(indice).setOnAction(e -> {enleverJoueur(indice);});
