@@ -37,6 +37,6 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Button layoutX="340.0" layoutY="525.0" mnemonicParsing="false" styleClass="bouton" stylesheets="@style/menu.css" text="Enregistrer" />
+      <Button layoutX="340.0" layoutY="525.0" mnemonicParsing="false" onMouseClicked="#enregistre" styleClass="bouton" stylesheets="@style/menu.css" text="Enregistrer" />
    </children>
 </Pane>
