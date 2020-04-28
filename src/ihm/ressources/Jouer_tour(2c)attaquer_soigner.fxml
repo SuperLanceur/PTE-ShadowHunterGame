@@ -7,12 +7,12 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" stylesheets="@style/popUp.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="66.0" layoutY="200.0" text="Attaquez un joueur ou se soigner de 2 blessures">
+      <Label layoutX="66.0" layoutY="200.0" text="%attaquer.ou.soigner">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="278.0" layoutY="255.0" mnemonicParsing="false" text="Se soigner">
+      <Button layoutX="278.0" layoutY="255.0" mnemonicParsing="false" text="%se.soigner">
          <font>
             <Font size="14.0" />
          </font></Button>

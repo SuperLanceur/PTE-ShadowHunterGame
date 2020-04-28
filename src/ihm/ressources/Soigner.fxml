@@ -8,25 +8,25 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="638.0" prefWidth="951.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="73.0" layoutY="33.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="156.0" text="Joueur 1" />
-      <Button layoutX="298.0" layoutY="33.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="156.0" text="Joueur 2" />
-      <Button layoutX="515.0" layoutY="33.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="156.0" text="Joueur 3" />
-      <Button layoutX="745.0" layoutY="33.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="156.0" text="Joueur 4" />
-      <Button layoutX="73.0" layoutY="510.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="156.0" text="Joueur 5" />
-      <Button layoutX="298.0" layoutY="510.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="156.0" text="Joueur 6" />
-      <Button layoutX="515.0" layoutY="510.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="156.0" text="Joueur 7" />
-      <Button layoutX="745.0" layoutY="510.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="156.0" text="Joueur 8" />
-      <Button layoutX="177.0" layoutY="134.0" mnemonicParsing="false" prefHeight="327.0" prefWidth="173.0" text="Bénediction">
+      <Button layoutX="73.0" layoutY="33.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="156.0" text="%joueur1" />
+      <Button layoutX="298.0" layoutY="33.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="156.0" text="%joueur2" />
+      <Button layoutX="515.0" layoutY="33.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="156.0" text="%joueur3" />
+      <Button layoutX="745.0" layoutY="33.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="156.0" text="%joueur4" />
+      <Button layoutX="73.0" layoutY="510.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="156.0" text="%joueur5" />
+      <Button layoutX="298.0" layoutY="510.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="156.0" text="%joueur6" />
+      <Button layoutX="515.0" layoutY="510.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="156.0" text="%joueur7" />
+      <Button layoutX="745.0" layoutY="510.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="156.0" text="%joueur8" />
+      <Button layoutX="177.0" layoutY="134.0" mnemonicParsing="false" prefHeight="327.0" prefWidth="173.0" text="%benediction">
          <font>
             <Font size="23.0" />
          </font>
       </Button>
-      <Label layoutX="524.0" layoutY="134.0" prefHeight="105.0" prefWidth="254.0" text="Effet carte">
+      <Label layoutX="524.0" layoutY="134.0" prefHeight="105.0" prefWidth="254.0" text="%effet.carte">
          <font>
             <Font size="37.0" />
          </font>
       </Label>
-      <Label layoutX="438.0" layoutY="306.0" prefHeight="115.0" prefWidth="385.0" text="Choisissez un joueur que vous voulez soigner" wrapText="true">
+      <Label layoutX="438.0" layoutY="306.0" prefHeight="115.0" prefWidth="385.0" text="%choisir.joueur.soigner" wrapText="true">
          <font>
             <Font size="35.0" />
          </font>

@@ -22,7 +22,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="277.0" layoutY="213.0" mnemonicParsing="false" text="Ne pas attaquer" />
+      <Button layoutX="277.0" layoutY="213.0" mnemonicParsing="false" text="%ne.pas.attaqur" />
       <HBox alignment="CENTER" layoutY="337.0" prefHeight="100.0" prefWidth="661.0" spacing="60.0">
          <children>
             <Button mnemonicParsing="false" text="%joueur5" />

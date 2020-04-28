@@ -25,7 +25,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label text="utilise sa capacité.">
+                  <Label text="%utiliser.capacite">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -34,7 +34,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="54.0" prefWidth="331.0">
                <children>
-                  <Label prefHeight="27.0" prefWidth="76.0" text="Effet :">
+                  <Label prefHeight="27.0" prefWidth="76.0" text="%effet.carte">
                      <font>
                         <Font size="18.0" />
                      </font>

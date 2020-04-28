@@ -15,7 +15,7 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="178.0" prefWidth="599.0">
                      <children>
-                        <Label prefHeight="27.0" prefWidth="103.0" text="Carte Vision">
+                        <Label prefHeight="27.0" prefWidth="103.0" text="%voir.carte">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -34,7 +34,7 @@
                               </HBox>
                            </children>
                         </HBox>
-                        <Label prefHeight="27.0" prefWidth="340.0" text="Choisissez un joueur à qui donner la carte.">
+                        <Label prefHeight="27.0" prefWidth="340.0" text="%jouer.a.qui.donner.carte">
                            <font>
                               <Font size="18.0" />
                            </font>
