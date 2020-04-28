@@ -7,7 +7,6 @@ import java.util.ResourceBundle;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -28,11 +27,6 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) {
-
-		String filepath = "src//ihm//ressources//musique//The_Red_Fox_Tavern.wav"; // lien vers la musique :
-																					// https://www.youtube.com/watch?v=LBpKUIyOHdo
-		Musique musiqueObjet = new Musique();
-		//musiqueObjet.playMusique(filepath);
 		launch(args);
 	}
 }

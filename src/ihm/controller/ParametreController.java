@@ -5,18 +5,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
-import javax.swing.JOptionPane;
-
 import ihm.Musique;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
@@ -73,12 +65,9 @@ public class ParametreController implements Initializable {
 				}
 
 			}
-			/*
-			 * } catch (IOException e) { // TODO Auto-generated catch block
-			 * e.printStackTrace(); }
-			 */
 
 		}
+		
 
 		/*
 		 * if(clair.isSelected()) { Pane root =
@@ -91,6 +80,11 @@ public class ParametreController implements Initializable {
 		 * 
 		 * }
 		 */
+		
+		
+		Pane pane = FXMLLoader.load(getClass().getResource("../ressources/Jouer_tour(3)attaquer.fxml"));
+
+        rootPane.getChildren().setAll(pane);
 
 	}
 }
