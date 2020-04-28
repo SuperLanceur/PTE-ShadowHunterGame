@@ -31,10 +31,8 @@ public class ParametreController implements Initializable {
 	private CheckBox clair;
 	@FXML
 	private ComboBox<String> langues;
-	AudioInputStream musique;
-	Clip clip;
-	boolean coche = false;
-	boolean MusiqueLancee = false;
+	boolean coche = false; // verifi si la checbox musical est coche
+	boolean MusiqueLancee = false; //verifi si la musique a déja été lancé une première fois
 
 	String filepath = "src//ihm//ressources//musique//The_Red_Fox_Tavern.wav"; // lien vers la musique :
 																				// https://www.youtube.com/watch?v=LBpKUIyOHdo
@@ -60,18 +58,18 @@ public class ParametreController implements Initializable {
 
 			if (cmusique.isSelected() == true) {
 				coche = true;
-				if (Musique.clipTimePosition == 0 && MusiqueLancee == false) {
+				if (Musique.clipTimePosition == 0 && MusiqueLancee == false) { // si la musique n'a jamais été lancé
 					Musique.playMusique(filepath);
 					MusiqueLancee = true;
 
 				} else {
-					Musique.resumeMusique(Musique.clip);
+					Musique.resumeMusique(Musique.clip); // si elle a deja été lancé mais mis en pause, reprend a partir du point d'arret
 				}
 
 			} else {
 				if (coche == true) {
 					coche = false;
-					Musique.pauseMusique(Musique.clip);
+					Musique.pauseMusique(Musique.clip); //met en pause la musique 
 				}
 
 			}
