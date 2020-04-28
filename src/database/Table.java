@@ -27,7 +27,7 @@ public class Table {
             while (retour.next()) {
             	Record r = new Record(retour.getString("id"), retour.getString("nom"), retour.getBytes("image"));
             	list.add(r);
-            	//System.out.printf("%-20.30s  %-30.30s  %-20.30s%n", retour.getString("id"), retour.getString("nom"), retour.getBytes("image"));
+            	System.out.printf("%-20.30s  %-30.30s  %-20.30s%n", retour.getString("id"), retour.getString("nom"), retour.getBytes("image"));
             }
 
         } catch (SQLException e) {

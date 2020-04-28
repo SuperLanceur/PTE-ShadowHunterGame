@@ -8,28 +8,41 @@ import javax.sound.sampled.Clip;
 import javax.swing.JOptionPane;
 
 public class Musique {
-	
-	public void  playMusique(String path) {
-		
+
+	public static Clip clip;
+	public static long clipTimePosition = 0;
+
+	public static void playMusique(String path) {
+
 		try {
-			
+
 			File musicPath = new File(path);
-			
-			if( musicPath.exists()) {
-				
+
+			if (musicPath.exists()) {
+
 				AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
-				Clip clip = AudioSystem.getClip();
+				clip = AudioSystem.getClip();
 				clip.open(audioInput);
 				clip.start();
 				clip.loop(Clip.LOOP_CONTINUOUSLY);
-				
+
 			} else {
 				System.out.println("le fichier audio n'est pas trouvé");
 			}
-			
+
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
+	}
+
+	public static void pauseMusique(Clip clip) {
+		clipTimePosition = clip.getMicrosecondPosition();
+		clip.stop();
+	}
+
+	public static void resumeMusique(Clip clip) {
+		clip.setMicrosecondPosition(clipTimePosition);
+		clip.start();
 	}
 
 }

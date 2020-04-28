@@ -32,12 +32,7 @@ public class DatabaseTesting {
     	
     	Table a = new Table("a");
     	a.remplirTable("CartesLumiere");
-    	try {
-			ByteaToCardImage.getImg(a.getList().get(5).getImg());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
     	
     	
     	
