@@ -11,26 +11,17 @@ import java.util.ResourceBundle;
 
 import ihm.PopUp;
 import ihm.PopUpBoolean;
-import ihm.SpriteAnimation;
-import javafx.animation.Animation;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Rectangle2D;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-<<<<<<< HEAD
-=======
-import javafx.util.Duration;
->>>>>>> eea99d2341b1df015a2831034aa39534addff16e
 import main.Joueur;
 import main.View;
 
@@ -41,6 +32,7 @@ public class PlateauController implements Initializable {
 	private List<Button> btnRevelation = new ArrayList<Button>();
 	private List<ImageView> cartePerso = new ArrayList<ImageView>();
 	private List<Label> nomJoueur = new ArrayList<Label>();
+	private List<AnchorPane> tour = new ArrayList<AnchorPane>();
 	
 	@FXML private HBox joueur1;
 	@FXML private HBox joueur2;
@@ -69,6 +61,7 @@ public class PlateauController implements Initializable {
 		this.hboxJoueur.add(joueur4);
 		
 		for (HBox hbox : hboxJoueur) {
+			tour.add((AnchorPane) hbox.getChildren().get(0));
 			VBox carte = (VBox) hbox.getChildren().get(1);
 			cartePerso.add((ImageView) carte.getChildren().get(0));
 			btnRevelation.add((Button) carte.getChildren().get(1));
@@ -82,6 +75,7 @@ public class PlateauController implements Initializable {
 		this.vboxJoueur.add(joueur8);
 		
 		for (VBox vbox : vboxJoueur) {
+			tour.add((AnchorPane) vbox.getChildren().get(0));
 			HBox joueur = (HBox) vbox.getChildren().get(1);
 			VBox carte = (VBox) joueur.getChildren().get(1);
 			cartePerso.add((ImageView) carte.getChildren().get(0));
@@ -106,13 +100,25 @@ public class PlateauController implements Initializable {
 		}
 		
 		
+	    try {
+	    	final URL fxmlURL = getClass().getResource("../ressources/Jouer_tour(1)lancer_des.fxml");  
+		    final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.ENGLISH);
+		    final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+			Pane root = fxmlLoader.load();
+			root.setPrefSize(255, 180);
+			tour.get(0).getChildren().setAll(root);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		listJoueur = View.getJoueurs();
 	}
 	
 	/**
 	 * Affiche aux yeux de tous la carte personnage du joueur
 	 * 
-	 * @param j : Le joueur sur lequel on a cliqu�
+	 * @param j : Le joueur sur lequel on a cliqué
 	 */
 	public void seReveler(int numJoueur) throws IOException {
 		System.out.println(listJoueur.get(numJoueur).getNom() + " se revele");
@@ -163,16 +169,21 @@ public class PlateauController implements Initializable {
 	 * @param j : map donnant le joueur et son numero
 	 */
 	public void showInformation(Map<Integer, Joueur> j) {
-		/*System.out.println("\tplacement des joueurs");
+		System.out.println("\tplacement des joueurs");
 		int taille = this.vboxJoueur.size() + this.hboxJoueur.size();
 		
 		for (int i=0; i<taille; i++) {
 			if (j.get(i) != null)
 				nomJoueur.get(i).setText(j.get(i).getNom());
 			else {
-				vboxJoueur.get(i).setVisible(false);
+				if (i < 4) {
+					hboxJoueur.get(i).setVisible(false);
+				}else {
+					vboxJoueur.get(i-4).setVisible(false);
+				}
+				
 			}
-		}*/
+		}
 	}
 
 	public void rollDice(Joueur joueur, int typeDice, int[] rolls) {

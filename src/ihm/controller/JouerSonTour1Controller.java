@@ -38,8 +38,8 @@ public class JouerSonTour1Controller implements Initializable{
 		
 		int OFFSET_X = 0;
 		int OFFSET_Y = 0;
-		int WIDTH = 200;
-		int HEIGHT = 200;
+		int WIDTH = 80;
+		int HEIGHT = 80;
 		int COUNT = 6;
 		int COLUMNS = 6;
 	
