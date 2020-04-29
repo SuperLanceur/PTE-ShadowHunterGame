@@ -67,3 +67,9 @@
 	-fx-border-color: #5b5648;
 	-fx-border-width: 2;
 }
+
+.tour{
+	-fx-border-color: #e2e2e2;
+	-fx-border-width: 2;
+    -fx-background-radius: 0;
+}
