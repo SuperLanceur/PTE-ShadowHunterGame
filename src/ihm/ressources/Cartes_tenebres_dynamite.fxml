@@ -14,7 +14,7 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c6c6c6" height="298.0" stroke="BLACK" strokeType="INSIDE" width="188.0" />
             <VBox alignment="CENTER" prefHeight="351.0" prefWidth="293.0">
                <children>
-                  <Label text="Effet de la carte">
+                  <Label text="%effet.carte">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -44,7 +44,7 @@
                         </Polygon>
                      </children>
                   </HBox>
-                  <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="135.0" text="Lancer les dés">
+                  <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="135.0" text="%lancer.de.des">
                      <font>
                         <Font size="18.0" />
                      </font>

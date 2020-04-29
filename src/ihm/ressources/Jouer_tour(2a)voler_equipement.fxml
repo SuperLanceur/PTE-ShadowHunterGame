@@ -6,12 +6,12 @@
 
 <Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" stylesheets="@style/popUp.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.JouerSonTour5Controller">
    <children>
-      <Label layoutX="70.0" layoutY="201.0" text="Volez un équipement au joueurs de votre choix">
+      <Label layoutX="70.0" layoutY="201.0" text="%voler.equipement.joueur">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="154.0" layoutY="260.0" text="Cliquez sur la carte équipement que vous voulez voler">
+      <Label layoutX="154.0" layoutY="260.0" text="%choisir.equipement.a.voler">
          <font>
             <Font size="14.0" />
          </font>

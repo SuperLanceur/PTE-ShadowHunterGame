@@ -16,7 +16,7 @@
       </Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="173.0" layoutX="117.0" layoutY="151.0" stroke="BLACK" strokeType="INSIDE" width="173.0" />
       <Polygon fill="WHITE" layoutX="434.0" layoutY="218.0" points="-75.79998779296875, 98.80001831054688, 97.0, 98.80001831054688, 8.20001220703125, -59.199981689453125" stroke="BLACK" strokeType="INSIDE" />
-      <Button layoutX="267.0" layoutY="387.0" mnemonicParsing="false" text="Lancer les dés">
+      <Button layoutX="267.0" layoutY="387.0" mnemonicParsing="false" text="%lancer.de.des">
          <font>
             <Font size="14.0" />
          </font></Button>
@@ -28,12 +28,12 @@
          <font>
             <Font size="64.0" />
          </font></Label>
-      <Label layoutX="418.0" layoutY="31.0" text="joueur 2">
+      <Label layoutX="418.0" layoutY="31.0" text="%joueur2">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <Label layoutX="136.0" layoutY="31.0" text="Joueur 1">
+      <Label layoutX="136.0" layoutY="31.0" text="%joueur3">
          <font>
             <Font size="36.0" />
          </font>

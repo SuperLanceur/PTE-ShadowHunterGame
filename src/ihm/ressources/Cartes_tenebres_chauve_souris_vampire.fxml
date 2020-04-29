@@ -14,22 +14,22 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="52.0" prefWidth="112.0" text="Joueur 1" textAlignment="CENTER">
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="52.0" prefWidth="112.0" text="%joueur1" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets right="30.0" />
                      </HBox.margin>
                   </Button>
-                  <Button alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="112.0" text="Joueur 2">
+                  <Button alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="112.0" text="%joueur2">
                      <HBox.margin>
                         <Insets right="30.0" />
                      </HBox.margin>
                   </Button>
-                  <Button alignment="CENTER" layoutX="62.0" layoutY="10.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="112.0" text="Joueur 3">
+                  <Button alignment="CENTER" layoutX="62.0" layoutY="10.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="112.0" text="%joueur3">
                      <HBox.margin>
                         <Insets right="30.0" />
                      </HBox.margin>
                   </Button>
-                  <Button alignment="CENTER" layoutX="114.0" layoutY="10.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="112.0" text="Joueur 4">
+                  <Button alignment="CENTER" layoutX="114.0" layoutY="10.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="112.0" text="%joueur4">
                      <HBox.margin>
                         <Insets right="30.0" />
                      </HBox.margin>
@@ -45,7 +45,7 @@
                   </Rectangle>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="148.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Effet de la carte" textAlignment="CENTER">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%effet.carte" textAlignment="CENTER">
                            <VBox.margin>
                               <Insets bottom="55.0" />
                            </VBox.margin>
@@ -53,7 +53,7 @@
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Choisissez un joueur à qui infliger 2 blessures" textAlignment="CENTER">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="%choisir.joueur.infliger.blessures" textAlignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -64,22 +64,22 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="52.0" prefWidth="112.0" text="Joueur 5" textAlignment="CENTER">
+                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="52.0" prefWidth="112.0" text="%joueur5" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets right="30.0" />
                      </HBox.margin>
                   </Button>
-                  <Button alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="112.0" text="Joueur 6">
+                  <Button alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="112.0" text="%joueur6">
                      <HBox.margin>
                         <Insets right="30.0" />
                      </HBox.margin>
                   </Button>
-                  <Button alignment="CENTER" layoutX="62.0" layoutY="10.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="112.0" text="Joueur 7">
+                  <Button alignment="CENTER" layoutX="62.0" layoutY="10.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="112.0" text="%joueur7">
                      <HBox.margin>
                         <Insets right="30.0" />
                      </HBox.margin>
                   </Button>
-                  <Button alignment="CENTER" layoutX="114.0" layoutY="10.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="112.0" text="Joueur 8">
+                  <Button alignment="CENTER" layoutX="114.0" layoutY="10.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="112.0" text="%joueur8">
                      <HBox.margin>
                         <Insets right="30.0" />
                      </HBox.margin>

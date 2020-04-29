@@ -12,18 +12,18 @@
    <children>
       <VBox alignment="CENTER" prefHeight="480.0" prefWidth="640.0">
          <children>
-            <Label prefHeight="27.0" prefWidth="106.0" text="Carte Vision">
+            <Label prefHeight="27.0" prefWidth="106.0" text="%carte.vision">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
             <ImageView fitHeight="326.0" fitWidth="233.5" pickOnBounds="true" preserveRatio="true" />
-            <Label prefHeight="27.0" prefWidth="473.0" text="Cette carte ne peut être vu que par le joueur qui la pioche.">
+            <Label prefHeight="27.0" prefWidth="473.0" text="%carte.vue.par.joueur.pioche">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" onMouseClicked="#voirCarte" text="Voir carte">
+            <Button mnemonicParsing="false" onMouseClicked="#voirCarte" text="%voir.carte">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>

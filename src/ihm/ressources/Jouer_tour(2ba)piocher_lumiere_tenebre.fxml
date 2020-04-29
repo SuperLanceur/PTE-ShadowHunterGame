@@ -13,7 +13,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label prefHeight="27.0" prefWidth="54.0" text="Carte">
+                  <Label prefHeight="27.0" prefWidth="54.0" text="%carte">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -28,7 +28,7 @@
             <ImageView fitHeight="326.0" fitWidth="233.5" pickOnBounds="true" preserveRatio="true" />
             <HBox alignment="CENTER" prefHeight="111.0" prefWidth="600.0">
                <children>
-                  <Label prefHeight="27.0" prefWidth="54.0" text="Effet :">
+                  <Label prefHeight="27.0" prefWidth="54.0" text="%effet">
                      <font>
                         <Font size="18.0" />
                      </font>

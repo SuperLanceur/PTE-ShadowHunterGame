@@ -6,7 +6,7 @@
 
 <Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" stylesheets="@style/popUp.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.JouerSonTour6Controller">
    <children>
-      <Label layoutX="250.0" layoutY="227.0" text="Piochez une carte">
+      <Label layoutX="250.0" layoutY="227.0" text="%piocher.carte">
          <font>
             <Font size="18.0" />
          </font>

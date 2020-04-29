@@ -17,22 +17,22 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Joueur 1" />
+                        <Button mnemonicParsing="false" text="%joueur1" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Joueur 2" />
+                        <Button mnemonicParsing="false" text="%joueur2" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Joueur 3" />
+                        <Button mnemonicParsing="false" text="%joueur3" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Joueur 4" />
+                        <Button mnemonicParsing="false" text="%joueur4" />
                      </children>
                   </HBox>
                </children>
@@ -73,22 +73,22 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Joueur 5" />
+                        <Button mnemonicParsing="false" text="%joueur5" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Joueur 6" />
+                        <Button mnemonicParsing="false" text="%joueur6" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Joueur 7" />
+                        <Button mnemonicParsing="false" text="%joueur7" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Joueur 8" />
+                        <Button mnemonicParsing="false" text="%joueur8" />
                      </children>
                   </HBox>
                </children>

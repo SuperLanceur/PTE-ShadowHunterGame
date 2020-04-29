@@ -8,16 +8,16 @@
 
 <Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" stylesheets="@style/popUp.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.JouerSonTour1Controller">
    <children>
-      <Label layoutX="135.0" layoutY="29.0" text="C'est au tour de">
+      <Label layoutX="135.0" layoutY="29.0" text="%au.tour.de">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <Button layoutX="262.0" layoutY="388.0" mnemonicParsing="false" onMouseClicked="#lancerDes" text="Lancer les dés">
+      <Button layoutX="262.0" layoutY="388.0" mnemonicParsing="false" onMouseClicked="#lancerDes" text="%lancer.de.des">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Label fx:id="nomJoueur" layoutX="405.0" layoutY="29.0" text="joueur 1">
+      <Label fx:id="nomJoueur" layoutX="405.0" layoutY="29.0" text="%joueur1">
          <font>
             <Font size="36.0" />
          </font>
