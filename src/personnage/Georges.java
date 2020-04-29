@@ -17,7 +17,7 @@ public class Georges extends Unique{
 		if(!this.isCapaciteUsed() && joueur.getRevele()) {
 			
 			Plateau p = joueur.getPlateau();
-			int roll = p.roll4();
+			int roll = p.roll4(this.getJoueur());
 			
 			Joueur joueur2 = joueur.choisiParmisTous();
 			super.attaquer(joueur2, roll);

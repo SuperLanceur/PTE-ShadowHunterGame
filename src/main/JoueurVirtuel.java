@@ -19,6 +19,7 @@ public class JoueurVirtuel extends Joueur {
 		return effets.get((int)Math.floor(Math.random() * effets.size()));
 	}
 	
+	//on privilegie les equipements qui donnent des stats
 	public Equipement choisirEquipement(List<Equipement> equips) {
 		List<Equipement> equipstat = trouverEquipStat(equips);
 		if(equipstat.size()>0)
@@ -35,6 +36,7 @@ public class JoueurVirtuel extends Joueur {
 		return res;
 	}
 	
+	//on choisit les joueurs avec les moins de hp, on ne distingue pas cependant d'amie ou ennemi
 	public Joueur choisirJoueur(List<Joueur> joueurs) {
 		Joueur res = joueurs.get(0);
 		for(int i=1; i<joueurs.size();i++) {

@@ -66,6 +66,12 @@ public class GestionnaireJeu {
 		}
 		return false;
 	}
+	
+	public void rollDice(Joueur joueur, int typeDice, int ... rolls){
+		
+		pc.rollDice(joueur,typeDice,rolls);
+		
+	}
 
 	public static void setConfiguration(Configuration c) {
 		

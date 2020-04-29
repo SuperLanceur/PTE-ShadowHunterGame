@@ -10,12 +10,12 @@ public class QueryGenerator {
 		return "SELECT * FROM " + getTable(table) + "WHERE id =" + d;
 	}
 	
-	public static String WithName(String s, String name) {
-		return "SELECT * FROM " + getTable(s) + "WHERE nom ='" + name + "'";
+	public static String WithName(String table, String name) {
+		return "SELECT * FROM " + getTable(table) + "WHERE nom ='" + name + "'";
 	}
 	
 	public static String getTable(String s) {
-		return "public.\"" + s + "\"";
+		return "public." + '"' + s + '"';
 	}
 	
 }
