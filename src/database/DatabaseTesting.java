@@ -13,9 +13,9 @@ import java.sql.Statement;
 public class DatabaseTesting {
     public static void main(String[] args) {
     	Table a = new Table("a");
-    	a.remplirTableAllFrom("CartesLumiere");
+    	a.remplirTableAllFrom("CartesAll");
     	System.out.println(a.toString());
-    	//BufferedImage jpg = new BufferedImage(467, 652, 1);
+    	BufferedImage jpg = new BufferedImage(467, 652, 1);
     	
     	
     	/*
