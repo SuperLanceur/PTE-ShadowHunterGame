@@ -3,50 +3,28 @@ package ihm.controller;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 import java.util.ResourceBundle;
 
-import ihm.PopUp;
 import ihm.PopUpBoolean;
-import ihm.SpriteAnimation;
-import javafx.animation.Animation;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Rectangle2D;
-import javafx.scene.Group;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
-import javafx.util.Duration;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import main.Joueur;
 
 public class PlateauControllerTest implements Initializable {
-	private List<Joueur> listJoueur = new ArrayList<Joueur>();
-	private List<VBox> vboxJoueur = new ArrayList<VBox>();
-	private List<Button> btnRevelation = new ArrayList<Button>();
-	private List<Button> btnCartePerso = new ArrayList<Button>();
-	private List<Label> nomPerso = new ArrayList<Label>();
-	private List<Label> factionPerso = new ArrayList<Label>();
-	private List<Label> nomJoueur = new ArrayList<Label>();
-	
-	
-	@FXML private AnchorPane anchorPane1;
-	@FXML private AnchorPane anchorPane2;
-	@FXML private AnchorPane anchorPane3;
-	@FXML private AnchorPane anchorPane4;
-	@FXML private AnchorPane anchorPane5;
-	@FXML private AnchorPane anchorPane6;
-	@FXML private AnchorPane anchorPane7;
-	@FXML private AnchorPane anchorPane8;
 
+
+	@FXML private BorderPane root;
+	
+	
+	
 	/**
 	 * initialise les donn�es du plateau
 	 */
@@ -54,7 +32,77 @@ public class PlateauControllerTest implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		//initialisation des attributs des joueurs
 		
+		for(int i = 0; i < 8; i++) {
+			
+			
+			AnchorPane ap = getAnchorPaneJoueur(i);
+			Pane p;
+			try {
+				p = FXMLLoader.load(getClass().getResource("../ressources/MenuJoueur.fxml"));
+				if(i > 1 && i < 3) {
+					rotateContent(p, 90);
+				}
+				setContentAnchorPane(ap, p);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		
+	}
 	
+	public GridPane getGridPaneJoueur(int pos) {
+		
+		int position = pos%8 / 2;
+		
+		position++;
+		
+		AnchorPane apParent = (AnchorPane) root.getChildren().get(position);
+		
+		GridPane gp = (GridPane) apParent.getChildren().get(0);
+		
+		return (GridPane) gp.getChildren().get(pos%2);
+	}
+	
+	
+	public AnchorPane getAnchorPaneJoueur(int pos) {
+		
+		GridPane gp = getGridPaneJoueur(pos);
+		return (AnchorPane) gp.getChildren().get(0);
+	}
+	
+	public ImageView getImageViewJoueur(int pos) {
+		
+		GridPane gp = getGridPaneJoueur(pos);
+		return (ImageView) gp.getChildren().get(1);
+	}
+	
+	public ScrollPane getScrollPaneJoueur(int pos) {
+		
+		GridPane gp = getGridPaneJoueur(pos);
+		return (ScrollPane) gp.getChildren().get(2);
+	}
+	
+
+	public void setContentAnchorPane(AnchorPane ap, Pane p) {
+		
+		ap.getChildren().setAll(p);
+		
+		AnchorPane.setTopAnchor(p, 0.0);
+		AnchorPane.setBottomAnchor(p, 0.0);
+		AnchorPane.setLeftAnchor(p, 0.0);
+		AnchorPane.setRightAnchor(p, 0.0);
+		
+	}
+	
+	public void rotateContent(Pane p, double rotation) {
+		p.setRotate(rotation);
+	}
+	
+	
+		
+	/*
 		int OFFSET_X = 0;
 		int OFFSET_Y = 0;
 		int WIDTH = 557;
@@ -95,25 +143,19 @@ public class PlateauControllerTest implements Initializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+*/
+	
+	
+	
 
-	}
-
+	
+	
 	/**
 	 * Affiche aux yeux de tous la carte personnage du joueur
 	 * 
 	 * @param j : Le joueur sur lequel on a cliqu�
 	 */
-	public void seReveler(int numJoueur) throws IOException {
-		System.out.println(listJoueur.get(numJoueur).getNom() + " se revele");
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("../ressources/Reveler_son_identite.fxml"));
-		Parent root = loader.load();
-        
-        RevelationController rc = loader.getController();
-        rc.showInformation(listJoueur.get(numJoueur));
-		
-		PopUp popup = new PopUp(root, "Consulter sa carte");
-		popup.display();
-	}
+	
 	
 	public boolean choisir(Joueur j) throws IOException {
 		
@@ -135,27 +177,6 @@ public class PlateauControllerTest implements Initializable {
 	 * 
 	 * @param j : Le joueur sur lequel on a cliqu�
 	 */
-	public void consulterSaCarte(int numJoueur) throws IOException {
-		System.out.println(listJoueur.get(numJoueur).getNom() + " consulte sa carte");
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("../ressources/afficher_carte_perso.fxml"));
-		Parent root = loader.load();
-        
-        AfficherCarteController acc = loader.getController();
-        acc.showInformation(listJoueur.get(numJoueur));
-		
-		PopUp popup = new PopUp(root, "Consulter sa carte");
-		popup.display();
-	}
 	
-	public void showInformation(Map<Integer, Joueur> j) {
-		System.out.println("\tplacement des joueurs");
-		
-		for (int i=0; i<this.vboxJoueur.size(); i++) {
-			if (j.get(i) != null)
-				nomJoueur.get(i).setText(j.get(i).getNom());
-			else {
-				vboxJoueur.get(i).setVisible(false);
-			}
-		}
-	}
+	
 }

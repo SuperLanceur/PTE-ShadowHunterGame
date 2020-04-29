@@ -11,6 +11,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		System.out.println("Lancement de l'application");
 
+	
 		Pane root = FXMLLoader.load(getClass().getResource("ressources/PlateauTestPaul.fxml")); // "ressources/Jouer_tour(1)lancer_des.fxml"
 	
 		primaryStage.show();

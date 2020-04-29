@@ -15,509 +15,571 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 
-<AnchorPane prefHeight="992.0" prefWidth="1822.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.PlateauControllerTest">
+<AnchorPane prefHeight="976.0" prefWidth="1198.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.PlateauControllerTest">
    <children>
-      <BorderPane fx:id="root" prefHeight="1359.0" prefWidth="1610.0" styleClass="background" stylesheets="@style/plateau.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <top>
-            <HBox alignment="CENTER" spacing="30.0">
+      <BorderPane fx:id="root" styleClass="background" stylesheets="@style/plateau.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" BorderPane.alignment="CENTER">
                <children>
-                  <AnchorPane>
+                  <HBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <VBox alignment="CENTER" prefWidth="22.0" HBox.hgrow="NEVER">
                            <children>
-                              <AnchorPane fx:id="anchorPane6" prefHeight="150.0" prefWidth="150.0" />
-                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@img/dosCartesPersonnage.jpg" />
-                                 </image>
-                              </ImageView>
-                              <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" vbarPolicy="NEVER">
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="148.0" prefWidth="200.0" />
-                                 </content>
-                              </ScrollPane>
+                              <HBox prefHeight="100.0" prefWidth="200.0" styleClass="carteLumiere" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" styleClass="background" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" styleClass="carteVision" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="30.0" top="30.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" styleClass="carteTenebre" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </HBox>
                            </children>
-                        </HBox>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane>
-                     <children>
-                        <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        </VBox>
+                        <VBox alignment="CENTER" HBox.hgrow="NEVER">
                            <children>
-                              <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" vbarPolicy="NEVER">
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="148.0" prefWidth="200.0" />
-                                 </content>
-                              </ScrollPane>
-                              <ImageView fitHeight="150.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@img/dosCartesPersonnage.jpg" />
-                                 </image>
-                              </ImageView>
-                              <AnchorPane fx:id="anchorPane5" prefHeight="150.0" prefWidth="150.0" HBox.hgrow="ALWAYS" />
+                              <HBox alignment="TOP_CENTER">
+                                 <children>
+                                    <VBox alignment="CENTER">
+                                       <children>
+                                          <Circle fill="#ff1f1f" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+                                          <Circle fill="#ffd71f" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+                                          <Circle fill="#ecff1f" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+                                          <Circle fill="#64ff1f" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+                                       </children>
+                                    </VBox>
+                                    <HBox alignment="TOP_CENTER" styleClass="lieux" stylesheets="@style/plateau.css">
+                                       <children>
+                                          <ImageView fitHeight="132.03" fitWidth="94.5675" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fitHeight="132.03" fitWidth="94.5675" pickOnBounds="true" preserveRatio="true">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </HBox>
+                                    <HBox alignment="BOTTOM_CENTER" styleClass="lieux" stylesheets="@style/plateau.css">
+                                       <children>
+                                          <ImageView fitHeight="132.03" fitWidth="94.5675" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fitHeight="132.03" fitWidth="94.5675" pickOnBounds="true" preserveRatio="true">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </HBox>
+                                    <HBox alignment="TOP_CENTER" styleClass="lieux" stylesheets="@style/plateau.css">
+                                       <children>
+                                          <ImageView fitHeight="132.03" fitWidth="94.5675" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fitHeight="132.03" fitWidth="94.5675" pickOnBounds="true" preserveRatio="true">
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="5.0" right="10.0" />
+                                       </HBox.margin>
+                                    </HBox>
+                                    <VBox alignment="CENTER">
+                                       <children>
+                                          <Circle fill="#21ffee" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+                                          <Circle fill="#2168ff" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+                                          <Circle fill="#d921ff" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+                                          <Circle fill="#ff21ad" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <VBox alignment="BOTTOM_CENTER">
+                                 <children>
+                                    <HBox alignment="CENTER_RIGHT">
+                                       <children>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" styleClass="text" stylesheets="@style/plateau.css" text="Allie" />
+                                          <VBox alignment="CENTER">
+                                             <children>
+                                                <Label styleClass="text" stylesheets="@style/plateau.css" text="Bob" />
+                                                <Label styleClass="text" stylesheets="@style/plateau.css" text="Emi" />
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER">
+                                             <children>
+                                                <Label styleClass="text" stylesheets="@style/plateau.css" text="Inconnu" />
+                                                <Label styleClass="text" stylesheets="@style/plateau.css" text="Charles" />
+                                             </children>
+                                          </VBox>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" styleClass="text" stylesheets="@style/plateau.css" text="Franklin" />
+                                          <VBox alignment="CENTER">
+                                             <children>
+                                                <Label styleClass="text" stylesheets="@style/plateau.css" text="Vampire" />
+                                                <Label styleClass="text" stylesheets="@style/plateau.css" text="Daniel" />
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER">
+                                             <children>
+                                                <Label styleClass="text" stylesheets="@style/plateau.css" text="Loup-" />
+                                                <Label styleClass="text" stylesheets="@style/plateau.css" text="garou" />
+                                                <Label styleClass="text" stylesheets="@style/plateau.css" text="George" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox>
+                                       <children>
+                                          <HBox prefHeight="100.0" prefWidth="0.0" />
+                                          <HBox alignment="CENTER" prefHeight="64.0" prefWidth="50.0" stylesheets="@style/plateau.css">
+                                             <children>
+                                                <VBox prefHeight="87.0" prefWidth="2.0">
+                                                   <children>
+                                                      <Circle fill="#ff1f1f" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                                                      <Circle fill="#ffd71f" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                                                      <Circle fill="#ecff1f" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                                                      <Circle fill="#64ff1f" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox prefHeight="87.0" prefWidth="4.0">
+                                                   <children>
+                                                      <Circle fill="#21ffee" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                                                      <Circle fill="#2168ff" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                                                      <Circle fill="#d921ff" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                                                      <Circle fill="#ff21ad" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                             <styleClass>
+                                                <String fx:value="barreDeVie" />
+                                                <String fx:value="zero" />
+                                             </styleClass>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="50.0" stylesheets="@style/plateau.css">
+                                             <children>
+                                                <VBox prefHeight="64.0" prefWidth="25.0" />
+                                                <VBox prefHeight="200.0" prefWidth="25.0" />
+                                             </children>
+                                             <styleClass>
+                                                <String fx:value="barreDeVie" />
+                                                <String fx:value="un" />
+                                             </styleClass>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="50.0" stylesheets="@style/plateau.css">
+                                             <children>
+                                                <VBox prefHeight="64.0" prefWidth="25.0" />
+                                                <VBox prefHeight="200.0" prefWidth="25.0" />
+                                             </children>
+                                             <styleClass>
+                                                <String fx:value="barreDeVie" />
+                                                <String fx:value="deux" />
+                                             </styleClass>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="50.0" stylesheets="@style/plateau.css">
+                                             <children>
+                                                <VBox prefHeight="64.0" prefWidth="25.0" />
+                                                <VBox prefHeight="200.0" prefWidth="25.0" />
+                                             </children>
+                                             <styleClass>
+                                                <String fx:value="barreDeVie" />
+                                                <String fx:value="trois" />
+                                             </styleClass>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="50.0" stylesheets="@style/plateau.css">
+                                             <children>
+                                                <VBox prefHeight="64.0" prefWidth="25.0" />
+                                                <VBox prefHeight="200.0" prefWidth="25.0" />
+                                             </children>
+                                             <styleClass>
+                                                <String fx:value="barreDeVie" />
+                                                <String fx:value="quatre" />
+                                             </styleClass>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
+                                             <children>
+                                                <VBox prefHeight="64.0" prefWidth="25.0" />
+                                                <VBox prefHeight="200.0" prefWidth="25.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
+                                             <children>
+                                                <VBox prefHeight="64.0" prefWidth="25.0" />
+                                                <VBox prefHeight="200.0" prefWidth="25.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
+                                             <children>
+                                                <VBox prefHeight="64.0" prefWidth="25.0" />
+                                                <VBox prefHeight="200.0" prefWidth="25.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
+                                             <children>
+                                                <VBox prefHeight="64.0" prefWidth="25.0" />
+                                                <VBox prefHeight="200.0" prefWidth="25.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
+                                             <children>
+                                                <VBox prefHeight="64.0" prefWidth="25.0" />
+                                                <VBox prefHeight="200.0" prefWidth="25.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
+                                             <children>
+                                                <VBox prefHeight="64.0" prefWidth="25.0" />
+                                                <VBox prefHeight="200.0" prefWidth="25.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
+                                             <children>
+                                                <VBox prefHeight="64.0" prefWidth="25.0" />
+                                                <VBox prefHeight="200.0" prefWidth="25.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
+                                             <children>
+                                                <VBox prefHeight="64.0" prefWidth="25.0" />
+                                                <VBox prefHeight="200.0" prefWidth="25.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
+                                             <children>
+                                                <VBox prefHeight="64.0" prefWidth="25.0" />
+                                                <VBox prefHeight="200.0" prefWidth="25.0" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox>
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                                <Label styleClass="text" stylesheets="@style/plateau.css" text="Pas de" />
+                                                <Label styleClass="text" stylesheets="@style/plateau.css" text="dégats" />
+                                             </children>
+                                          </VBox>
+                                          <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="1" />
+                                          <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="2" textAlignment="CENTER" />
+                                          <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="3" textAlignment="CENTER" />
+                                          <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="4" textAlignment="CENTER" />
+                                          <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="5" textAlignment="CENTER" />
+                                          <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="6" textAlignment="CENTER" />
+                                          <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="7" textAlignment="CENTER" />
+                                          <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="8" textAlignment="CENTER" />
+                                          <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="9" textAlignment="CENTER" />
+                                          <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="10" textAlignment="CENTER" />
+                                          <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="11" textAlignment="CENTER" />
+                                          <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="12" textAlignment="CENTER" />
+                                          <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="13" textAlignment="CENTER" />
+                                          <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="14" textAlignment="CENTER" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
                            </children>
-                        </HBox>
+                        </VBox>
                      </children>
-                  </AnchorPane>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </HBox>
                </children>
-            </HBox>
+            </AnchorPane>
+         </center>
+         <right>
+            <AnchorPane maxWidth="1.7976931348623157E308" minWidth="-Infinity" BorderPane.alignment="CENTER">
+               <children>
+                  <GridPane alignment="CENTER" maxWidth="1.7976931348623157E308" minWidth="-Infinity" style="-fx-background-color: A50000;" vgap="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints vgrow="ALWAYS" />
+                        <RowConstraints vgrow="ALWAYS" />
+                     </rowConstraints>
+                     <children>
+                        <GridPane vgap="10.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints vgrow="ALWAYS" />
+                              <RowConstraints />
+                              <RowConstraints vgrow="ALWAYS" />
+                           </rowConstraints>
+                           <children>
+                              <AnchorPane fx:id="anchorPane612" />
+                              <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                                 <image>
+                                    <Image url="@img/dosCartesPersonnageRot.jpg" />
+                                 </image>
+                              </ImageView>
+                              <ScrollPane hbarPolicy="NEVER" vbarPolicy="NEVER" GridPane.rowIndex="2">
+                                 <content>
+                                    <AnchorPane />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                           <GridPane.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </GridPane.margin>
+                        </GridPane>
+                        <GridPane layoutX="10.0" layoutY="10.0" vgap="10.0" GridPane.rowIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints vgrow="ALWAYS" />
+                              <RowConstraints />
+                              <RowConstraints vgrow="ALWAYS" />
+                           </rowConstraints>
+                           <children>
+                              <AnchorPane fx:id="anchorPane6121" GridPane.rowIndex="2" />
+                              <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                                 <image>
+                                    <Image url="@img/dosCartesPersonnageRot.jpg" />
+                                 </image>
+                              </ImageView>
+                              <ScrollPane hbarPolicy="NEVER" vbarPolicy="NEVER">
+                                 <content>
+                                    <AnchorPane />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                           <GridPane.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </GridPane.margin>
+                        </GridPane>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+         </right>
+         <left>
+            <AnchorPane BorderPane.alignment="CENTER">
+               <children>
+                  <GridPane alignment="CENTER" style="-fx-background-color: A50000;" vgap="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <rowConstraints>
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <GridPane vgap="10.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints vgrow="ALWAYS" />
+                              <RowConstraints />
+                              <RowConstraints vgrow="ALWAYS" />
+                           </rowConstraints>
+                           <children>
+                              <AnchorPane nodeOrientation="RIGHT_TO_LEFT" />
+                              <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                                 <image>
+                                    <Image url="@img/dosCartesPersonnageRot.jpg" />
+                                 </image>
+                              </ImageView>
+                              <ScrollPane hbarPolicy="NEVER" vbarPolicy="NEVER" GridPane.rowIndex="2">
+                                 <content>
+                                    <AnchorPane />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                           <GridPane.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </GridPane.margin>
+                        </GridPane>
+                        <GridPane layoutX="10.0" layoutY="10.0" vgap="10.0" GridPane.rowIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints vgrow="ALWAYS" />
+                              <RowConstraints />
+                              <RowConstraints vgrow="ALWAYS" />
+                           </rowConstraints>
+                           <children>
+                              <AnchorPane GridPane.rowIndex="2" />
+                              <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                                 <image>
+                                    <Image url="@img/dosCartesPersonnageRot.jpg" />
+                                 </image>
+                              </ImageView>
+                              <ScrollPane hbarPolicy="NEVER" vbarPolicy="NEVER">
+                                 <content>
+                                    <AnchorPane />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                           <GridPane.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </GridPane.margin>
+                        </GridPane>
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                     </columnConstraints>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+         </left>
+         <top>
+            <AnchorPane BorderPane.alignment="CENTER">
+               <children>
+                  <GridPane alignment="CENTER" hgap="50.0" style="-fx-background-color: A50000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="ALWAYS" />
+                        <ColumnConstraints hgrow="ALWAYS" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <GridPane alignment="CENTER" hgap="10.0" rotate="180.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="ALWAYS" />
+                              <ColumnConstraints />
+                              <ColumnConstraints hgrow="ALWAYS" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <AnchorPane nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="2" />
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                                 <image>
+                                    <Image url="@img/dosCartesPersonnage.jpg" />
+                                 </image>
+                              </ImageView>
+                              <ScrollPane hbarPolicy="NEVER" vbarPolicy="NEVER">
+                                 <content>
+                                    <AnchorPane />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </GridPane>
+                        <GridPane alignment="CENTER" hgap="10.0" rotate="180.0" GridPane.columnIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="ALWAYS" />
+                              <ColumnConstraints />
+                              <ColumnConstraints hgrow="ALWAYS" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <AnchorPane />
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                                 <image>
+                                    <Image url="@img/dosCartesPersonnage.jpg" />
+                                 </image>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </ImageView>
+                              <ScrollPane hbarPolicy="NEVER" vbarPolicy="NEVER" GridPane.columnIndex="2">
+                                 <content>
+                                    <AnchorPane />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </GridPane>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </GridPane>
+               </children>
+            </AnchorPane>
          </top>
          <bottom>
-            <HBox alignment="CENTER" spacing="10.0">
+            <AnchorPane BorderPane.alignment="CENTER">
                <children>
-                  <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
-                     <HBox.margin>
-                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                     </HBox.margin>
+                  <GridPane alignment="CENTER" hgap="50.0" style="-fx-background-color: A50000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="ALWAYS" />
+                        <ColumnConstraints hgrow="ALWAYS" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
                      <children>
-                        <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <GridPane alignment="CENTER" hgap="10.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="ALWAYS" />
+                              <ColumnConstraints />
+                              <ColumnConstraints hgrow="ALWAYS" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
                            <children>
-                              <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
-                                 <children>
-                                    <AnchorPane fx:id="anchorPane1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
-                                 <children>
-                                    <ImageView fitHeight="150.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <image>
-                                          <Image url="@img/dosCartesPersonnage.jpg" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
-                                 <children>
-                                    <ScrollPane hbarPolicy="NEVER" layoutY="-85.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <content>
-                                          <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
-                                       </content>
-                                    </ScrollPane>
-                                 </children>
-                              </AnchorPane>
+                              <AnchorPane />
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                                 <image>
+                                    <Image url="@img/dosCartesPersonnage.jpg" />
+                                 </image>
+                              </ImageView>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="NEVER" GridPane.columnIndex="2">
+                                 <content>
+                                    <AnchorPane />
+                                 </content>
+                              </ScrollPane>
                            </children>
-                        </HBox>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
-                     <HBox.margin>
-                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                     </HBox.margin>
-                     <children>
-                        <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        </GridPane>
+                        <GridPane alignment="CENTER" hgap="10.0" GridPane.columnIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="ALWAYS" />
+                              <ColumnConstraints />
+                              <ColumnConstraints hgrow="ALWAYS" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
                            <children>
-                              <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
-                                 <children>
-                                    <ScrollPane hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <content>
-                                          <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
-                                       </content>
-                                    </ScrollPane>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
-                                 <children>
-                                    <ImageView fitHeight="150.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <image>
-                                          <Image url="@img/dosCartesPersonnage.jpg" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
-                                 <children>
-                                    <AnchorPane fx:id="anchorPane2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                 </children>
-                              </AnchorPane>
+                              <AnchorPane nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="2" />
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                                 <image>
+                                    <Image url="@img/dosCartesPersonnage.jpg" />
+                                 </image>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </ImageView>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="NEVER">
+                                 <content>
+                                    <AnchorPane />
+                                 </content>
+                              </ScrollPane>
                            </children>
-                        </HBox>
+                        </GridPane>
                      </children>
-                  </AnchorPane>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </GridPane>
                </children>
-            </HBox>
+            </AnchorPane>
          </bottom>
-         <left>
-            <GridPane>
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints maxHeight="465.0" minHeight="10.0" prefHeight="341.5" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="341.0" minHeight="10.0" prefHeight="341.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <GridPane>
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <AnchorPane fx:id="anchorPane7" />
-                        <ImageView fitHeight="115.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
-                           <image>
-                              <Image url="@img/dosCartesPersonnageRot.jpg" />
-                           </image>
-                        </ImageView>
-                        <ScrollPane hbarPolicy="NEVER" vbarPolicy="NEVER" GridPane.rowIndex="2">
-                           <content>
-                              <AnchorPane />
-                           </content>
-                        </ScrollPane>
-                     </children>
-                  </GridPane>
-                  <GridPane GridPane.rowIndex="1">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <ScrollPane hbarPolicy="NEVER" vbarPolicy="NEVER">
-                           <content>
-                              <AnchorPane />
-                           </content>
-                        </ScrollPane>
-                        <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
-                           <image>
-                              <Image url="@img/dosCartesPersonnageRot.jpg" />
-                           </image>
-                        </ImageView>
-                        <AnchorPane fx:id="anchorPane8" GridPane.rowIndex="2" />
-                     </children>
-                  </GridPane>
-               </children>
-            </GridPane>
-         </left>
-         <right>
-            <VBox alignment="CENTER" spacing="10.0">
-               <children>
-                  <AnchorPane>
-                     <VBox.margin>
-                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                     </VBox.margin>
-                     <children>
-                        <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <AnchorPane fx:id="anchorPane4" prefHeight="150.0" prefWidth="150.0" VBox.vgrow="ALWAYS" />
-                              <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@img/dosCartesPersonnageRot.jpg" />
-                                 </image>
-                              </ImageView>
-                              <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" vbarPolicy="NEVER">
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                                 </content>
-                              </ScrollPane>
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane>
-                     <VBox.margin>
-                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                     </VBox.margin>
-                     <children>
-                        <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" vbarPolicy="NEVER">
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-                                 </content>
-                              </ScrollPane>
-                              <ImageView fitHeight="154.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@img/dosCartesPersonnageRot.jpg" />
-                                 </image>
-                              </ImageView>
-                              <AnchorPane fx:id="anchorPane3" prefHeight="150.0" prefWidth="150.0" VBox.vgrow="ALWAYS" />
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </VBox>
-         </right>
-         <center>
-            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" spacing="10.0">
-               <children>
-                  <VBox alignment="CENTER_LEFT" prefWidth="22.0" HBox.hgrow="NEVER">
-                     <children>
-                        <HBox prefHeight="100.0" prefWidth="200.0" styleClass="carteLumiere" stylesheets="@style/plateau.css">
-                           <children>
-                              <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" styleClass="background" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" styleClass="carteVision" stylesheets="@style/plateau.css">
-                           <children>
-                              <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" />
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="30.0" top="30.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0" styleClass="carteTenebre" stylesheets="@style/plateau.css">
-                           <children>
-                              <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" />
-                           </children>
-                        </HBox>
-                     </children>
-                  </VBox>
-                  <VBox alignment="CENTER" prefWidth="732.0" HBox.hgrow="NEVER">
-                     <children>
-                        <HBox alignment="TOP_CENTER">
-                           <children>
-                              <VBox alignment="CENTER">
-                                 <children>
-                                    <Circle fill="#ff1f1f" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-                                    <Circle fill="#ffd71f" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-                                    <Circle fill="#ecff1f" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-                                    <Circle fill="#64ff1f" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-                                 </children>
-                              </VBox>
-                              <HBox alignment="TOP_CENTER" styleClass="lieux" stylesheets="@style/plateau.css">
-                                 <children>
-                                    <ImageView fitHeight="132.03" fitWidth="94.5675" pickOnBounds="true" preserveRatio="true" />
-                                    <ImageView fitHeight="132.03" fitWidth="94.5675" pickOnBounds="true" preserveRatio="true">
-                                       <HBox.margin>
-                                          <Insets left="5.0" />
-                                       </HBox.margin>
-                                    </ImageView>
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </HBox>
-                              <HBox alignment="BOTTOM_CENTER" styleClass="lieux" stylesheets="@style/plateau.css">
-                                 <children>
-                                    <ImageView fitHeight="132.03" fitWidth="94.5675" pickOnBounds="true" preserveRatio="true" />
-                                    <ImageView fitHeight="132.03" fitWidth="94.5675" pickOnBounds="true" preserveRatio="true">
-                                       <HBox.margin>
-                                          <Insets left="5.0" />
-                                       </HBox.margin>
-                                    </ImageView>
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets left="5.0" />
-                                 </HBox.margin>
-                              </HBox>
-                              <HBox alignment="TOP_CENTER" styleClass="lieux" stylesheets="@style/plateau.css">
-                                 <children>
-                                    <ImageView fitHeight="132.03" fitWidth="94.5675" pickOnBounds="true" preserveRatio="true" />
-                                    <ImageView fitHeight="132.03" fitWidth="94.5675" pickOnBounds="true" preserveRatio="true">
-                                       <HBox.margin>
-                                          <Insets left="5.0" />
-                                       </HBox.margin>
-                                    </ImageView>
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets left="5.0" right="10.0" />
-                                 </HBox.margin>
-                              </HBox>
-                              <VBox alignment="CENTER">
-                                 <children>
-                                    <Circle fill="#21ffee" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-                                    <Circle fill="#2168ff" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-                                    <Circle fill="#d921ff" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-                                    <Circle fill="#ff21ad" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-                                 </children>
-                              </VBox>
-                           </children>
-                        </HBox>
-                        <VBox alignment="BOTTOM_CENTER">
-                           <children>
-                              <HBox alignment="CENTER_RIGHT">
-                                 <children>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" styleClass="text" stylesheets="@style/plateau.css" text="Allie" />
-                                    <VBox alignment="CENTER">
-                                       <children>
-                                          <Label styleClass="text" stylesheets="@style/plateau.css" text="Bob" />
-                                          <Label styleClass="text" stylesheets="@style/plateau.css" text="Emi" />
-                                       </children>
-                                    </VBox>
-                                    <VBox alignment="CENTER">
-                                       <children>
-                                          <Label styleClass="text" stylesheets="@style/plateau.css" text="Inconnu" />
-                                          <Label styleClass="text" stylesheets="@style/plateau.css" text="Charles" />
-                                       </children>
-                                    </VBox>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" styleClass="text" stylesheets="@style/plateau.css" text="Franklin" />
-                                    <VBox alignment="CENTER">
-                                       <children>
-                                          <Label styleClass="text" stylesheets="@style/plateau.css" text="Vampire" />
-                                          <Label styleClass="text" stylesheets="@style/plateau.css" text="Daniel" />
-                                       </children>
-                                    </VBox>
-                                    <VBox alignment="CENTER">
-                                       <children>
-                                          <Label styleClass="text" stylesheets="@style/plateau.css" text="Loup-" />
-                                          <Label styleClass="text" stylesheets="@style/plateau.css" text="garou" />
-                                          <Label styleClass="text" stylesheets="@style/plateau.css" text="George" />
-                                       </children>
-                                    </VBox>
-                                 </children>
-                              </HBox>
-                              <HBox>
-                                 <children>
-                                    <HBox prefHeight="100.0" prefWidth="0.0" />
-                                    <HBox alignment="CENTER" prefHeight="64.0" prefWidth="50.0" stylesheets="@style/plateau.css">
-                                       <children>
-                                          <VBox prefHeight="87.0" prefWidth="2.0">
-                                             <children>
-                                                <Circle fill="#ff1f1f" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                                                <Circle fill="#ffd71f" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                                                <Circle fill="#ecff1f" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                                                <Circle fill="#64ff1f" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                                             </children>
-                                          </VBox>
-                                          <VBox prefHeight="87.0" prefWidth="4.0">
-                                             <children>
-                                                <Circle fill="#21ffee" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                                                <Circle fill="#2168ff" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                                                <Circle fill="#d921ff" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                                                <Circle fill="#ff21ad" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
-                                             </children>
-                                          </VBox>
-                                       </children>
-                                       <styleClass>
-                                          <String fx:value="barreDeVie" />
-                                          <String fx:value="zero" />
-                                       </styleClass>
-                                    </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="50.0" stylesheets="@style/plateau.css">
-                                       <children>
-                                          <VBox prefHeight="64.0" prefWidth="25.0" />
-                                          <VBox prefHeight="200.0" prefWidth="25.0" />
-                                       </children>
-                                       <styleClass>
-                                          <String fx:value="barreDeVie" />
-                                          <String fx:value="un" />
-                                       </styleClass>
-                                    </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="50.0" stylesheets="@style/plateau.css">
-                                       <children>
-                                          <VBox prefHeight="64.0" prefWidth="25.0" />
-                                          <VBox prefHeight="200.0" prefWidth="25.0" />
-                                       </children>
-                                       <styleClass>
-                                          <String fx:value="barreDeVie" />
-                                          <String fx:value="deux" />
-                                       </styleClass>
-                                    </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="50.0" stylesheets="@style/plateau.css">
-                                       <children>
-                                          <VBox prefHeight="64.0" prefWidth="25.0" />
-                                          <VBox prefHeight="200.0" prefWidth="25.0" />
-                                       </children>
-                                       <styleClass>
-                                          <String fx:value="barreDeVie" />
-                                          <String fx:value="trois" />
-                                       </styleClass>
-                                    </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="50.0" stylesheets="@style/plateau.css">
-                                       <children>
-                                          <VBox prefHeight="64.0" prefWidth="25.0" />
-                                          <VBox prefHeight="200.0" prefWidth="25.0" />
-                                       </children>
-                                       <styleClass>
-                                          <String fx:value="barreDeVie" />
-                                          <String fx:value="quatre" />
-                                       </styleClass>
-                                    </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
-                                       <children>
-                                          <VBox prefHeight="64.0" prefWidth="25.0" />
-                                          <VBox prefHeight="200.0" prefWidth="25.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
-                                       <children>
-                                          <VBox prefHeight="64.0" prefWidth="25.0" />
-                                          <VBox prefHeight="200.0" prefWidth="25.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
-                                       <children>
-                                          <VBox prefHeight="64.0" prefWidth="25.0" />
-                                          <VBox prefHeight="200.0" prefWidth="25.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
-                                       <children>
-                                          <VBox prefHeight="64.0" prefWidth="25.0" />
-                                          <VBox prefHeight="200.0" prefWidth="25.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
-                                       <children>
-                                          <VBox prefHeight="64.0" prefWidth="25.0" />
-                                          <VBox prefHeight="200.0" prefWidth="25.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
-                                       <children>
-                                          <VBox prefHeight="64.0" prefWidth="25.0" />
-                                          <VBox prefHeight="200.0" prefWidth="25.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
-                                       <children>
-                                          <VBox prefHeight="64.0" prefWidth="25.0" />
-                                          <VBox prefHeight="200.0" prefWidth="25.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
-                                       <children>
-                                          <VBox prefHeight="64.0" prefWidth="25.0" />
-                                          <VBox prefHeight="200.0" prefWidth="25.0" />
-                                       </children>
-                                    </HBox>
-                                    <HBox prefHeight="100.0" prefWidth="50.0" styleClass="barreDeVie" stylesheets="@style/plateau.css">
-                                       <children>
-                                          <VBox prefHeight="64.0" prefWidth="25.0" />
-                                          <VBox prefHeight="200.0" prefWidth="25.0" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </HBox>
-                              <HBox>
-                                 <children>
-                                    <VBox>
-                                       <children>
-                                          <Label styleClass="text" stylesheets="@style/plateau.css" text="Pas de" />
-                                          <Label styleClass="text" stylesheets="@style/plateau.css" text="dégats" />
-                                       </children>
-                                    </VBox>
-                                    <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="1" />
-                                    <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="2" textAlignment="CENTER" />
-                                    <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="3" textAlignment="CENTER" />
-                                    <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="4" textAlignment="CENTER" />
-                                    <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="5" textAlignment="CENTER" />
-                                    <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="6" textAlignment="CENTER" />
-                                    <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="7" textAlignment="CENTER" />
-                                    <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="8" textAlignment="CENTER" />
-                                    <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="9" textAlignment="CENTER" />
-                                    <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="10" textAlignment="CENTER" />
-                                    <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="11" textAlignment="CENTER" />
-                                    <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="12" textAlignment="CENTER" />
-                                    <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="13" textAlignment="CENTER" />
-                                    <Label alignment="CENTER" prefWidth="50.0" styleClass="text" stylesheets="@style/plateau.css" text="14" textAlignment="CENTER" />
-                                 </children>
-                              </HBox>
-                           </children>
-                        </VBox>
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-         </center>
       </BorderPane>
    </children>
 </AnchorPane>
