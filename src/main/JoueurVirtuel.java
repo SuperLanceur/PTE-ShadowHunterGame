@@ -1,7 +1,9 @@
 package main;
+import java.util.ArrayList;
 import java.util.List;
 
 import carte.Equipement;
+import carte.EquipementStat;
 import effet.Effet;
 
 
@@ -11,7 +13,6 @@ public class JoueurVirtuel extends Joueur {
 	
 	public JoueurVirtuel (String name) {
 		super(name);
-	
 	}
 	
 	public Effet choisirEffet(List<Effet> effets) {
@@ -19,11 +20,29 @@ public class JoueurVirtuel extends Joueur {
 	}
 	
 	public Equipement choisirEquipement(List<Equipement> equips) {
+		List<Equipement> equipstat = trouverEquipStat(equips);
+		if(equipstat.size()>0)
+			return equipstat.get((int)Math.floor(Math.random() * equipstat.size()));
 		return equips.get((int)Math.floor(Math.random() * equips.size()));
 	}
 	
+	public List<Equipement> trouverEquipStat(List<Equipement> equips){
+		List<Equipement> res = new ArrayList<>();
+		for(Equipement e : equips) {
+			if(e instanceof EquipementStat)
+				res.add(e);
+		}
+		return res;
+	}
+	
 	public Joueur choisirJoueur(List<Joueur> joueurs) {
-		return joueurs.get((int)Math.floor(Math.random() * joueurs.size()));
+		Joueur res = joueurs.get(0);
+		for(int i=1; i<joueurs.size();i++) {
+			if(res.getStat("HP")>joueurs.get(i).getStat("HP"))
+				res = joueurs.get(i);
+		}
+		return res;
+		//return joueurs.get((int)Math.floor(Math.random() * joueurs.size()));
 	}
 	
 	public int getDifficulte() {
