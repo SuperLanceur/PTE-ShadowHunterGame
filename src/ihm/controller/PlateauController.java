@@ -11,15 +11,23 @@ import java.util.ResourceBundle;
 
 import ihm.PopUp;
 import ihm.PopUpBoolean;
+import ihm.SpriteAnimation;
+import javafx.animation.Animation;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import main.GestionnaireJeu;
+import javafx.util.Duration;
 import main.Joueur;
 import main.View;
 
@@ -38,6 +46,10 @@ public class PlateauController implements Initializable {
 	@FXML private VBox joueur6;
 	@FXML private VBox joueur7;
 	@FXML private VBox joueur8;
+	
+	public static int DICE_SIX = 2;
+	public static int DICE_QUATRE = 1;
+	public static int DICE_BOTH = 0;
 	
 	/**
 	 * initialise les donn�es du plateau
@@ -105,9 +117,7 @@ public class PlateauController implements Initializable {
 		Parent root = loader.load();
         
 		PopUpBoolean popup = new PopUpBoolean(root, "Consulter sa carte");
-		return popup.display();
-		
-		
+		return popup.display();	
 	}
 	
 	/**
@@ -141,4 +151,11 @@ public class PlateauController implements Initializable {
 			}
 		}
 	}
+
+	public void rollDice(Joueur joueur, int typeDice, int[] rolls) {
+		
+		
+		
+	}
+
 }

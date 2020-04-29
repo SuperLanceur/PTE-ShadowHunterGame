@@ -1,7 +1,6 @@
 package main;
 
 import java.awt.Point;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -17,6 +16,7 @@ import effet.EffetChoisirEffet;
 import effet.EffetSelf;
 import effet.action.ActionAltererStatistiquesJoueur;
 import effet.action.ActionVoler;
+import ihm.controller.PlateauController;
 import personnage.Allie;
 import personnage.CartePersonnage;
 import personnage.Franklin;
@@ -197,15 +197,12 @@ public class Plateau {
 		
 		while(true) {
 			
-			
-			
 			Joueur currentJoueur = this.joueurs.get(nbJoueurs % i);
 			System.out.println("\n\n\n\n\n");
 			System.out.println("Au tour de "+currentJoueur.getNom());
 			System.out.println("Lancement des dés.");
 			deplacer(currentJoueur);
 			System.out.println("Vous êtes désormais sur le lieu "+currentJoueur.getCarteLieu().getNom());
-			
 			System.out.println("Voulez vous activer l'effet du lieu ?");
 			if(currentJoueur.choisir()) {
 				System.out.println("Vous activez l'effet du lieu.");
@@ -247,7 +244,7 @@ public class Plateau {
 		boolean attributed = false;
 		
 		while(!attributed) {
-			int roll = sumRolls();
+			int roll = sumRolls(currentJoueur);
 			for(CarteLieu cl : lieux) {
 				
 				if(cl.coordinatesContains(roll) && currentJoueur.getCarteLieu() != cl){
@@ -262,7 +259,7 @@ public class Plateau {
 	
 	public void attaquer(Joueur joueur1, Joueur joueur2) {
 		
-		int attaque = diffRolls();
+		int attaque = diffRolls(joueur1);
 		
 		if(attaque != 0) {
 			System.out.println(joueur1.getNom()+" attaque "+joueur2.getNom());
@@ -277,21 +274,39 @@ public class Plateau {
 		return new Joueur("0");
 	}
 	
-	public int diffRolls() {
-		return Math.abs(roll6()-roll4());	
+	public int diffRolls(Joueur j) {
+		
+		int roll4 =rollRandom(4);
+		int roll6 = rollRandom(6);
+		
+	
+		gj.rollDice(j, PlateauController.DICE_BOTH, roll4,roll6);
+		return Math.abs(roll4-roll6);
 	}
 	
-	public int roll4() {
-		return (int) Math.floor(Math.random() * 3)+1;
+	public int roll4(Joueur j) {
+		
+		int roll = this.rollRandom(4);
+		gj.rollDice(j, PlateauController.DICE_QUATRE, roll);
+		return roll;
 	}
 	
-	public int roll6() {
-		return (int) Math.floor(Math.random() * 5)+1;
+	public int roll6(Joueur j) {
+		
+		int roll = this.rollRandom(6);
+		gj.rollDice(j, PlateauController.DICE_QUATRE, roll);
+		return roll;
 	}
 	
-	public int sumRolls()
+	private int rollRandom(int nb) {
+		
+		int roll = (int) Math.floor(Math.random() * (nb-1))+1;
+		return roll;
+	}
+
+	public int sumRolls(Joueur j)
 	{
-		return roll6() + roll4();
+		return roll6(j) + roll4(j);
 	}
 	
 	public List<Joueur> getJoueurs() {

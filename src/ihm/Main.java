@@ -23,6 +23,7 @@ public class Main extends Application {
 		primaryStage.setTitle("Shadow Hunters");
 		primaryStage.setScene(new Scene(root));
 		primaryStage.centerOnScreen();
+		primaryStage.setMaximized(true);
 		primaryStage.show();
 	}
 
