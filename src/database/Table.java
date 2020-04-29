@@ -16,8 +16,8 @@ public class Table {
 	public Table(String JavaTableName) {
 		this.name = JavaTableName;
 	}
-	
-	public void remplirTable(String DatabaseTableName) {
+
+	public void remplirTableAllFrom(String DatabaseTableName) {
 		try (Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/ShadowHunterDatabase", "shManager", "shadowhunter1234")) { //notre utilisateur que l'on utilisera (:
        	 
             System.out.println("Connected to PostgreSQL database!");
@@ -25,9 +25,41 @@ public class Table {
             System.out.println("Reading records...");
             ResultSet retour = statement.executeQuery(QueryGenerator.AllFrom(DatabaseTableName));
             while (retour.next()) {
-            	Record r = new Record(retour.getString("id"), retour.getString("nom"), retour.getBytes("image"));
-            	list.add(r);
-            	//System.out.printf("%-20.30s  %-30.30s  %-20.30s%n", retour.getString("id"), retour.getString("nom"), retour.getBytes("image"));
+            	list.add(new Record(retour.getString("id"), retour.getString("nom"), retour.getBytes("image")));
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Connection failure.");
+            e.printStackTrace();
+        }
+	}
+	
+	public void remplirTableWithId(String DatabaseTableName, int id) {
+		try (Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/ShadowHunterDatabase", "shManager", "shadowhunter1234")) { //notre utilisateur que l'on utilisera (:
+       	 
+            System.out.println("Connected to PostgreSQL database!");
+            Statement statement = connection.createStatement();
+            System.out.println("Reading records...");
+            ResultSet retour = statement.executeQuery(QueryGenerator.WithId(DatabaseTableName, id));
+            while (retour.next()) {
+            	list.add(new Record(retour.getString("id"), retour.getString("nom"), retour.getBytes("image")));
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Connection failure.");
+            e.printStackTrace();
+        }
+	}
+	
+	public void remplirTableWithName(String DatabaseTableName, String s) {
+		try (Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/ShadowHunterDatabase", "shManager", "shadowhunter1234")) { //notre utilisateur que l'on utilisera (:
+       	 
+            System.out.println("Connected to PostgreSQL database!");
+            Statement statement = connection.createStatement();
+            System.out.println("Reading records...");
+            ResultSet retour = statement.executeQuery(QueryGenerator.WithName(DatabaseTableName, s));
+            while (retour.next()) {
+            	list.add(new Record(retour.getString("id"), retour.getString("nom"), retour.getBytes("image")));
             }
 
         } catch (SQLException e) {
@@ -46,6 +78,10 @@ public class Table {
 
 	public List<Record> getList() {
 		return list;
+	}
+	
+	public String toString() {
+		return " " + this.getList();
 	}
 	
 
