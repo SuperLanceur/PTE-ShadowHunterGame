@@ -27,21 +27,25 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+<<<<<<< HEAD
+=======
 import javafx.util.Duration;
+>>>>>>> eea99d2341b1df015a2831034aa39534addff16e
 import main.Joueur;
 import main.View;
 
 public class PlateauController implements Initializable {
 	private List<Joueur> listJoueur = new ArrayList<Joueur>();
 	private List<VBox> vboxJoueur = new ArrayList<VBox>();
+	private List<HBox> hboxJoueur = new ArrayList<HBox>();
 	private List<Button> btnRevelation = new ArrayList<Button>();
-	private List<Button> btnCartePerso = new ArrayList<Button>();
+	private List<ImageView> cartePerso = new ArrayList<ImageView>();
 	private List<Label> nomJoueur = new ArrayList<Label>();
 	
-	@FXML private VBox joueur1;
-	@FXML private VBox joueur2;
-	@FXML private VBox joueur3;
-	@FXML private VBox joueur4;
+	@FXML private HBox joueur1;
+	@FXML private HBox joueur2;
+	@FXML private HBox joueur3;
+	@FXML private HBox joueur4;
 	@FXML private VBox joueur5;
 	@FXML private VBox joueur6;
 	@FXML private VBox joueur7;
@@ -52,26 +56,40 @@ public class PlateauController implements Initializable {
 	public static int DICE_BOTH = 0;
 	
 	/**
-	 * initialise les donn�es du plateau
+	 * initialise les données du plateau
 	 */
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		System.out.println("Création du plateau ...");
 		//initialisation des attributs des joueurs
 		
-		this.vboxJoueur.add(joueur1);
-		this.vboxJoueur.add(joueur2);
-		this.vboxJoueur.add(joueur3);
-		this.vboxJoueur.add(joueur4);
+		this.hboxJoueur.add(joueur1);
+		this.hboxJoueur.add(joueur2);
+		this.hboxJoueur.add(joueur3);
+		this.hboxJoueur.add(joueur4);
+		
+		for (HBox hbox : hboxJoueur) {
+			VBox carte = (VBox) hbox.getChildren().get(1);
+			cartePerso.add((ImageView) carte.getChildren().get(0));
+			btnRevelation.add((Button) carte.getChildren().get(1));
+			VBox info = (VBox) hbox.getChildren().get(2);
+			nomJoueur.add((Label) info.getChildren().get(0));
+		}
+		
 		this.vboxJoueur.add(joueur5);
 		this.vboxJoueur.add(joueur6);
 		this.vboxJoueur.add(joueur7);
 		this.vboxJoueur.add(joueur8);
+		
 		for (VBox vbox : vboxJoueur) {
-			nomJoueur.add((Label) vbox.getChildren().get(0));
-			HBox enfant = (HBox) vbox.getChildren().get(1);
-			btnCartePerso.add((Button) enfant.getChildren().get(0));
-			btnRevelation.add((Button) enfant.getChildren().get(1));
+			HBox joueur = (HBox) vbox.getChildren().get(1);
+			VBox carte = (VBox) joueur.getChildren().get(1);
+			cartePerso.add((ImageView) carte.getChildren().get(0));
+			btnRevelation.add((Button) carte.getChildren().get(1));
+			VBox info = (VBox) joueur.getChildren().get(0);
+			nomJoueur.add((Label) info.getChildren().get(0));
 		}
+		
 		//initilaisation des boutons se reveler
 		int i = 0;
 		for (Button b : btnRevelation) {
@@ -81,13 +99,12 @@ public class PlateauController implements Initializable {
 		}
 		//initialisation des bouton carte personnage
 		int j = 0;
-		for (Button b : btnCartePerso) {
+		for (ImageView b : cartePerso) {
 			int compteur = j;
-			b.setOnAction(e -> {try {consulterSaCarte(compteur);} catch (IOException e1) {e1.printStackTrace();}});
+			b.setOnMouseClicked(e -> {try {consulterSaCarte(compteur);} catch (IOException e1) {e1.printStackTrace();}});
 			j++;
 		}
 		
-
 		
 		listJoueur = View.getJoueurs();
 	}
@@ -140,16 +157,22 @@ public class PlateauController implements Initializable {
 		popup.display();
 	}
 	
+	/**
+	 * Place les joueurs au bon endroit sur le plateau
+	 * 
+	 * @param j : map donnant le joueur et son numero
+	 */
 	public void showInformation(Map<Integer, Joueur> j) {
-		System.out.println("\tplacement des joueurs");
+		/*System.out.println("\tplacement des joueurs");
+		int taille = this.vboxJoueur.size() + this.hboxJoueur.size();
 		
-		for (int i=0; i<this.vboxJoueur.size(); i++) {
+		for (int i=0; i<taille; i++) {
 			if (j.get(i) != null)
 				nomJoueur.get(i).setText(j.get(i).getNom());
 			else {
 				vboxJoueur.get(i).setVisible(false);
 			}
-		}
+		}*/
 	}
 
 	public void rollDice(Joueur joueur, int typeDice, int[] rolls) {

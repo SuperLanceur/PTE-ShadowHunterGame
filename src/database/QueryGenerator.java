@@ -15,7 +15,7 @@ public class QueryGenerator {
 	}
 	
 	public static String getTable(String s) {
-		return "public.\"" + s + "\"";
+		return "public." + '"' + s + '"';
 	}
 	
 }
