@@ -18,4 +18,13 @@ public class QueryGenerator {
 		return "public." + '"' + s + '"';
 	}
 	
+	public static String getIdWithNameFrom(String table, String name) {
+		return "SELECT 'id' FROM " + getTable(table) + "WHERE nom ='" + name + "'";
+	}
+	
+	public static String getNameWithIdFrom(String table, int d) {
+		return "SELECT name FROM " + getTable(table) + "WHERE id =" + d;
+	}
+	
+	
 }
