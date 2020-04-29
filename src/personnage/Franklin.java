@@ -30,7 +30,7 @@ public class Franklin extends Unique{
 		if(!this.isCapaciteUsed() && joueur.getRevele()) {
 			
 			Plateau p = joueur.getPlateau();
-			int roll = p.roll6();
+			int roll = p.roll6(this.getJoueur());
 			
 			Joueur joueur2 = joueur.choisiParmisTous();
 			super.attaquer(joueur2, roll);

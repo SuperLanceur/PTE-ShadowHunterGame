@@ -23,14 +23,13 @@ public class ChoisirBoolean implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 	
 	}
+	
 	@FXML 
 	public void choixOui(MouseEvent mouseEvent) throws IOException{
 		PopUpBoolean.result = true;
 		final Node source = (Node) mouseEvent.getSource();
 	    final Stage stage = (Stage) source.getScene().getWindow();
 	    stage.close();
-		return;
-	
 	}
 	
 	@FXML 
@@ -40,6 +39,5 @@ public class ChoisirBoolean implements Initializable{
 		final Node source = (Node) mouseEvent.getSource();
 	    final Stage stage = (Stage) source.getScene().getWindow();
 	    stage.close();
-		return;
 	}
 }

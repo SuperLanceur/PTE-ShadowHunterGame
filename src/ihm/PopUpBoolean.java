@@ -21,10 +21,6 @@ public class PopUpBoolean {
 	private double xOffSet = 0;
 	private double yOffSet = 0;
 	
-	
-	
-	
-	
 	public PopUpBoolean (Parent p, String titre) {
 		
 		
@@ -62,8 +58,6 @@ public class PopUpBoolean {
 		});	
 	}
 	
-	
-
 	public boolean display() {
 		
 		popup.setScene(scene);
