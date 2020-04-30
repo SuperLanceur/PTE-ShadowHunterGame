@@ -4,6 +4,7 @@ package ihm.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -22,10 +23,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import main.GestionnaireJeu;
 import main.Joueur;
-import main.View;
 
 public class PlateauController implements Initializable {
+	
 	private List<Joueur> listJoueur = new ArrayList<Joueur>();
 	private List<VBox> vboxJoueur = new ArrayList<VBox>();
 	private List<HBox> hboxJoueur = new ArrayList<HBox>();
@@ -33,7 +35,10 @@ public class PlateauController implements Initializable {
 	private List<ImageView> cartePerso = new ArrayList<ImageView>();
 	private List<Label> nomJoueur = new ArrayList<Label>();
 	private List<AnchorPane> tour = new ArrayList<AnchorPane>();
+
+	private Map<Joueur,Pane> joueursPane;
 	
+	@FXML private AnchorPane rootPane;
 	@FXML private HBox joueur1;
 	@FXML private HBox joueur2;
 	@FXML private HBox joueur3;
@@ -55,11 +60,22 @@ public class PlateauController implements Initializable {
 		System.out.println("Création du plateau ...");
 		//initialisation des attributs des joueurs
 		
+		GestionnaireJeu gj  = GestionnaireJeu.getGestionnaireJeu();
+	
+		this.joueursPane = new HashMap<Joueur, Pane>();
+		Map<Integer, Joueur> map = gj.getMapJoueurs();
+	
+		for(int i : map.keySet()) {
+			this.joueursPane.put(map.get(i), getPaneJoueur(i));
+		}
+	
+		System.out.println(joueursPane);
+		
 		this.hboxJoueur.add(joueur1);
 		this.hboxJoueur.add(joueur2);
 		this.hboxJoueur.add(joueur3);
 		this.hboxJoueur.add(joueur4);
-		
+	
 		for (HBox hbox : hboxJoueur) {
 			tour.add((AnchorPane) hbox.getChildren().get(0));
 			VBox carte = (VBox) hbox.getChildren().get(1);
@@ -98,8 +114,7 @@ public class PlateauController implements Initializable {
 			b.setOnMouseClicked(e -> {try {consulterSaCarte(compteur);} catch (IOException e1) {e1.printStackTrace();}});
 			j++;
 		}
-		
-		
+
 	    try {
 	    	final URL fxmlURL = getClass().getResource("../ressources/Jouer_tour(1)lancer_des.fxml");  
 		    final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.ENGLISH);
@@ -111,8 +126,18 @@ public class PlateauController implements Initializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		listJoueur = View.getJoueurs();
+	}
+	
+	private Pane getPaneJoueur(int i) {	
+		Pane parent = getPaneCoupleJoueurs(i);
+		int position = i%2;
+		return (Pane) parent.getChildren().get(position);
+	}
+	
+	private Pane getPaneCoupleJoueurs(int i) {
+		int position = (i%8)/2;
+		Pane parent = (Pane) rootPane.getChildren().get(0);
+		return (Pane) parent.getChildren().get(position+1);
 	}
 	
 	/**
