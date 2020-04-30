@@ -17,7 +17,7 @@
          <left>
             <VBox alignment="CENTER" prefHeight="688.0" prefWidth="240.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox fx:id="hb5" alignment="CENTER_RIGHT" prefHeight="67.0" prefWidth="340.0" rotate="90.0">
+                  <HBox fx:id="hb7" alignment="CENTER_RIGHT" prefHeight="67.0" prefWidth="340.0" rotate="90.0">
                      <children>
                         <TextField prefHeight="51.0" prefWidth="149.0">
                            <font>
@@ -45,7 +45,7 @@
                         <Insets bottom="150.0" left="-100.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox fx:id="hb7" alignment="CENTER_LEFT" rotate="90.0">
+                  <HBox fx:id="hb8" alignment="CENTER_LEFT" rotate="90.0">
                      <children>
                         <TextField prefHeight="51.0" prefWidth="149.0">
                            <font>
@@ -79,7 +79,7 @@
          <right>
             <VBox alignment="CENTER" prefHeight="688.0" prefWidth="248.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox fx:id="hb6" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" rotate="270.0">
+                  <HBox fx:id="hb4" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" rotate="270.0">
                      <children>
                         <TextField prefHeight="51.0" prefWidth="149.0">
                            <font>
@@ -107,7 +107,7 @@
                         <Insets bottom="150.0" right="-100.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox fx:id="hb8" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" rotate="270.0">
+                  <HBox fx:id="hb3" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" rotate="270.0">
                      <children>
                         <TextField prefHeight="51.0" prefWidth="149.0">
                            <font>
@@ -170,7 +170,7 @@
          <top>
             <HBox alignment="CENTER" prefHeight="110.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox fx:id="hb1" alignment="CENTER" rotate="180.0">
+                  <HBox fx:id="hb6" alignment="CENTER" rotate="180.0">
                      <children>
                         <TextField>
                            <font>
@@ -192,7 +192,7 @@
                         </CheckBox>
                      </children>
                   </HBox>
-                  <HBox fx:id="hb2" alignment="CENTER" rotate="180.0">
+                  <HBox fx:id="hb5" alignment="CENTER" rotate="180.0">
                      <children>
                         <TextField accessibleRole="PARENT">
                            <font>
@@ -228,7 +228,7 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <HBox fx:id="hb3" alignment="CENTER">
+                        <HBox fx:id="hb1" alignment="CENTER">
                            <children>
                               <TextField prefHeight="51.0" prefWidth="298.0">
                                  <font>
@@ -250,7 +250,7 @@
                               </CheckBox>
                            </children>
                         </HBox>
-                        <HBox fx:id="hb4" alignment="CENTER">
+                        <HBox fx:id="hb2" alignment="CENTER">
                            <children>
                               <TextField>
                                  <font>

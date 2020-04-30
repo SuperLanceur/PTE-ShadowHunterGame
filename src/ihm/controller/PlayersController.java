@@ -21,6 +21,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import main.Configuration;
@@ -31,7 +32,7 @@ public class PlayersController implements Initializable{
 
 	@FXML private AnchorPane rootPane;
 	@FXML private Button btnCommencer;
-	
+
 	@FXML private HBox hb1;
 	@FXML private HBox hb2;
 	@FXML private HBox hb3;
@@ -66,6 +67,7 @@ public class PlayersController implements Initializable{
 		ligne.add(hb7);
 		ligne.add(hb8);
 		for (HBox hb : ligne) {
+			System.out.println(hb);
 			txt.add((TextField) hb.getChildren().get(0));
 			plus.add((Button) hb.getChildren().get(1));
 			ia.add((CheckBox) hb.getChildren().get(2));
@@ -74,7 +76,8 @@ public class PlayersController implements Initializable{
 		int i=0;
 		for (Button btn : plus) {
 			int compteur = i;
-			btn.setOnAction(e -> {ajoutJoueur(compteur);});
+			btn.setOnAction(e -> {
+				ajoutJoueur(compteur);});
 			i++;
 		}
 		
@@ -115,10 +118,11 @@ public class PlayersController implements Initializable{
 				// Creer une configuration
 				//View.applyConfiguration(new Configuration(joueurs, nbJoueursV, nbJoueursH));
 				
+				System.out.println(this.joueurs);
 				GestionnaireJeu gj = GestionnaireJeu.getGestionnaireJeu();
 		        gj.setConfiguration(new Configuration(this.joueurs));
 			
-				final URL fxmlURL = getClass().getResource("../ressources/Plateau.fxml");
+				final URL fxmlURL = getClass().getResource("../ressources/PlateauTest.fxml");
 				final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRENCH);
 				final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 				Parent root = fxmlLoader.load();
@@ -129,7 +133,7 @@ public class PlayersController implements Initializable{
 		        Map<Integer, Joueur> map = gj.getMapJoueurs();
 		        
 		        
-		        pc.showInformation(map);
+		        pc.placerJoueurs(map);
 		        Scene scene = new Scene(root);
 		        Stage appStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
 		        appStage.setScene(scene);

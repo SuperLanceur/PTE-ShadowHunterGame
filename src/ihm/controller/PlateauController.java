@@ -4,11 +4,11 @@ package ihm.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 import ihm.PopUp;
 import ihm.PopUpBoolean;
@@ -16,48 +16,25 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import main.GestionnaireJeu;
-import javafx.scene.shape.Circle;
 import main.Joueur;
 
 public class PlateauController implements Initializable {
 	
 	private List<Joueur> listJoueur = new ArrayList<Joueur>();
-	private Map<Joueur,Pane> joueursPane;
-	
-	@FXML private AnchorPane rootPane;
-	@FXML private HBox joueur1;
-	@FXML private HBox joueur2;
-	@FXML private HBox joueur3;
-	@FXML private HBox joueur4;
-	@FXML private VBox joueur5;
-	@FXML private VBox joueur6;
-	@FXML private VBox joueur7;
-	@FXML private VBox joueur8;
-	
-	private List<VBox> vboxJoueur = new ArrayList<VBox>();
-	private List<HBox> hboxJoueur = new ArrayList<HBox>();
-	private List<Button> btnRevelation = new ArrayList<Button>();
-	private List<ImageView> cartePerso = new ArrayList<ImageView>();
-	private List<Label> nomJoueur = new ArrayList<Label>();
-	private List<AnchorPane> tour = new ArrayList<AnchorPane>();
-	
-	
 	private List<JoueurIHM> joueursIHM;
 	
-	@FXML private HBox lieux;
-	@FXML private HBox vie;
-	
-	private List<Circle> pionLieux = new ArrayList<Circle>();
-	private List<Circle> pionVie = new ArrayList<Circle>();
-	
+	@FXML private AnchorPane rootPane;
+	@FXML private GridPane gridPaneVie;
+	//@FXML static public GridPane gridPaneLieux;
+		
+
 	public static int DICE_SIX = 2;
 	public static int DICE_QUATRE = 1;
 	public static int DICE_BOTH = 0;
@@ -70,20 +47,34 @@ public class PlateauController implements Initializable {
 		//System.out.println("Création du plateau ...");
 		
 		this.joueursIHM = new ArrayList<JoueurIHM>();
-
+		System.out.println(gridPaneVie);
 		GestionnaireJeu gj  = GestionnaireJeu.getGestionnaireJeu();
 		Map<Integer, Joueur> map = gj.getMapJoueurs();
-	
+		
+		for(int i = 0 ; i < gridPaneVie.getChildren().size();i++) {
+		
+			Pane p = (Pane) gridPaneVie.getChildren().get(i);
+			Label l = (Label) p.getChildren().get(1);
+			l.setText(i+"");
+		}
+		
+		System.out.println(map.keySet());
 		for(int i : map.keySet()) {
 			
-			joueursIHM.add(new JoueurIHM(i,map.get(i),getPaneJoueur(i)));
+			joueursIHM.add(new JoueurIHM(i,map.get(i),getPaneJoueur(i),new Color(Math.random(), Math.random(), Math.random(),1),gridPaneVie));
 		}
-	
+		
+		for(int i = 0; i<joueursIHM.size(); i++) {
+			joueursIHM.get(i).deplacerPionVie((int) (Math.random()*13));
+		}
 		
 		
+
+		
+		// BUTTONS ETC
 		//System.out.println(this.joueursPane);
 		
-		
+		/*
 		this.hboxJoueur.add(joueur1);
 		this.hboxJoueur.add(joueur2);
 		this.hboxJoueur.add(joueur3);
@@ -126,9 +117,9 @@ public class PlateauController implements Initializable {
 			int compteur = j;
 			b.setOnMouseClicked(e -> {try {consulterSaCarte(compteur);} catch (IOException e1) {e1.printStackTrace();}});
 			j++;
-		}
-		
-		
+		}*/
+	
+		/*
 		//initialisation des pions
 		VBox pionLieux14 = (VBox) lieux.getChildren().get(0);
 		VBox pionLieux58 = (VBox) lieux.getChildren().get(4);
@@ -160,21 +151,43 @@ public class PlateauController implements Initializable {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 	
 	}
 	
 	private Pane getPaneJoueur(int i) {	
-		Pane parent = getPaneCoupleJoueurs(i);
-		int position = i%2;
-		return (Pane) parent.getChildren().get(position);
-	}
-	
-	private Pane getPaneCoupleJoueurs(int i) {
-		int position = (i%8)/2;
-		Pane parent = (Pane) rootPane.getChildren().get(0);
-		return (Pane) parent.getChildren().get(position+1);
+		
+		int position = i%4;
+		BorderPane bp = (BorderPane) rootPane.getChildren().get(0);
+		Pane pane;
+		
+		// Ordre des panes
+		// bp -> milieu, droite, gauche
+		// mid -> milieu, bas, haut
+		if(position < 2) {
+			BorderPane mid = (BorderPane) bp.getChildren().get(0);
+			
+			if(i < 2) {
+				// Bas
+				pane = (Pane)mid.getChildren().get(1);
+			}else {
+				// Haut
+				pane = (Pane)mid.getChildren().get(2);
+			}
+			
+		}else {
+			
+			if(i < 4) {	
+				// Droite
+				pane = (Pane) bp.getChildren().get(1);
+			}else {
+				// Gauche
+				pane = (Pane) bp.getChildren().get(2);
+				
+			}			
+		}
 
+		return (Pane) pane.getChildren().get(i%2);
 	}
 	
 	/**
@@ -230,22 +243,15 @@ public class PlateauController implements Initializable {
 	 * 
 	 * @param j : map donnant le joueur et son numero
 	 */
-	public void showInformation(Map<Integer, Joueur> j) {
-		System.out.println("\tPlacement des joueurs");
-		int taille = this.vboxJoueur.size() + this.hboxJoueur.size();
+	public void placerJoueurs(Map<Integer, Joueur> j) {
+		Set<Integer> set = j.keySet();
 		
-		for (int i=0; i<taille; i++) {
-			if (j.get(i) != null)
-				nomJoueur.get(i).setText(j.get(i).getNom());
-			else {
-				if (i < 4) {
-					hboxJoueur.get(i).setVisible(false);
-				}else {
-					vboxJoueur.get(i-4).setVisible(false);
-				}
-				
+		for(int i = 0; i < 8; i++) {
+			if(!set.contains(i)) {
+				getPaneJoueur(i).getChildren().removeAll(getPaneJoueur(i).getChildren());
 			}
 		}
+		
 	}
 
 	public void rollDice(Joueur joueur, int typeDice, int[] rolls) {
