@@ -67,7 +67,7 @@ public class PlateauController implements Initializable {
 	 */
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		System.out.println("Création du plateau ...");
+		//System.out.println("Création du plateau ...");
 		
 		this.joueursIHM = new ArrayList<JoueurIHM>();
 
@@ -80,6 +80,7 @@ public class PlateauController implements Initializable {
 		}
 	
 		//System.out.println(this.joueursPane);
+		
 		
 		this.hboxJoueur.add(joueur1);
 		this.hboxJoueur.add(joueur2);
@@ -158,7 +159,7 @@ public class PlateauController implements Initializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+	
 	}
 	
 	private Pane getPaneJoueur(int i) {	
