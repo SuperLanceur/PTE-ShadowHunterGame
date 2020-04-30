@@ -23,8 +23,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.shape.Circle;
 import main.GestionnaireJeu;
+import javafx.scene.shape.Circle;
 import main.Joueur;
 
 public class PlateauController implements Initializable {
