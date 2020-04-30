@@ -2,23 +2,20 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="947.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="255.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="156.0" layoutY="180.0" lineSpacing="2.0" mnemonicParsing="false" prefHeight="277.0" prefWidth="184.0" text="Avènement suprême             Barre de chocolat" wrapText="true">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="387.0" layoutY="302.0" mnemonicParsing="false" prefHeight="155.0" prefWidth="195.0" text="%reveler.et.soigner" />
-      <Button layoutX="628.0" layoutY="302.0" mnemonicParsing="false" prefHeight="155.0" prefWidth="171.0" text="%rien.faire" />
-      <Label layoutX="414.0" layoutY="147.0" prefHeight="89.0" prefWidth="249.0" text="%effet.carte">
-         <font>
-            <Font size="52.0" />
-         </font>
-      </Label>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="255.0" stylesheets="@style/popUp.css">
+         <children>
+            <Label layoutX="139.0" layoutY="35.0" prefHeight="21.0" prefWidth="72.0" text="%effet.carte" />
+            <Button layoutX="128.0" layoutY="128.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="119.0" text="%reveler.et.soigner" />
+            <Button layoutX="143.0" layoutY="78.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="94.0" text="%rien.faire" />
+            <ImageView fitHeight="97.8" fitWidth="70.05" layoutX="25.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
    </children>
-</Pane>
+</AnchorPane>
