@@ -6,6 +6,8 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
+import ihm.controller.ParametreController;
+
 public class Musique {
 
 	public static Clip clip;
@@ -16,7 +18,7 @@ public class Musique {
 		try {
 
 			File musicPath = new File(path);
-
+			
 			if (musicPath.exists()) {
 
 				AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
