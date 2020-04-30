@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+import ihm.EffetSonore;
 import ihm.Musique;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,19 +22,27 @@ public class ParametreController implements Initializable {
 	@FXML
 	private CheckBox cmusique;
 	@FXML
+	private CheckBox cbEffetSonore;
+	@FXML
 	private CheckBox clair;
 	@FXML
 	private ComboBox<String> langues;
 	boolean coche = false; // verifi si la checbox musical est coche
 	boolean MusiqueLancee = false; //verifi si la musique a déja été lancé une première fois
+	
+	public EffetSonore soundEffects = new EffetSonore();
 
-	String filepath = "src//ihm//ressources//musique//The_Red_Fox_Tavern.wav"; // lien vers la musique :
-																				// https://www.youtube.com/watch?v=LBpKUIyOHdo
-	File files = new File("src//ihm//ressources//musique//The_Red_Fox_Tavern.wav");
+	String filepathMusique = "src//ihm//ressources//musique//The_Red_Fox_Tavern.wav"; // lien vers la musique : https://www.youtube.com/watch?v=LBpKUIyOHdo
+	File fileMusique = new File("src//ihm//ressources//musique//The_Red_Fox_Tavern.wav");
 
 	File repertoire = new File("src//ihm//ressources");
-
+	File repertoire2;
 	String liste[] = repertoire.list();
+	
+	/*
+	public void ParametreController() {
+		EffetSonore sound = soundEffects;
+	}*/
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -47,12 +56,13 @@ public class ParametreController implements Initializable {
 	@FXML
 	public void enregistre(MouseEvent mouseEvent) throws IOException, Exception {
 
-		if (files.exists()) {
+		//Pour la musique
+		if (fileMusique.exists()) {
 
 			if (cmusique.isSelected() == true) {
 				coche = true;
 				if (Musique.clipTimePosition == 0 && MusiqueLancee == false) { // si la musique n'a jamais été lancé
-					Musique.playMusique(filepath);
+					Musique.playMusique(filepathMusique);
 					MusiqueLancee = true;
 
 				} else {
@@ -69,25 +79,74 @@ public class ParametreController implements Initializable {
 
 		}
 		
-
-		/*
-		 * if(clair.isSelected()) { Pane root =
-		 * FXMLLoader.load(getClass().getResource("ressources/parametre.fxml"));
-		 * root.setStyle("ressources/style/menuLight.css"); if (liste != null) { for
-		 * (int i = 0; i < liste.length; i++) { System.out.println(liste[i]); Pane root1
-		 * = FXMLLoader.load(getClass().getResource(liste[i]));
-		 * root1.setStyle("ressources/style/menuLight.css"); } }
-		 * 
-		 * 
-		 * }
-		 */
+		//Pour les effets sonores
+		if (cbEffetSonore.isSelected() == true) {
+			soundEffects.setSoundOK(true);
+			
+			System.out.println(soundEffects.isSoundOK());
+		}
 		
-		final URL fxmlURL = getClass().getResource("../ressources/Jouer_tour(3)attaquer.fxml");
+		else {
+			soundEffects.setSoundOK(false);
+			System.out.println(soundEffects.isSoundOK());
+		}
+		
+
+		// Pour la couleur du theme
+		
+				/*
+				if (clair.isSelected()) {
+					//Pane root = FXMLLoader.load(getClass().getResource("../ressources/parametre.fxml"));
+					//root.setStyle("ressources/style/menuLight.css");
+
+					if (liste != null) {
+						for (int i = 0; i < liste.length; i++) {
+
+							System.out.println(liste[i]);
+							System.out.println(i);
+							repertoire2 = new File("../ressources/" + liste[i]);
+
+							if (repertoire.isDirectory() == false) {
+								if (liste[i] == "Plateau.fxml") {
+									Pane root1 = FXMLLoader.load(getClass().getResource("../ressources/" + liste[i]));
+									root1.setStyle("../ressources/style/plateau.css");
+
+								}
+								Pane root1 = FXMLLoader.load(getClass().getResource("../ressources/" + liste[i]));
+								root1.setStyle("../ressources/style/menuLight.css");
+							}
+						}
+
+					}
+
+				}*/
+
+		soundEffects.playSoundEffect("src//ihm//ressources//musique//BEEP1.wav"); //emet un bruit sur le bouton si les effets sonores sont activés
+		
+		// Quitter les paramètres		
+		final URL fxmlURL = getClass().getResource("../ressources/Menu.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane pane = fxmlLoader.load();
 
         rootPane.getChildren().setAll(pane);
+		
+		
 
 	}
+
+	
+	//getters and setters
+	public EffetSonore getSoundEffects() {
+		return soundEffects;
+	}
+
+	public void setSoundEffects(EffetSonore soundEffects) {
+		this.soundEffects = soundEffects;
+	}
+	
+	
+	
+	
+	
 }
