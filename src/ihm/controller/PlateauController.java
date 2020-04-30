@@ -27,10 +27,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-<<<<<<< HEAD
-=======
-import javafx.util.Duration;
->>>>>>> eea99d2341b1df015a2831034aa39534addff16e
 import main.Joueur;
 import main.View;
 

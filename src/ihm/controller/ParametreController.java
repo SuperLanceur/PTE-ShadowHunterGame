@@ -83,7 +83,7 @@ public class ParametreController implements Initializable {
 		 */
 		
 		final URL fxmlURL = getClass().getResource("../ressources/Jouer_tour(3)attaquer.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.ENGLISH);
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane pane = fxmlLoader.load();
 
