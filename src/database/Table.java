@@ -84,6 +84,14 @@ public class Table {
 		return " " + this.getList();
 	}
 	
+	public boolean isEmpty() {
+		if(list.isEmpty()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 
 
 	

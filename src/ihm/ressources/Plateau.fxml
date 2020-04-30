@@ -4,6 +4,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -11,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.PlateauController">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.PlateauController">
    <children>
       <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="background" stylesheets="@style/plateau.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -22,7 +23,13 @@
                         <AnchorPane prefHeight="155.0" prefWidth="255.0" styleClass="tour" />
                         <VBox alignment="CENTER" prefHeight="155.0" prefWidth="116.0">
                            <children>
-                              <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/dosCartesPersonnage.jpg" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin></ImageView>
                               <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" />
                            </children>
                            <HBox.margin>
@@ -58,7 +65,13 @@
                         <AnchorPane prefHeight="155.0" prefWidth="255.0" styleClass="tour" />
                         <VBox alignment="CENTER" prefHeight="155.0" prefWidth="116.0">
                            <children>
-                              <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/dosCartesPersonnage.jpg" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin></ImageView>
                               <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" />
                            </children>
                            <HBox.margin>
@@ -100,7 +113,13 @@
                         <AnchorPane prefHeight="180.0" prefWidth="255.0" styleClass="tour" />
                         <VBox alignment="CENTER" prefHeight="155.0" prefWidth="116.0">
                            <children>
-                              <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/dosCartesPersonnage.jpg" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin></ImageView>
                               <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" />
                            </children>
                            <HBox.margin>
@@ -136,7 +155,13 @@
                         <AnchorPane prefHeight="155.0" prefWidth="255.0" styleClass="tour" />
                         <VBox alignment="CENTER" prefHeight="155.0" prefWidth="116.0">
                            <children>
-                              <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/dosCartesPersonnage.jpg" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin></ImageView>
                               <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" />
                            </children>
                            <HBox.margin>
@@ -196,7 +221,13 @@
                               </VBox>
                               <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                                  <children>
-                                    <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/dosCartesPersonnage.jpg" />
+                                       </image>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin></ImageView>
                                     <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" />
                                  </children>
                               </VBox>
@@ -233,7 +264,13 @@
                               </VBox>
                               <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                                  <children>
-                                    <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/dosCartesPersonnage.jpg" />
+                                       </image>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin></ImageView>
                                     <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" />
                                  </children>
                               </VBox>
@@ -251,7 +288,7 @@
             </VBox>
          </left>
          <right>
-            <VBox alignment="CENTER_RIGHT" prefHeight="854.0" prefWidth="436.0" BorderPane.alignment="CENTER">
+            <VBox alignment="CENTER_RIGHT" prefHeight="864.0" prefWidth="444.0" BorderPane.alignment="CENTER">
                <children>
                   <VBox fx:id="joueur7" alignment="CENTER" prefHeight="285.0" prefWidth="445.0" rotate="270.0">
                      <children>
@@ -276,7 +313,13 @@
                               </VBox>
                               <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                                  <children>
-                                    <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/dosCartesPersonnage.jpg" />
+                                       </image>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin></ImageView>
                                     <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" />
                                  </children>
                               </VBox>
@@ -310,7 +353,13 @@
                               </VBox>
                               <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                                  <children>
-                                    <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/dosCartesPersonnage.jpg" />
+                                       </image>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin></ImageView>
                                     <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" />
                                  </children>
                               </VBox>
@@ -325,18 +374,24 @@
             </VBox>
          </right>
          <center>
-            <HBox alignment="CENTER" prefHeight="720.0" prefWidth="1036.0" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER" prefHeight="720.0" prefWidth="1078.0" BorderPane.alignment="CENTER">
                <children>
                   <VBox alignment="CENTER_LEFT" prefWidth="22.0">
                      <children>
                         <HBox prefHeight="100.0" prefWidth="200.0" styleClass="carteLumiere" stylesheets="@style/plateau.css">
                            <children>
-                              <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" styleClass="background" />
+                              <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" styleClass="background">
+                                 <image>
+                                    <Image url="@img/dosCartesLumière.jpg" />
+                                 </image></ImageView>
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" styleClass="carteVision" stylesheets="@style/plateau.css">
                            <children>
-                              <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/dosCartesVision.jpg" />
+                                 </image></ImageView>
                            </children>
                            <VBox.margin>
                               <Insets bottom="30.0" top="30.0" />
@@ -344,14 +399,17 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" styleClass="carteTenebre" stylesheets="@style/plateau.css">
                            <children>
-                              <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/dosCartesNoires.jpg" />
+                                 </image></ImageView>
                            </children>
                         </HBox>
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="496.0" prefWidth="739.0">
                      <children>
-                        <HBox alignment="TOP_CENTER" prefHeight="339.0" prefWidth="676.0">
+                        <HBox fx:id="lieux" alignment="TOP_CENTER" prefHeight="339.0" prefWidth="676.0">
                            <children>
                               <VBox alignment="CENTER" prefHeight="223.0" prefWidth="0.0">
                                  <children>
@@ -410,7 +468,7 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0">
+                        <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="771.0">
                            <children>
                               <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="671.0">
                                  <children>
@@ -442,7 +500,7 @@
                                     </VBox>
                                  </children>
                               </HBox>
-                              <HBox prefHeight="58.0" prefWidth="655.0">
+                              <HBox fx:id="vie" prefHeight="58.0" prefWidth="655.0">
                                  <children>
                                     <HBox prefHeight="100.0" prefWidth="0.0" />
                                     <HBox alignment="CENTER" prefHeight="64.0" prefWidth="50.0" stylesheets="@style/plateau.css">

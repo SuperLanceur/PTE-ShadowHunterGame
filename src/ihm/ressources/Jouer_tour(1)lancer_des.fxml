@@ -6,23 +6,23 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" stylesheets="@style/popUp.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.JouerSonTour1Controller">
+<Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="255.0" stylesheets="@style/popUp.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.JouerSonTour1Controller">
    <children>
-      <Label layoutX="135.0" layoutY="29.0" text="%au.tour.de">
+      <Label layoutX="54.0" layoutY="19.0" text="%au.tour.de">
          <font>
-            <Font size="36.0" />
+            <Font size="14.0" />
          </font>
       </Label>
-      <Button layoutX="262.0" layoutY="388.0" mnemonicParsing="false" onMouseClicked="#lancerDes" text="%lancer.de.des">
+      <Button layoutX="70.0" layoutY="140.0" mnemonicParsing="false" onMouseClicked="#lancerDes" text="%lancer.de.des">
          <font>
-            <Font size="18.0" />
+            <Font size="14.0" />
          </font></Button>
-      <Label fx:id="nomJoueur" layoutX="405.0" layoutY="29.0" text="%joueur1">
+      <Label fx:id="nomJoueur" layoutX="140.0" layoutY="19.0" text="%joueur1">
          <font>
-            <Font size="36.0" />
+            <Font size="14.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="d6" layoutX="91.0" layoutY="140.0" prefHeight="200.0" prefWidth="200.0" />
-      <AnchorPane fx:id="d4" layoutX="379.0" layoutY="140.0" prefHeight="200.0" prefWidth="200.0" />
+      <AnchorPane fx:id="d6" layoutX="23.0" layoutY="50.0" prefHeight="80.0" prefWidth="80.0" />
+      <AnchorPane fx:id="d4" layoutX="129.0" layoutY="50.0" prefHeight="80.0" prefWidth="80.0" />
    </children>
 </Pane>

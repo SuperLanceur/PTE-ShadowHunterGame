@@ -39,6 +39,5 @@ public class Record {
 	public String toString() {
 		return String.format("%-20.30s  %-30.30s  %-20.30s%n", this.getId(), this.getNom(), this.getImg());
 	}
-
 	
 }

@@ -53,7 +53,7 @@ public class ControleurIA {
 	public double getRandomPercentage() {
 		return Math.floor(Math.random() * seed);
 	}
-
+	
 	public static List<Joueur> getEnnemisJoueurs(JoueurVirtuel jIA, List<Joueur> joueursLieu) {
 		List<Joueur> res = new ArrayList<>();
 		Equipe equipejIA = jIA.getEquipe();
@@ -62,6 +62,20 @@ public class ControleurIA {
 		else {
 			for (Joueur j : joueursLieu) {
 				if (!equipejIA.equals(j.getEquipe()))
+					res.add(j);
+			}
+		}
+		return res;
+	}
+	
+	public static List<Joueur> getAmisJoueurs(JoueurVirtuel jIA, List<Joueur> joueursLieu) {
+		List<Joueur> res = new ArrayList<>();
+		Equipe equipejIA = jIA.getEquipe();
+		if (equipejIA == CartePersonnage.Equipe.NEUTRE)
+			res = joueursLieu;
+		else {
+			for (Joueur j : joueursLieu) {
+				if (equipejIA.equals(j.getEquipe()))
 					res.add(j);
 			}
 		}

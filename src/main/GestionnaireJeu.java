@@ -14,8 +14,10 @@ public class GestionnaireJeu {
 
 	private View view;
 	
-	private static Plateau plateau;
-	private static PlateauController pc;
+	private Map<Integer, Joueur> mapJoueurs;
+	
+	private Plateau plateau;
+	private PlateauController pc;
 	
 	private GestionnaireJeu() {}
 	
@@ -31,8 +33,8 @@ public class GestionnaireJeu {
 		return plateau;
 	}
 
-	public static void lancerPartie() {
-		plateau.jeu();
+	public void lancerPartie() {
+		this.plateau.jeu();
 	}
 	
 	public void jouer(Configuration c) {
@@ -72,25 +74,33 @@ public class GestionnaireJeu {
 		pc.rollDice(joueur,typeDice,rolls);
 		
 	}
-
-	public static void setConfiguration(Configuration c) {
+	
+	public void setConfiguration(Configuration c) {
+	
+		Map<Integer, Joueur> mapJoueurs = convertConfiguration(c);
+		this.mapJoueurs = mapJoueurs;
 		
-		List<Joueur> joueurs = new ArrayList<Joueur>();
+		List<Joueur> joueurs = new ArrayList();
 		
-		for(Joueur j : c.toJoueurs().values()) {
+		for(Joueur j : mapJoueurs.values()) {
 			joueurs.add(j);
 		}
 		
-		plateau = new Plateau(joueurs);	
-	}
-
-	public static Map<Integer, Joueur> getJoueursMap(Configuration c) {
-		return c.toJoueurs();
+		this.plateau = new Plateau(joueurs);
 		
 	}
 
-	public static void setPlateauController(PlateauController pc2) {
-		pc = pc2;
+	public Map<Integer, Joueur> convertConfiguration(Configuration c) {
+		
+		return c.toJoueurs();
+	}
+
+	public Map<Integer, Joueur> getMapJoueurs() {
+		return this.mapJoueurs;
+	}
+
+	public void setPlateauController(PlateauController pc2) {
+		this.pc = pc2;
 		
 	}
 }

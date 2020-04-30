@@ -115,14 +115,18 @@ public class PlayersController implements Initializable{
 				// Creer une configuration
 				//View.applyConfiguration(new Configuration(joueurs, nbJoueursV, nbJoueursH));
 				
+				GestionnaireJeu gj = GestionnaireJeu.getGestionnaireJeu();
+		        gj.setConfiguration(new Configuration(this.joueurs));
+			
 				final URL fxmlURL = getClass().getResource("../ressources/Plateau.fxml");
 				final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRENCH);
 				final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 				AnchorPane root = fxmlLoader.load();
 				PlateauController pc = fxmlLoader.getController();
-		        GestionnaireJeu.setPlateauController(pc);
-		        GestionnaireJeu.setConfiguration(new Configuration(this.joueurs));
-		        Map<Integer, Joueur> map = GestionnaireJeu.getJoueursMap(new Configuration(this.joueurs));
+				
+				gj.setPlateauController(pc);
+		       
+		        Map<Integer, Joueur> map = gj.getMapJoueurs();
 		        
 		        
 		        pc.showInformation(map);

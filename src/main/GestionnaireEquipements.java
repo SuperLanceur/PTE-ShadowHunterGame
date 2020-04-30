@@ -28,7 +28,7 @@ public class GestionnaireEquipements {
 			this.j.addToStat(Joueur.PLAYER_NB_EQUIPEMENTS, -1);
 		}
 	}
-
+	
 	public List<Equipement> getEquipements() {
 		return equipements;
 	}
