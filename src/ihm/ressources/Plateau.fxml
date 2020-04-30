@@ -483,177 +483,167 @@
                      </children>
                   </HBox>
                </top>
-               <left>
-                  <VBox alignment="CENTER" prefHeight="634.0" prefWidth="199.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <HBox fx:id="joueur31" prefHeight="132.0" prefWidth="118.0" rotate="90.0">
-                           <children>
-                              <AnchorPane styleClass="tour" />
-                              <VBox alignment="CENTER">
-                                 <children>
-                                    <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@img/dosCartesPersonnage.jpg" />
-                                       </image>
-                                       <VBox.margin>
-                                          <Insets bottom="5.0" />
-                                       </VBox.margin>
-                                    </ImageView>
-                                    <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" />
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets left="5.0" right="5.0" />
-                                 </HBox.margin>
-                              </VBox>
-                              <VBox alignment="CENTER">
-                                 <children>
-                                    <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
-                                    <HBox styleClass="carteEquipement" stylesheets="@style/plateau.css">
-                                       <children>
-                                          <ImageView pickOnBounds="true" preserveRatio="true" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets right="5.0" />
-                                 </HBox.margin>
-                              </VBox>
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="20.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox fx:id="joueur41" nodeOrientation="RIGHT_TO_LEFT" prefHeight="132.0" prefWidth="230.0" rotate="90.0">
-                           <children>
-                              <AnchorPane styleClass="tour" />
-                              <VBox alignment="CENTER">
-                                 <children>
-                                    <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@img/dosCartesPersonnage.jpg" />
-                                       </image>
-                                       <VBox.margin>
-                                          <Insets bottom="5.0" />
-                                       </VBox.margin>
-                                    </ImageView>
-                                    <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" />
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets left="5.0" right="5.0" />
-                                 </HBox.margin>
-                              </VBox>
-                              <VBox alignment="CENTER">
-                                 <children>
-                                    <Label prefHeight="21.0" prefWidth="98.0" styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
-                                    <HBox styleClass="carteEquipement" stylesheets="@style/plateau.css">
-                                       <children>
-                                          <ImageView pickOnBounds="true" preserveRatio="true" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets right="5.0" />
-                                 </HBox.margin>
-                              </VBox>
-                           </children>
-                           <VBox.margin>
-                              <Insets top="20.0" />
-                           </VBox.margin>
-                        </HBox>
-                     </children>
-                  </VBox>
-               </left>
-               <right>
-                  <VBox alignment="CENTER" prefHeight="634.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <HBox fx:id="joueur411" nodeOrientation="RIGHT_TO_LEFT" prefHeight="132.0" prefWidth="230.0" rotate="270.0">
-                           <children>
-                              <AnchorPane styleClass="tour" />
-                              <VBox alignment="CENTER">
-                                 <children>
-                                    <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@img/dosCartesPersonnage.jpg" />
-                                       </image>
-                                       <VBox.margin>
-                                          <Insets bottom="5.0" />
-                                       </VBox.margin>
-                                    </ImageView>
-                                    <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" />
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets left="5.0" right="5.0" />
-                                 </HBox.margin>
-                              </VBox>
-                              <VBox alignment="CENTER">
-                                 <children>
-                                    <Label prefHeight="21.0" prefWidth="98.0" styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
-                                    <HBox styleClass="carteEquipement" stylesheets="@style/plateau.css">
-                                       <children>
-                                          <ImageView pickOnBounds="true" preserveRatio="true" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets right="5.0" />
-                                 </HBox.margin>
-                              </VBox>
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="20.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox fx:id="joueur311" prefHeight="132.0" prefWidth="118.0" rotate="270.0">
-                           <children>
-                              <AnchorPane styleClass="tour" />
-                              <VBox alignment="CENTER">
-                                 <children>
-                                    <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@img/dosCartesPersonnage.jpg" />
-                                       </image>
-                                       <VBox.margin>
-                                          <Insets bottom="5.0" />
-                                       </VBox.margin>
-                                    </ImageView>
-                                    <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" />
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets left="5.0" right="5.0" />
-                                 </HBox.margin>
-                              </VBox>
-                              <VBox alignment="CENTER">
-                                 <children>
-                                    <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
-                                    <HBox styleClass="carteEquipement" stylesheets="@style/plateau.css">
-                                       <children>
-                                          <ImageView pickOnBounds="true" preserveRatio="true" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets right="5.0" />
-                                 </HBox.margin>
-                              </VBox>
-                           </children>
-                           <VBox.margin>
-                              <Insets top="20.0" />
-                           </VBox.margin>
-                        </HBox>
-                     </children>
-                  </VBox>
-               </right>
             </BorderPane>
          </center>
          <left>
-            <VBox alignment="CENTER" spacing="60.0" BorderPane.alignment="CENTER">
+            <VBox alignment="CENTER" prefHeight="634.0" prefWidth="199.0" BorderPane.alignment="CENTER">
                <children>
-                  <VBox fx:id="joueur51" alignment="CENTER" layoutX="10.0" layoutY="481.0" nodeOrientation="LEFT_TO_RIGHT" rotate="90.0" />
+                  <HBox fx:id="joueur31" prefHeight="132.0" prefWidth="118.0" rotate="90.0">
+                     <children>
+                        <AnchorPane styleClass="tour" />
+                        <VBox alignment="CENTER">
+                           <children>
+                              <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/dosCartesPersonnage.jpg" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" />
+                           </children>
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox alignment="CENTER">
+                           <children>
+                              <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
+                              <HBox styleClass="carteEquipement" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <ImageView pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox fx:id="joueur41" nodeOrientation="RIGHT_TO_LEFT" prefHeight="132.0" prefWidth="230.0" rotate="90.0">
+                     <children>
+                        <AnchorPane styleClass="tour" />
+                        <VBox alignment="CENTER">
+                           <children>
+                              <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/dosCartesPersonnage.jpg" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" />
+                           </children>
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox alignment="CENTER">
+                           <children>
+                              <Label prefHeight="21.0" prefWidth="98.0" styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
+                              <HBox styleClass="carteEquipement" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <ImageView pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </HBox>
                </children>
             </VBox>
          </left>
          <right>
-            <VBox alignment="CENTER" rotate="180.0" spacing="60.0" BorderPane.alignment="CENTER" />
+            <VBox alignment="CENTER" prefHeight="634.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox fx:id="joueur411" nodeOrientation="RIGHT_TO_LEFT" prefHeight="132.0" prefWidth="230.0" rotate="270.0">
+                     <children>
+                        <AnchorPane styleClass="tour" />
+                        <VBox alignment="CENTER">
+                           <children>
+                              <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/dosCartesPersonnage.jpg" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" />
+                           </children>
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox alignment="CENTER">
+                           <children>
+                              <Label prefHeight="21.0" prefWidth="98.0" styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
+                              <HBox styleClass="carteEquipement" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <ImageView pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox fx:id="joueur311" prefHeight="132.0" prefWidth="118.0" rotate="270.0">
+                     <children>
+                        <AnchorPane styleClass="tour" />
+                        <VBox alignment="CENTER">
+                           <children>
+                              <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/dosCartesPersonnage.jpg" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" />
+                           </children>
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox alignment="CENTER">
+                           <children>
+                              <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
+                              <HBox styleClass="carteEquipement" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <ImageView pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
          </right>
       </BorderPane>
    </children>

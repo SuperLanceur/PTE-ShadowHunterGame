@@ -79,6 +79,8 @@ public class PlateauController implements Initializable {
 			joueursIHM.add(new JoueurIHM(i,map.get(i),getPaneJoueur(i)));
 		}
 	
+		
+		
 		//System.out.println(this.joueursPane);
 		
 		
