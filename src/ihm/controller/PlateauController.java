@@ -24,18 +24,12 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import main.GestionnaireJeu;
+import javafx.scene.shape.Circle;
 import main.Joueur;
 
 public class PlateauController implements Initializable {
 	
 	private List<Joueur> listJoueur = new ArrayList<Joueur>();
-	private List<VBox> vboxJoueur = new ArrayList<VBox>();
-	private List<HBox> hboxJoueur = new ArrayList<HBox>();
-	private List<Button> btnRevelation = new ArrayList<Button>();
-	private List<ImageView> cartePerso = new ArrayList<ImageView>();
-	private List<Label> nomJoueur = new ArrayList<Label>();
-	private List<AnchorPane> tour = new ArrayList<AnchorPane>();
-
 	private Map<Joueur,Pane> joueursPane;
 	
 	@FXML private AnchorPane rootPane;
@@ -48,6 +42,19 @@ public class PlateauController implements Initializable {
 	@FXML private VBox joueur7;
 	@FXML private VBox joueur8;
 	
+	private List<VBox> vboxJoueur = new ArrayList<VBox>();
+	private List<HBox> hboxJoueur = new ArrayList<HBox>();
+	private List<Button> btnRevelation = new ArrayList<Button>();
+	private List<ImageView> cartePerso = new ArrayList<ImageView>();
+	private List<Label> nomJoueur = new ArrayList<Label>();
+	private List<AnchorPane> tour = new ArrayList<AnchorPane>();
+	
+	@FXML private HBox lieux;
+	@FXML private HBox vie;
+	
+	private List<Circle> pionLieux = new ArrayList<Circle>();
+	private List<Circle> pionVie = new ArrayList<Circle>();
+	
 	public static int DICE_SIX = 2;
 	public static int DICE_QUATRE = 1;
 	public static int DICE_BOTH = 0;
@@ -58,8 +65,8 @@ public class PlateauController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		System.out.println("Création du plateau ...");
-		//initialisation des attributs des joueurs
 		
+
 		GestionnaireJeu gj  = GestionnaireJeu.getGestionnaireJeu();
 	
 		this.joueursPane = new HashMap<Joueur, Pane>();
@@ -114,6 +121,28 @@ public class PlateauController implements Initializable {
 			b.setOnMouseClicked(e -> {try {consulterSaCarte(compteur);} catch (IOException e1) {e1.printStackTrace();}});
 			j++;
 		}
+		
+		
+		//initialisation des pions
+		VBox pionLieux14 = (VBox) lieux.getChildren().get(0);
+		VBox pionLieux58 = (VBox) lieux.getChildren().get(4);
+		for (int k=0; k<4; k++) {
+			pionLieux.add((Circle) pionLieux14.getChildren().get(k));
+		}
+		for (int k=0; k<4; k++) {
+			pionLieux.add((Circle) pionLieux58.getChildren().get(k));
+		}
+		
+		VBox pionVie14 = (VBox) lieux.getChildren().get(0);
+		VBox pionVie58 = (VBox) lieux.getChildren().get(4);
+		for (int k=0; k<4; k++) {
+			pionVie.add((Circle) pionVie14.getChildren().get(k));
+		}
+		for (int k=0; k<4; k++) {
+			pionVie.add((Circle) pionVie58.getChildren().get(k));
+		}
+		
+		System.out.println("Tour du joueur 1");
 
 	    try {
 	    	final URL fxmlURL = getClass().getResource("../ressources/Jouer_tour(1)lancer_des.fxml");  
@@ -121,11 +150,12 @@ public class PlateauController implements Initializable {
 		    final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 			Pane root = fxmlLoader.load();
 			root.setPrefSize(255, 180);
-			tour.get(0).getChildren().setAll(root);
+			tour.get(2).getChildren().setAll(root);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 	}
 	
 	private Pane getPaneJoueur(int i) {	
@@ -138,6 +168,7 @@ public class PlateauController implements Initializable {
 		int position = (i%8)/2;
 		Pane parent = (Pane) rootPane.getChildren().get(0);
 		return (Pane) parent.getChildren().get(position+1);
+
 	}
 	
 	/**
@@ -194,7 +225,7 @@ public class PlateauController implements Initializable {
 	 * @param j : map donnant le joueur et son numero
 	 */
 	public void showInformation(Map<Integer, Joueur> j) {
-		System.out.println("\tplacement des joueurs");
+		System.out.println("\tPlacement des joueurs");
 		int taille = this.vboxJoueur.size() + this.hboxJoueur.size();
 		
 		for (int i=0; i<taille; i++) {
