@@ -49,6 +49,9 @@ public class PlateauController implements Initializable {
 	private List<Label> nomJoueur = new ArrayList<Label>();
 	private List<AnchorPane> tour = new ArrayList<AnchorPane>();
 	
+	
+	private List<JoueurIHM> joueursIHM;
+	
 	@FXML private HBox lieux;
 	@FXML private HBox vie;
 	
@@ -66,17 +69,17 @@ public class PlateauController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		System.out.println("Création du plateau ...");
 		
+		this.joueursIHM = new ArrayList<JoueurIHM>();
 
 		GestionnaireJeu gj  = GestionnaireJeu.getGestionnaireJeu();
-	
-		this.joueursPane = new HashMap<Joueur, Pane>();
 		Map<Integer, Joueur> map = gj.getMapJoueurs();
 	
 		for(int i : map.keySet()) {
-			this.joueursPane.put(map.get(i), getPaneJoueur(i));
+			
+			joueursIHM.add(new JoueurIHM(i,map.get(i),getPaneJoueur(i)));
 		}
 	
-		System.out.println(joueursPane);
+		//System.out.println(this.joueursPane);
 		
 		this.hboxJoueur.add(joueur1);
 		this.hboxJoueur.add(joueur2);
