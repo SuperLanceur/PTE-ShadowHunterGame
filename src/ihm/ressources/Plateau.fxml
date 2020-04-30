@@ -484,7 +484,7 @@
                   </HBox>
                </top>
                <left>
-                  <VBox alignment="CENTER" prefHeight="634.0" prefWidth="166.0" BorderPane.alignment="CENTER">
+                  <VBox alignment="CENTER" prefHeight="634.0" prefWidth="199.0" BorderPane.alignment="CENTER">
                      <children>
                         <HBox fx:id="joueur31" prefHeight="132.0" prefWidth="118.0" rotate="90.0">
                            <children>
@@ -564,7 +564,7 @@
                   </VBox>
                </left>
                <right>
-                  <VBox alignment="CENTER" prefHeight="634.0" prefWidth="169.0" BorderPane.alignment="CENTER">
+                  <VBox alignment="CENTER" prefHeight="634.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
                         <HBox fx:id="joueur411" nodeOrientation="RIGHT_TO_LEFT" prefHeight="132.0" prefWidth="230.0" rotate="270.0">
                            <children>
