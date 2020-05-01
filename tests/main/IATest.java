@@ -2,15 +2,18 @@ package main;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import carte.Equipement;
 import personnage.Allie;
 import personnage.CartePersonnage.Equipe;
 import personnage.Franklin;
+import personnage.LoupGarou;
 import personnage.Vampire;
 
 public class IATest {
@@ -19,6 +22,7 @@ public class IATest {
 	List<Joueur> joueurs = new ArrayList<>();
 	Joueur j1 = new Joueur("j1");
 	Joueur j2 = new Joueur("j2");
+	Joueur j3 = new Joueur("j3");
 
 	@Test
 	public void choixAttaquerTest() {
@@ -171,6 +175,71 @@ public class IATest {
 		jIA.setStat("DAMAGE", 4);
 		jIA.setStat("HP", 1);
 		assertFalse(cIA.devoilerIACharles(jIA, j2));
+	}
+	
+	@Test
+	public void choixJoueurAttaquerTest() {
+		//setup
+		jIA.setCartePersonnage(new Vampire(jIA));
+		j1.setCartePersonnage(new Franklin(j1));
+		j2.setCartePersonnage(new Allie(j2));
+		j3.setCartePersonnage(new Vampire(j3));
+		
+		//test 1 : on renvoit un joueur pas du meme camp
+		joueurs.add(j3);
+		joueurs.add(j2);
+		joueurs.add(j1);
+		assertFalse(jIA.choisirJoueur(joueurs,Contexte.ATTAQUER).getEquipe().equals(jIA.getEquipe()));
+		
+		//test 2 : il y a pas d'ennemi dans la liste donc on attaque un joueur au hasard, meme camp ou non
+		joueurs.clear();
+		joueurs.add(j3);
+		joueurs.add(jIA);
+		assertTrue(jIA.choisirJoueur(joueurs,Contexte.ATTAQUER).getEquipe().equals(jIA.getEquipe()));
+		
+		//test 3 : on a un joueur ennemi avec moins de hp que les autres dans la liste, donc on le choisit
+		joueurs.clear();
+		joueurs.add(j3);
+		joueurs.add(j2);
+		joueurs.add(j1);
+		j1.setStat("HP", 4);
+		j2.setStat("HP", 5);
+		j3.setStat("HP", 3);
+		assertEquals(jIA.choisirJoueur(joueurs,Contexte.ATTAQUER).getStat("HP"),4);
+	}
+	
+	@Test
+	public void choixJoueurVolerTest() {
+		//setup
+		jIA.setCartePersonnage(new Vampire(jIA));
+		j1.setCartePersonnage(new Franklin(j1));
+		j2.setCartePersonnage(new Allie(j2));
+		j3.setCartePersonnage(new Vampire(j3));
+		j1.setStat("nb_equipements", 1);
+		j2.setStat("nb_equipements", 2);
+		j3.setStat("nb_equipements", 4);
+		jIA.setStat("nb_equipements", 3);
+
+		
+		//test 1 : on renvoit un joueur pas du meme camp avec le plus d'equipements
+		joueurs.add(j3);
+		joueurs.add(j2);
+		joueurs.add(j1);
+		assertEquals(jIA.choisirJoueur(joueurs,Contexte.VOLER_EQUIP).getStat("nb_equipements"),2);
+		
+		//test 2 : il y a pas d'ennemi dans la liste donc on vole un joueur du meme camp avec le plus d'equipements
+		joueurs.clear();
+		joueurs.add(j3);
+		joueurs.add(jIA);
+		assertEquals(jIA.choisirJoueur(joueurs,Contexte.VOLER_EQUIP).getStat("nb_equipements"),4);
+		
+	}
+	
+	@Test
+	public void choixEquipementTest() {
+		//setup
+		List<Equipement> equips = new ArrayList<>();
+		//TODO : pas possible d'instancier des Equipements apart des EquipementStat
 	}
 	
 	//TODO : devoilement emi et devoilement bob

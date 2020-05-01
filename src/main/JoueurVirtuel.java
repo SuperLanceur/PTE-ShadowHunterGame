@@ -85,7 +85,7 @@ public class JoueurVirtuel extends Joueur {
 			resliste = joueurs;
 		Joueur res = resliste.get(0);
 		for (int i = 1; i < resliste.size(); i++) {
-			if (res.getStat("nb_equipements") > resliste.get(i).getStat("nb_equipements"))
+			if (res.getStat("nb_equipements") < resliste.get(i).getStat("nb_equipements"))
 				res = resliste.get(i);
 		}
 		return res;
