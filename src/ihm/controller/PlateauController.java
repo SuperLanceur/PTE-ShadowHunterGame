@@ -11,10 +11,10 @@ import java.util.ResourceBundle;
 import java.util.Set;
 
 import ihm.PopUp;
-import ihm.PopUpBoolean;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -209,14 +209,17 @@ public class PlateauController implements Initializable {
 		popup.display();
 	}
 	
-	public boolean choisir(Joueur j) throws IOException {
+	
+	
+	public JoueurIHM getJoueurIHM(Joueur j) {
 		
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("../ressources/choisirBoolean.fxml"));
-		Parent root = loader.load();
-        
-		PopUpBoolean popup = new PopUpBoolean(root, "Consulter sa carte");
-		return popup.display();	
+		for(JoueurIHM joueurIHM : joueursIHM) {
+			if(joueurIHM.getJoueur().equals(j)) return joueurIHM;
+		}
+		
+		return null;
 	}
+	
 	
 	/**
 	 * Permet de consulter sa carte perssonage en cas d'oublie
@@ -260,4 +263,19 @@ public class PlateauController implements Initializable {
 		
 	}
 
+	public void afficherChoisir(Joueur j) throws IOException {
+		final URL fxmlURL = getClass().getResource("../ressources/choisirBoolean.fxml");
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+		Pane root = (Pane)fxmlLoader.load();
+		JoueurIHM jihm = getJoueurIHM(j);
+		jihm.setZoneJoueur(root);
+		
+	}
+
+	public boolean getChoix(Joueur joueur) {
+		JoueurIHM jihm = getJoueurIHM(joueur);
+		jihm.getZoneJoueur().getChildren().setAll();
+		return true;
+	}
 }

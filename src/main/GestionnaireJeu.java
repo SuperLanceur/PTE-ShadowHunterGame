@@ -4,9 +4,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.FutureTask;
 
 import effet.Effet;
 import ihm.controller.PlateauController;
+import javafx.application.Platform;
 
 public class GestionnaireJeu {
 	
@@ -16,12 +20,12 @@ public class GestionnaireJeu {
 	
 	private Map<Integer, Joueur> mapJoueurs;
 	
-	private Plateau plateau;
-	private PlateauController pc;
+	private static Plateau plateau;
+	private static PlateauController pc;
 	
 	private GestionnaireJeu() {}
 	
-	public static synchronized GestionnaireJeu getGestionnaireJeu(){
+	public static GestionnaireJeu getGestionnaireJeu(){
         if(gj == null){
             gj = new GestionnaireJeu();
         }
@@ -34,7 +38,7 @@ public class GestionnaireJeu {
 	}
 
 	public void lancerPartie() {
-		this.plateau.jeu();
+		plateau.start();
 	}
 	
 	public void jouer(Configuration c) {
@@ -60,13 +64,60 @@ public class GestionnaireJeu {
 	}
 
 	public boolean choisir(Joueur joueur) {
+
+		
+		Platform.runLater(() -> {
+			try {
+				pc.afficherChoisir(joueur);
+			} catch (IOException e) {
+			
+				e.printStackTrace();
+			}
+		
+		});
+		
+		this.waitPlateau();
+	
+		final FutureTask<Boolean> query = new FutureTask<Boolean>(new Callable<Boolean>() {
+		    @Override
+		    public Boolean call() throws Exception {
+		        return pc.getChoix(joueur);
+		    }
+		});
+		
+		Platform.runLater(query);
+		
 		try {
-			return pc.choisir(joueur);
-		} catch (IOException e) {
+			return query.get().booleanValue();
+		} catch (InterruptedException | ExecutionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		Platform.runLater(() -> {
+			
+		});
+		
 		return false;
+	}
+	
+	public void waitPlateau() {
+		
+		synchronized(plateau) {
+			try {
+				plateau.wait();
+			} catch (InterruptedException e) {
+				
+			}
+		}
+	}
+	
+	public static void notifyPlateau() {
+		
+		synchronized(plateau) {	
+			plateau.notify();
+		}
+		
 	}
 	
 	public void rollDice(Joueur joueur, int typeDice, int ... rolls){
@@ -103,4 +154,6 @@ public class GestionnaireJeu {
 		this.pc = pc2;
 		
 	}
+
+	
 }

@@ -22,7 +22,7 @@ import personnage.CartePersonnage;
 import personnage.Franklin;
 import personnage.Vampire;
 
-public class Plateau {
+public class Plateau extends Thread{
 	
 	private GestionnaireJeu gj;
 	private List<Joueur> joueurs;
@@ -121,6 +121,7 @@ public class Plateau {
 		
 	}	
 	
+
 	public void initCartePersonnage(List<CartePersonnage> cps) throws Exception {
 		
 		
@@ -167,8 +168,6 @@ public class Plateau {
 		int nbHunter = nbEquipeShadowHunter;
 		int nbNeutre = nbNeutres;
 		
-		
-	
 		for(CartePersonnage cp : cps) {
 			
 			
@@ -190,11 +189,11 @@ public class Plateau {
 		return lcp;
 	}
 
-	public void jeu() {
+	public void run() {
 		
 		int nbJoueurs = this.joueurs.size()-1;
 		int i = 1;
-		
+		System.out.println(nbJoueurs);
 		while(true) {
 			
 			Joueur currentJoueur = this.joueurs.get(nbJoueurs % i);

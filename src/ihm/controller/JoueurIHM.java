@@ -18,19 +18,19 @@ public class JoueurIHM {
 
 	private int position;
 	private Joueur joueur;
-	private Pane pane;
+	private Pane zoneJoueur;
 	private GestionnaireDePions gestionnaireDePions;
 	private Color color;
 	
-	public JoueurIHM(int i, Joueur joueur, Pane pane, Color color, GridPane gridPaneVie) {
+	public JoueurIHM(int i, Joueur joueur, Pane zoneJoueur, Color color, GridPane gridPaneVie) {
 		
 		this.setPosition(i);
 		this.setJoueur(joueur);
-		this.pane = pane;
+		this.zoneJoueur = zoneJoueur;
 		this.color = color;
 		this.gestionnaireDePions = new GestionnaireDePions(this.color,gridPaneVie);
 		
-		pane.setBorder(new Border(new BorderStroke(color, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(5))));
+		zoneJoueur.setBorder(new Border(new BorderStroke(color, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(5))));
 		
 		String name = joueur.getNom();
 		setLabelJoueur(name);
@@ -53,21 +53,32 @@ public class JoueurIHM {
 	}
 
 	public Button getRevealButton() {
-		Pane p = (Pane) pane.getChildren().get(1);
+		Pane p = (Pane) zoneJoueur.getChildren().get(1);
 		return (Button) p.getChildren().get(1);
 	}
 	
 	public ImageView getCartePersonnage() {
-		Pane p = (Pane) pane.getChildren().get(1);
+		Pane p = (Pane) zoneJoueur.getChildren().get(1);
 		return (ImageView) p.getChildren().get(0);
 	}
 	
 	public AnchorPane getZoneJoueur() {
-		return (AnchorPane) pane.getChildren().get(0);
+		return (AnchorPane) zoneJoueur.getChildren().get(0);
 	}
 	
+	public void setZoneJoueur(Pane p) {
+		AnchorPane ap = (AnchorPane) zoneJoueur.getChildren().get(0);
+		ap.getChildren().setAll(p);
+		AnchorPane.getBottomAnchor(p);
+		AnchorPane.getLeftAnchor(p);
+		AnchorPane.getRightAnchor(p);
+		AnchorPane.getTopAnchor(p);
+	}
+	
+	
+	
 	public Label getLabelJoueur() {
-		Pane p = (Pane) pane.getChildren().get(2);
+		Pane p = (Pane) zoneJoueur.getChildren().get(2);
 		return (Label) p.getChildren().get(0);
 	}
 	
@@ -77,7 +88,7 @@ public class JoueurIHM {
 	}
 	
 	public Label getPaneEquipement() {
-		Pane p = (Pane) pane.getChildren().get(2);
+		Pane p = (Pane) zoneJoueur.getChildren().get(2);
 		return (Label) p.getChildren().get(1);
 	}
 
@@ -99,6 +110,11 @@ public class JoueurIHM {
 	
 	public void deplacerPionVie(int damage) {
 		this.gestionnaireDePions.deplacerPionVie(damage);
+	}
+
+	public void choisir() {
+	
+		
 	}
 
 }

@@ -2,21 +2,26 @@ package main;
 
 import java.util.List;
 
+import ihm.controller.PlateauController;
+
 public class View{
 	
+	private PlateauController plateauController;
 	
-	public static void initPartie(List<Joueur> joueurs) {
-				
-	}
-	
-	public static void lancerPartie() {
-			
-	}
-
-	public static void menu() throws Exception {
+	public View() {
 		
 	}
 	
+	public void setPlateauController(PlateauController plateauController) {
+		this.plateauController = plateauController;
+	}
+	
+	public void afficherChoisir(Joueur j) throws Exception {
+		if(this.plateauController != null) {
+			//this.plateauController.afficherChoisir(j);
+		}
+	}
+
 	public static void applyConfiguration(Configuration c) {
 		
 		GestionnaireJeu gj = GestionnaireJeu.getGestionnaireJeu();
