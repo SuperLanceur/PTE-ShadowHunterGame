@@ -1,0 +1,765 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="background" stylesheets="@style/plateau.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.PlateauController">
+   <children>
+      <HBox alignment="CENTER" layoutX="14.0" spacing="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Group>
+               <children>
+                  <GridPane hgap="50.0" prefHeight="161.0" prefWidth="885.0" rotate="90.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="ALWAYS" />
+                        <ColumnConstraints hgrow="ALWAYS" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <GridPane nodeOrientation="LEFT_TO_RIGHT">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
+                              <AnchorPane prefWidth="144.0" styleClass="tour" GridPane.rowIndex="1" />
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <ImageView fitHeight="115.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                                       <image>
+                                          <Image url="@img/dosCartesPersonnage.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" GridPane.rowIndex="1" />
+                                 </children>
+                              </GridPane>
+                              <FlowPane prefWidth="144.0" styleClass="tour" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <children>
+                                    <ImageView pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </FlowPane>
+                              <Label styleClass="text" stylesheets="@style/plateau.css" text="Equipements" GridPane.columnIndex="2" />
+                           </children>
+                        </GridPane>
+                        <GridPane nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
+                              <AnchorPane prefWidth="144.0" styleClass="tour" GridPane.rowIndex="1" />
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <ImageView fitHeight="115.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                                       <image>
+                                          <Image url="@img/dosCartesPersonnage.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" GridPane.rowIndex="1" />
+                                 </children>
+                              </GridPane>
+                              <FlowPane prefHeight="144.0" prefWidth="144.0" styleClass="tour" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <children>
+                                    <ImageView pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </FlowPane>
+                              <Label styleClass="text" stylesheets="@style/plateau.css" text="Equipements" GridPane.columnIndex="2" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+               </children>
+               <HBox.margin>
+                  <Insets left="25.0" />
+               </HBox.margin>
+            </Group>
+            <VBox alignment="CENTER" spacing="100.0">
+               <children>
+                  <GridPane hgap="50.0" rotate="180.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="ALWAYS" />
+                        <ColumnConstraints hgrow="ALWAYS" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <GridPane nodeOrientation="LEFT_TO_RIGHT">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
+                              <AnchorPane prefWidth="144.0" styleClass="tour" GridPane.rowIndex="1" />
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <ImageView fitHeight="115.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                                       <image>
+                                          <Image url="@img/dosCartesPersonnage.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" GridPane.rowIndex="1" />
+                                 </children>
+                              </GridPane>
+                              <FlowPane prefWidth="144.0" styleClass="tour" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <children>
+                                    <ImageView pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </FlowPane>
+                              <Label styleClass="text" stylesheets="@style/plateau.css" text="Equipements" GridPane.columnIndex="2" />
+                           </children>
+                        </GridPane>
+                        <GridPane nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
+                              <AnchorPane prefWidth="144.0" styleClass="tour" GridPane.rowIndex="1" />
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <ImageView fitHeight="115.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                                       <image>
+                                          <Image url="@img/dosCartesPersonnage.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" GridPane.rowIndex="1" />
+                                 </children>
+                              </GridPane>
+                              <FlowPane prefWidth="144.0" styleClass="tour" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <children>
+                                    <ImageView pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </FlowPane>
+                              <Label styleClass="text" stylesheets="@style/plateau.css" text="Equipements" GridPane.columnIndex="2" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+                  <HBox alignment="CENTER" maxHeight="600.0" maxWidth="1200.0" spacing="50.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <VBox alignment="TOP_CENTER">
+                           <children>
+                              <HBox prefHeight="100.0" prefWidth="200.0" styleClass="carteLumiere" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" styleClass="background">
+                                       <image>
+                                          <Image url="@img/dosCartesLumière.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" styleClass="carteVision" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/dosCartesVision.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="30.0" top="30.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" styleClass="carteTenebre" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@img/dosCartesNoires.jpg" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" spacing="50.0">
+                           <children>
+                              <GridPane hgap="20.0" VBox.vgrow="ALWAYS">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <GridPane>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Circle fill="#ff1f1f" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+                                          <Circle fill="#ffd71f" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="1" />
+                                          <Circle fill="#ecff1f" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="2" />
+                                          <Circle fill="#64ff1f" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="3" />
+                                       </children>
+                                    </GridPane>
+                                    <GridPane hgap="20.0" GridPane.columnIndex="1">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" />
+                                          <ColumnConstraints hgrow="SOMETIMES" />
+                                        <ColumnConstraints hgrow="SOMETIMES" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <HBox alignment="TOP_CENTER" styleClass="lieux" stylesheets="@style/plateau.css">
+                                             <children>
+                                                <StackPane>
+                                                   <children>
+                                                      <FlowPane prefHeight="200.0" prefWidth="200.0" />
+                                                      <ImageView fitHeight="132.03" fitWidth="94.5675" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane layoutX="39.0" layoutY="12.0">
+                                                   <children>
+                                                      <FlowPane prefHeight="200.0" prefWidth="200.0" />
+                                                      <ImageView fitHeight="132.03" fitWidth="94.5675" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="BOTTOM_CENTER" styleClass="lieux" stylesheets="@style/plateau.css" GridPane.columnIndex="1">
+                                             <children>
+                                                <StackPane>
+                                                   <children>
+                                                      <FlowPane prefHeight="200.0" prefWidth="200.0" />
+                                                      <ImageView fitHeight="132.03" fitWidth="94.5675" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane>
+                                                   <children>
+                                                      <FlowPane prefHeight="200.0" prefWidth="200.0" />
+                                                      <ImageView fitHeight="132.03" fitWidth="94.5675" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="TOP_CENTER" styleClass="lieux" stylesheets="@style/plateau.css" GridPane.columnIndex="2">
+                                             <children>
+                                                <StackPane>
+                                                   <children>
+                                                      <FlowPane prefHeight="200.0" prefWidth="200.0" />
+                                                      <ImageView fitHeight="132.03" fitWidth="94.5675" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane>
+                                                   <children>
+                                                      <FlowPane prefHeight="200.0" prefWidth="200.0" />
+                                                      <ImageView fitHeight="132.03" fitWidth="94.5675" pickOnBounds="true" preserveRatio="true" />
+                                                   </children>
+                                                </StackPane>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </GridPane>
+                                    <GridPane GridPane.columnIndex="2">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                          <RowConstraints vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Circle fill="#21ffee" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+                                          <Circle fill="#2168ff" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="1" />
+                                          <Circle fill="#d921ff" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="2" />
+                                          <Circle fill="#ff21ad" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="3" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </GridPane>
+                              <GridPane fx:id="gridPaneVie" alignment="CENTER" hgap="5.0" vgap="5.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" />
+                                  <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <StackPane>
+                                       <children>
+                                          <FlowPane />
+                                          <Label alignment="CENTER" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="barreDeVie" />
+                                          <String fx:value="zero" />
+                                       </styleClass>
+                                    </StackPane>
+                                    <StackPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="1">
+                                       <children>
+                                          <FlowPane />
+                                          <Label alignment="CENTER" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="barreDeVie" />
+                                          <String fx:value="zero" />
+                                       </styleClass>
+                                    </StackPane>
+                                    <StackPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="2">
+                                       <children>
+                                          <FlowPane />
+                                          <Label alignment="CENTER" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="barreDeVie" />
+                                          <String fx:value="zero" />
+                                       </styleClass>
+                                    </StackPane>
+                                    <StackPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="3">
+                                       <children>
+                                          <FlowPane />
+                                          <Label alignment="CENTER" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="barreDeVie" />
+                                          <String fx:value="zero" />
+                                       </styleClass>
+                                    </StackPane>
+                                    <StackPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="4">
+                                       <children>
+                                          <FlowPane />
+                                          <Label alignment="CENTER" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="barreDeVie" />
+                                          <String fx:value="zero" />
+                                       </styleClass>
+                                    </StackPane>
+                                    <StackPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="5">
+                                       <children>
+                                          <FlowPane />
+                                          <Label alignment="CENTER" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="barreDeVie" />
+                                          <String fx:value="zero" />
+                                       </styleClass>
+                                    </StackPane>
+                                    <StackPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="6">
+                                       <children>
+                                          <FlowPane />
+                                          <Label alignment="CENTER" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="barreDeVie" />
+                                          <String fx:value="zero" />
+                                       </styleClass>
+                                    </StackPane>
+                                    <StackPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="7">
+                                       <children>
+                                          <FlowPane />
+                                          <Label alignment="CENTER" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="barreDeVie" />
+                                          <String fx:value="zero" />
+                                       </styleClass>
+                                    </StackPane>
+                                    <StackPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="8">
+                                       <children>
+                                          <FlowPane />
+                                          <Label alignment="CENTER" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="barreDeVie" />
+                                          <String fx:value="zero" />
+                                       </styleClass>
+                                    </StackPane>
+                                    <StackPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="9">
+                                       <children>
+                                          <FlowPane />
+                                          <Label alignment="CENTER" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="barreDeVie" />
+                                          <String fx:value="zero" />
+                                       </styleClass>
+                                    </StackPane>
+                                    <StackPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="10">
+                                       <children>
+                                          <FlowPane />
+                                          <Label alignment="CENTER" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="barreDeVie" />
+                                          <String fx:value="zero" />
+                                       </styleClass>
+                                    </StackPane>
+                                    <StackPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="11">
+                                       <children>
+                                          <FlowPane />
+                                          <Label alignment="CENTER" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="barreDeVie" />
+                                          <String fx:value="zero" />
+                                       </styleClass>
+                                    </StackPane>
+                                    <StackPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="12">
+                                       <children>
+                                          <FlowPane />
+                                          <Label alignment="CENTER" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="barreDeVie" />
+                                          <String fx:value="zero" />
+                                       </styleClass>
+                                    </StackPane>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER">
+                           <children>
+                              <HBox prefHeight="100.0" prefWidth="200.0" styleClass="carteLumiere" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" styleClass="carteVision" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="30.0" top="30.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" styleClass="carteTenebre" stylesheets="@style/plateau.css">
+                                 <children>
+                                    <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <GridPane hgap="50.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="ALWAYS" />
+                        <ColumnConstraints hgrow="ALWAYS" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <GridPane nodeOrientation="LEFT_TO_RIGHT">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
+                              <AnchorPane prefWidth="144.0" styleClass="tour" GridPane.rowIndex="1" />
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <ImageView fitHeight="115.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                                       <image>
+                                          <Image url="@img/dosCartesPersonnage.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" GridPane.rowIndex="1" />
+                                 </children>
+                              </GridPane>
+                              <FlowPane prefHeight="144.0" prefWidth="144.0" styleClass="tour" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <children>
+                                    <ImageView pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </FlowPane>
+                              <Label styleClass="text" stylesheets="@style/plateau.css" text="Equipements" GridPane.columnIndex="2" />
+                           </children>
+                        </GridPane>
+                        <GridPane nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
+                              <AnchorPane prefWidth="144.0" styleClass="tour" GridPane.rowIndex="1" />
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <ImageView fitHeight="115.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                                       <image>
+                                          <Image url="@img/dosCartesPersonnage.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" GridPane.rowIndex="1" />
+                                 </children>
+                              </GridPane>
+                              <FlowPane prefHeight="144.0" prefWidth="144.0" styleClass="tour" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <children>
+                                    <ImageView pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </FlowPane>
+                              <Label styleClass="text" stylesheets="@style/plateau.css" text="Equipements" GridPane.columnIndex="2" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+            <Group>
+               <children>
+                  <GridPane hgap="50.0" rotate="-90.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="ALWAYS" />
+                        <ColumnConstraints hgrow="ALWAYS" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <GridPane nodeOrientation="LEFT_TO_RIGHT">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
+                              <AnchorPane prefWidth="144.0" styleClass="tour" GridPane.rowIndex="1" />
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <ImageView fitHeight="115.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                                       <image>
+                                          <Image url="@img/dosCartesPersonnage.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" GridPane.rowIndex="1" />
+                                 </children>
+                              </GridPane>
+                              <FlowPane prefWidth="144.0" styleClass="tour" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <children>
+                                    <ImageView pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </FlowPane>
+                              <Label styleClass="text" stylesheets="@style/plateau.css" text="Equipements" GridPane.columnIndex="2" />
+                           </children>
+                        </GridPane>
+                        <GridPane nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints vgrow="SOMETIMES" />
+                              <RowConstraints vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label styleClass="text" stylesheets="@style/plateau.css" text="Nom joueur" />
+                              <AnchorPane prefWidth="144.0" styleClass="tour" GridPane.rowIndex="1" />
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+                                    <RowConstraints vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <ImageView fitHeight="115.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                                       <image>
+                                          <Image url="@img/dosCartesPersonnage.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" GridPane.rowIndex="1" />
+                                 </children>
+                              </GridPane>
+                              <FlowPane prefWidth="144.0" styleClass="tour" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <children>
+                                    <ImageView pickOnBounds="true" preserveRatio="true" />
+                                 </children>
+                              </FlowPane>
+                              <Label styleClass="text" stylesheets="@style/plateau.css" text="Equipements" GridPane.columnIndex="2" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+               </children>
+            </Group>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

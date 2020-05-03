@@ -53,21 +53,21 @@ public class JoueurIHM {
 	}
 
 	public Button getRevealButton() {
-		Pane p = (Pane) zoneJoueur.getChildren().get(1);
+		Pane p = (Pane) zoneJoueur.getChildren().get(2);
 		return (Button) p.getChildren().get(1);
 	}
 	
 	public ImageView getCartePersonnage() {
-		Pane p = (Pane) zoneJoueur.getChildren().get(1);
+		Pane p = (Pane) zoneJoueur.getChildren().get(2);
 		return (ImageView) p.getChildren().get(0);
 	}
 	
 	public AnchorPane getZoneJoueur() {
-		return (AnchorPane) zoneJoueur.getChildren().get(0);
+		return (AnchorPane) zoneJoueur.getChildren().get(1);
 	}
 	
 	public void setZoneJoueur(Pane p) {
-		AnchorPane ap = (AnchorPane) zoneJoueur.getChildren().get(0);
+		AnchorPane ap = (AnchorPane) zoneJoueur.getChildren().get(1);
 		ap.getChildren().setAll(p);
 		AnchorPane.getBottomAnchor(p);
 		AnchorPane.getLeftAnchor(p);
@@ -78,8 +78,7 @@ public class JoueurIHM {
 	
 	
 	public Label getLabelJoueur() {
-		Pane p = (Pane) zoneJoueur.getChildren().get(2);
-		return (Label) p.getChildren().get(0);
+		return (Label) zoneJoueur.getChildren().get(0);
 	}
 	
 	public void setLabelJoueur(String name) {

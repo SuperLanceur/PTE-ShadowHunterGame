@@ -14,13 +14,15 @@ import ihm.PopUp;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import main.GestionnaireJeu;
 import main.Joueur;
@@ -47,7 +49,6 @@ public class PlateauController implements Initializable {
 		//System.out.println("Création du plateau ...");
 		
 		this.joueursIHM = new ArrayList<JoueurIHM>();
-		System.out.println(gridPaneVie);
 		GestionnaireJeu gj  = GestionnaireJeu.getGestionnaireJeu();
 		Map<Integer, Joueur> map = gj.getMapJoueurs();
 		
@@ -57,10 +58,9 @@ public class PlateauController implements Initializable {
 			Label l = (Label) p.getChildren().get(1);
 			l.setText(i+"");
 		}
-		
-		System.out.println(map.keySet());
+	
 		for(int i : map.keySet()) {
-			
+			System.out.println(i);
 			joueursIHM.add(new JoueurIHM(i,map.get(i),getPaneJoueur(i),new Color(Math.random(), Math.random(), Math.random(),1),gridPaneVie));
 		}
 		
@@ -157,37 +157,37 @@ public class PlateauController implements Initializable {
 	
 	private Pane getPaneJoueur(int i) {	
 		
-		int position = i%4;
-		BorderPane bp = (BorderPane) rootPane.getChildren().get(0);
-		Pane pane;
+		System.out.println("i "+i);
+		int position = i%8;
+		HBox hb = (HBox) rootPane.getChildren().get(0);		
+		GridPane gp = null;
 		
-		// Ordre des panes
-		// bp -> milieu, droite, gauche
-		// mid -> milieu, bas, haut
-		if(position < 2) {
-			BorderPane mid = (BorderPane) bp.getChildren().get(0);
+		// BAS
+		 if(position < 2) {
+			VBox group = (VBox) hb.getChildren().get(1);
+			gp = (GridPane) group.getChildren().get(2);
+		
+			//DROITE
+		 }else if(position < 4) {
+			 System.out.println("Oui");
+			 Group group = (Group) hb.getChildren().get(2);
+			 gp = (GridPane) group.getChildren().get(0);
+			 
+			 //HAUT
+		}else if(position < 6) {
 			
-			if(i < 2) {
-				// Bas
-				pane = (Pane)mid.getChildren().get(1);
-			}else {
-				// Haut
-				pane = (Pane)mid.getChildren().get(2);
-			}
+			VBox group = (VBox) hb.getChildren().get(1);
+			gp = (GridPane) group.getChildren().get(0);
 			
-		}else {
+			//GAUCHE
+		}else if(position < 8) {
+			Group group = (Group) hb.getChildren().get(0);
+			gp = (GridPane) group.getChildren().get(0);
 			
-			if(i < 4) {	
-				// Droite
-				pane = (Pane) bp.getChildren().get(1);
-			}else {
-				// Gauche
-				pane = (Pane) bp.getChildren().get(2);
-				
-			}			
 		}
-
-		return (Pane) pane.getChildren().get(i%2);
+		
+		
+		return (Pane) gp.getChildren().get(i%2);
 	}
 	
 	/**
@@ -251,7 +251,7 @@ public class PlateauController implements Initializable {
 		
 		for(int i = 0; i < 8; i++) {
 			if(!set.contains(i)) {
-				getPaneJoueur(i).getChildren().removeAll(getPaneJoueur(i).getChildren());
+				getPaneJoueur(i).getChildren().setAll();
 			}
 		}
 		
