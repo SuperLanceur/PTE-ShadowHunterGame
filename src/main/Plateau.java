@@ -191,12 +191,13 @@ public class Plateau extends Thread{
 
 	public void run() {
 		
-		int nbJoueurs = this.joueurs.size()-1;
-		int i = 1;
+		int nbJoueurs = this.joueurs.size();
+		int i = 0;
+		
 		System.out.println(nbJoueurs);
 		while(true) {
 			
-			Joueur currentJoueur = this.joueurs.get(nbJoueurs % i);
+			Joueur currentJoueur = this.joueurs.get(i % nbJoueurs);
 			System.out.println("\n\n\n\n\n");
 			System.out.println("Au tour de "+currentJoueur.getNom());
 			System.out.println("Lancement des dés.");

@@ -69,10 +69,15 @@ public class JoueurIHM {
 	public void setZoneJoueur(Pane p) {
 		AnchorPane ap = (AnchorPane) zoneJoueur.getChildren().get(1);
 		ap.getChildren().setAll(p);
-		AnchorPane.getBottomAnchor(p);
-		AnchorPane.getLeftAnchor(p);
-		AnchorPane.getRightAnchor(p);
-		AnchorPane.getTopAnchor(p);
+		
+		//ap.prefWidthProperty().bind(ap.widthProperty());
+		//ap.prefHeightProperty().bind(ap.heightProperty());
+		
+		AnchorPane.setBottomAnchor(p,0.0);
+		AnchorPane.setLeftAnchor(p,0.0);
+		AnchorPane.setRightAnchor(p,0.0);
+		AnchorPane.setTopAnchor(p,0.0);
+		
 	}
 	
 	

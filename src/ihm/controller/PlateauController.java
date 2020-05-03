@@ -35,7 +35,8 @@ public class PlateauController implements Initializable {
 	@FXML private AnchorPane rootPane;
 	@FXML private GridPane gridPaneVie;
 	//@FXML static public GridPane gridPaneLieux;
-		
+	
+	private ChoisirBoolean cb;
 
 	public static int DICE_SIX = 2;
 	public static int DICE_QUATRE = 1;
@@ -268,14 +269,16 @@ public class PlateauController implements Initializable {
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane root = (Pane)fxmlLoader.load();
+		this.cb = fxmlLoader.getController();
 		JoueurIHM jihm = getJoueurIHM(j);
 		jihm.setZoneJoueur(root);
-		
 	}
 
 	public boolean getChoix(Joueur joueur) {
 		JoueurIHM jihm = getJoueurIHM(joueur);
+		boolean result = this.cb.getResult();
+		this.cb = null;
 		jihm.getZoneJoueur().getChildren().setAll();
-		return true;
+		return result;
 	}
 }

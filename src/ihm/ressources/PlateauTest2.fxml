@@ -24,7 +24,7 @@
          <children>
             <Group>
                <children>
-                  <GridPane hgap="50.0" prefHeight="161.0" prefWidth="885.0" rotate="90.0">
+                  <GridPane hgap="50.0" prefWidth="885.0" rotate="90.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="ALWAYS" />
                         <ColumnConstraints hgrow="ALWAYS" />
@@ -110,6 +110,9 @@
                            </children>
                         </GridPane>
                      </children>
+                     <padding>
+                        <Insets top="25.0" />
+                     </padding>
                   </GridPane>
                </children>
                <HBox.margin>
@@ -204,6 +207,9 @@
                            </children>
                         </GridPane>
                      </children>
+                     <padding>
+                        <Insets bottom="25.0" />
+                     </padding>
                   </GridPane>
                   <HBox alignment="CENTER" maxHeight="600.0" maxWidth="1200.0" spacing="50.0" VBox.vgrow="ALWAYS">
                      <children>
@@ -665,12 +671,15 @@
                            </children>
                         </GridPane>
                      </children>
+                     <padding>
+                        <Insets bottom="25.0" />
+                     </padding>
                   </GridPane>
                </children>
             </VBox>
             <Group>
                <children>
-                  <GridPane hgap="50.0" rotate="-90.0">
+                  <GridPane hgap="50.0" prefWidth="885.0" rotate="-90.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="ALWAYS" />
                         <ColumnConstraints hgrow="ALWAYS" />
@@ -747,7 +756,7 @@
                                     <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" GridPane.rowIndex="1" />
                                  </children>
                               </GridPane>
-                              <FlowPane prefWidth="144.0" styleClass="tour" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                              <FlowPane prefHeight="144.0" prefWidth="144.0" styleClass="tour" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                  <children>
                                     <ImageView pickOnBounds="true" preserveRatio="true" />
                                  </children>
@@ -756,6 +765,9 @@
                            </children>
                         </GridPane>
                      </children>
+                     <padding>
+                        <Insets bottom="25.0" />
+                     </padding>
                   </GridPane>
                </children>
             </Group>
