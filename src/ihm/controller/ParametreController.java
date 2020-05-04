@@ -2,6 +2,7 @@ package ihm.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -32,8 +33,8 @@ public class ParametreController implements Initializable {
 	
 	public EffetSonore soundEffects = new EffetSonore();
 
-	String filepathMusique = "src//ihm//ressources//musique//The_Red_Fox_Tavern.wav"; // lien vers la musique : https://www.youtube.com/watch?v=LBpKUIyOHdo
-	File fileMusique = new File("src//ihm//ressources//musique//The_Red_Fox_Tavern.wav");
+	String filepathMusique = "/ihm/ressources/musique/The_Red_Fox_Tavern.wav"; // lien vers la musique : https://www.youtube.com/watch?v=LBpKUIyOHdo
+	InputStream fileMusique =  getClass().getResourceAsStream("/ihm/ressources/musique/The_Red_Fox_Tavern.wav");
 
 	File repertoire = new File("src//ihm//ressources");
 	File repertoire2;
@@ -57,12 +58,12 @@ public class ParametreController implements Initializable {
 	public void enregistre(MouseEvent mouseEvent) throws IOException, Exception {
 
 		//Pour la musique
-		if (fileMusique.exists()) {
+		if (fileMusique!=null) {
 
 			if (cmusique.isSelected() == true) {
 				coche = true;
 				if (Musique.clipTimePosition == 0 && MusiqueLancee == false) { // si la musique n'a jamais été lancé
-					Musique.playMusique(filepathMusique);
+					Musique.playMusique(fileMusique);
 					MusiqueLancee = true;
 
 				} else {
@@ -78,6 +79,7 @@ public class ParametreController implements Initializable {
 			}
 
 		}
+		else System.out.println("asd");
 		
 		//Pour les effets sonores
 		if (cbEffetSonore.isSelected() == true) {

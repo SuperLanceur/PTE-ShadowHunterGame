@@ -1,27 +1,28 @@
 package ihm;
 
-import java.io.File;
+import java.io.BufferedInputStream;
+import java.io.InputStream;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
-import ihm.controller.ParametreController;
 
 public class Musique {
 
 	public static Clip clip;
 	public static long clipTimePosition = 0;
 
-	public static void playMusique(String path) {
+	public static void playMusique(InputStream path) {
 
 		try {
 
-			File musicPath = new File(path);
+			InputStream musicPath = path;
 			
-			if (musicPath.exists()) {
+			if (musicPath!=null) {
+				InputStream bufferedIn = new BufferedInputStream(musicPath);
 
-				AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
+				AudioInputStream audioInput = AudioSystem.getAudioInputStream(bufferedIn);
 				clip = AudioSystem.getClip();
 				clip.open(audioInput);
 				clip.start();

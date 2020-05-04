@@ -38,7 +38,7 @@ public class PlateauControllerTest implements Initializable {
 			AnchorPane ap = getAnchorPaneJoueur(i);
 			Pane p;
 			try {
-				p = FXMLLoader.load(getClass().getResource("../ressources/MenuJoueur.fxml"));
+				p = FXMLLoader.load(getClass().getResource("/ihm/ressources/MenuJoueur.fxml"));
 				if(i > 1 && i < 3) {
 					rotateContent(p, 90);
 				}

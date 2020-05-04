@@ -5,10 +5,12 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import main.GestionnaireJeu;
 
 public class Main extends Application {
@@ -23,14 +25,21 @@ public class Main extends Application {
 		primaryStage.setTitle("Shadow Hunters");
 		primaryStage.setScene(new Scene(root));
 		primaryStage.centerOnScreen();
+		primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+			@Override
+			public void handle(WindowEvent arg0) {
+		          System.exit(0);
+			}
+		   });
 		primaryStage.setMaximized(true);
 		primaryStage.show();
 	}
 
 	public static void main(String[] args) {
-		System.err.close();
+		//System.err.close();
 		GestionnaireJeu gj = GestionnaireJeu.getGestionnaireJeu();
 		launch(args);
+		
 		
 	}
 }
