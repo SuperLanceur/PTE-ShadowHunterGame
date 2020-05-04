@@ -2,6 +2,7 @@ package ihm.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -20,7 +21,11 @@ public class JouerSonTourDonnerVisionController implements Initializable{
 	@FXML
 	public void attaquer(MouseEvent mouseEvent) throws IOException{
 		
-        Pane pane = FXMLLoader.load(getClass().getResource("/ihm/ressources/jouer_Son_Tour_recevoir_blessure.fxml"));
+		final URL fxmlURL = getClass().getResource("/ihm/ressources/jouer_Son_Tour_recevoir_blessure.fxml");  
+	    final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.ENGLISH);
+	    final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+        Pane pane = fxmlLoader.load();
+        
        rootPane.getChildren().setAll(pane);
 
     }

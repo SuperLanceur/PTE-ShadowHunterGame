@@ -3,6 +3,7 @@ package ihm.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 import ihm.PopUpBoolean;
@@ -38,7 +39,11 @@ public class PlateauControllerTest implements Initializable {
 			AnchorPane ap = getAnchorPaneJoueur(i);
 			Pane p;
 			try {
-				p = FXMLLoader.load(getClass().getResource("/ihm/ressources/MenuJoueur.fxml"));
+				final URL fxmlURL = getClass().getResource("/ihm/ressources/MenuJoueur.fxml");  
+			    final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.ENGLISH);
+			    final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+
+				p = fxmlLoader.load();
 				if(i > 1 && i < 3) {
 					rotateContent(p, 90);
 				}
@@ -159,8 +164,11 @@ public class PlateauControllerTest implements Initializable {
 	
 	public boolean choisir(Joueur j) throws IOException {
 		
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/ihm/ressources/choisirBoolean.fxml"));
-		Parent root = loader.load();
+		final URL fxmlURL = getClass().getResource("/ihm/ressources/choisirBoolean.fxml");  
+	    final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.ENGLISH);
+	    final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+
+		Parent root = fxmlLoader.load();
         
 		PopUpBoolean popup = new PopUpBoolean(root, "Consulter sa carte");
 		return popup.display();

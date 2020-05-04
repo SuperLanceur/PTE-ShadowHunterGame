@@ -2,6 +2,7 @@ package ihm.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -27,7 +28,10 @@ public class ScrollPaneJoueurController implements Initializable{
 	@FXML
 	public void changeZoneJoueurToMenuJoueur(MouseEvent me) throws IOException {
 		
-		BorderPane bp = FXMLLoader.load(getClass().getResource("/ihm/ressources/MenuJoueur.fxml"));
+		final URL fxmlURL = getClass().getResource("/ihm/ressources/MenuJoueur.fxml");
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRENCH);
+		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+		BorderPane bp = fxmlLoader.load();
 		ImageView iv = ((ImageView)me.getSource());	
 		Parent p = iv.getParent().getParent().getParent().getParent();
 		AnchorPane ap = (AnchorPane)p;
