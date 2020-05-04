@@ -18,6 +18,7 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -292,5 +293,17 @@ public class PlateauController implements Initializable {
 		/*JoueurIHM jIHM = getJoueurIHM(joueur);
 		jIHM.deplacerPionVie(damage);*/
 		
+	}
+	
+	@FXML
+	public void mettreEnPause(MouseEvent me) throws IOException {
+		System.out.println("Jeu en pause ...");
+		final URL fxmlURL = getClass().getResource("../ressources/Pause.fxml");
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+		Pane root = (Pane)fxmlLoader.load();
+		
+		PopUp pu = new PopUp(root, "Pause");
+		pu.display();
 	}
 }
