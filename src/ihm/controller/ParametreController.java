@@ -79,7 +79,6 @@ public class ParametreController implements Initializable {
 			}
 
 		}
-		else System.out.println("asd");
 		
 		//Pour les effets sonores
 		if (cbEffetSonore.isSelected() == true) {
