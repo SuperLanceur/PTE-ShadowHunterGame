@@ -65,11 +65,31 @@ public class Joueur {
 	}
 	
 	public void setStat(String key, int valeur) {
-		
-		// TODO Il faut créer des observers de mort
 		this.stats.put(key, valeur);
+		updateVictoirePlateau();
+		updateVie();
 	}
 	
+	private void updateVie() {
+		int damage = damageTaken();
+		this.plateau.updateVieJoueur(this, damage);
+		
+	}
+
+	public int damageTaken() {
+		return this.cartePersonnage.getPv() - this.getStat(PLAYER_HP);
+	}
+	
+	private void updateVictoirePlateau() {
+
+		int result = victoire() ? 0 : 1;
+		this.plateau.setStat(Plateau.PARTIE_FINIE, result);
+	}
+	
+	public boolean victoire() {
+		return this.cartePersonnage.victoire();
+	}
+
 	public int getStat(String key) {
 	
 		if(stats.containsKey(key)) {
@@ -79,7 +99,6 @@ public class Joueur {
 			return -1;
 		}		
 	}
-
 
 	public List<Joueur> getJoueursAdjacents() {
 		
@@ -98,7 +117,6 @@ public class Joueur {
 		this.gestionnaireEquipements.ajouter(equipement);	}
 
 	public Equipement choisir(List<Equipement> equipements) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

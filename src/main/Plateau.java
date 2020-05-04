@@ -124,7 +124,6 @@ public class Plateau extends Thread{
 
 	public void initCartePersonnage(List<CartePersonnage> cps) throws Exception {
 		
-		
 		int nbJoueurs = this.joueurs.size();
 		List<CartePersonnage> lcp = new ArrayList<>(nbJoueurs);
 		
@@ -202,6 +201,7 @@ public class Plateau extends Thread{
 			System.out.println("Au tour de "+currentJoueur.getNom());
 			System.out.println("Lancement des dés.");
 			deplacer(currentJoueur);
+			if(isPartieTerminee()) break;
 			System.out.println("Vous êtes désormais sur le lieu "+currentJoueur.getCarteLieu().getNom());
 			System.out.println("Voulez vous activer l'effet du lieu ?");
 			if(currentJoueur.choisir()) {
@@ -209,6 +209,7 @@ public class Plateau extends Thread{
 				System.out.println("Vous avez "+currentJoueur.getStat(Joueur.PLAYER_HP)+" pv");
 				currentJoueur.utiliserEffetLieu();
 				System.out.println("Vous passez a "+currentJoueur.getStat(Joueur.PLAYER_HP)+" pv");
+				if(isPartieTerminee()) break;
 			}
 			try {
 				Thread.sleep(2000);
@@ -223,6 +224,7 @@ public class Plateau extends Thread{
 				if(currentJoueur.hasOpponents()) {
 					Joueur cible = currentJoueur.choisirAdjacents();
 					attaquer(currentJoueur,cible);
+					if(isPartieTerminee()) break;
 				}else {
 					System.out.println("Il n'y a personne a attaquer.");
 				}
@@ -237,7 +239,23 @@ public class Plateau extends Thread{
 			
 			i++;
 		}
+		
+		List<Joueur> gagnants = new ArrayList<Joueur>();
+		
+		for(Joueur j : joueurs) {
+			if(j.victoire()) {
+				gagnants.add(j);
+			}
+		}
+		
+		// TODO Liste des gagnants
+		// TODO Evaluate every winners
 	}
+	
+	public boolean isPartieTerminee() {
+		return this.getStat(PARTIE_FINIE) == 1;
+	}
+	
 	
 	public void deplacer(Joueur currentJoueur) {
 		
@@ -255,6 +273,8 @@ public class Plateau extends Thread{
 				}
 			}
 		}
+		
+		gj.deplacer(currentJoueur);
 	}
 	
 	public void attaquer(Joueur joueur1, Joueur joueur2) {
@@ -279,7 +299,6 @@ public class Plateau extends Thread{
 		int roll4 =rollRandom(4);
 		int roll6 = rollRandom(6);
 		
-	
 		gj.rollDice(j, PlateauController.DICE_BOTH, roll4,roll6);
 		return Math.abs(roll4-roll6);
 	}
@@ -325,8 +344,7 @@ public class Plateau extends Thread{
 		}else {
 		
 			return -1;
-		}
-		
+		}	
 	}
 	
 	public void shuffleLieux(){
@@ -352,6 +370,11 @@ public class Plateau extends Thread{
 		this.lieux = lieux;
 		shuffleLieux();
 	}
+	
+	public List<CarteLieu> getLieux() {
+		return this.lieux;
+	}
+	
 
 	public boolean choisir(Joueur joueur) {
 		return gj.choisir(joueur);
@@ -376,5 +399,11 @@ public class Plateau extends Thread{
 	public Joueur choisirParmisTous(Joueur joueur) {
 		List<Joueur> joueurs = this.getJoueurs();
 		return gj.choisirParmisTous(joueur,joueurs);
+	}
+
+
+	public void updateVieJoueur(Joueur joueur, int damage) {
+		gj.updateVieJoueur(joueur,damage);
+		
 	}
 }

@@ -63,8 +63,14 @@ public class GestionnaireJeu {
 		return joueurs.get(0);
 	}
 
+	public void deplacer(Joueur currentJoueur) {
+		
+		Platform.runLater(() -> {
+			pc.deplacer(currentJoueur);
+		});		
+	}
+	
 	public boolean choisir(Joueur joueur) {
-
 		
 		Platform.runLater(() -> {
 			try {
@@ -90,13 +96,9 @@ public class GestionnaireJeu {
 		try {
 			return query.get().booleanValue();
 		} catch (InterruptedException | ExecutionException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}
-		
-		Platform.runLater(() -> {
-			
-		});
 		
 		return false;
 	}
@@ -154,6 +156,13 @@ public class GestionnaireJeu {
 		this.pc = pc2;
 		
 	}
+
+	public void updateVieJoueur(Joueur joueur, int damage) {
+		pc.updateVieJoueur(joueur, damage);
+		
+	}
+
+	
 
 	
 }

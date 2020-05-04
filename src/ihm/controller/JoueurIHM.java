@@ -22,13 +22,13 @@ public class JoueurIHM {
 	private GestionnaireDePions gestionnaireDePions;
 	private Color color;
 	
-	public JoueurIHM(int i, Joueur joueur, Pane zoneJoueur, Color color, GridPane gridPaneVie) {
+	public JoueurIHM(int i, Joueur joueur, Pane zoneJoueur, Color color, GridPane gridPaneVie, GridPane gridPaneLieux) {
 		
 		this.setPosition(i);
 		this.setJoueur(joueur);
 		this.zoneJoueur = zoneJoueur;
 		this.color = color;
-		this.gestionnaireDePions = new GestionnaireDePions(this.color,gridPaneVie);
+		this.gestionnaireDePions = new GestionnaireDePions(this.color,gridPaneVie, gridPaneLieux);
 		
 		zoneJoueur.setBorder(new Border(new BorderStroke(color, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(5))));
 		
@@ -114,6 +114,10 @@ public class JoueurIHM {
 	
 	public void deplacerPionVie(int damage) {
 		this.gestionnaireDePions.deplacerPionVie(damage);
+	}
+	
+	public void replacerPionLieu() {
+		this.gestionnaireDePions.deplacerPionLieux(this.joueur);
 	}
 
 	public void choisir() {

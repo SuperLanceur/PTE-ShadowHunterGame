@@ -34,7 +34,7 @@ public class PlateauController implements Initializable {
 	
 	@FXML private AnchorPane rootPane;
 	@FXML private GridPane gridPaneVie;
-	//@FXML static public GridPane gridPaneLieux;
+	@FXML public GridPane gridPaneLieux;
 	
 	private ChoisirBoolean cb;
 
@@ -62,7 +62,7 @@ public class PlateauController implements Initializable {
 	
 		for(int i : map.keySet()) {
 			System.out.println(i);
-			joueursIHM.add(new JoueurIHM(i,map.get(i),getPaneJoueur(i),new Color(Math.random(), Math.random(), Math.random(),1),gridPaneVie));
+			joueursIHM.add(new JoueurIHM(i,map.get(i),getPaneJoueur(i),new Color(Math.random(), Math.random(), Math.random(),1),gridPaneVie, gridPaneLieux));
 		}
 		
 		for(int i = 0; i<joueursIHM.size(); i++) {
@@ -280,5 +280,17 @@ public class PlateauController implements Initializable {
 		this.cb = null;
 		jihm.getZoneJoueur().getChildren().setAll();
 		return result;
+	}
+
+	public void deplacer(Joueur currentJoueur) {
+		JoueurIHM jIHM = getJoueurIHM(currentJoueur);
+		jIHM.replacerPionLieu();
+		
+	}
+
+	public void updateVieJoueur(Joueur joueur, int damage) {
+		/*JoueurIHM jIHM = getJoueurIHM(joueur);
+		jIHM.deplacerPionVie(damage);*/
+		
 	}
 }
