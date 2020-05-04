@@ -198,7 +198,7 @@ public class PlateauController implements Initializable {
 	 */
 	public void seReveler(int numJoueur) throws IOException {
 		System.out.println(listJoueur.get(numJoueur).getNom() + " se revele");
-		final URL fxmlURL = getClass().getResource("../ressources/Reveler_son_identite.fxml");
+		final URL fxmlURL = getClass().getResource("/ihm/ressources/Reveler_son_identite.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Parent root = fxmlLoader.load();
@@ -265,7 +265,7 @@ public class PlateauController implements Initializable {
 	}
 
 	public void afficherChoisir(Joueur j) throws IOException {
-		final URL fxmlURL = getClass().getResource("../ressources/choisirBoolean.fxml");
+		final URL fxmlURL = getClass().getResource("/ihm/ressources/choisirBoolean.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane root = (Pane)fxmlLoader.load();

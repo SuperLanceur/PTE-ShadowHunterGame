@@ -122,7 +122,7 @@ public class PlayersController implements Initializable{
 				GestionnaireJeu gj = GestionnaireJeu.getGestionnaireJeu();
 		        gj.setConfiguration(new Configuration(this.joueurs));
 			
-				final URL fxmlURL = getClass().getResource("../ressources/PlateauTest2.fxml");
+				final URL fxmlURL = getClass().getResource("/ihm/ressources/PlateauTest2.fxml");
 				final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRENCH);
 				final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 				AnchorPane root = fxmlLoader.load();

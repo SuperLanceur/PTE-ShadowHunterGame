@@ -124,7 +124,7 @@ public class ParametreController implements Initializable {
 		soundEffects.playSoundEffect("src//ihm//ressources//musique//BEEP1.wav"); //emet un bruit sur le bouton si les effets sonores sont activés
 		
 		// Quitter les paramètres		
-		final URL fxmlURL = getClass().getResource("../ressources/Menu.fxml");
+		final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane pane = fxmlLoader.load();

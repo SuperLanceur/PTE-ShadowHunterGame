@@ -28,6 +28,7 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) {
+		System.err.close();
 		GestionnaireJeu gj = GestionnaireJeu.getGestionnaireJeu();
 		launch(args);
 		

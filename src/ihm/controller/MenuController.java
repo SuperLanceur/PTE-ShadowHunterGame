@@ -1,8 +1,8 @@
 package ihm.controller;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.BufferedInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -24,21 +24,16 @@ public class MenuController implements Initializable{
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		FileInputStream input;
-		try {
-			input = new FileInputStream("src\\ihm\\ressources\\img\\logo.png");
+		InputStream input;
+			input = getClass().getResourceAsStream("/ihm/ressources/img/logo.png");
 			Image image = new Image(input);
 			titre.setImage(image);
-		
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
 	}
 
 	@FXML
 	public void commencerPartie(MouseEvent mouseEvent) throws IOException{
 		System.out.println("Passage à l'écran de choix des joueurs");
-		final URL fxmlURL = getClass().getResource("../ressources/Choix_joueur.fxml");
+		final URL fxmlURL = getClass().getResource("/ihm/ressources/Choix_joueur.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
         AnchorPane pane = fxmlLoader.load();
