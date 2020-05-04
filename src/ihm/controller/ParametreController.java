@@ -34,14 +34,10 @@ public class ParametreController implements Initializable {
 	String filepathMusique = "/ihm/ressources/musique/The_Red_Fox_Tavern.wav"; // lien vers la musique : https://www.youtube.com/watch?v=LBpKUIyOHdo
 	InputStream fileMusique =  getClass().getResourceAsStream("/ihm/ressources/musique/The_Red_Fox_Tavern.wav");
 
+
 	File repertoire = new File("src//ihm//ressources");
 	File repertoire2;
 	String liste[] = repertoire.list();
-	
-	/*
-	public void ParametreController() {
-		EffetSonore sound = soundEffects;
-	}*/
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -54,6 +50,8 @@ public class ParametreController implements Initializable {
 
 	@FXML
 	public void enregistre(MouseEvent mouseEvent) throws IOException, Exception {
+		
+		InputStream fileSound1 =  getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
 
 		//Pour la musique
 		if (fileMusique!=null) {
@@ -120,7 +118,7 @@ public class ParametreController implements Initializable {
 
 				}*/
 
-		EffetSonore.playSoundEffect("src//ihm//ressources//musique//BEEP1.wav"); //emet un bruit sur le bouton si les effets sonores sont activés
+		EffetSonore.playSoundEffect(fileSound1); //emet un bruit sur le bouton si les effets sonores sont activés
 		
 		// Quitter les paramètres		
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");

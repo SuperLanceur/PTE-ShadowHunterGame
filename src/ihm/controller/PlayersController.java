@@ -1,6 +1,7 @@
 package ihm.controller;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,14 +16,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import main.Configuration;
@@ -52,8 +51,7 @@ public class PlayersController implements Initializable{
 	
 	private int nbJoueursH = 0;
 	private int nbJoueursV = 0;
-
-	
+		
 	/**
 	 * recup�re chaque bouton textField et Checkebox a partir des hbox 
 	 */
@@ -119,7 +117,8 @@ public class PlayersController implements Initializable{
 				// Creer une configuration
 				//View.applyConfiguration(new Configuration(joueurs, nbJoueursV, nbJoueursH));
 				
-				EffetSonore.playSoundEffect("src//ihm//ressources//musique//BEEP1.wav");
+				InputStream fileSound1 =  getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
+				EffetSonore.playSoundEffect(fileSound1);
 				
 				System.out.println(this.joueurs);
 				GestionnaireJeu gj = GestionnaireJeu.getGestionnaireJeu();
@@ -144,6 +143,12 @@ public class PlayersController implements Initializable{
 		        gj.lancerPartie();
 		        
 		}
+		
+		else {
+		InputStream fileSound2 =  getClass().getResourceAsStream("/ihm/ressources/musique/BeepError.wav");
+		EffetSonore.playSoundEffect(fileSound2);
+		System.out.println("Il manque des joueurs pour lancer une partie.");
+		}
 	}
 	
 	
@@ -155,6 +160,10 @@ public class PlayersController implements Initializable{
 	 */
 	public void ajoutJoueur(int indice){
 		System.out.println("Ajout du joueur " + (indice+1));
+		
+		InputStream fileSound3 =  getClass().getResourceAsStream("/ihm/ressources/musique/Beep2.wav");
+		EffetSonore.playSoundEffect(fileSound3);
+		
 		plus.get(indice).setText("-");
 		txt.get(indice).setEditable(true);
 		txt.get(indice).setStyle("-fx-background-color: white;");
@@ -162,8 +171,9 @@ public class PlayersController implements Initializable{
 		
 		if (ia.get(indice).isSelected()) {
 			nbJoueursV++;
-		}else 
+		}else {
 			nbJoueursH++;
+		}
 		
 		if (nbJoueursH + nbJoueursV >= 4) {
 			btnCommencer.setStyle("-fx-background-color: #1d1d1d; -fx-text-fill: #d8d8d8;");
@@ -177,6 +187,10 @@ public class PlayersController implements Initializable{
 	 */
 	public void enleverJoueur(int indice) {
 		System.out.println("Desistement du joueur " + (indice+1));
+		
+		InputStream fileSound3 =  getClass().getResourceAsStream("/ihm/ressources/musique/Beep2.wav");
+		EffetSonore.playSoundEffect(fileSound3);
+		
 		plus.get(indice).setText("+");
 		txt.get(indice).setEditable(false);
 		txt.get(indice).setText("");

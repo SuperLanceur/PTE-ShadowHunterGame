@@ -22,6 +22,7 @@ public class MenuController  implements Initializable{
 	@FXML private AnchorPane rootPane;
 	@FXML private ImageView titre;
 	
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		InputStream input;
@@ -32,8 +33,9 @@ public class MenuController  implements Initializable{
 
 	@FXML
 	public void commencerPartie(MouseEvent mouseEvent) throws IOException{
+    	InputStream fileSound1 =  getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
 		
-		EffetSonore.playSoundEffect("src//ihm//ressources//musique//BEEP1.wav");
+		EffetSonore.playSoundEffect(fileSound1);
 		
 		System.out.println("Passage à l'écran de choix des joueurs");
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Choix_joueur.fxml");
@@ -49,7 +51,10 @@ public class MenuController  implements Initializable{
     }
     
     public void afficherRegle(MouseEvent mouseEvent) {
-    	EffetSonore.playSoundEffect("src//ihm//ressources//musique//BEEP1.wav");
+    	
+    	InputStream fileSound1 =  getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
+
+    	EffetSonore.playSoundEffect(fileSound1);
     	System.out.println("blaaaa");
     
     }

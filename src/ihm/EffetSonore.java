@@ -1,6 +1,7 @@
 package ihm;
 
-import java.io.File;
+import java.io.BufferedInputStream;
+import java.io.InputStream;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -9,18 +10,24 @@ import javax.sound.sampled.Clip;
 public class EffetSonore {
 	
 	 static boolean soundOK;
+	 
+	public InputStream fileSound1 =  getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
+	public InputStream fileSound2 =  getClass().getResourceAsStream("/ihm/ressources/musique/BeepError.wav");
 	
-	public static void playSoundEffect(String path) {
+	public static void playSoundEffect(InputStream path) {
 		
 		if (soundOK == true) {
 			
 			try {
 
-				File soundPath = new File(path);
+				//File soundPath = new File(path);
+				InputStream soundPath = path;
 
-				if (soundPath.exists()) {
+				if (soundPath!=null) {
 
-					AudioInputStream audioInput = AudioSystem.getAudioInputStream(soundPath);
+					InputStream bufferedIn = new BufferedInputStream(soundPath);
+					
+					AudioInputStream audioInput = AudioSystem.getAudioInputStream(bufferedIn);
 					Clip clipSound = AudioSystem.getClip();
 					clipSound.open(audioInput);
 					clipSound.start();
