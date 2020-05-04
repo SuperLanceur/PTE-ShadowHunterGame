@@ -159,7 +159,7 @@ public class PlateauControllerTest implements Initializable {
 	
 	public boolean choisir(Joueur j) throws IOException {
 		
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("../ressources/choisirBoolean.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/ihm/ressources/choisirBoolean.fxml"));
 		Parent root = loader.load();
         
 		PopUpBoolean popup = new PopUpBoolean(root, "Consulter sa carte");

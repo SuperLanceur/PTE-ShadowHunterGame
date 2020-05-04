@@ -21,14 +21,14 @@ public class JouerSonTour6Controller implements Initializable{
 	@FXML
 	public void piocherVision(MouseEvent mouseEvent) throws IOException{
 		
-        Pane pane = FXMLLoader.load(getClass().getResource("../ressources/jouer_Son_Tour_piocher_vision.fxml"));
+        Pane pane = FXMLLoader.load(getClass().getResource("/ihm/ressources/jouer_Son_Tour_piocher_vision.fxml"));
        rootPane.getChildren().setAll(pane);
 
     }
 	@FXML
 	public void piocherTenebre(MouseEvent mouseEvent) throws IOException{
 		
-        Pane pane = FXMLLoader.load(getClass().getResource("../ressources/jouer_Son_Tour_piocher_lum_et_ten.fxml"));
+        Pane pane = FXMLLoader.load(getClass().getResource("/ihm/ressources/jouer_Son_Tour_piocher_lum_et_ten.fxml"));
        rootPane.getChildren().setAll(pane);
 
     }

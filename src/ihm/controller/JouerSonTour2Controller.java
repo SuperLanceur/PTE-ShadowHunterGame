@@ -27,7 +27,7 @@ public class JouerSonTour2Controller implements Initializable{
 	
 	@FXML
 	public void ignorerEtape(MouseEvent mouseEvent) throws IOException{
-       Pane pane = FXMLLoader.load(getClass().getResource("../ressources/Jouer_tour(3)attaquer.fxml"));
+       Pane pane = FXMLLoader.load(getClass().getResource("/ihm/ressources/Jouer_tour(3)attaquer.fxml"));
        rootPane.getChildren().setAll(pane);
     }
 	

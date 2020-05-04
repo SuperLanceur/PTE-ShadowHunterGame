@@ -229,7 +229,7 @@ public class PlateauController implements Initializable {
 	 */
 	public void consulterSaCarte(int numJoueur) throws IOException {
 		System.out.println(listJoueur.get(numJoueur).getNom() + " consulte sa carte");
-		final URL fxmlURL = getClass().getResource("../ressources/afficher_carte_perso.fxml");
+		final URL fxmlURL = getClass().getResource("/ihm/ressources/afficher_carte_perso.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Parent root = fxmlLoader.load();

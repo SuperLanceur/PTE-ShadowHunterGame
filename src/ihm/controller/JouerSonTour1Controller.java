@@ -51,7 +51,7 @@ public class JouerSonTour1Controller implements Initializable{
 		
 		ImageView imageView;
 		try {
-			imageView = FXMLLoader.load(getClass().getResource("../ressources/img/des.fxml"));
+			imageView = FXMLLoader.load(getClass().getResource("/ihm/ressources/img/des.fxml"));
 			imageView.setViewport(new Rectangle2D(OFFSET_X, OFFSET_Y, WIDTH, HEIGHT));
 
 			imageView.fitWidthProperty().bind(d6.widthProperty()); 
@@ -83,7 +83,7 @@ public class JouerSonTour1Controller implements Initializable{
 	
 	@FXML 
 	public void lancerDes(MouseEvent mouseEvent) throws IOException, InterruptedException{
-		final URL fxmlURL = getClass().getResource("../ressources/Jouer_tour(2)carte_lieux.fxml");  
+		final URL fxmlURL = getClass().getResource("/ihm/ressources/Jouer_tour(2)carte_lieux.fxml");  
 	    final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.ENGLISH);
 	    final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 	    Pane root = fxmlLoader.load();

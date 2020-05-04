@@ -27,7 +27,7 @@ public class ScrollPaneJoueurController implements Initializable{
 	@FXML
 	public void changeZoneJoueurToMenuJoueur(MouseEvent me) throws IOException {
 		
-		BorderPane bp = FXMLLoader.load(getClass().getResource("../ressources/MenuJoueur.fxml"));
+		BorderPane bp = FXMLLoader.load(getClass().getResource("/ihm/ressources/MenuJoueur.fxml"));
 		ImageView iv = ((ImageView)me.getSource());	
 		Parent p = iv.getParent().getParent().getParent().getParent();
 		AnchorPane ap = (AnchorPane)p;

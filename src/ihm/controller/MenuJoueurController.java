@@ -23,7 +23,7 @@ public class MenuJoueurController implements Initializable{
 	@FXML
 	public void changeZoneToScrollPaneJoueur(MouseEvent me) throws IOException {
 		
-		AnchorPane bp = FXMLLoader.load(getClass().getResource("../ressources/ScrollPaneJoueur.fxml"));
+		AnchorPane bp = FXMLLoader.load(getClass().getResource("/ihm/ressources/ScrollPaneJoueur.fxml"));
 		ImageView iv = ((ImageView)me.getSource());	
 		Parent p = iv.getParent().getParent();
 		AnchorPane ap = (AnchorPane)p;

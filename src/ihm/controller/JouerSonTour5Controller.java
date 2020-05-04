@@ -21,7 +21,7 @@ public class JouerSonTour5Controller implements Initializable{
 	@FXML
 	public void equipementVole(MouseEvent mouseEvent) throws IOException{
 		
-        Pane pane = FXMLLoader.load(getClass().getResource("../ressources/jouerSonTour6.fxml"));
+        Pane pane = FXMLLoader.load(getClass().getResource("/ihm/ressources/jouerSonTour6.fxml"));
        rootPane.getChildren().setAll(pane);
 
     }

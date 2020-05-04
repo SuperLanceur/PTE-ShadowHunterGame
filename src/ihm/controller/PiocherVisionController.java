@@ -20,7 +20,7 @@ public class PiocherVisionController implements Initializable{
 	@FXML
 	public void voirCarte(MouseEvent mouseEvent) throws IOException{
 		
-        Pane pane = FXMLLoader.load(getClass().getResource("../ressources/jouer_Son_Tour_donner_vision.fxml"));
+        Pane pane = FXMLLoader.load(getClass().getResource("/ihm/ressources/jouer_Son_Tour_donner_vision.fxml"));
        rootPane.getChildren().setAll(pane);
 
     }

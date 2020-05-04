@@ -20,7 +20,7 @@ public class JouerSonTourDonnerVisionController implements Initializable{
 	@FXML
 	public void attaquer(MouseEvent mouseEvent) throws IOException{
 		
-        Pane pane = FXMLLoader.load(getClass().getResource("../ressources/jouer_Son_Tour_recevoir_blessure.fxml"));
+        Pane pane = FXMLLoader.load(getClass().getResource("/ihm/ressources/jouer_Son_Tour_recevoir_blessure.fxml"));
        rootPane.getChildren().setAll(pane);
 
     }
