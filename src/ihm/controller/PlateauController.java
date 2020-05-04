@@ -2,6 +2,7 @@ package ihm.controller;
 
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Set;
 
+import ihm.EffetSonore;
 import ihm.PopUp;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -297,6 +299,10 @@ public class PlateauController implements Initializable {
 	
 	@FXML
 	public void mettreEnPause(MouseEvent me) throws IOException {
+		
+		InputStream fileSound1 =  getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
+		EffetSonore.playSoundEffect(fileSound1);
+		
 		System.out.println("Jeu en pause ...");
 		final URL fxmlURL = getClass().getResource("../ressources/Pause.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
