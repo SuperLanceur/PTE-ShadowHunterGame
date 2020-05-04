@@ -8,15 +8,11 @@ import javax.sound.sampled.Clip;
 
 public class EffetSonore {
 	
-	 boolean soundOK;
+	 static boolean soundOK;
 	
-	public EffetSonore() {
-		this.soundOK = false;
-	}
-	
-	public void playSoundEffect(String path) {
+	public static void playSoundEffect(String path) {
 		
-		if (this.soundOK == true) {
+		if (soundOK == true) {
 			
 			try {
 
@@ -41,13 +37,15 @@ public class EffetSonore {
 
 	}
 
-	public boolean isSoundOK() {
+	public static boolean isSoundOK() {
 		return soundOK;
 	}
 
-	public void setSoundOK(boolean soundOK) {
-		this.soundOK = soundOK;
+	public static void setSoundOK(boolean soundOK) {
+		EffetSonore.soundOK = soundOK;
 	}
+
+
 
 
 	

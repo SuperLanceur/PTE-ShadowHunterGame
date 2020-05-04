@@ -30,8 +30,6 @@ public class ParametreController implements Initializable {
 	private ComboBox<String> langues;
 	boolean coche = false; // verifi si la checbox musical est coche
 	boolean MusiqueLancee = false; //verifi si la musique a déja été lancé une première fois
-	
-	public EffetSonore soundEffects = new EffetSonore();
 
 	String filepathMusique = "/ihm/ressources/musique/The_Red_Fox_Tavern.wav"; // lien vers la musique : https://www.youtube.com/watch?v=LBpKUIyOHdo
 	InputStream fileMusique =  getClass().getResourceAsStream("/ihm/ressources/musique/The_Red_Fox_Tavern.wav");
@@ -82,14 +80,14 @@ public class ParametreController implements Initializable {
 		
 		//Pour les effets sonores
 		if (cbEffetSonore.isSelected() == true) {
-			soundEffects.setSoundOK(true);
+			EffetSonore.setSoundOK(true);
 			
-			System.out.println(soundEffects.isSoundOK());
+			System.out.println(EffetSonore.isSoundOK());
 		}
 		
 		else {
-			soundEffects.setSoundOK(false);
-			System.out.println(soundEffects.isSoundOK());
+			EffetSonore.setSoundOK(false);
+			System.out.println(EffetSonore.isSoundOK());
 		}
 		
 
@@ -122,7 +120,7 @@ public class ParametreController implements Initializable {
 
 				}*/
 
-		soundEffects.playSoundEffect("src//ihm//ressources//musique//BEEP1.wav"); //emet un bruit sur le bouton si les effets sonores sont activés
+		EffetSonore.playSoundEffect("src//ihm//ressources//musique//BEEP1.wav"); //emet un bruit sur le bouton si les effets sonores sont activés
 		
 		// Quitter les paramètres		
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
@@ -136,18 +134,4 @@ public class ParametreController implements Initializable {
 
 	}
 
-	
-	//getters and setters
-	public EffetSonore getSoundEffects() {
-		return soundEffects;
-	}
-
-	public void setSoundEffects(EffetSonore soundEffects) {
-		this.soundEffects = soundEffects;
-	}
-	
-	
-	
-	
-	
 }

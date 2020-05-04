@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 import ihm.Couple;
+import ihm.EffetSonore;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -118,6 +119,8 @@ public class PlayersController implements Initializable{
 				// Creer une configuration
 				//View.applyConfiguration(new Configuration(joueurs, nbJoueursV, nbJoueursH));
 				
+				EffetSonore.playSoundEffect("src//ihm//ressources//musique//BEEP1.wav");
+				
 				System.out.println(this.joueurs);
 				GestionnaireJeu gj = GestionnaireJeu.getGestionnaireJeu();
 		        gj.setConfiguration(new Configuration(this.joueurs));
@@ -139,6 +142,7 @@ public class PlayersController implements Initializable{
 		        appStage.setScene(scene);
 		        appStage.show();
 		        gj.lancerPartie();
+		        
 		}
 	}
 	
