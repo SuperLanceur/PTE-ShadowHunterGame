@@ -28,7 +28,8 @@ public class ParametreController implements Initializable {
 	private CheckBox clair;
 	@FXML
 	private ComboBox<String> langues;
-	boolean coche = false; // verifi si la checbox musical est coche
+	public static boolean cbMusiqueCoche = false; // verifi si la checbox musical est coche
+	public static boolean cbSonCoche = false;
 	boolean MusiqueLancee = false; //verifi si la musique a déja été lancé une première fois
 
 	String filepathMusique = "/ihm/ressources/musique/The_Red_Fox_Tavern.wav"; // lien vers la musique : https://www.youtube.com/watch?v=LBpKUIyOHdo
@@ -57,7 +58,7 @@ public class ParametreController implements Initializable {
 		if (fileMusique!=null) {
 
 			if (cmusique.isSelected() == true) {
-				coche = true;
+				cbMusiqueCoche = true;
 				if (Musique.clipTimePosition == 0 && MusiqueLancee == false) { // si la musique n'a jamais été lancé
 					Musique.playMusique(fileMusique);
 					MusiqueLancee = true;
@@ -67,8 +68,8 @@ public class ParametreController implements Initializable {
 				}
 
 			} else {
-				if (coche == true) {
-					coche = false;
+				if (cbMusiqueCoche == true) {
+					cbMusiqueCoche = false;
 					Musique.pauseMusique(Musique.clip); //met en pause la musique 
 				}
 
@@ -79,12 +80,14 @@ public class ParametreController implements Initializable {
 		//Pour les effets sonores
 		if (cbEffetSonore.isSelected() == true) {
 			EffetSonore.setSoundOK(true);
+			cbSonCoche = true;
 			
 			System.out.println(EffetSonore.isSoundOK());
 		}
 		
 		else {
 			EffetSonore.setSoundOK(false);
+			cbSonCoche = false;
 			System.out.println(EffetSonore.isSoundOK());
 		}
 		

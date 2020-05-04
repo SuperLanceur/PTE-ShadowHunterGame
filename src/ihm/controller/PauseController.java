@@ -1,6 +1,5 @@
 package ihm.controller;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -15,62 +14,86 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class PauseController implements Initializable{
-	@FXML private CheckBox cbMusique;
-	@FXML private CheckBox cbEffet;
-	
-	String filepathMusique = "src//ihm//ressources//musique//The_Red_Fox_Tavern.wav";
-	InputStream fileInput = getClass().getResourceAsStream("src//ihm//ressources//musique//The_Red_Fox_Tavern.wav");
-	File fileMusique = new File("src//ihm//ressources//musique//The_Red_Fox_Tavern.wav");
-	
-	public EffetSonore soundEffects = new EffetSonore();
+public class PauseController implements Initializable {
+	@FXML
+	private CheckBox cbMusique;
+	@FXML
+	private CheckBox cbEffet;
 
+	String filepathMusique = "src//ihm//ressources//musique//The_Red_Fox_Tavern.wav";
+	InputStream fileMusique = getClass().getResourceAsStream("src//ihm//ressources//musique//The_Red_Fox_Tavern.wav");
+
+	boolean MusiqueLancee = ParametreController.cbMusiqueCoche;
+	boolean SonLance = ParametreController.cbSonCoche;
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
-		
+
+		if (MusiqueLancee == true) {
+			cbMusique.setSelected(true);
+		}
+
+		if (SonLance == true) {
+			cbEffet.setSelected(true);
+		}
+
 	}
-	
-	@FXML 
+
+	@FXML
 	public void reprendre(MouseEvent me) {
-		//Pour la musique
-		boolean MusiqueLancee = false;
-		if (fileMusique.exists()) {
+		InputStream fileSound1 = getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
+
+		// Pour la musique
+
+		if (fileMusique != null) {
+			System.out.println("point d'arret 1");
 			if (cbMusique.isSelected()) {
 				System.out.println("\tLancement de la musique");
+				
 				if (Musique.clipTimePosition == 0 && MusiqueLancee == false) { // si la musique n'a jamais été lancé
-					Musique.playMusique(fileInput);
+					Musique.playMusique(fileMusique);
 					MusiqueLancee = true;
-				} else Musique.resumeMusique(Musique.clip); // si elle a deja été lancé mais mis en pause, reprend a partir du point d'arret
+					System.out.println("point d'arret 2");
+				} else
+					Musique.resumeMusique(Musique.clip); // si elle a deja été lancé mais mis en pause, reprend a partir du point d'arret
+					System.out.println("point d'arret 3");										
 			} else {
-				Musique.pauseMusique(Musique.clip); //met en pause la musique 
+				Musique.pauseMusique(Musique.clip); // met en pause la musique
 				System.out.println("\tMise en pause de la musique");
 			}
 		}
-				
-		//Pour les effets sonores
+		else {
+			System.out.println("ON A UN PROBLEME, AUCUN POINT D'ARRET N'EST PASSE");
+		}
+
+		// Pour les effets sonores
 		if (cbEffet.isSelected() == true) {
 			System.out.println("\tEffets sonores activé");
-			soundEffects.setSoundOK(true);
-		}else {
+			EffetSonore.setSoundOK(true);
+
+		} else {
 			System.out.println("\tEffets sonores désactivé");
-			soundEffects.setSoundOK(false);
+			EffetSonore.setSoundOK(false);
 		}
-				
-		soundEffects.playSoundEffect("src//ihm//ressources//musique//BEEP1.wav"); //met un bruit sur le bouton si les effets sonores sont activés
-		
+
+		ParametreController.cbSonCoche = cbEffet.isSelected();
+		ParametreController.cbMusiqueCoche = cbMusique.isSelected();
+
+		EffetSonore.playSoundEffect(fileSound1); // met un bruit sur le bouton si les effets sonores sont activés
+
 		System.out.println("Retour au jeu");
 		Stage appStage = (Stage) ((Node) me.getSource()).getScene().getWindow();
 		appStage.close();
 	}
-	
-	
-	@FXML 
+
+	@FXML
 	public void quitter(MouseEvent me) throws IOException {
+		InputStream fileSound1 = getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
+		EffetSonore.playSoundEffect(fileSound1);
+		
 		System.err.println("Fin de partie");
 		Stage appStage = (Stage) ((Node) me.getSource()).getScene().getWindow();
 		appStage.close();
-		
-		
+
 	}
 }

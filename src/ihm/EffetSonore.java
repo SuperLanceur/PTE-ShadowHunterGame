@@ -20,7 +20,6 @@ public class EffetSonore {
 			
 			try {
 
-				//File soundPath = new File(path);
 				InputStream soundPath = path;
 
 				if (soundPath!=null) {
