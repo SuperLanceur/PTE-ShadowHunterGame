@@ -21,11 +21,12 @@ public class TestDatabse {
 	
 	@AfterEach
 	private void free() {
+		System.gc();
 		System.out.println("=====Fin du test=====\n\n\n");
 	}
 	
 	@Test
-	private void testDBConnexion() {
+	void testDBConnexion() {
 		try (Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/ShadowHunterDatabase", "shManager", "shadowhunter1234")) { //notre utilisateur que l'on utilisera (:
 	       	 
             System.out.println("Connected to PostgreSQL database!");
@@ -36,8 +37,45 @@ public class TestDatabse {
 	}
 	
 	@Test
-	private void getEntireTableCartesLumiere() {
+	void getEntireTableCartesLumiere() {
+		System.out.println("Test getEntireTableCartesLumiere");
 		t.remplirTableAllFrom("CartesLumiere");
 		Assert.assertFalse(t.isEmpty());
 	}
+	
+	@Test
+	void getEntireTableCartesTenebre() {
+		System.out.println("Test getEntireTableCartesTenebre");
+		t.remplirTableAllFrom("CartesTenebre");
+		Assert.assertFalse(t.isEmpty());
+	}
+	
+	@Test
+	void getEntireTableCartesVision() {
+		System.out.println("Test getEntireTableCartesVision");
+		t.remplirTableAllFrom("CartesVision");
+		Assert.assertFalse(t.isEmpty());
+	}
+	
+	@Test
+	void getEntireTableCartesPersonnage() {
+		System.out.println("Test getEntireTableCartesPersonnage");
+		t.remplirTableAllFrom("CartesPersonnage");
+		Assert.assertFalse(t.isEmpty());
+	}
+	
+	@Test
+	void getEntireTableCartesDos() {
+		System.out.println("Test getEntireTableCartesDos");
+		t.remplirTableAllFrom("CartesDos");
+		Assert.assertFalse(t.isEmpty());
+	}
+	
+	@Test
+	void getEntireTableCartesAll() {
+		System.out.println("Test getEntireTableCartesAll");
+		t.remplirTableAllFrom("CartesAll");
+		Assert.assertFalse(t.isEmpty());
+	}
+	
 }

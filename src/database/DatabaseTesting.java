@@ -1,6 +1,13 @@
 package database;
 
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
+import javax.imageio.ImageIO;
+
+import javafx.scene.image.Image;
 
 /*
 import java.sql.Connection;
@@ -11,21 +18,25 @@ import java.sql.Statement;
 */
 
 public class DatabaseTesting {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
     	Table a = new Table("a");
     	a.remplirTableAllFrom("CartesAll");
     	System.out.println(a.toString());
-    	BufferedImage jpg = new BufferedImage(467, 652, 1);
     	
+    	Image image = ByteaToCardImage.getJavaFXImage(a.getList().get(1).getImg());
+    	System.out.println(image);
     	
-    	/*
-    	try {
-			ByteaToCardImage.getImg(a.getList().get(5).getImg());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		*/
+    	//a.getList().get(1).getImg();
+       
+	}
+
+	public BufferedImage createImageFromBytes(byte[] imageData) {
+	    ByteArrayInputStream bais = new ByteArrayInputStream(imageData);
+	    try {
+	        return ImageIO.read(bais);
+	    } catch (IOException e) {
+	        throw new RuntimeException(e);
+	    }
     	
     	
     	
