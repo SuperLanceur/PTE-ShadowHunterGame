@@ -3,17 +3,23 @@ package ihm.controller;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.Locale;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import ihm.EffetSonore;
 import ihm.Musique;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.GestionnaireJeu;
+import main.Joueur;
 
 public class PauseController implements Initializable {
 	@FXML
@@ -95,6 +101,12 @@ public class PauseController implements Initializable {
 		System.err.println("Fin de partie");
 		Stage appStage = (Stage) ((Node) me.getSource()).getScene().getWindow();
 		appStage.close();
-
+		
+		final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRENCH);
+		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+		AnchorPane root = fxmlLoader.load();
+        
+		
 	}
 }
