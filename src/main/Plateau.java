@@ -355,14 +355,10 @@ public class Plateau extends Thread{
 			
 			Collections.shuffle(lieux);
 			
-			for(int i = 0; i < lieux.size(); i += 2) {
-				
+			for(int i = 0; i < lieux.size(); i += 2) {	
 				lieux.get(i).setVoisin(lieux.get(i+1));
 				lieux.get(i+1).setVoisin(lieux.get(i));
 			}
-			
-		}else {
-			
 		}
 	}
 	

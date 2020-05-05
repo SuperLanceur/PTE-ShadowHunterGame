@@ -264,7 +264,6 @@ public class PlateauController implements Initializable {
 	public void rollDice(Joueur joueur, int typeDice, int[] rolls) {
 		
 		
-		
 	}
 
 	public void afficherChoisir(Joueur j) throws IOException {

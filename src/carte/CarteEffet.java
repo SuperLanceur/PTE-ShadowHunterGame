@@ -1,10 +1,17 @@
 package carte;
 
 import main.Joueur;
+
+import java.io.Serializable;
+
 import effet.Effet;
 
-public abstract class CarteEffet extends Carte{
+public abstract class CarteEffet extends Carte implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5248405395465365805L;
 	private Effet effet;
 	
 	public CarteEffet(String nom, String description) {

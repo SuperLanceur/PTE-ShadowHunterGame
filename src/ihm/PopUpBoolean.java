@@ -13,7 +13,6 @@ import javafx.stage.StageStyle;
 
 public class PopUpBoolean {
 	
-	
 	@FXML private Pane rootPane;
 	private Scene scene; 
 	private Stage popup;
@@ -23,26 +22,19 @@ public class PopUpBoolean {
 	
 	public PopUpBoolean (Parent p, String titre) {
 		
-		
 		popup = new Stage();
-		
 		popup.initModality(Modality.WINDOW_MODAL);
-		
 		popup.initStyle(StageStyle.UNDECORATED);
-		
 		popup.setTitle(titre);
-		
 		scene = new Scene(p);
 	        
 		p.setOnMousePressed(new EventHandler<MouseEvent>() {
-		
 			@Override
 			public void handle(MouseEvent event){
 				
 				xOffSet = event.getSceneX();
 				yOffSet = event.getSceneY();
 			}
-			
 		});
 		
 		p.setOnMouseDragged(new EventHandler<MouseEvent>() {
@@ -51,19 +43,14 @@ public class PopUpBoolean {
 			public void handle(MouseEvent event){
 				
 				popup.setX(event.getScreenX() - xOffSet);
-				popup.setY(event.getScreenY() - yOffSet);
-				
-			}
-			
+				popup.setY(event.getScreenY() - yOffSet);	
+			}			
 		});	
 	}
-	
+
 	public boolean display() {
-		
 		popup.setScene(scene);
-		
 		popup.showAndWait();
-	
 		return result;
 	}
 }

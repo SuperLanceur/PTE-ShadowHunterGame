@@ -1,9 +1,15 @@
 package carte;
 
+import java.io.Serializable;
+
 import main.Joueur;
 
-public abstract class Carte {
+public abstract class Carte implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3227553705226975570L;
 	private String nom;
 	private String description;
 	

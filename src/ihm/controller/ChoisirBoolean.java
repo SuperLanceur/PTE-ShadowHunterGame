@@ -22,15 +22,12 @@ public class ChoisirBoolean implements Initializable {
 			
 			this.result = true;
 			GestionnaireJeu.notifyPlateau();
-			
 		});
 		
 		nonButton.setOnAction(x -> {
-			
 			this.result = false;
 			GestionnaireJeu.notifyPlateau();
-		});
-		
+		});		
 	}
 
 	public boolean getResult() {
