@@ -66,7 +66,6 @@ public class PlayersController implements Initializable{
 		ligne.add(hb7);
 		ligne.add(hb8);
 		for (HBox hb : ligne) {
-			System.out.println(hb);
 			txt.add((TextField) hb.getChildren().get(0));
 			plus.add((Button) hb.getChildren().get(1));
 			ia.add((CheckBox) hb.getChildren().get(2));
