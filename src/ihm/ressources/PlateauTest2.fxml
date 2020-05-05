@@ -355,7 +355,7 @@
                                     </GridPane>
                                  </children>
                               </GridPane>
-                              <Button mnemonicParsing="false" onMouseClicked="#mettreEnPause" styleClass="bouton">
+                              <Button mnemonicParsing="false" onMouseClicked="#mettreEnPause" styleClass="boutonPause">
                                  <graphic>
                                     <ImageView fitHeight="44.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -371,6 +371,8 @@
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" />
                                   <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
+                                    <ColumnConstraints hgrow="SOMETIMES" />
                                     <ColumnConstraints hgrow="SOMETIMES" />
                                     <ColumnConstraints hgrow="SOMETIMES" />
                                     <ColumnConstraints hgrow="SOMETIMES" />
@@ -412,7 +414,7 @@
                                        </children>
                                        <styleClass>
                                           <String fx:value="barreDeVie" />
-                                          <String fx:value="zero" />
+                                          <String fx:value="un" />
                                        </styleClass>
                                     </StackPane>
                                     <StackPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="2">
@@ -426,7 +428,7 @@
                                        </children>
                                        <styleClass>
                                           <String fx:value="barreDeVie" />
-                                          <String fx:value="zero" />
+                                          <String fx:value="deux" />
                                        </styleClass>
                                     </StackPane>
                                     <StackPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="3">
@@ -440,7 +442,7 @@
                                        </children>
                                        <styleClass>
                                           <String fx:value="barreDeVie" />
-                                          <String fx:value="zero" />
+                                          <String fx:value="trois" />
                                        </styleClass>
                                     </StackPane>
                                     <StackPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="4">
@@ -454,10 +456,10 @@
                                        </children>
                                        <styleClass>
                                           <String fx:value="barreDeVie" />
-                                          <String fx:value="zero" />
+                                          <String fx:value="quatre" />
                                        </styleClass>
                                     </StackPane>
-                                    <StackPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="5">
+                                    <StackPane layoutX="10.0" layoutY="10.0" styleClass="barreDeVie" GridPane.columnIndex="5">
                                        <children>
                                           <FlowPane />
                                           <Label alignment="CENTER" text="0" textFill="WHITE">
@@ -466,12 +468,8 @@
                                              </font>
                                           </Label>
                                        </children>
-                                       <styleClass>
-                                          <String fx:value="barreDeVie" />
-                                          <String fx:value="zero" />
-                                       </styleClass>
                                     </StackPane>
-                                    <StackPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="6">
+                                    <StackPane layoutX="10.0" layoutY="10.0" styleClass="barreDeVie" GridPane.columnIndex="6">
                                        <children>
                                           <FlowPane />
                                           <Label alignment="CENTER" text="0" textFill="WHITE">
@@ -480,12 +478,8 @@
                                              </font>
                                           </Label>
                                        </children>
-                                       <styleClass>
-                                          <String fx:value="barreDeVie" />
-                                          <String fx:value="zero" />
-                                       </styleClass>
                                     </StackPane>
-                                    <StackPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="7">
+                                    <StackPane layoutX="10.0" layoutY="10.0" styleClass="barreDeVie" GridPane.columnIndex="7">
                                        <children>
                                           <FlowPane />
                                           <Label alignment="CENTER" text="0" textFill="WHITE">
@@ -494,12 +488,8 @@
                                              </font>
                                           </Label>
                                        </children>
-                                       <styleClass>
-                                          <String fx:value="barreDeVie" />
-                                          <String fx:value="zero" />
-                                       </styleClass>
                                     </StackPane>
-                                    <StackPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="8">
+                                    <StackPane layoutX="10.0" layoutY="10.0" styleClass="barreDeVie" GridPane.columnIndex="8">
                                        <children>
                                           <FlowPane />
                                           <Label alignment="CENTER" text="0" textFill="WHITE">
@@ -508,12 +498,8 @@
                                              </font>
                                           </Label>
                                        </children>
-                                       <styleClass>
-                                          <String fx:value="barreDeVie" />
-                                          <String fx:value="zero" />
-                                       </styleClass>
                                     </StackPane>
-                                    <StackPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="9">
+                                    <StackPane layoutX="10.0" layoutY="10.0" styleClass="barreDeVie" GridPane.columnIndex="9">
                                        <children>
                                           <FlowPane />
                                           <Label alignment="CENTER" text="0" textFill="WHITE">
@@ -522,12 +508,8 @@
                                              </font>
                                           </Label>
                                        </children>
-                                       <styleClass>
-                                          <String fx:value="barreDeVie" />
-                                          <String fx:value="zero" />
-                                       </styleClass>
                                     </StackPane>
-                                    <StackPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="10">
+                                    <StackPane layoutX="10.0" layoutY="10.0" styleClass="barreDeVie" GridPane.columnIndex="10">
                                        <children>
                                           <FlowPane />
                                           <Label alignment="CENTER" text="0" textFill="WHITE">
@@ -536,12 +518,8 @@
                                              </font>
                                           </Label>
                                        </children>
-                                       <styleClass>
-                                          <String fx:value="barreDeVie" />
-                                          <String fx:value="zero" />
-                                       </styleClass>
                                     </StackPane>
-                                    <StackPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="11">
+                                    <StackPane layoutX="10.0" layoutY="10.0" styleClass="barreDeVie" GridPane.columnIndex="11">
                                        <children>
                                           <FlowPane />
                                           <Label alignment="CENTER" text="0" textFill="WHITE">
@@ -550,12 +528,8 @@
                                              </font>
                                           </Label>
                                        </children>
-                                       <styleClass>
-                                          <String fx:value="barreDeVie" />
-                                          <String fx:value="zero" />
-                                       </styleClass>
                                     </StackPane>
-                                    <StackPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="12">
+                                    <StackPane layoutX="10.0" layoutY="10.0" styleClass="barreDeVie" GridPane.columnIndex="12">
                                        <children>
                                           <FlowPane />
                                           <Label alignment="CENTER" text="0" textFill="WHITE">
@@ -564,10 +538,26 @@
                                              </font>
                                           </Label>
                                        </children>
-                                       <styleClass>
-                                          <String fx:value="barreDeVie" />
-                                          <String fx:value="zero" />
-                                       </styleClass>
+                                    </StackPane>
+                                    <StackPane styleClass="barreDeVie" GridPane.columnIndex="13">
+                                       <children>
+                                          <FlowPane />
+                                          <Label alignment="CENTER" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </StackPane>
+                                    <StackPane styleClass="barreDeVie" GridPane.columnIndex="14">
+                                       <children>
+                                          <FlowPane />
+                                          <Label alignment="CENTER" text="0" textFill="WHITE">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
                                     </StackPane>
                                  </children>
                               </GridPane>

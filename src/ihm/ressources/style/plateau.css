@@ -50,6 +50,11 @@
     -fx-background-insets: 0 0 0 0, 0, 1, 2;
 }
 
+.boutonPause {
+	-fx-border-width: 0;
+	-fx-background-color: none;
+}
+
 .carteLumiere {
 	-fx-background-color: #edebea;
 	-fx-border-color: #cecece;
