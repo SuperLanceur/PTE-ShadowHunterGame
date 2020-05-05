@@ -15,8 +15,6 @@ import javafx.application.Platform;
 public class GestionnaireJeu {
 	
 	private static GestionnaireJeu gj;	
-
-	private View view;
 	
 	private Map<Integer, Joueur> mapJoueurs;
 	
@@ -160,6 +158,10 @@ public class GestionnaireJeu {
 	public void updateVieJoueur(Joueur joueur, int damage) {
 		pc.updateVieJoueur(joueur, damage);
 		
+	}
+
+	public static void endGame() {
+		plateau.stop();
 	}
 
 	

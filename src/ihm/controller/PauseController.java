@@ -13,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import main.GestionnaireJeu;
 
 public class PauseController implements Initializable {
 	@FXML
@@ -90,7 +91,7 @@ public class PauseController implements Initializable {
 	public void quitter(MouseEvent me) throws IOException {
 		InputStream fileSound1 = getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
 		EffetSonore.playSoundEffect(fileSound1);
-		
+		GestionnaireJeu.endGame();
 		System.err.println("Fin de partie");
 		Stage appStage = (Stage) ((Node) me.getSource()).getScene().getWindow();
 		appStage.close();
