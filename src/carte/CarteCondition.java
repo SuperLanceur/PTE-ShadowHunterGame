@@ -1,9 +1,18 @@
 package carte;
 
 import main.Joueur;
+
+import java.io.Serializable;
+
 import condition.Condition;
 
-public abstract class CarteCondition extends CarteEffet{
+public abstract class CarteCondition extends CarteEffet implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 903022795821166067L;
+
 
 	public CarteCondition(String nom, String description) {
 		super(nom, description);

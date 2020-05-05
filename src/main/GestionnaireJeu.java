@@ -77,7 +77,6 @@ public class GestionnaireJeu {
 			
 				e.printStackTrace();
 			}
-		
 		});
 		
 		this.waitPlateau();
@@ -111,19 +110,16 @@ public class GestionnaireJeu {
 			}
 		}
 	}
-	
+
 	public static void notifyPlateau() {
-		
 		synchronized(plateau) {	
 			plateau.notify();
 		}
-		
 	}
 	
 	public void rollDice(Joueur joueur, int typeDice, int ... rolls){
 		
 		pc.rollDice(joueur,typeDice,rolls);
-		
 	}
 	
 	public void setConfiguration(Configuration c) {
@@ -131,13 +127,13 @@ public class GestionnaireJeu {
 		Map<Integer, Joueur> mapJoueurs = convertConfiguration(c);
 		this.mapJoueurs = mapJoueurs;
 		
-		List<Joueur> joueurs = new ArrayList();
+		List<Joueur> joueurs = new ArrayList<Joueur>();
 		
 		for(Joueur j : mapJoueurs.values()) {
 			joueurs.add(j);
 		}
 		
-		this.plateau = new Plateau(joueurs);
+		plateau = new Plateau(joueurs);
 		
 	}
 
@@ -151,7 +147,7 @@ public class GestionnaireJeu {
 	}
 
 	public void setPlateauController(PlateauController pc2) {
-		this.pc = pc2;
+		pc = pc2;
 		
 	}
 

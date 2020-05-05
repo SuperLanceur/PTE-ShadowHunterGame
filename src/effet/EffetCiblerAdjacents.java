@@ -9,7 +9,6 @@ public class EffetCiblerAdjacents extends Effet{
 	public EffetCiblerAdjacents(Action action) {
 		super(action);
 	}
-
 	
 	@Override
 	public void utiliser(Joueur joueur)
@@ -21,9 +20,5 @@ public class EffetCiblerAdjacents extends Effet{
 		{
 			action.affecte(joueur, j);
 		}
-		
 	}
-
-
-	
 }
