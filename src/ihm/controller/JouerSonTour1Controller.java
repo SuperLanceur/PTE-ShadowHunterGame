@@ -16,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -26,71 +27,42 @@ import javafx.util.Duration;
 import main.Joueur;
 
 public class JouerSonTour1Controller implements Initializable{
-	private Joueur joueur;
-	
 	@FXML private Pane rootPane;
-	@FXML private Label nomJoueur;
-	@FXML private AnchorPane d6;
-	@FXML private AnchorPane d4;
+	@FXML private Label d6;
+	@FXML private Label d4;
+	@FXML private Button btnStop;
+	@FXML private Button btnLancer;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		System.out.println("\tLancements des dès");
-		
-		//nomJoueur.setText(joueur.getNom());
-		
-		int OFFSET_X = 0;
-		int OFFSET_Y = 0;
-		int WIDTH = 80;
-		int HEIGHT = 80;
-		int COUNT = 6;
-		int COLUMNS = 6;
-	
-		//anchorPane1.getChildren().setAll(imageView);
-		
-		
-		ImageView imageView;
-		try {
-			imageView = FXMLLoader.load(getClass().getResource("/ihm/ressources/img/des.fxml"));
-			imageView.setViewport(new Rectangle2D(OFFSET_X, OFFSET_Y, WIDTH, HEIGHT));
-
-			imageView.fitWidthProperty().bind(d6.widthProperty()); 
-			final SpriteAnimation animation = new SpriteAnimation(
-			        imageView,
-			        Duration.millis(250),
-			        COUNT, COLUMNS,
-			        OFFSET_X, OFFSET_Y,
-			        557, 557
-			);
-			animation.setCycleCount(Animation.INDEFINITE);
-			animation.play();
-			d6.getChildren().addAll(new Group(imageView));
-			d6.setOnMousePressed(new EventHandler<Event>(
-					
-					) {
-
-						@Override
-						public void handle(Event arg0) {
-							animation.stop();
-						
-						}
-			});
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		btnStop.setVisible(false);
 	}
 	
 	@FXML 
-	public void lancerDes(MouseEvent mouseEvent) throws IOException, InterruptedException{
+	public void lancerDes(MouseEvent mouseEvent)throws InterruptedException{
+		System.out.println("\tLancements des dès");
+		
+		btnLancer.setVisible(false);
+		btnStop.setVisible(true);
+		
+		for (int i=1; i<7; i++) {
+			Thread.sleep(500);
+			d6.setText(Integer.toString(i));
+		}
+		
+		for (int i=1; i<5; i++) {
+			Thread.sleep(500);
+			d4.setText(Integer.toString(i));
+		}
+	}
+	
+	@FXML
+	public void stop(MouseEvent mouseEvent) throws IOException, InterruptedException {
+		Thread.sleep(2000);
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Jouer_tour(2)carte_lieux.fxml");  
 	    final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.ENGLISH);
 	    final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 	    Pane root = fxmlLoader.load();
         rootPane.getChildren().setAll(root);
-	}
-	
-	public void deplacerPion(CarteLieu lieux) {
-		
 	}
 }
