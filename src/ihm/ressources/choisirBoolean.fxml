@@ -7,7 +7,7 @@
 
 <AnchorPane fx:id="root" minHeight="0.0" minWidth="0.0" prefHeight="129.0" prefWidth="201.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.ChoisirBoolean">
    <children>
-      <Label layoutX="8.0" layoutY="-11.0" prefHeight="26.0" prefWidth="128.0" text="Voulez vous faire cette action ?" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="-11.0">
+      <Label fx:id="titre" layoutX="8.0" layoutY="-11.0" prefHeight="26.0" prefWidth="128.0" text="Voulez vous faire cette action ?" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="-11.0">
          <font>
             <Font size="13.0" />
          </font>

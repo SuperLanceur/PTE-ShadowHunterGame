@@ -45,7 +45,7 @@ public class JouerSonTour1Controller implements Initializable{
 		btnLancer.setVisible(false);
 		btnStop.setVisible(true);
 		
-		for (int i=1; i<7; i++) {
+		/*for (int i=1; i<7; i++) {
 			Thread.sleep(500);
 			d6.setText(Integer.toString(i));
 		}
@@ -53,7 +53,7 @@ public class JouerSonTour1Controller implements Initializable{
 		for (int i=1; i<5; i++) {
 			Thread.sleep(500);
 			d4.setText(Integer.toString(i));
-		}
+		}*/
 	}
 	
 	@FXML
