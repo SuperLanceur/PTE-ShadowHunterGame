@@ -1,6 +1,7 @@
 package condition;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import main.Joueur;
@@ -15,6 +16,11 @@ public class ConditionMultiple extends Condition {
 		this.conditions.addAll(conditions);
 	}
 	
+	public ConditionMultiple(Condition...conditions) {
+		this.conditions = new ArrayList<Condition>();
+		this.conditions.addAll(Arrays.asList(conditions));
+	}
+
 	/**
 	 * Vérifie que toutes les conditions soient vraies
 	 * @param joueur Le joueur sur lequel on vérifie les conditions.

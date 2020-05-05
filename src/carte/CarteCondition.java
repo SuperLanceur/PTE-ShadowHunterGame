@@ -13,11 +13,18 @@ public abstract class CarteCondition extends CarteEffet implements Serializable{
 	 */
 	private static final long serialVersionUID = 903022795821166067L;
 
-
+	public CarteCondition() {
+		super("","");
+		this.condition = new Condition();
+	}
+	
+	
 	public CarteCondition(String nom, String description) {
 		super(nom, description);
 		
 	}
+
+	
 
 	private Condition condition;
 	

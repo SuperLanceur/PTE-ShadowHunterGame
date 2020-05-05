@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import condition.Condition;
 import effet.Effet;
+import effet.EffetChoisirCible;
+import effet.EffetSelf;
 import main.Joueur;
 import main.Type;
 
@@ -17,11 +19,17 @@ public class CartePiochable<T extends Type> extends CarteCondition implements Se
 	}
 	
 	public CartePiochable(Effet e, Condition c) {
-		super("","");
+		super();
 		this.setEffet(e);
 		this.setCondition(c);
 	}
 	
+	public CartePiochable(Effet effet) {
+		super();
+		this.setEffet(effet);
+		this.setCondition(new Condition());
+	}
+
 	/*
 	 * 	@param j Appel la méthode utiliser de effet sur le joueur j
 	 */

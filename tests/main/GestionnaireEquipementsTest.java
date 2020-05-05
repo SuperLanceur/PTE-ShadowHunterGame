@@ -9,7 +9,7 @@ import java.util.Random;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import carte.EquipementStat;
+import carte.CarteEquipementStat;
 import condition.Condition;
 import effet.EffetSelf;
 import effet.action.ActionAltererStatistiquesJoueur;
@@ -51,7 +51,7 @@ class GestionnaireEquipementsTest {
 		
 		for(int i = 0; i < 20; i++) {
 			
-			EquipementStat es = new EquipementStat("AddDamage", "desc");
+			CarteEquipementStat es = new CarteEquipementStat("AddDamage", "desc");
 			es.setEffet(new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_DAMAGE, 2, true)));
 			es.setCondition(new Condition());
 			j1.ajouterEquipement(es);	
@@ -67,7 +67,7 @@ class GestionnaireEquipementsTest {
 		
 		for(int i = 0; i < 20; i++) {
 			
-			EquipementStat es = new EquipementStat("AddDamage", "desc");
+			CarteEquipementStat es = new CarteEquipementStat("AddDamage", "desc");
 			es.setEffet(new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_DAMAGE, valeurEffet, true)));
 			es.setCondition(new Condition());
 			j1.ajouterEquipement(es);
@@ -81,7 +81,7 @@ class GestionnaireEquipementsTest {
 		
 		int valeurEffet = 3;
 		
-		EquipementStat es = new EquipementStat("AddDamage", "desc");
+		CarteEquipementStat es = new CarteEquipementStat("AddDamage", "desc");
 		es.setEffet(new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_DAMAGE, valeurEffet, true)));
 		es.setCondition(new Condition());
 		j1.ajouterEquipement(es);

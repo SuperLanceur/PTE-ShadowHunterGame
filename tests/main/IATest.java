@@ -9,7 +9,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import carte.Equipement;
+import carte.CarteEquipement;
 import personnage.Allie;
 import personnage.CartePersonnage.Equipe;
 import personnage.Franklin;
@@ -238,7 +238,7 @@ public class IATest {
 	@Test
 	public void choixEquipementTest() {
 		//setup
-		List<Equipement> equips = new ArrayList<>();
+		List<CarteEquipement> equips = new ArrayList<>();
 		//TODO : pas possible d'instancier des Equipements apart des EquipementStat
 	}
 	
