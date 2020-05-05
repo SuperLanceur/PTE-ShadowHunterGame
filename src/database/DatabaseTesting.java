@@ -2,11 +2,10 @@ package database;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-
-import javafx.scene.image.Image;
 
 /*
 import java.sql.Connection;
@@ -22,20 +21,22 @@ public class DatabaseTesting {
     	a.remplirTableAllFrom("CartesAll");
     	System.out.println(a.toString());
     	
-    	Image image = ByteaToCardImage.getJavaFXImage(a.getList().get(1).getImg());
-    	System.out.println(image);
+    	//a.getList().get(1).getImg()
     	
-    	//a.getList().get(1).getImg();
-       
-	}
-
-	public BufferedImage createImageFromBytes(byte[] imageData) {
-	    ByteArrayInputStream bais = new ByteArrayInputStream(imageData);
-	    try {
-	        return ImageIO.read(bais);
-	    } catch (IOException e) {
-	        throw new RuntimeException(e);
-	    }
+    	
+    	BufferedImage image = ImageIO.read( new ByteArrayInputStream( a.getList().get(1).getImg() ) );
+    	ImageIO.write(image, "JPG", new File("filename.jpg"));
+    	
+    	/*
+    	 * PreparedStatement ps = conn.prepareStatement("SELECT img FROM images WHERE imgname = ?");
+ps.setString(1, "myimage.gif");
+ResultSet rs = ps.executeQuery();
+while (rs.next()) {
+    byte[] imgBytes = rs.getBytes(1); OR  byte []out = (byte[])(rs.getObject(1));
+    // use the data in some way here
+}
+rs.close();
+ps.close();*/
     	
     	
     	
