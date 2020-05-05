@@ -31,7 +31,7 @@ public class Main extends Application {
 		          System.exit(0);
 			}
 		   });
-		//primaryStage.setMaximized(true);
+		primaryStage.setMaximized(true);
 		primaryStage.show();
 	}
 
