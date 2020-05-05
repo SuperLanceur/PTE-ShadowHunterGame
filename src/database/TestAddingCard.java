@@ -30,7 +30,6 @@ public class TestAddingCard {
 	public static void main(String[] args) {
 		
 		CartePiochable<?> instance = new CartePiochable(new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, 2, true)), new Condition());
-		
 	
 		try {
 			insertCartePiochable(instance);
@@ -81,8 +80,6 @@ public class TestAddingCard {
 			  object = rs.getBytes(1);
 		  }
 		  
-		 
-		 
 		ByteArrayInputStream in = new ByteArrayInputStream(object);
 		    ObjectInputStream is = new ObjectInputStream(in);
 		    return (CartePiochable<?>) is.readObject();

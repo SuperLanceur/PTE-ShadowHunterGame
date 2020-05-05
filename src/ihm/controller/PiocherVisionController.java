@@ -21,11 +21,11 @@ public class PiocherVisionController implements Initializable{
 	@FXML
 	public void voirCarte(MouseEvent mouseEvent) throws IOException{
 		
-		final URL fxmlURL = getClass().getResource("/ihm/ressources/jouer_Son_Tour_donner_vision.fxml");  
-	    final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
-	    final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
-        Pane pane = fxmlLoader.load();
-        
+	   final URL fxmlURL = getClass().getResource("/ihm/ressources/jouer_Son_Tour_donner_vision.fxml");  
+	   final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+	   final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+       Pane pane = fxmlLoader.load();
+      
        rootPane.getChildren().setAll(pane);
 
     }

@@ -10,7 +10,6 @@ import main.GestionnaireJeu;
 
 public class ChoisirBoolean implements Initializable {
 
-	
 	@FXML private Button ouiButton;
 	@FXML private Button nonButton;
 
@@ -22,19 +21,15 @@ public class ChoisirBoolean implements Initializable {
 			
 			this.result = true;
 			GestionnaireJeu.notifyPlateau();
-			
 		});
 		
 		nonButton.setOnAction(x -> {
-			
 			this.result = false;
 			GestionnaireJeu.notifyPlateau();
-		});
-		
+		});		
 	}
 
 	public boolean getResult() {
 		return this.result;
 	}
-	
 }
