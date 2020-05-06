@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import carte.Carte;
 import carte.CartePiochable;
 import condition.Condition;
 import effet.EffetSelf;
@@ -42,7 +43,7 @@ public class TestAddingCard {
 	        return DriverManager.getConnection(url, user, password);
 	   }
 	 
-	  public static void insertCartePiochable(CartePiochable<?> instance) throws IOException, SQLException {
+	  public static void insertCartePiochable(Carte instance) throws IOException, SQLException {
 		  
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		ObjectOutputStream oos;

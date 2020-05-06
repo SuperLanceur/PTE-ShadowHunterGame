@@ -48,6 +48,22 @@ public class QueryGenerator {
 	        return DriverManager.getConnection(url, user, password);
 	   }
 	
+	public static String selectId(int id) {
+		String table = "";
+		if(id <= 16) {
+			table = getTable("CartesLumiere");
+		} else if(id <= 32) {
+			table = getTable("CartesTenebre");
+		} else if(id <= 47) {
+			table = getTable("CartesVision");
+		} else if(id <= 57) {
+			table = getTable("CartesPersonnage");
+		} else if(id <= 61) {
+			table = getTable("CartesDos");
+		}
+		return "SELECT * FROM " + table + " WHERE id = " + id;
+	}
+	 
 	public static void queryInsertObject(int id, Object o) throws IOException, SQLException {
 		
 		String table = null;
@@ -76,13 +92,13 @@ public class QueryGenerator {
 		}
 		
 		String query = null;
-		query = "UPDATE" + table + " SET objet = ";
+		query = "UPDATE " + table + " SET objet = ? "
+		+ " WHERE id = ? "		;
 		
 		Connection conn = connect();
 		PreparedStatement pst = conn.prepareStatement(query);
-		pst.setBinaryStream(4, objectIS);
+		pst.setBinaryStream(1, objectIS);
+		pst.setInt(2, id);
 		pst.executeUpdate();
 	}
-	
-
 }

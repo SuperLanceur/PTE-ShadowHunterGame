@@ -11,6 +11,11 @@ public class Metamorphe extends CartePersonnage{
 	private static final long serialVersionUID = 8415184267445994107L;
 	public final static int  HP = 11;
 	
+	public Metamorphe() {
+		super("METAMORPHE","desc", HP, null);
+		this.setCondition(new WinConditionShadow());
+	}
+	
 	public Metamorphe(Joueur j) {
 		super("METAMORPHE","desc", HP, j);
 		this.setCondition(new WinConditionShadow());
@@ -20,8 +25,6 @@ public class Metamorphe extends CartePersonnage{
 		super(nom,desc, hp, joueur);
 		this.setCondition(new WinConditionShadow());
 	}
-
-	
 
 	public void utiliser() {
 	}

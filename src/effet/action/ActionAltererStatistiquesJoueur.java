@@ -57,4 +57,9 @@ public class ActionAltererStatistiquesJoueur extends Action{
 	public void setValeur(int valeur) {
 		this.valeur = valeur;
 	}
+	
+	@Override
+	public String toString(){
+		return this.key+" "+this.valeur+" "+this.ajouter; 
+	}
 }

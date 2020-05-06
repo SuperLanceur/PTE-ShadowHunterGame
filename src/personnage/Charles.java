@@ -18,6 +18,14 @@ public class Charles extends CartePersonnage{
 
 	}
 
+	public Charles() {
+		super("Charles", "desc", 11, null);
+		
+		Action action = new ActionAltererStatistiquesJoueur("HP",-2,true);
+		Effet effet = new EffetSelf(action);
+		this.setEffet(effet);
+	}
+
 	@Override
 	public void attaquer(Joueur j, int blessure) {
 		

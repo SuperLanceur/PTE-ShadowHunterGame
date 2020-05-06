@@ -6,6 +6,11 @@ import main.Plateau;
 
 public class Georges extends Unique{
 
+	public Georges() {
+		super("Franklin", "desc", 14, null);
+		this.setCondition(new WinConditionHunter());
+		this.setEquipe(CartePersonnage.Equipe.HUNTER);
+	}
 	
 	public Georges(Joueur joueur) {
 		super("Franklin", "desc", 14, joueur);
@@ -18,6 +23,8 @@ public class Georges extends Unique{
 		this.setCondition(new WinConditionHunter());
 		this.setEquipe(CartePersonnage.Equipe.HUNTER);
 	}
+
+	
 
 	public void utiliser() {
 		Joueur joueur = this.getJoueur();

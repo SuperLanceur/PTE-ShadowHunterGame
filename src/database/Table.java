@@ -13,6 +13,10 @@ public class Table {
 	private String name;
 	private List<Record> list = new ArrayList<Record>();
 	
+	public Table() {
+		this.name = "";
+	}
+	
 	public Table(String JavaTableName) {
 		this.name = JavaTableName;
 	}
@@ -60,6 +64,23 @@ public class Table {
             ResultSet retour = statement.executeQuery(QueryGenerator.WithName(DatabaseTableName, s));
             while (retour.next()) {
             	list.add(new Record(retour.getString("id"), retour.getString("nom"), retour.getBytes("image")));
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Connection failure.");
+            e.printStackTrace();
+        }
+	}
+	
+	public void remplirTableQuery(String query) {
+		try (Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/ShadowHunterDatabase", "shManager", "shadowhunter1234")) { //notre utilisateur que l'on utilisera (:
+	       	 
+            System.out.println("Connected to PostgreSQL database!");
+            Statement statement = connection.createStatement();
+            System.out.println("Reading records...");
+            ResultSet retour = statement.executeQuery(query);
+            while (retour.next()) {
+            	list.add(new Record(retour.getString("id"), retour.getString("nom"), null, retour.getBytes("objet")));
             }
 
         } catch (SQLException e) {

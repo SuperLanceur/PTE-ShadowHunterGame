@@ -20,6 +20,7 @@ public class Allie extends Unique{
 	 */
 	private static final long serialVersionUID = 8822533547275463314L;
 
+	
 	public Allie(Joueur joueur) {
 		super("ALLIE","desc", 8, joueur);
 		

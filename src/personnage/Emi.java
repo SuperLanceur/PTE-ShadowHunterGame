@@ -7,6 +7,12 @@ public class Emi extends CartePersonnage{
 	
 	public static final int HP = 13;
 	
+	public Emi() {
+		super("EMI","desc", HP, null);
+		
+		this.setCondition(new WinConditionHunter());
+	}
+	
 	public Emi(Joueur j) {
 		super("EMI","desc", HP, j);
 		
@@ -23,6 +29,8 @@ public class Emi extends CartePersonnage{
 	
 	
 
+
+	
 
 	public void deplacer() {
 			
