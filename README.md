@@ -19,7 +19,13 @@ Pour gagner, les Hunters et Shadow doivent éliminer tous les personnages du cam
 
 ## Comment l'utiliser
 
-Vous trouverez la documentation pour utliser notre application [ici].
+Dans un premier temps, vous pouvez télécharger la dernière version de notre application en utilisant la commande :
+
+```git clone https://github.com/PTE-SH/ShadowHunterGame.git```
+
+Puis, il faut executez le ``ShadowHunterGame.exe`` pour pouvoir y jouer.
+
+Ce projet repose sur le [Java JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) pour pouvoir fonctionner.
 
 ## Auteurs
 

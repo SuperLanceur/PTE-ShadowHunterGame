@@ -9,6 +9,7 @@ public class Record {
 	
 	public Record() {
 		this("0", "", null);
+
 	}
 	
 	public Record(String n, byte[] b) {
@@ -22,6 +23,7 @@ public class Record {
 		this.img = b;
 	}
 	
+
 	public Record(String i, String n, byte[] b, byte[] obj) {
 		this.id = i;
 		this.nom = n;
@@ -40,9 +42,10 @@ public class Record {
 	public byte[] getImg() {
 		return img;
 	}
-	
+
+	@Override
 	public String toString() {
-		return String.format("%-20.30s  %-30.30s  %-20.30s%n", this.getId(), this.getNom(), this.getImg());
+		return String.format("%-20.30s  %-30.30s  %-20.30s  %-20.30s%n", this.getId(), this.getNom(), this.getImg(), this.getObjet());
 	}
 
 	public byte[] getObjet() {

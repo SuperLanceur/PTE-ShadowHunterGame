@@ -39,42 +39,42 @@ public class TestDatabse {
 	@Test
 	void getEntireTableCartesLumiere() {
 		System.out.println("Test getEntireTableCartesLumiere");
-		t.remplirTableAllFrom("CartesLumiere");
+		t.fillList(QueryGenerator.AllFrom("CartesLumiere"));
 		Assert.assertFalse(t.isEmpty());
 	}
 	
 	@Test
 	void getEntireTableCartesTenebre() {
 		System.out.println("Test getEntireTableCartesTenebre");
-		t.remplirTableAllFrom("CartesTenebre");
+		t.fillList(QueryGenerator.AllFrom("CartesTenebre"));
 		Assert.assertFalse(t.isEmpty());
 	}
 	
 	@Test
 	void getEntireTableCartesVision() {
 		System.out.println("Test getEntireTableCartesVision");
-		t.remplirTableAllFrom("CartesVision");
+		t.fillList(QueryGenerator.AllFrom("CartesVision"));
 		Assert.assertFalse(t.isEmpty());
 	}
 	
 	@Test
 	void getEntireTableCartesPersonnage() {
 		System.out.println("Test getEntireTableCartesPersonnage");
-		t.remplirTableAllFrom("CartesPersonnage");
+		t.fillList(QueryGenerator.AllFrom("CartesPersonnage"));
 		Assert.assertFalse(t.isEmpty());
 	}
 	
 	@Test
 	void getEntireTableCartesDos() {
 		System.out.println("Test getEntireTableCartesDos");
-		t.remplirTableAllFrom("CartesDos");
+		t.fillList(QueryGenerator.AllFrom("CartesDos"));
 		Assert.assertFalse(t.isEmpty());
 	}
 	
 	@Test
 	void getEntireTableCartesAll() {
 		System.out.println("Test getEntireTableCartesAll");
-		t.remplirTableAllFrom("CartesAll");
+		t.fillList(QueryGenerator.AllFrom("CartesAll"));
 		Assert.assertFalse(t.isEmpty());
 	}
 	

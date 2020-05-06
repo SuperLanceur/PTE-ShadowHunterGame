@@ -7,24 +7,23 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="255.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="255.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.VisualiserCarte">
    <children>
-      <Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="255.0" stylesheets="@style/popUp.css">
+      <Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#fin" prefHeight="180.0" prefWidth="255.0" stylesheets="@style/popUp.css">
          <children>
             <VBox alignment="CENTER" prefHeight="180.0" prefWidth="255.0">
                <children>
                   <HBox alignment="CENTER" prefHeight="72.0" prefWidth="357.0">
                      <children>
                         <Label prefHeight="27.0" prefWidth="54.0" text="%carte" />
-                        <Label prefHeight="17.0" prefWidth="121.0" text="*Lumiere ou Tenebre" />
+                        <Label fx:id="typeCarte" prefHeight="17.0" prefWidth="121.0" text="*Lumiere ou Tenebre" />
                      </children>
                   </HBox>
-                  <ImageView fitHeight="131.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageCarte" fitHeight="131.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true" />
                   <HBox alignment="CENTER" prefHeight="111.0" prefWidth="600.0">
                      <children>
                         <Label prefHeight="27.0" prefWidth="54.0" text="%effet" />
-                        <Label prefHeight="27.0" prefWidth="91.0" text="*effet de la carte" />
+                        <Label fx:id="effetCarte" prefHeight="27.0" prefWidth="91.0" text="*effet de la carte" />
                      </children>
                   </HBox>
                </children>
