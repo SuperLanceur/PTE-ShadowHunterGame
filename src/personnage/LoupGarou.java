@@ -5,7 +5,17 @@ import main.Joueur;
 
 public class LoupGarou extends CartePersonnage {
 	
+
+	/**
+	 * 
+	 */
 	public static final int HP = 14; 
+	
+	public LoupGarou() {
+		super("LOUP-GAROU","desc", HP, null);
+		this.setCondition(new WinConditionShadow());
+		this.setEquipe(CartePersonnage.Equipe.SHADOW);
+	}
 	
 	public LoupGarou(Joueur j) {
 		super("LOUP-GAROU","desc", HP, j);
@@ -18,8 +28,6 @@ public class LoupGarou extends CartePersonnage {
 
 		this.setCondition(new WinConditionShadow());
 	}
-
-	
 
 	public void utiliser() {
 	}

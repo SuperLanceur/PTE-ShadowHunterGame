@@ -4,28 +4,33 @@ import java.io.Serializable;
 
 import condition.Condition;
 import effet.Effet;
-import effet.EffetChoisirCible;
-import effet.EffetSelf;
 import main.Joueur;
-import main.Type;
 
-public class CartePiochable<T extends Type> extends CarteCondition implements Serializable{
+public class CartePiochable extends CarteCondition implements Serializable{
 
 
 	private static final long serialVersionUID = 2391013233873750967L;
+	private Type type;
+
+	public enum Type{
+		LUMIERE,
+		TENEBRE,
+		VISION
+	}
 	
-	public CartePiochable(String nom, String description) {
+	public CartePiochable(Type t, String nom, String description) {
 		super(nom, description);
 	}
 	
-	public CartePiochable(Effet e, Condition c) {
+	public CartePiochable(Type t, Effet e, Condition c) {
 		super();
 		this.setEffet(e);
 		this.setCondition(c);
 	}
 	
-	public CartePiochable(Effet effet) {
+	public CartePiochable(Type t, Effet effet) {
 		super();
+		this.type = t;
 		this.setEffet(effet);
 		this.setCondition(new Condition());
 	}
@@ -35,6 +40,10 @@ public class CartePiochable<T extends Type> extends CarteCondition implements Se
 	 */
 	public void utiliser(Joueur j) {
 		super.utiliser(j);
+	}
+	
+	public Type getType() {
+		return type;
 	}
 	
 }

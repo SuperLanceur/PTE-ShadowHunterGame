@@ -2,39 +2,36 @@ package database;
 
 public class Record {
 
-	private int id;
+	private String id;
 	private String nom;
 	private byte[] img;
-	private byte[] objetJava;
+	private byte[] obj;
 	
 	public Record() {
-		this(0, null, null, null);
+		this("0", "", null);
+
 	}
 	
 	public Record(String n, byte[] b) {
-		this(0, n, b);
+		this.nom = n;
+		this.img = b;
 	}
 	
 	public Record(String number, String n, byte[] b) {
-		this(Integer.parseInt(number), n, b);
+		this.id = number;
+		this.nom = n;
+		this.img = b;
 	}
 	
-	public Record(String number, String n, byte[] b, byte[] o) {
-		this(Integer.parseInt(number), n, b, o);
-	}
-	
-	public Record(int i, String n, byte[] b) {
-		this(i, n, b, null);
-	}
-	
-	public Record(int i, String n, byte[] b, byte[] o) {
+
+	public Record(String i, String n, byte[] b, byte[] obj) {
 		this.id = i;
 		this.nom = n;
 		this.img = b;
-		this.objetJava = o;
+		this.obj = obj;
 	}
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -45,14 +42,14 @@ public class Record {
 	public byte[] getImg() {
 		return img;
 	}
-	
-	public byte[] getObjetJava() {
-		return objetJava;
-	}
 
 	@Override
 	public String toString() {
-		return String.format("%-20.30s  %-30.30s  %-20.30s  %-20.30s%n", this.getId(), this.getNom(), this.getImg(), this.getObjetJava());
+		return String.format("%-20.30s  %-30.30s  %-20.30s  %-20.30s%n", this.getId(), this.getNom(), this.getImg(), this.getObjet());
+	}
+
+	public byte[] getObjet() {
+		return this.obj;
 	}
 	
 }

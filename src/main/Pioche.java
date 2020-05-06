@@ -6,13 +6,19 @@ import java.util.Stack;
 
 import carte.CartePiochable;
 
-public class Pioche<T extends Type> {
+public class Pioche {
 	
-	private Stack<CartePiochable<T>> cartesPiochables;
+	private Stack<CartePiochable> cartesPiochables;
+	private CartePiochable.Type type;
 	
-	public Pioche(List<CartePiochable<T>> cartesPiochables) {
+	public Pioche(List<CartePiochable> cartesPiochables) {
+		
+	}
+
+	public Pioche(CartePiochable.Type type, List<CartePiochable> list1) {
 		super();
-		this.cartesPiochables = new Stack<CartePiochable<T>>();
+		this.type = type;
+		this.cartesPiochables = new Stack<CartePiochable>();
 		this.cartesPiochables.addAll(cartesPiochables);
 		melanger();
 	}
@@ -22,7 +28,7 @@ public class Pioche<T extends Type> {
 		Collections.shuffle(cartesPiochables);
 	}
 	
-	public CartePiochable<?> piocher() {	
+	public CartePiochable piocher() {	
 		return cartesPiochables.pop();
 	}
 }

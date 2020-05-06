@@ -51,7 +51,7 @@ class GestionnaireEquipementsTest {
 		
 		for(int i = 0; i < 20; i++) {
 			
-			CarteEquipementStat es = new CarteEquipementStat("AddDamage", "desc");
+			CarteEquipementStat es = new CarteEquipementStat(null,null);
 			es.setEffet(new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_DAMAGE, 2, true)));
 			es.setCondition(new Condition());
 			j1.ajouterEquipement(es);	
@@ -67,7 +67,7 @@ class GestionnaireEquipementsTest {
 		
 		for(int i = 0; i < 20; i++) {
 			
-			CarteEquipementStat es = new CarteEquipementStat("AddDamage", "desc");
+			CarteEquipementStat es = new CarteEquipementStat(null,null);
 			es.setEffet(new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_DAMAGE, valeurEffet, true)));
 			es.setCondition(new Condition());
 			j1.ajouterEquipement(es);
@@ -81,7 +81,7 @@ class GestionnaireEquipementsTest {
 		
 		int valeurEffet = 3;
 		
-		CarteEquipementStat es = new CarteEquipementStat("AddDamage", "desc");
+		CarteEquipementStat es = new CarteEquipementStat(null,null);
 		es.setEffet(new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_DAMAGE, valeurEffet, true)));
 		es.setCondition(new Condition());
 		j1.ajouterEquipement(es);
