@@ -16,12 +16,7 @@ import main.GestionnaireJeu;
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		
-<<<<<<< HEAD
-		final URL fxmlURL = getClass().getResource("ressources/Jouer_tour(2c2)choisir_joueur.fxml");  // "ressources/Jouer_tour(1)lancer_des.fxml"
-=======
-		final URL fxmlURL = getClass().getResource("ressources/Menu.fxml"); 
->>>>>>> 13ae661b3bfcbefc0024fd7828af03782c9a2e66
+		final URL fxmlURL = getClass().getResource("ressources/Menu.fxml");
 	    final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
 	    final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 	    Pane root = fxmlLoader.load();
