@@ -8,6 +8,7 @@ import java.util.Map;
 
 import carte.Carte;
 import carte.CartePiochable;
+import personnage.CartePersonnage;
 
 public class RessourceLoader {
 
@@ -50,8 +51,22 @@ public class RessourceLoader {
 		return cartesType;
 	}
 	
-	
-	
+	private static Map<Integer, CartePersonnage> getMapPersonnage(Map<Integer, Carte> cartes){
+		
+		Map<Integer, CartePersonnage> cartesPersonnage = new HashMap<Integer, CartePersonnage>();
+		
+		for(Integer i: cartes.keySet()) {
+			
+			Carte c = cartes.get(i);
+			if(cartes.get(i) instanceof CartePersonnage) {
+				
+				CartePersonnage carte = (CartePersonnage) c;
+				cartesPersonnage.put(i,carte);
+			}
+		}
+		return cartesPersonnage;
+	}
+
 	public static Object deserialize(byte[] data) throws IOException, ClassNotFoundException {
 	    ByteArrayInputStream in = new ByteArrayInputStream(data);
 	    ObjectInputStream is = new ObjectInputStream(in);
