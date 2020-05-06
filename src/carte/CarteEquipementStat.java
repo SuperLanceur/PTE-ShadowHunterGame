@@ -22,6 +22,12 @@ public class CarteEquipementStat<T extends Type> extends CarteEquipement<Type>{
 		this.setEffet(effet);
 		this.setCondition(condition);
 	}
+	
+	public CarteEquipementStat(Effet effet) {
+		super("","");
+		this.setEffet(effet);
+		this.setCondition(new Condition());
+	}
 
 	@Override
 	public void reverse(Joueur j) {

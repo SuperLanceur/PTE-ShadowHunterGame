@@ -14,7 +14,7 @@ public class Bob extends CartePersonnage{
 		this.setCondition(condition);
 		
 		
-		EffetTarget effet = new EffetTarget(new ActionVoler());
+		EffetTarget effet = new EffetTarget(new ActionVoler(ActionVoler.VOLER));
 		this.setEffet(effet);
 	}
 
