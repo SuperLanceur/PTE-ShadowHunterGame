@@ -8,9 +8,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="255.0" stylesheets="@style/popUp.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.JouerSonTour1Controller">
+<Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="255.0" stylesheets="@style/popUp.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.LancerDes">
    <children>
-      <Button fx:id="btnLancer" layoutX="70.0" layoutY="140.0" mnemonicParsing="false" onMouseClicked="#lancerDes" text="%lancer.de.des">
+      <Button fx:id="btnLancer" layoutX="70.0" layoutY="140.0" mnemonicParsing="false" text="%lancer.de.des">
          <font>
             <Font size="14.0" />
          </font></Button>
@@ -35,7 +35,7 @@
             <Font size="48.0" />
          </font>
       </Label>
-      <Button fx:id="btnStop" layoutX="101.0" layoutY="140.0" mnemonicParsing="false" onMouseClicked="#stop" text="Stop">
+      <Button fx:id="btnStop" layoutX="101.0" layoutY="140.0" mnemonicParsing="false" text="Stop">
          <font>
             <Font size="14.0" />
          </font>

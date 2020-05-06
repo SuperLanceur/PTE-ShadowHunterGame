@@ -70,6 +70,20 @@ public class Joueur {
 		updateVie();
 	}
 	
+	//pour tests IA
+	public void setHP(int val) {
+		this.stats.put("HP", val);
+	}
+	
+	//pour tests IA
+	public void setNbEquip(int val) {
+		this.stats.put("nb_equipements", val);
+	}
+	//pour tests IA
+		public void setDamage(int val) {
+			this.stats.put("DAMAGE", val);
+		}
+	
 	private void updateVie() {
 		int damage = damageTaken();
 		this.plateau.updateVieJoueur(this, damage);
