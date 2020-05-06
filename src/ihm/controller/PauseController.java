@@ -64,7 +64,7 @@ public class PauseController implements Initializable {
 					Musique.resumeMusique(Musique.clip); // si elle a deja été lancé mais mis en pause, reprend a partir du point d'arret
 				}
 															
-			} else {
+			} else if (MusiqueLancee == true){
 				Musique.pauseMusique(Musique.clip); // met en pause la musique
 				Musique.musiqueEnCours = false;
 				MusiqueLancee = false;

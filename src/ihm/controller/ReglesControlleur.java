@@ -39,14 +39,18 @@ public class ReglesControlleur implements Initializable {
 
 	@FXML
 	public void pageSuivante(MouseEvent mouseEvent) throws IOException {
-		InputStream fileSound1 = getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
-		EffetSonore.playSoundEffect(fileSound1);
 
 		if (index < 4) {
 			index++;
+			InputStream fileSound1 = getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
+			EffetSonore.playSoundEffect(fileSound1);
+			System.out.println("Page suivante");
+		} else {
+			InputStream fileSound2 = getClass().getResourceAsStream("/ihm/ressources/musique/BeepError.wav");
+			EffetSonore.playSoundEffect(fileSound2);
+			System.out.println("C'est la dernière page!");
 		}
 
-		System.out.println("Page suivante");
 		InputStream input = getClass().getResourceAsStream("/ihm/ressources/img/Regle" + index + ".png");
 		Image image = new Image(input);
 		imageRegles.setImage(image);
@@ -55,14 +59,18 @@ public class ReglesControlleur implements Initializable {
 
 	@FXML
 	public void pagePrecedente(MouseEvent mouseEvent) throws IOException {
-		InputStream fileSound1 = getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
-		EffetSonore.playSoundEffect(fileSound1);
 
 		if (index > 1) {
 			index--;
+			InputStream fileSound1 = getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
+			EffetSonore.playSoundEffect(fileSound1);
+			System.out.println("Page précédente");
+		} else {
+			InputStream fileSound2 = getClass().getResourceAsStream("/ihm/ressources/musique/BeepError.wav");
+			EffetSonore.playSoundEffect(fileSound2);
+			System.out.println("C'est la première page!");
 		}
 
-		System.out.println("Page précédente");
 		InputStream input = getClass().getResourceAsStream("/ihm/ressources/img/Regle" + index + ".png");
 		Image image = new Image(input);
 		imageRegles.setImage(image);
