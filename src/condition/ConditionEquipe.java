@@ -1,21 +1,41 @@
 package condition;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import main.Joueur;
 import personnage.CartePersonnage;
+import personnage.CartePersonnage.Equipe;
 
 
-public class ConditionType extends Condition{
+public class ConditionEquipe extends Condition{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8261153600401164649L;
 	private List<CartePersonnage.Equipe> equipes;
 	
-	public ConditionType(List<CartePersonnage.Equipe> equipes){
+	public ConditionEquipe(Equipe e) {
+		this.equipes = new ArrayList<CartePersonnage.Equipe>();
+		this.equipes.add(e);
+	}
+	
+	public ConditionEquipe(Equipe...equipes) {
+		this.equipes = Arrays.asList(equipes);
+	}
+	
+	public ConditionEquipe(List<CartePersonnage.Equipe> equipes){
 		
 		this.equipes = new ArrayList<CartePersonnage.Equipe>();
 		this.equipes.addAll(equipes);
 	}
+
+
+
+
+	
 
 
 

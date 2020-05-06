@@ -82,7 +82,7 @@ class PlateauTest {
 		
 		CarteLieu lieu5 = new CarteLieuType<TypeTenebre>("Sanctuaire Ancien","desc",new Point(4,5),piocheTenebre);
 		CarteLieu lieu6 = new CarteLieu("Sanctuaire Ancien","desc",new Point(-1,9));
-		lieu6.setEffet(new EffetChoisirCible(new ActionVoler()));
+		lieu6.setEffet(new EffetChoisirCible(new ActionVoler(ActionVoler.VOLER)));
 	
 		List<CarteLieu> cls = new ArrayList<CarteLieu>();
 		cls.add(lieu6);

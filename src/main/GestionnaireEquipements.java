@@ -3,25 +3,25 @@ package main;
 import java.util.ArrayList;
 import java.util.List;
 
-import carte.Equipement;
+import carte.CarteEquipement;
 
 public class GestionnaireEquipements {
 	
 	private Joueur j;
-	private List<Equipement> equipements;
+	private List<CarteEquipement> equipements;
 
 	public GestionnaireEquipements(Joueur j) {
 		this.j = j;
-		this.equipements = new ArrayList<Equipement>();
+		this.equipements = new ArrayList<CarteEquipement>();
 	}
 	
-	public void ajouter(Equipement e) {
+	public void ajouter(CarteEquipement e) {
 		this.equipements.add(e);
 		e.utiliser(this.j);
 		this.j.addToStat(Joueur.PLAYER_NB_EQUIPEMENTS, 1);
 	}
 	
-	public void retirer(Equipement e) {
+	public void retirer(CarteEquipement e) {
 		if(this.equipements.contains(e)) {
 			e.reverse(j);
 			this.equipements.remove(e);
@@ -29,7 +29,7 @@ public class GestionnaireEquipements {
 		}
 	}
 	
-	public List<Equipement> getEquipements() {
+	public List<CarteEquipement> getEquipements() {
 		return equipements;
 	}
 

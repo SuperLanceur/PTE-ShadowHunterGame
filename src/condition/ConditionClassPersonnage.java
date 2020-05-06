@@ -1,6 +1,7 @@
 package condition;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import main.Joueur;
@@ -9,6 +10,10 @@ import personnage.CartePersonnage;
 
 public class ConditionClassPersonnage extends Condition{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2298344287059138254L;
 	private List<Class<? extends CartePersonnage>> classes;
 	
 	
@@ -21,9 +26,16 @@ public class ConditionClassPersonnage extends Condition{
 	 * @param classes Les Class des différents Personnage's.
 	 */
 	public ConditionClassPersonnage(List<Class<? extends CartePersonnage>> classes){
-		
 		this.classes = new ArrayList<Class<? extends CartePersonnage>>();
 		this.classes.addAll(classes);
+	}
+
+
+
+
+	public ConditionClassPersonnage(Class<? extends CartePersonnage>...classes) {
+		this.classes = new ArrayList<Class<? extends CartePersonnage>>();
+		this.classes.addAll(Arrays.asList(classes));
 	}
 
 

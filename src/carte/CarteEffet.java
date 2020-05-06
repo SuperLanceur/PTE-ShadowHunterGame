@@ -14,11 +14,14 @@ public abstract class CarteEffet extends Carte implements Serializable{
 	private static final long serialVersionUID = -5248405395465365805L;
 	private Effet effet;
 	
+	
 	public CarteEffet(String nom, String description) {
 		super(nom, description);
 
 	}
 	
+	
+
 	/*
 	 * 	@param j Appel la méthode utiliser de effet sur le joueur j
 	 */

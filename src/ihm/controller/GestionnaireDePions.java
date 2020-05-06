@@ -51,8 +51,7 @@ public class GestionnaireDePions {
 			hbox = (HBox) this.gridPaneLieux.getChildren().get(1);
 			
 		}else {
-			hbox = (HBox) this.gridPaneLieux.getChildren().get(2);
-			
+			hbox = (HBox) this.gridPaneLieux.getChildren().get(2);	
 		}
 		
 		StackPane sp = (StackPane) hbox.getChildren().get(indexCL%2);

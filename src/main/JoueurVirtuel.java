@@ -3,8 +3,8 @@ package main;
 import java.util.ArrayList;
 import java.util.List;
 
-import carte.Equipement;
-import carte.EquipementStat;
+import carte.CarteEquipement;
+import carte.CarteEquipementStat;
 import effet.Effet;
 
 public class JoueurVirtuel extends Joueur {
@@ -20,17 +20,17 @@ public class JoueurVirtuel extends Joueur {
 	}
 
 	// on privilegie les equipements qui donnent des stats
-	public Equipement choisirEquipement(List<Equipement> equips) {
-		List<Equipement> equipstat = trouverEquipStat(equips);
+	public CarteEquipement choisirEquipement(List<CarteEquipement> equips) {
+		List<CarteEquipement> equipstat = trouverEquipStat(equips);
 		if (equipstat.size() > 0)
 			return equipstat.get((int) Math.floor(Math.random() * equipstat.size()));
 		return equips.get((int) Math.floor(Math.random() * equips.size()));
 	}
 
-	public List<Equipement> trouverEquipStat(List<Equipement> equips) {
-		List<Equipement> res = new ArrayList<>();
-		for (Equipement e : equips) {
-			if (e instanceof EquipementStat)
+	public List<CarteEquipement> trouverEquipStat(List<CarteEquipement> equips) {
+		List<CarteEquipement> res = new ArrayList<>();
+		for (CarteEquipement e : equips) {
+			if (e instanceof CarteEquipementStat)
 				res.add(e);
 		}
 		return res;

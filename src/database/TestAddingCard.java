@@ -20,12 +20,10 @@ import effet.action.ActionAltererStatistiquesJoueur;
 import main.Joueur;
 
 public class TestAddingCard {
-
-
+	
 	private final static String url = "jdbc:postgresql://localhost:5432/ShadowHunterDatabase";
     private final static String user = "shManager";
     private final static String password = "shadowhunter1234";
-	
 	
 	public static void main(String[] args) {
 		
@@ -35,10 +33,8 @@ public class TestAddingCard {
 			insertCartePiochable(instance);
 			System.out.println(retrieveCartePiochable(0).getEffet());
 		} catch (IOException | SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}	
@@ -71,9 +67,9 @@ public class TestAddingCard {
 	  
 	  public static CartePiochable<?> retrieveCartePiochable(int pos) throws IOException, SQLException, ClassNotFoundException {
 		  
-		  Connection conn = connect();
-		  Statement st = conn.createStatement();
-		  ResultSet rs = st.executeQuery("SELECT * FROM public.\"Test\""); 
+		Connection conn = connect();
+		Statement st = conn.createStatement();
+		ResultSet rs = st.executeQuery("SELECT * FROM public.\"Test\""); 
 		  
 		  byte[] object = null;
 		  if(rs.next()) {
@@ -85,6 +81,4 @@ public class TestAddingCard {
 		    return (CartePiochable<?>) is.readObject();
 		  
 	  }
-	 
-	
 }

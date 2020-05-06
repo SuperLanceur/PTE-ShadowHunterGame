@@ -9,11 +9,11 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import carte.Equipement;
+import carte.CarteEquipement;
+import carte.CarteEquipementEffet;
+import carte.CarteEquipementStat;
 import personnage.Allie;
-import personnage.CartePersonnage.Equipe;
 import personnage.Franklin;
-import personnage.LoupGarou;
 import personnage.Vampire;
 
 public class IATest {
@@ -87,14 +87,14 @@ public class IATest {
 		j2.setCartePersonnage(new Vampire(j2));
 		
 		//test 1 : joueur ami, on ne se devoile pas
-		jIA.setStat("HP", 10);
+		jIA.setHP(10);
 		assertFalse(cIA.devoilerIAVampire(jIA, j2));
 		
 		//test 2 : joueur ennemi et peu de HP, on se devoile
 		assertTrue(cIA.devoilerIAVampire(jIA, j1));
 		
 		//test 3 : joueur ennemi et beaucoup de HP, on se devoile pas
-		jIA.setStat("HP", 12);
+		jIA.setHP(12);
 		assertFalse(cIA.devoilerIAVampire(jIA, j1));
 
 	}
@@ -107,16 +107,15 @@ public class IATest {
 		jIA.setCartePersonnage(new Franklin(jIA));
 		j1.setCartePersonnage(new Franklin(j1));
 		j2.setCartePersonnage(new Vampire(j2));
-
 		joueurs.add(j1);
 		joueurs.add(j2);
-		
+
 		//test 1 : ennemi avec moins de 4 hp, on se devoile 
-		j2.setStat("HP", 4);
+		j2.setHP(4);
 		assertTrue(cIA.devoilerIAGeorges(jIA, joueurs));
 		
 		//test 2 : pas d'ennemi avec moins de 4 hp, on se devoile pas
-		j2.setStat("HP", 6);
+		j2.setHP(6);
 		assertFalse(cIA.devoilerIAGeorges(jIA, joueurs));
 		
 	}
@@ -132,11 +131,11 @@ public class IATest {
 		joueurs.add(j2);
 		
 		//test 1 : ennemi avec moins de 6 hp, on se devoile 
-		j2.setStat("HP", 6);
+		j2.setHP(6);
 		assertTrue(cIA.devoilerIAFranklin(jIA, joueurs));
 		
 		//test 2 : pas d'ennemi avec moins de 6 hp, on se devoile pas
-		j2.setStat("HP", 8);
+		j2.setHP(8);
 		assertFalse(cIA.devoilerIAFranklin(jIA, joueurs));
 		
 	}
@@ -147,11 +146,11 @@ public class IATest {
 		cIA.setSeed(59);
 		
 		//test 1 : pas beaucoup de hp, on se devoile
-		jIA.setStat("HP", 5);
+		jIA.setHP(5);
 		assertTrue(cIA.devoilerIAAllie(jIA));
 
 		//test 2 : beaucoup de hp, on se devoile pas
-		jIA.setStat("HP", 6);
+		jIA.setHP(6);
 		assertFalse(cIA.devoilerIAAllie(jIA));
 		
 	}
@@ -160,20 +159,20 @@ public class IATest {
 	public void devoilerCharlesTest() {
 		//setup
 		cIA.setSeed(84);
-		j2.setStat("HP", 4);
+		j2.setHP(4);
 
 		//test 1 : ennemi affaibli, on se devoile
-		jIA.setStat("HP", 10);
-		jIA.setStat("DAMAGE", 4);
+		jIA.setHP(10);
+		jIA.setDamage(4);
 		assertTrue(cIA.devoilerIACharles(jIA, j2));
 		
 		//test 2 : ennemi affaibli mais pas assez de dmg pour le tuer, on se devoile pas
-		jIA.setStat("DAMAGE", 3);
+		jIA.setDamage(3);
 		assertFalse(cIA.devoilerIACharles(jIA, j2));
 
 		//test 3 : charles n'a pas beaucoup de hp, on se devoile pas
-		jIA.setStat("DAMAGE", 4);
-		jIA.setStat("HP", 1);
+		jIA.setDamage(4);
+		jIA.setHP(1);
 		assertFalse(cIA.devoilerIACharles(jIA, j2));
 	}
 	
@@ -202,9 +201,9 @@ public class IATest {
 		joueurs.add(j3);
 		joueurs.add(j2);
 		joueurs.add(j1);
-		j1.setStat("HP", 4);
-		j2.setStat("HP", 5);
-		j3.setStat("HP", 3);
+		j1.setHP(4);
+		j2.setHP(5);
+		j3.setHP(3);
 		assertEquals(jIA.choisirJoueur(joueurs,Contexte.ATTAQUER).getStat("HP"),4);
 	}
 	
@@ -215,11 +214,10 @@ public class IATest {
 		j1.setCartePersonnage(new Franklin(j1));
 		j2.setCartePersonnage(new Allie(j2));
 		j3.setCartePersonnage(new Vampire(j3));
-		j1.setStat("nb_equipements", 1);
-		j2.setStat("nb_equipements", 2);
-		j3.setStat("nb_equipements", 4);
-		jIA.setStat("nb_equipements", 3);
-
+		j1.setNbEquip(1);
+		j2.setNbEquip(2);
+		j3.setNbEquip(4);
+		jIA.setNbEquip(3);
 		
 		//test 1 : on renvoit un joueur pas du meme camp avec le plus d'equipements
 		joueurs.add(j3);
@@ -238,8 +236,13 @@ public class IATest {
 	@Test
 	public void choixEquipementTest() {
 		//setup
-		List<Equipement> equips = new ArrayList<>();
-		//TODO : pas possible d'instancier des Equipements apart des EquipementStat
+		List<CarteEquipement> equips = new ArrayList<>();
+		equips.add(new CarteEquipementEffet("lol","mdr"));
+		equips.add(new CarteEquipementEffet("lol1","mdr1"));
+		equips.add(new CarteEquipementStat("lol2","mdr2"));
+		
+		//on choisit l'equipement avec les stat en priorite
+		assertTrue(jIA.choisirEquipement(equips) instanceof CarteEquipementStat);
 	}
 	
 	//TODO : devoilement emi et devoilement bob

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import carte.CarteLieu;
-import carte.Equipement;
+import carte.CarteEquipement;
 import effet.Effet;
 import personnage.CartePersonnage;
 import personnage.CartePersonnage.Equipe;
@@ -70,6 +70,20 @@ public class Joueur {
 		updateVie();
 	}
 	
+	//pour tests IA
+	public void setHP(int val) {
+		this.stats.put("HP", val);
+	}
+	
+	//pour tests IA
+	public void setNbEquip(int val) {
+		this.stats.put("nb_equipements", val);
+	}
+	//pour tests IA
+		public void setDamage(int val) {
+			this.stats.put("DAMAGE", val);
+		}
+	
 	private void updateVie() {
 		int damage = damageTaken();
 		this.plateau.updateVieJoueur(this, damage);
@@ -107,16 +121,16 @@ public class Joueur {
 		return joueurs;
 	}
 
-	public List<Equipement> getEquipements() {
+	public List<CarteEquipement> getEquipements() {
 		return this.gestionnaireEquipements.getEquipements();
 	}
 
-	public void voler(Joueur j2, Equipement equipement) {
+	public void voler(Joueur j2, CarteEquipement equipement) {
 		
 		j2.gestionnaireEquipements.retirer(equipement);
 		this.gestionnaireEquipements.ajouter(equipement);	}
 
-	public Equipement choisir(List<Equipement> equipements) {
+	public CarteEquipement choisir(List<CarteEquipement> equipements) {
 		return null;
 	}
 
@@ -218,11 +232,11 @@ public class Joueur {
 		this.revele = b;
 	}
 
-	public void ajouterEquipement(Equipement equipement) {
+	public void ajouterEquipement(CarteEquipement equipement) {
 		this.gestionnaireEquipements.ajouter(equipement);	
 	}
 
-	public void retirerEquipement(Equipement equipement) {
+	public void retirerEquipement(CarteEquipement equipement) {
 		this.gestionnaireEquipements.retirer(equipement);	
 	}
 

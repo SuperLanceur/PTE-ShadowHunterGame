@@ -4,10 +4,14 @@ import main.Joueur;
 import main.Type;
 
 
-public abstract class Equipement extends CartePiochable<Type>{
+public abstract class CarteEquipement<T extends Type> extends CartePiochable<Type>{
 	
-	
-	public Equipement(String nom, String description) {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7537771209935892801L;
+
+	public CarteEquipement(String nom, String description) {
 		super(nom, description);
 		// TODO Auto-generated constructor stub
 	}

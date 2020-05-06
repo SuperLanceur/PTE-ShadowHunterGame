@@ -69,7 +69,7 @@ public class PlateauController implements Initializable {
 		}
 		
 		for(int i = 0; i<joueursIHM.size(); i++) {
-			joueursIHM.get(i).deplacerPionVie((int) (Math.random()*13));
+			joueursIHM.get(i).deplacerPionVie(0);
 		}
 		
 		

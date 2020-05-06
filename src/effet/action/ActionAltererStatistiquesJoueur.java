@@ -2,6 +2,10 @@ package effet.action;
 import main.Joueur;
 public class ActionAltererStatistiquesJoueur extends Action{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 9119524110079268363L;
 	private String key;
 	private int valeur;
 	private boolean ajouter;
@@ -48,5 +52,9 @@ public class ActionAltererStatistiquesJoueur extends Action{
 	
 	public ActionAltererStatistiquesJoueur getReverseAction() {
 		return new ActionAltererStatistiquesJoueur(key, -valeur, true);
+	}
+	
+	public void setValeur(int valeur) {
+		this.valeur = valeur;
 	}
 }
