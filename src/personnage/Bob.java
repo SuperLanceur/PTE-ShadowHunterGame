@@ -8,6 +8,21 @@ import main.Joueur;
 
 public class Bob extends CartePersonnage{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5593891138436384632L;
+
+	public Bob() {
+		super("BOB","desc", 10, null);
+		Condition condition = new ConditionStatistiques(ConditionStatistiques.JOUEUR, Joueur.PLAYER_NB_EQUIPEMENTS, 5, ConditionStatistiques.MORE);
+		this.setCondition(condition);
+		
+		
+		EffetTarget effet = new EffetTarget(new ActionVoler(ActionVoler.VOLER));
+		this.setEffet(effet);
+	}
+	
 	public Bob(Joueur joueur){
 		super("BOB","desc", 10, joueur);
 		Condition condition = new ConditionStatistiques(ConditionStatistiques.JOUEUR, Joueur.PLAYER_NB_EQUIPEMENTS, 5, ConditionStatistiques.MORE);

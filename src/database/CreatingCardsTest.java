@@ -22,8 +22,13 @@ import main.TypeLumiere;
 import main.TypeTenebre;
 import main.TypeVision;
 import personnage.Allie;
+import personnage.Bob;
 import personnage.CartePersonnage;
+import personnage.Charles;
+import personnage.Daniel;
 import personnage.Emi;
+import personnage.Franklin;
+import personnage.Georges;
 import personnage.LoupGarou;
 import personnage.Metamorphe;
 import personnage.Vampire;
@@ -54,7 +59,7 @@ public class CreatingCardsTest {
 		
 		//Bénédiction
 		
-			insert(5,new CartePiochable<TypeLumiere>(new EffetChoisirCible(new ActionAltererStatistiquesJoueurRoll(Joueur.PLAYER_HP,6, true))));
+		insert(5,new CartePiochable<TypeLumiere>(new EffetChoisirCible(new ActionAltererStatistiquesJoueurRoll(Joueur.PLAYER_HP,6, true))));
 			
 			
 		// BOUSSOLE mystique
@@ -64,8 +69,6 @@ public class CreatingCardsTest {
 		// 7
 			
 		// 8
-			
-			
 			
 		// Eau bénite
 		insert(9,new CartePiochable<TypeLumiere>(new EffetSelf(new ActionAltererStatistiquesJoueurRoll(Joueur.PLAYER_HP,2, true))));
@@ -210,18 +213,28 @@ public class CreatingCardsTest {
 		insert(43,new CartePiochable<TypeVision>(new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-1,true)),
 				new ConditionEquipe(CartePersonnage.Equipe.SHADOW)));
 		
-		insert(44,new CartePiochable<TypeVision>(new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-1,true)),
-				new ConditionEquipe(CartePersonnage.Equipe.SHADOW)));
-		
 		
 		// Vision lugubre
 		
-		insert(46,new CartePiochable<TypeVision>(new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-2,true)),
+		insert(45,new CartePiochable<TypeVision>(new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-2,true)),
 				new ConditionEquipe(CartePersonnage.Equipe.SHADOW)));
 		
 		// Vision réconfortante
 		
 		// Vision suprême
+		
+		insert(48,new Allie(null));
+		insert(49,new Bob(null));
+		insert(50,new Charles(null));
+		
+		insert(51,new Daniel(null));
+		insert(52,new Emi(null));
+		insert(53,new Franklin(null));
+		
+		insert(54,new Georges(null));
+		insert(55,new LoupGarou(null));
+		insert(56,new Metamorphe(null));
+		insert(57,new Vampire(null));
 		
 	}
 	

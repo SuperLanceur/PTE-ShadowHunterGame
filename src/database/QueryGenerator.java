@@ -84,4 +84,5 @@ public class QueryGenerator {
 		pst.executeUpdate();
 	}
 	
+
 }
