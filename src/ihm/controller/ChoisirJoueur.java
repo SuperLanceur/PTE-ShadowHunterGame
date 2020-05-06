@@ -20,13 +20,15 @@ public class ChoisirJoueur implements Initializable{
 		for (int i=0; i<joueurHaut.getChildren().size(); i++) {
 			int numJoueur = i;
 			joueurHaut.getChildren().get(i).setOnMouseClicked(e -> {
+				System.out.println("Vous avez choisi le joueur " + (numJoueur+1));
 				this.joueurSelected = numJoueur;
 			});
 		}
 		
 		for (int i=0; i<joueurBas.getChildren().size(); i++) {
-			int numJoueur = i;
-			joueurHaut.getChildren().get(i).setOnMouseClicked(e -> {
+			int numJoueur = i+4;
+			joueurBas.getChildren().get(i).setOnMouseClicked(e -> {
+				System.out.println("Vous avez choisi le joueur " + (numJoueur+1));
 				this.joueurSelected = numJoueur;
 			});
 		}

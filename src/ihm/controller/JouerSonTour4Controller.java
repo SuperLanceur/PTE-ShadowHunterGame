@@ -15,6 +15,6 @@ public class JouerSonTour4Controller extends LancerDes{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		super.initialize(arg0, arg1);
-		defenseur.setText(j.getNom());
+		//defenseur.setText(j.getNom());
 	}
 }
