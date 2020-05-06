@@ -25,6 +25,4 @@ public class QueryGenerator {
 	public static String getNameWithIdFrom(String table, int d) {
 		return "SELECT name FROM " + getTable(table) + "WHERE id =" + d;
 	}
-	
-	
 }
