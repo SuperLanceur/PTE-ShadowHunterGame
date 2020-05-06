@@ -1,13 +1,7 @@
 package database;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectOutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class QueryGenerator {
@@ -64,41 +58,5 @@ public class QueryGenerator {
 		return "SELECT * FROM " + table + " WHERE id = " + id;
 	}
 	 
-	public static void queryInsertObject(int id, Object o) throws IOException, SQLException {
-		
-		String table = null;
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		ObjectOutputStream oos;
-		
-		oos = new ObjectOutputStream(baos);
-		oos.writeObject(o);
-		oos.close();
-			
-		ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
-
-		byte[] object = bais.readAllBytes();
-		InputStream objectIS = new ByteArrayInputStream(object);
-				
-		if(id <= 16) {
-			table = getTable("CartesLumiere");
-		} else if(id <= 32) {
-			table = getTable("CartesTenebre");
-		} else if(id <= 47) {
-			table = getTable("CartesVision");
-		} else if(id <= 57) {
-			table = getTable("CartesPersonnage");
-		} else if(id <= 61) {
-			table = getTable("CartesDos");
-		}
-		
-		String query = null;
-		query = "UPDATE " + table + " SET objet = ? "
-		+ " WHERE id = ? "		;
-		
-		Connection conn = connect();
-		PreparedStatement pst = conn.prepareStatement(query);
-		pst.setBinaryStream(1, objectIS);
-		pst.setInt(2, id);
-		pst.executeUpdate();
-	}
+	
 }

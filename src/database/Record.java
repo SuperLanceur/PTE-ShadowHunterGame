@@ -31,15 +31,15 @@ public class Record {
 		this.obj = obj;
 	}
 	
-	public String getId() {
+	protected String getId() {
 		return id;
 	}
 
-	public String getNom() {
+	protected String getNom() {
 		return nom;
 	}
 
-	public byte[] getImg() {
+	protected byte[] getImg() {
 		return img;
 	}
 
@@ -48,7 +48,7 @@ public class Record {
 		return String.format("%-20.30s  %-30.30s  %-20.30s  %-20.30s%n", this.getId(), this.getNom(), this.getImg(), this.getObjet());
 	}
 
-	public byte[] getObjet() {
+	protected byte[] getObjet() {
 		return this.obj;
 	}
 	
