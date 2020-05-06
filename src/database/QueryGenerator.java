@@ -80,7 +80,7 @@ public class QueryGenerator {
 		
 		Connection conn = connect();
 		PreparedStatement pst = conn.prepareStatement(query);
-		pst.setBinaryStream(1, objectIS);
+		pst.setBinaryStream(4, objectIS);
 		pst.executeUpdate();
 		
 		return query;
