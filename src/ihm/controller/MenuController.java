@@ -70,12 +70,23 @@ public class MenuController  implements Initializable{
     public void quitterLappli(MouseEvent mouseEvent) throws IOException{
          System.exit(0);
          }
-    public void afficherRegle(MouseEvent mouseEvent) {
+	
+	
+	@FXML
+    public void afficherRegle(MouseEvent mouseEvent) throws IOException {
     	
     	InputStream fileSound1 =  getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
 
     	EffetSonore.playSoundEffect(fileSound1);
-    	System.out.println("blaaaa");
+    	System.out.println("Passage à l'écran des règles");
+		final URL fxmlURL = getClass().getResource("/ihm/ressources/Regles.fxml");
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+        AnchorPane pane = fxmlLoader.load();
+        Scene scene = new Scene(pane);
+        Stage appStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        appStage.setScene(scene);
+        appStage.show();
     
     }
 }
