@@ -30,6 +30,8 @@ public class MenuController  implements Initializable{
 			input = getClass().getResourceAsStream("/ihm/ressources/img/logo.png");
 			Image image = new Image(input);
 			titre.setImage(image);
+			
+			
 	}
 
 	@FXML

@@ -32,7 +32,7 @@ public class PauseController implements Initializable {
 
 	boolean MusiqueLancee = ParametreController.cbMusiqueCoche;
 	boolean SonLance = ParametreController.cbSonCoche;
-	
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
@@ -55,18 +55,22 @@ public class PauseController implements Initializable {
 		if (fileMusique != null) {
 			if (cbMusique.isSelected()) {
 				System.out.println("\tLancement de la musique");
-				
-				if (Musique.clipTimePosition == 0 && MusiqueLancee == false) { // si la musique n'a jamais été lancé
+
+				if (Musique.clipTimePosition == 0 && MusiqueLancee == false && Musique.musiqueEnCours != true) { // si la musique n'a jamais été lancé
 					Musique.playMusique(fileMusique);
+					Musique.musiqueEnCours = true;
 					MusiqueLancee = true;
-				} else
-					Musique.resumeMusique(Musique.clip); // si elle a deja été lancé mais mis en pause, reprend a partir du point d'arret									
-			} else {
+				} else if (MusiqueLancee ==false && Musique.musiqueEnCours != true) {
+					Musique.resumeMusique(Musique.clip); // si elle a deja été lancé mais mis en pause, reprend a partir du point d'arret
+				}
+															
+			} else if (MusiqueLancee == true){
 				Musique.pauseMusique(Musique.clip); // met en pause la musique
+				Musique.musiqueEnCours = false;
+				MusiqueLancee = false;
 				System.out.println("\tMise en pause de la musique");
 			}
-		}
-		else {
+		} else {
 			System.out.println("fichier audio non trouvé");
 		}
 
@@ -98,12 +102,23 @@ public class PauseController implements Initializable {
 		System.err.println("Fin de partie");
 		Stage appStage = (Stage) ((Node) me.getSource()).getScene().getWindow();
 		appStage.close();
-		
+
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRENCH);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		AnchorPane root = fxmlLoader.load();
-        
-		
+
+	}
+	
+	@FXML
+	public void monterVolume(MouseEvent mouseEvent) throws IOException{
+		Musique.volumeUp(5.f);
+		System.out.println("on monte le son");
+	}
+	
+	@FXML
+	public void baisserVolume(MouseEvent mouseEvent) throws IOException{
+		Musique.volumeDown(5.f);
+		System.out.println("on baisse le son");
 	}
 }
