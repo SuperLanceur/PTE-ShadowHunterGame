@@ -1,34 +1,14 @@
 package database;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
-import carte.Carte;
-import carte.CartePiochable;
-import condition.Condition;
-import effet.EffetSelf;
-import effet.action.ActionAltererStatistiquesJoueur;
-import main.Joueur;
-
 public class TestAddingCard {
 	
 	private final static String url = "jdbc:postgresql://localhost:5432/ShadowHunterDatabase";
     private final static String user = "shManager";
     private final static String password = "shadowhunter1234";
-	
+/*	
 	public static void main(String[] args) {
 		
-		CartePiochable<?> instance = new CartePiochable(new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, 2, true)), new Condition());
+		CartePiochable instance = new CartePiochable(new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, 2, true)), new Condition());
 	
 		try {
 			insertCartePiochable(instance);
@@ -81,5 +61,5 @@ public class TestAddingCard {
 		    ObjectInputStream is = new ObjectInputStream(in);
 		    return (CartePiochable<?>) is.readObject();
 		  
-	  }
+	  }*/
 }

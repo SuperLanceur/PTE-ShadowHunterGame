@@ -1,19 +1,20 @@
 package carte;
 
+import effet.Effet;
 import main.Joueur;
-import main.Type;
 
 
-public abstract class CarteEquipement<T extends Type> extends CartePiochable<Type>{
+public abstract class CarteEquipement extends CartePiochable{
 	
+	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 7537771209935892801L;
 
-	public CarteEquipement(String nom, String description) {
-		super(nom, description);
-		// TODO Auto-generated constructor stub
+	public CarteEquipement(Type t, Effet effet) {
+		super(t, effet);
 	}
 
 	public void utiliser(Joueur j) {

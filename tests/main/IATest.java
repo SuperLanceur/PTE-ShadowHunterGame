@@ -237,9 +237,9 @@ public class IATest {
 	public void choixEquipementTest() {
 		//setup
 		List<CarteEquipement> equips = new ArrayList<>();
-		equips.add(new CarteEquipementEffet("lol","mdr"));
-		equips.add(new CarteEquipementEffet("lol1","mdr1"));
-		equips.add(new CarteEquipementStat("lol2","mdr2"));
+		equips.add(new CarteEquipementEffet(null,null));
+		equips.add(new CarteEquipementEffet(null,null));
+		equips.add(new CarteEquipementStat(null,null));
 		
 		//on choisit l'equipement avec les stat en priorite
 		assertTrue(jIA.choisirEquipement(equips) instanceof CarteEquipementStat);

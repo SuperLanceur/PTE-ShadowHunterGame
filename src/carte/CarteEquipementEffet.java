@@ -1,12 +1,15 @@
 package carte;
 
+import effet.Effet;
 import main.Joueur;
-import main.Type;
 
-public class CarteEquipementEffet<T extends Type> extends CarteEquipement<Type> {
+public class CarteEquipementEffet extends CarteEquipement {
 
-	public CarteEquipementEffet(String nom, String description) {
-		super(nom, description);
+	
+
+	public CarteEquipementEffet(Type t, Effet effet) {
+		super(t, effet);
+		// TODO Auto-generated constructor stub
 	}
 
 	/**

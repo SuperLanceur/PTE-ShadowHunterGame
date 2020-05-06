@@ -54,33 +54,33 @@ class PlateauTest {
 		
 		p = new Plateau(joueurs);
 	
-		List<CartePiochable<TypeLumiere>> list1 = new ArrayList<>();
-		List<CartePiochable<TypeTenebre>> list2 = new ArrayList<>();
+		List<CartePiochable> list1 = new ArrayList<>();
+		List<CartePiochable> list2 = new ArrayList<>();
 		
 		for(int i = 0; i < 60; i++) {
 			
-			CartePiochable<TypeLumiere> carte1 = new CartePiochable<TypeLumiere>("Eau bénite", "Soin 2");
+			CartePiochable carte1 = new CartePiochable(CartePiochable.Type.LUMIERE,"Eau bénite", "Soin 2");
 			carte1.setEffet(new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, 2, true)));
 			list1.add(carte1);
 			
-			CartePiochable<TypeTenebre> carte2 = new CartePiochable<TypeTenebre>("Eau maudite", "Damage 2");
+			CartePiochable carte2 = new CartePiochable(CartePiochable.Type.TENEBRE,"Eau maudite", "Damage 2");
 			carte2.setEffet(new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -2, true)));
 			list2.add(carte2);
 		}
 	
 		
-		Pioche<TypeLumiere> piocheLumiere = new Pioche<TypeLumiere>(list1);
-		Pioche<TypeTenebre> piocheTenebre = new Pioche<TypeTenebre>(list2);
+		Pioche piocheLumiere = new Pioche(CartePiochable.Type.LUMIERE,list1);
+		Pioche piocheTenebre = new Pioche(CartePiochable.Type.TENEBRE,list2);
 		
 		
-		CarteLieu lieu1 = new CarteLieuType<TypeTenebre>("Antre de l'Ermite","desc",new Point(2,3),piocheTenebre);
-		CarteLieu lieu2 = new CarteLieuType<TypeTenebre>("Cimetière","desc",new Point(-1,8),piocheTenebre);
+		CarteLieu lieu1 = new CarteLieuType(CartePiochable.Type.TENEBRE,"Antre de l'Ermite","desc",new Point(2,3),piocheTenebre);
+		CarteLieu lieu2 = new CarteLieuType(CartePiochable.Type.TENEBRE,"Cimetière","desc",new Point(-1,8),piocheTenebre);
 		CarteLieu lieu3 = new CarteLieu("Forêt hantée","desc",new Point(-1,9));
 		lieu3.setEffet(new EffetChoisirEffet(new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-2,true)),
 											new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,1,true))));
-		CarteLieu lieu4 = new CarteLieuType<TypeLumiere>("Monastère","desc",new Point(-1,6),piocheLumiere);
+		CarteLieu lieu4 = new CarteLieuType(CartePiochable.Type.LUMIERE,"Monastère","desc",new Point(-1,6),piocheLumiere);
 		
-		CarteLieu lieu5 = new CarteLieuType<TypeTenebre>("Sanctuaire Ancien","desc",new Point(4,5),piocheTenebre);
+		CarteLieu lieu5 = new CarteLieuType(CartePiochable.Type.LUMIERE,"Sanctuaire Ancien","desc",new Point(4,5),piocheTenebre);
 		CarteLieu lieu6 = new CarteLieu("Sanctuaire Ancien","desc",new Point(-1,9));
 		lieu6.setEffet(new EffetChoisirCible(new ActionVoler(ActionVoler.VOLER)));
 	

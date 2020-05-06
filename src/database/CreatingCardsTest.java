@@ -44,25 +44,25 @@ public class CreatingCardsTest {
 		
 		//Ange gardien
 		try {
-			QueryGenerator.queryInsertObject(2,new CartePiochable<TypeLumiere>(
+			QueryGenerator.queryInsertObject(2,new CartePiochable(CartePiochable.Type.LUMIERE,
 			new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_IMMUNITY, 1, true))));
 			
 			//Avénement suprême
-			QueryGenerator.queryInsertObject(3,new CartePiochable<TypeLumiere>(
+			QueryGenerator.queryInsertObject(3,new CartePiochable(CartePiochable.Type.LUMIERE,
 					new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, 20, true))
 					,new ConditionMultiple(new ConditionEquipe(CartePersonnage.Equipe.HUNTER), new ConditionReveal())
 					));
 			
 			//Barre de chocolat 
 			
-			QueryGenerator.queryInsertObject(4,new CartePiochable<TypeLumiere>(
+			QueryGenerator.queryInsertObject(4,new CartePiochable(CartePiochable.Type.LUMIERE,
 					new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, 20, true))
 					,new ConditionMultiple(new ConditionClassPersonnage(Allie.class,Emi.class,Metamorphe.class), new ConditionReveal())
 					));
 			
 			//Bénédiction
 			
-			QueryGenerator.queryInsertObject(5,new CartePiochable<TypeLumiere>(new EffetChoisirCible(new ActionAltererStatistiquesJoueurRoll(Joueur.PLAYER_HP,6, true))));
+			QueryGenerator.queryInsertObject(5,new CartePiochable(CartePiochable.Type.LUMIERE,new EffetChoisirCible(new ActionAltererStatistiquesJoueurRoll(Joueur.PLAYER_HP,6, true))));
 				
 			// BOUSSOLE mystique
 				
@@ -73,58 +73,58 @@ public class CreatingCardsTest {
 			// 8
 				
 			// Eau bénite
-			QueryGenerator.queryInsertObject(9,new CartePiochable<TypeLumiere>(new EffetSelf(new ActionAltererStatistiquesJoueurRoll(Joueur.PLAYER_HP,2, true))));
-			QueryGenerator.queryInsertObject(10,new CartePiochable<TypeLumiere>(new EffetSelf(new ActionAltererStatistiquesJoueurRoll(Joueur.PLAYER_HP,2, true))));
+			QueryGenerator.queryInsertObject(9,new CartePiochable(CartePiochable.Type.LUMIERE,new EffetSelf(new ActionAltererStatistiquesJoueurRoll(Joueur.PLAYER_HP,2, true))));
+			QueryGenerator.queryInsertObject(10,new CartePiochable(CartePiochable.Type.LUMIERE,new EffetSelf(new ActionAltererStatistiquesJoueurRoll(Joueur.PLAYER_HP,2, true))));
 			
 			// Eclair purificateur
 			
-			QueryGenerator.queryInsertObject(11,new CartePiochable<TypeLumiere>(new EffetCiblerTous(new ActionAltererStatistiquesJoueurRoll(Joueur.PLAYER_HP, -2, true))));
+			QueryGenerator.queryInsertObject(11,new CartePiochable(CartePiochable.Type.LUMIERE,new EffetCiblerTous(new ActionAltererStatistiquesJoueurRoll(Joueur.PLAYER_HP, -2, true))));
 			
 			// Lance de longinus
 			
-			QueryGenerator.queryInsertObject(12,new CarteEquipementStat<TypeLumiere>(
+			QueryGenerator.queryInsertObject(12,new CarteEquipementStat(CartePiochable.Type.LUMIERE,
 					new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_DAMAGE, 2, true))
 					,new ConditionMultiple(new ConditionEquipe(CartePersonnage.Equipe.HUNTER), new ConditionReveal())
 					));
 			
 			// Miroir divin
 			
-			QueryGenerator.queryInsertObject(13,new CartePiochable<TypeLumiere>(new EffetSelf(new ActionReveal()),new ConditionClassPersonnage(Vampire.class,LoupGarou.class)));
+			QueryGenerator.queryInsertObject(13,new CartePiochable(CartePiochable.Type.LUMIERE,new EffetSelf(new ActionReveal()),new ConditionClassPersonnage(Vampire.class,LoupGarou.class)));
 
 
 			// Premiers secours
 			
-			QueryGenerator.queryInsertObject(14, new CartePiochable<TypeLumiere>(new EffetCiblerTous(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, 7, false))));
+			QueryGenerator.queryInsertObject(14, new CartePiochable(CartePiochable.Type.LUMIERE,new EffetCiblerTous(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, 7, false))));
 
 
 			//Savoir ancestral
 			
-			QueryGenerator.queryInsertObject(15, new CartePiochable<TypeLumiere>(new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_TURN, 1, true))));
+			QueryGenerator.queryInsertObject(15, new CartePiochable(CartePiochable.Type.LUMIERE,new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_TURN, 1, true))));
 
 
 
 			//Toge sainte
 			
-			QueryGenerator.queryInsertObject(16, new CartePiochable<TypeLumiere>(new EffetSelf(new ActionMultiple(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_RESISTANCE, 1, true),new ActionAltererStatistiquesJoueur(Joueur.PLAYER_DAMAGE, -1, true)))));
+			QueryGenerator.queryInsertObject(16, new CartePiochable(CartePiochable.Type.LUMIERE,new EffetSelf(new ActionMultiple(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_RESISTANCE, 1, true),new ActionAltererStatistiquesJoueur(Joueur.PLAYER_DAMAGE, -1, true)))));
 
 
 			// Ténèbre
 			
 			// Araignée Sanguinaire
 			
-			QueryGenerator.queryInsertObject(17, new CartePiochable<TypeTenebre>(new EffetMultiple(new EffetCiblerTous(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -2, true)),
+			QueryGenerator.queryInsertObject(17, new CartePiochable(CartePiochable.Type.TENEBRE,new EffetMultiple(new EffetCiblerTous(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -2, true)),
 					new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -2, true)))));
 			
 			
 			// Chauve - souris vampire
 			
-			QueryGenerator.queryInsertObject(18, new CartePiochable<TypeTenebre>(new EffetMultiple(new EffetCiblerTous(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -2, true)),
+			QueryGenerator.queryInsertObject(18, new CartePiochable(CartePiochable.Type.TENEBRE,new EffetMultiple(new EffetCiblerTous(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -2, true)),
 					new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, 1, true)))));
 			
-			QueryGenerator.queryInsertObject(19, new CartePiochable<TypeTenebre>(new EffetMultiple(new EffetCiblerTous(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -2, true)),
+			QueryGenerator.queryInsertObject(19, new CartePiochable(CartePiochable.Type.TENEBRE,new EffetMultiple(new EffetCiblerTous(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -2, true)),
 					new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, 1, true)))));
 			
-			QueryGenerator.queryInsertObject(20, new CartePiochable<TypeTenebre>(new EffetMultiple(new EffetCiblerTous(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -2, true)),
+			QueryGenerator.queryInsertObject(20, new CartePiochable(CartePiochable.Type.TENEBRE,new EffetMultiple(new EffetCiblerTous(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -2, true)),
 					new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, 1, true)))));
 			
 			// Dynamite
@@ -133,11 +133,11 @@ public class CreatingCardsTest {
 			
 			
 			// Hache tueuse
-			QueryGenerator.queryInsertObject(22,new CarteEquipementStat<TypeTenebre>(
+			QueryGenerator.queryInsertObject(22,new CarteEquipementStat(CartePiochable.Type.TENEBRE,
 					new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_DAMAGE, 1, true))));
 			
 			// Hachoir maudit
-			QueryGenerator.queryInsertObject(23,new CarteEquipementStat<TypeTenebre>(
+			QueryGenerator.queryInsertObject(23,new CarteEquipementStat(CartePiochable.Type.TENEBRE,
 					new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_DAMAGE, 1, true))));
 			
 			
@@ -150,39 +150,39 @@ public class CreatingCardsTest {
 			// Poupé démoniaque
 			// 26
 			
-			QueryGenerator.queryInsertObject(28,new CartePiochable<TypeTenebre>(
+			QueryGenerator.queryInsertObject(28,new CartePiochable(CartePiochable.Type.TENEBRE,
 					new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, 20, true))
 					,new ConditionMultiple(new ConditionEquipe(CartePersonnage.Equipe.SHADOW), new ConditionReveal())
 					));
 
 			// 29
 			
-			QueryGenerator.queryInsertObject(30,new CartePiochable<TypeTenebre>(
+			QueryGenerator.queryInsertObject(30,new CartePiochable(CartePiochable.Type.TENEBRE,
 					new EffetChoisirCible(new ActionVoler(ActionVoler.VOLER))));
 			
-			QueryGenerator.queryInsertObject(31,new CartePiochable<TypeTenebre>(
+			QueryGenerator.queryInsertObject(31,new CartePiochable(CartePiochable.Type.TENEBRE,
 					new EffetChoisirCible(new ActionVoler(ActionVoler.VOLER))));
 			
-			QueryGenerator.queryInsertObject(32,new CarteEquipementStat<TypeTenebre>(
+			QueryGenerator.queryInsertObject(32,new CarteEquipementStat(CartePiochable.Type.TENEBRE,
 					new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_DAMAGE, 1, true))));
 
 			
 			// Vision clairvoyante
-			QueryGenerator.queryInsertObject(33, new CartePiochable<TypeVision>(new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -1, true)), 
+			QueryGenerator.queryInsertObject(33, new CartePiochable(CartePiochable.Type.VISION,new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -1, true)), 
 					new ConditionStatistiques(ConditionStatistiques.JOUEUR, Joueur.PLAYER_HP, 11, ConditionStatistiques.LESS)));
 
 			// Vision cupide
 			
-			QueryGenerator.queryInsertObject(34,new CartePiochable<TypeVision>(new EffetChoisirEffet(new EffetChoisirCible(new ActionVoler(ActionVoler.DONNER)),new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-1,true))),
+			QueryGenerator.queryInsertObject(34,new CartePiochable(CartePiochable.Type.VISION,new EffetChoisirEffet(new EffetChoisirCible(new ActionVoler(ActionVoler.DONNER)),new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-1,true))),
 					new ConditionEquipe(CartePersonnage.Equipe.NEUTRE,CartePersonnage.Equipe.SHADOW)));
 			
-			QueryGenerator.queryInsertObject(35,new CartePiochable<TypeVision>(new EffetChoisirEffet(new EffetChoisirCible(new ActionVoler(ActionVoler.DONNER)),new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-1,true))),
+			QueryGenerator.queryInsertObject(35,new CartePiochable(CartePiochable.Type.VISION,new EffetChoisirEffet(new EffetChoisirCible(new ActionVoler(ActionVoler.DONNER)),new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-1,true))),
 					new ConditionEquipe(CartePersonnage.Equipe.NEUTRE,CartePersonnage.Equipe.SHADOW)));
 			
 			
 			// Vision destructrice 
 			
-			QueryGenerator.queryInsertObject(36, new CartePiochable<TypeVision>(new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -2, true)), 
+			QueryGenerator.queryInsertObject(36, new CartePiochable(CartePiochable.Type.VISION,new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -2, true)), 
 					new ConditionStatistiques(ConditionStatistiques.JOUEUR, Joueur.PLAYER_HP, 12, ConditionStatistiques.MORE)));
 			
 			
@@ -190,35 +190,35 @@ public class CreatingCardsTest {
 			
 			// Vision enivrante 
 
-			QueryGenerator.queryInsertObject(38,new CartePiochable<TypeVision>(new EffetChoisirEffet(new EffetChoisirCible(new ActionVoler(ActionVoler.DONNER)),new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-1,true))),
+			QueryGenerator.queryInsertObject(38,new CartePiochable(CartePiochable.Type.VISION,new EffetChoisirEffet(new EffetChoisirCible(new ActionVoler(ActionVoler.DONNER)),new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-1,true))),
 					new ConditionEquipe(CartePersonnage.Equipe.NEUTRE,CartePersonnage.Equipe.SHADOW)));
 			
-			QueryGenerator.queryInsertObject(39,new CartePiochable<TypeVision>(new EffetChoisirEffet(new EffetChoisirCible(new ActionVoler(ActionVoler.DONNER)),new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-1,true))),
+			QueryGenerator.queryInsertObject(39,new CartePiochable(CartePiochable.Type.VISION,new EffetChoisirEffet(new EffetChoisirCible(new ActionVoler(ActionVoler.DONNER)),new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-1,true))),
 					new ConditionEquipe(CartePersonnage.Equipe.NEUTRE,CartePersonnage.Equipe.SHADOW)));
 
 			// Vision Foudroyante
 			
-			QueryGenerator.queryInsertObject(40,new CartePiochable<TypeVision>(new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-1,true)),
+			QueryGenerator.queryInsertObject(40,new CartePiochable(CartePiochable.Type.VISION,new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-1,true)),
 					new ConditionEquipe(CartePersonnage.Equipe.SHADOW)));
 
 
 			// Vision furtive
 			
-			QueryGenerator.queryInsertObject(41,new CartePiochable<TypeVision>(new EffetChoisirEffet(new EffetChoisirCible(new ActionVoler(ActionVoler.DONNER)),new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-1,true))),
+			QueryGenerator.queryInsertObject(41,new CartePiochable(CartePiochable.Type.VISION,new EffetChoisirEffet(new EffetChoisirCible(new ActionVoler(ActionVoler.DONNER)),new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-1,true))),
 					new ConditionEquipe(CartePersonnage.Equipe.HUNTER,CartePersonnage.Equipe.SHADOW)));
 			
-			QueryGenerator.queryInsertObject(42,new CartePiochable<TypeVision>(new EffetChoisirEffet(new EffetChoisirCible(new ActionVoler(ActionVoler.DONNER)),new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-1,true))),
+			QueryGenerator.queryInsertObject(42,new CartePiochable(CartePiochable.Type.VISION,new EffetChoisirEffet(new EffetChoisirCible(new ActionVoler(ActionVoler.DONNER)),new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-1,true))),
 					new ConditionEquipe(CartePersonnage.Equipe.HUNTER,CartePersonnage.Equipe.SHADOW)));
 			
 			// Vision Mortifère
 			
-			QueryGenerator.queryInsertObject(43,new CartePiochable<TypeVision>(new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-1,true)),
+			QueryGenerator.queryInsertObject(43,new CartePiochable(CartePiochable.Type.VISION,new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-1,true)),
 					new ConditionEquipe(CartePersonnage.Equipe.SHADOW)));
 			
 			
 			// Vision lugubre
 			
-			QueryGenerator.queryInsertObject(45,new CartePiochable<TypeVision>(new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-2,true)),
+			QueryGenerator.queryInsertObject(45,new CartePiochable(CartePiochable.Type.VISION,new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-2,true)),
 					new ConditionEquipe(CartePersonnage.Equipe.SHADOW)));
 			
 			// Vision réconfortante
