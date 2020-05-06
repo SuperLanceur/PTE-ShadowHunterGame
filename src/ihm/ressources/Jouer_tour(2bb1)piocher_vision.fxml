@@ -8,15 +8,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="255.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="255.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.VisualiserCarteVision">
    <children>
       <Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="255.0" stylesheets="@style/popUp.css">
          <children>
             <VBox alignment="CENTER" prefHeight="180.0" prefWidth="255.0">
                <children>
-                  <Label prefHeight="17.0" prefWidth="76.0" text="%carte.vision" />
-                  <ImageView fitHeight="104.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="typeCarte" prefHeight="17.0" prefWidth="76.0" text="%carte.vision" />
+                  <ImageView fx:id="imageCarte" fitHeight="104.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" />
                   <Label prefHeight="17.0" prefWidth="155.0" text="%carte.vue.par.joueur.pioche" />
                   <Button mnemonicParsing="false" onMouseClicked="#voirCarte" text="%voir.carte">
                      <VBox.margin>
