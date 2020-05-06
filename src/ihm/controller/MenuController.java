@@ -16,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class MenuController  implements Initializable{
@@ -46,6 +47,22 @@ public class MenuController  implements Initializable{
         Stage appStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         appStage.setScene(scene);
         appStage.show();
+        
+       
+    }
+	
+	@FXML
+	public void ouvrirParametres(MouseEvent mouseEvent) throws IOException{
+    	InputStream fileSound1 =  getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");		
+		EffetSonore.playSoundEffect(fileSound1);
+			
+		System.out.println("Passage à l'écran des paramètres");		
+		final URL fxmlURL = getClass().getResource("/ihm/ressources/parametre.fxml");
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+		Pane pane = fxmlLoader.load();
+
+        rootPane.getChildren().setAll(pane);
         
        
     }
