@@ -28,7 +28,7 @@ public class PauseController implements Initializable {
 	private CheckBox cbEffet;
 
 	String filepathMusique = "src//ihm//ressources//musique//The_Red_Fox_Tavern.wav";
-	InputStream fileMusique = getClass().getResourceAsStream("src//ihm//ressources//musique//The_Red_Fox_Tavern.wav");
+	InputStream fileMusique = getClass().getResourceAsStream("/ihm/ressources/musique/The_Red_Fox_Tavern.wav");
 
 	boolean MusiqueLancee = ParametreController.cbMusiqueCoche;
 	boolean SonLance = ParametreController.cbSonCoche;
@@ -53,24 +53,21 @@ public class PauseController implements Initializable {
 		// Pour la musique
 
 		if (fileMusique != null) {
-			System.out.println("point d'arret 1");
 			if (cbMusique.isSelected()) {
 				System.out.println("\tLancement de la musique");
 				
 				if (Musique.clipTimePosition == 0 && MusiqueLancee == false) { // si la musique n'a jamais été lancé
 					Musique.playMusique(fileMusique);
 					MusiqueLancee = true;
-					System.out.println("point d'arret 2");
 				} else
-					Musique.resumeMusique(Musique.clip); // si elle a deja été lancé mais mis en pause, reprend a partir du point d'arret
-					System.out.println("point d'arret 3");										
+					Musique.resumeMusique(Musique.clip); // si elle a deja été lancé mais mis en pause, reprend a partir du point d'arret									
 			} else {
 				Musique.pauseMusique(Musique.clip); // met en pause la musique
 				System.out.println("\tMise en pause de la musique");
 			}
 		}
 		else {
-			System.out.println("ON A UN PROBLEME, AUCUN POINT D'ARRET N'EST PASSE");
+			System.out.println("fichier audio non trouvé");
 		}
 
 		// Pour les effets sonores
