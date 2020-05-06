@@ -9,11 +9,11 @@
 
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="background" stylesheets="@style/plateau.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.MenuController">
    <children>
-      <VBox alignment="CENTER" prefHeight="802.0" prefWidth="1290.0">
+      <VBox alignment="CENTER" layoutX="-3.0" layoutY="-7.0" prefHeight="802.0" prefWidth="1290.0">
          <children>
             <ImageView fx:id="titre" fitHeight="190.0" fitWidth="528.0" pickOnBounds="true" preserveRatio="true">
                <VBox.margin>
-                  <Insets top="-250.0" />
+                  <Insets top="-200.0" />
                </VBox.margin>
             </ImageView>
             <Button mnemonicParsing="false" onMouseClicked="#commencerPartie" prefHeight="51.0" prefWidth="102.0" styleClass="bouton" text="%jouer">
@@ -21,10 +21,26 @@
                   <Font size="24.0" />
                </font>
                <VBox.margin>
-                  <Insets top="150.0" />
+                  <Insets top="100.0" />
+               </VBox.margin>
+            </Button>
+            <Button layoutX="602.0" layoutY="480.0" mnemonicParsing="false" onMouseClicked="#ouvrirParametres" prefHeight="59.0" prefWidth="164.0" styleClass="bouton" text="Paramètres">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="50.0" />
                </VBox.margin>
             </Button>
             <Button mnemonicParsing="false" onMouseClicked="#afficherRegle" prefHeight="59.0" prefWidth="106.0" styleClass="bouton" text="%regles">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#quitterLappli" prefHeight="48.0" prefWidth="108.0" styleClass="bouton" text="quitter">
                <font>
                   <Font size="24.0" />
                </font>
