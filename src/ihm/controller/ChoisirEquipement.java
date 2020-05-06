@@ -3,7 +3,7 @@ package ihm.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import carte.Equipement;
+import carte.CarteEquipement;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.GridPane;
@@ -13,7 +13,7 @@ public class ChoisirEquipement implements Initializable{
 	@FXML private GridPane equipement;
 	
 	private Joueur joueurVole;
-	private Equipement equipementVole;
+	private CarteEquipement equipementVole;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
