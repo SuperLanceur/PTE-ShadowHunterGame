@@ -48,7 +48,7 @@ public class QueryGenerator {
 	        return DriverManager.getConnection(url, user, password);
 	   }
 	
-	public static String queryInsertObject(int id, Object o) throws IOException, SQLException {
+	public static void queryInsertObject(int id, Object o) throws IOException, SQLException {
 		
 		String table = null;
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -82,8 +82,6 @@ public class QueryGenerator {
 		PreparedStatement pst = conn.prepareStatement(query);
 		pst.setBinaryStream(4, objectIS);
 		pst.executeUpdate();
-		
-		return query;
 	}
 	
 }
