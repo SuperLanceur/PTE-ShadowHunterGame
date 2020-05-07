@@ -70,6 +70,8 @@ public class PauseController implements Initializable {
 			System.out.println("fichier audio non trouvé");
 		}
 
+		
+		
 		// Pour les effets sonores
 		if (cbEffet.isSelected() == true) {
 			System.out.println("\tEffets sonores activé");
