@@ -102,8 +102,7 @@ public class PauseController implements Initializable {
 		System.err.println("Fin de partie");
 		Stage appStage = (Stage) ((Node) me.getSource()).getScene().getWindow();
 		appStage.close();
-<<<<<<< HEAD
-		
+
 /*	final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRENCH);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
@@ -111,7 +110,7 @@ public class PauseController implements Initializable {
 		
         
 		
-=======
+
 
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRENCH);
@@ -130,6 +129,6 @@ public class PauseController implements Initializable {
 	public void baisserVolume(MouseEvent mouseEvent) throws IOException{
 		Musique.volumeDown(5.f);
 		System.out.println("on baisse le son");
->>>>>>> 9fca28f7bb31a2ae6de169307adf781247bc61a4
+
 	}
 }
