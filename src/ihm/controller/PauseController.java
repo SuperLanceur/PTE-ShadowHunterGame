@@ -99,10 +99,11 @@ public class PauseController implements Initializable {
 		Stage appStage = (Stage) ((Node) me.getSource()).getScene().getWindow();
 		appStage.close();
 		
-	/*	final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
+/*	final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRENCH);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		AnchorPane root = fxmlLoader.load(); */
+		
         
 		
 	}
