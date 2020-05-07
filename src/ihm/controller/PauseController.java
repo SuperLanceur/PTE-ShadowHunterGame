@@ -36,14 +36,10 @@ public class PauseController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
-		if (MusiqueLancee == true) {
-			cbMusique.setSelected(true);
-		}
+		cbMusique.setSelected(ParametreController.cbMusiqueCoche);
+		cbEffet.setSelected(ParametreController.cbSonCoche);
 
-		if (SonLance == true) {
-			cbEffet.setSelected(true);
-		}
-
+		
 	}
 
 	@FXML
