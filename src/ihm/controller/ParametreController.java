@@ -30,6 +30,8 @@ public class ParametreController implements Initializable {
 	private ComboBox<String> langues;
 	public static boolean cbMusiqueCoche = false; // verifi si la checbox musical est coche
 	public static boolean cbSonCoche = false;
+	public static boolean cbClair = false;
+
 	boolean MusiqueLancee = false; //verifi si la musique a déja été lancé une première fois
 	
 	String filepathMusique = "/ihm/ressources/musique/The_Red_Fox_Tavern.wav"; // lien vers la musique : https://www.youtube.com/watch?v=LBpKUIyOHdo
@@ -42,6 +44,12 @@ public class ParametreController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+
+	cmusique.setSelected(cbMusiqueCoche);
+	cbEffetSonore.setSelected(cbSonCoche);
+	clair.setSelected(cbClair);
+
+
 
 		langues.getItems().add("Anglais");
 		langues.getItems().add("Allemand");
@@ -94,6 +102,8 @@ public class ParametreController implements Initializable {
 			System.out.println(EffetSonore.isSoundOK());
 		}
 		
+			
+		
 
 		// Pour la couleur du theme
 		
@@ -127,8 +137,9 @@ public class ParametreController implements Initializable {
 		EffetSonore.playSoundEffect(fileSound1); //emet un bruit sur le bouton si les effets sonores sont activés
 		
 		// Quitter les paramètres		
-		final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
+	    final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane pane = fxmlLoader.load();
 

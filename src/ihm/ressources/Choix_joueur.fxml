@@ -164,6 +164,14 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </Button>
+                  <Button layoutX="283.0" layoutY="379.0" mnemonicParsing="false" onMouseClicked="#retour" prefHeight="55.0" prefWidth="247.0" styleClass="bouton" stylesheets="@style/menu.css" text="retour">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Button>
                </children>
             </VBox>
          </center>

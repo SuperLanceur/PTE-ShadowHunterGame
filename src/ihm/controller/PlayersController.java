@@ -23,6 +23,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.Configuration;
 import main.GestionnaireJeu;
@@ -213,4 +214,14 @@ public class PlayersController implements Initializable{
 		}else 
 			enleverJoueur(indice);
 	}
+	@FXML
+	public void retour(MouseEvent me) throws IOException {
+		 final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
+			final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+			
+			final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+			Pane pane = fxmlLoader.load();
+
+	        rootPane.getChildren().setAll(pane);
+		}
 }

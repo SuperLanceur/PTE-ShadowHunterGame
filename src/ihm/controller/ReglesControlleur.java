@@ -31,7 +31,7 @@ public class ReglesControlleur implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
-		InputStream input = getClass().getResourceAsStream("/ihm/ressources/img/Regle1.png");
+		InputStream input = getClass().getResourceAsStream("/ihm/ressources/img/Regle1.PNG");
 		Image image = new Image(input);
 		imageRegles.setImage(image);
 
@@ -51,7 +51,7 @@ public class ReglesControlleur implements Initializable {
 			System.out.println("C'est la dernière page!");
 		}
 
-		InputStream input = getClass().getResourceAsStream("/ihm/ressources/img/Regle" + index + ".png");
+		InputStream input = getClass().getResourceAsStream("/ihm/ressources/img/Regle" + index + ".PNG");
 		Image image = new Image(input);
 		imageRegles.setImage(image);
 
@@ -71,7 +71,7 @@ public class ReglesControlleur implements Initializable {
 			System.out.println("C'est la première page!");
 		}
 
-		InputStream input = getClass().getResourceAsStream("/ihm/ressources/img/Regle" + index + ".png");
+		InputStream input = getClass().getResourceAsStream("/ihm/ressources/img/Regle" + index + ".PNG");
 		Image image = new Image(input);
 		imageRegles.setImage(image);
 

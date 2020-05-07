@@ -36,14 +36,10 @@ public class PauseController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
-		if (MusiqueLancee == true) {
-			cbMusique.setSelected(true);
-		}
+		cbMusique.setSelected(ParametreController.cbMusiqueCoche);
+		cbEffet.setSelected(ParametreController.cbSonCoche);
 
-		if (SonLance == true) {
-			cbEffet.setSelected(true);
-		}
-
+		
 	}
 
 	@FXML
@@ -103,6 +99,15 @@ public class PauseController implements Initializable {
 		Stage appStage = (Stage) ((Node) me.getSource()).getScene().getWindow();
 		appStage.close();
 
+/*	final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRENCH);
+		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+		AnchorPane root = fxmlLoader.load(); */
+		
+        
+		
+
+
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRENCH);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
@@ -120,5 +125,6 @@ public class PauseController implements Initializable {
 	public void baisserVolume(MouseEvent mouseEvent) throws IOException{
 		Musique.volumeDown(5.f);
 		System.out.println("on baisse le son");
+
 	}
 }

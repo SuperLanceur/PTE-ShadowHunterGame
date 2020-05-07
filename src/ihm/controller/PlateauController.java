@@ -38,6 +38,7 @@ public class PlateauController implements Initializable {
 	@FXML private AnchorPane rootPane;
 	@FXML private GridPane gridPaneVie;
 	@FXML public GridPane gridPaneLieux;
+
 	
 	private ChoisirBoolean cb;
 
@@ -51,7 +52,7 @@ public class PlateauController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		//System.out.println("Création du plateau ...");
-		
+	
 		this.joueursIHM = new ArrayList<JoueurIHM>();
 		GestionnaireJeu gj  = GestionnaireJeu.getGestionnaireJeu();
 		Map<Integer, Joueur> map = gj.getMapJoueurs();
@@ -61,6 +62,7 @@ public class PlateauController implements Initializable {
 			Pane p = (Pane) gridPaneVie.getChildren().get(i);
 			Label l = (Label) p.getChildren().get(1);
 			l.setText(i+"");
+			
 		}
 	
 		for(int i : map.keySet()) {
@@ -158,6 +160,7 @@ public class PlateauController implements Initializable {
 		}*/
 	
 	}
+	
 	
 	private Pane getPaneJoueur(int i) {	
 		
@@ -303,7 +306,7 @@ public class PlateauController implements Initializable {
 		EffetSonore.playSoundEffect(fileSound1);
 		
 		System.out.println("Jeu en pause ...");
-		final URL fxmlURL = getClass().getResource("../ressources/Pause.fxml");
+		final URL fxmlURL = getClass().getResource("/ihm/ressources/Pause.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane root = (Pane)fxmlLoader.load();
