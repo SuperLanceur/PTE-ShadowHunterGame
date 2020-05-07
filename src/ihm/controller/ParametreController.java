@@ -62,7 +62,6 @@ public class ParametreController implements Initializable {
 	public void enregistre(MouseEvent mouseEvent) throws IOException, Exception {
 		
 		InputStream fileSound1 =  getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
-
 		//Pour la musique
 		if (fileMusique!=null) {
 
@@ -110,7 +109,8 @@ public class ParametreController implements Initializable {
 				
 				if (clair.isSelected()) {
 					//Pane root = FXMLLoader.load(getClass().getResource("../ressources/menu.fxml"));
-					//rootPane.setStyle("-fx-background-color: white;");
+					rootPane.setStyle("-fx-background-color: white;");
+					rootPane.applyCss();
 				}
 
 					/*if (liste != null) {
