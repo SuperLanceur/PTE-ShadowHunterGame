@@ -5,12 +5,13 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="rootPane" prefHeight="595.0" prefWidth="758.0" styleClass="background" stylesheets="@style/menu.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.ParametreController">
+<Pane fx:id="rootPane" onMouseClicked="#slideVolumeMusique" prefHeight="595.0" prefWidth="758.0" styleClass="background" stylesheets="@style/menu.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.ParametreController">
    <children>
       <HBox alignment="TOP_CENTER" layoutX="146.0" layoutY="171.0" prefHeight="242.0" prefWidth="507.0" spacing="10.0">
          <children>
@@ -18,23 +19,7 @@
                <children>
                   <CheckBox fx:id="clair" mnemonicParsing="false" styleClass="checkBox" text="%mode.claire" />
                   <CheckBox fx:id="cmusique" mnemonicParsing="false" styleClass="checkBox" text="%musique" />
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="195.0">
-                     <children>
-                        <Button mnemonicParsing="false" onMouseClicked="#monterVolume" styleClass="bouton" stylesheets="@style/menu.css" text="Volume +">
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <HBox.margin>
-                              <Insets right="10.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#baisserVolume" styleClass="bouton" stylesheets="@style/menu.css" text="Volume -">
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </Button>
-                     </children>
-                  </HBox>
+                  <Slider fx:id="sliderMusique" blockIncrement="1.0" majorTickUnit="1.0" max="1.0" minorTickCount="10" onMouseClicked="#slideVolumeMusique" showTickLabels="true" showTickMarks="true" value="0.1" />
                   <CheckBox fx:id="cbEffetSonore" mnemonicParsing="false" styleClass="checkBox" text="%effet" />
                   <VBox prefHeight="86.0" prefWidth="195.0" spacing="10.0">
                      <children>

@@ -14,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
@@ -28,9 +29,13 @@ public class ParametreController implements Initializable {
 	private CheckBox clair;
 	@FXML
 	private ComboBox<String> langues;
+	@FXML
+	private Slider sliderMusique;
+	
 	public static boolean cbMusiqueCoche = false; // verifi si la checbox musical est coche
 	public static boolean cbSonCoche = false;
 	public static boolean cbClair = false;
+	public static double slideValue;
 
 	boolean MusiqueLancee = false; //verifi si la musique a déja été lancé une première fois
 	
@@ -45,10 +50,10 @@ public class ParametreController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
-	cmusique.setSelected(cbMusiqueCoche);
-	cbEffetSonore.setSelected(cbSonCoche);
-	clair.setSelected(cbClair);
-
+		cmusique.setSelected(cbMusiqueCoche);
+		cbEffetSonore.setSelected(cbSonCoche);
+		clair.setSelected(cbClair);
+		sliderMusique.setValue(slideValue);
 
 
 		langues.getItems().add("Anglais");
@@ -74,6 +79,7 @@ public class ParametreController implements Initializable {
 
 				} else if (Musique.musiqueEnCours != true) {
 					Musique.resumeMusique(Musique.clip); // si elle a deja été lancé mais mis en pause, reprend a partir du point d'arret
+					Musique.musiqueEnCours  = true;
 				}
 
 			} else {
@@ -151,6 +157,16 @@ public class ParametreController implements Initializable {
 	}
 	
 	@FXML
+	public void slideVolumeMusique(MouseEvent mouseEvent) throws IOException{
+		
+		if(Musique.musiqueEnCours == true) {
+			Musique.setVolume(sliderMusique.getValue());
+			slideValue = sliderMusique.getValue();
+			
+		}
+	/*
+	
+	@FXML
 	public void monterVolume(MouseEvent mouseEvent) throws IOException{
 		Musique.volumeUp(5.f);
 		System.out.println("on monte le son");
@@ -160,6 +176,11 @@ public class ParametreController implements Initializable {
 	public void baisserVolume(MouseEvent mouseEvent) throws IOException{
 		Musique.volumeDown(5.f);
 		System.out.println("on baisse le son");
+	}
+	*/
+	
+
+		
 	}
 
 }

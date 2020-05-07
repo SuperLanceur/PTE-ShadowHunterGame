@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Locale;
-import java.util.Map;
 import java.util.ResourceBundle;
 
 import ihm.EffetSonore;
@@ -13,33 +12,34 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.GestionnaireJeu;
-import main.Joueur;
 
 public class PauseController implements Initializable {
 	@FXML
 	private CheckBox cbMusique;
 	@FXML
 	private CheckBox cbEffet;
+	@FXML
+	private Slider sliderMusiquePause;
 
 	String filepathMusique = "src//ihm//ressources//musique//The_Red_Fox_Tavern.wav";
 	InputStream fileMusique = getClass().getResourceAsStream("/ihm/ressources/musique/The_Red_Fox_Tavern.wav");
 
 	boolean MusiqueLancee = ParametreController.cbMusiqueCoche;
 	boolean SonLance = ParametreController.cbSonCoche;
+	public static double slideValuePause;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
 		cbMusique.setSelected(ParametreController.cbMusiqueCoche);
 		cbEffet.setSelected(ParametreController.cbSonCoche);
-
-		
+		sliderMusiquePause.setValue(ParametreController.slideValue);
 	}
 
 	@FXML
@@ -56,11 +56,12 @@ public class PauseController implements Initializable {
 					Musique.playMusique(fileMusique);
 					Musique.musiqueEnCours = true;
 					MusiqueLancee = true;
-				} else if (MusiqueLancee ==false && Musique.musiqueEnCours != true) {
+				} else if (MusiqueLancee == false && Musique.musiqueEnCours != true) {
 					Musique.resumeMusique(Musique.clip); // si elle a deja été lancé mais mis en pause, reprend a partir du point d'arret
+					Musique.musiqueEnCours  = true;
 				}
-															
-			} else if (MusiqueLancee == true){
+
+			} else if (MusiqueLancee == true) {
 				Musique.pauseMusique(Musique.clip); // met en pause la musique
 				Musique.musiqueEnCours = false;
 				MusiqueLancee = false;
@@ -82,6 +83,7 @@ public class PauseController implements Initializable {
 
 		ParametreController.cbSonCoche = cbEffet.isSelected();
 		ParametreController.cbMusiqueCoche = cbMusique.isSelected();
+		ParametreController.slideValue = slideValuePause;
 
 		EffetSonore.playSoundEffect(fileSound1); // met un bruit sur le bouton si les effets sonores sont activés
 
@@ -99,14 +101,13 @@ public class PauseController implements Initializable {
 		Stage appStage = (Stage) ((Node) me.getSource()).getScene().getWindow();
 		appStage.close();
 
-/*	final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRENCH);
-		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
-		AnchorPane root = fxmlLoader.load(); */
-		
-        
-		
-
+		/*
+		 * final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
+		 * final ResourceBundle bundle =
+		 * ResourceBundle.getBundle("domaine.properties.langue", Locale.FRENCH); final
+		 * FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle); AnchorPane root =
+		 * fxmlLoader.load();
+		 */
 
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRENCH);
@@ -116,15 +117,32 @@ public class PauseController implements Initializable {
 	}
 	
 	@FXML
-	public void monterVolume(MouseEvent mouseEvent) throws IOException{
+	public void slideVolumeMusique(MouseEvent mouseEvent) throws IOException {
+
+		if (Musique.musiqueEnCours == true) {
+			System.out.println("slide");
+			Musique.setVolume(sliderMusiquePause.getValue());
+			slideValuePause = sliderMusiquePause.getValue();
+
+		}else {
+			System.out.println("probleme");
+		}
+	}
+
+	/*
+	@FXML
+	public void monterVolume(MouseEvent mouseEvent) throws IOException {
 		Musique.volumeUp(5.f);
 		System.out.println("on monte le son");
 	}
-	
+
 	@FXML
-	public void baisserVolume(MouseEvent mouseEvent) throws IOException{
+	public void baisserVolume(MouseEvent mouseEvent) throws IOException {
 		Musique.volumeDown(5.f);
 		System.out.println("on baisse le son");
 
 	}
+	*/
+
+
 }
