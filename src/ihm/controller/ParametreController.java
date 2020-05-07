@@ -107,12 +107,13 @@ public class ParametreController implements Initializable {
 
 		// Pour la couleur du theme
 		
-				/*
+				
 				if (clair.isSelected()) {
-					//Pane root = FXMLLoader.load(getClass().getResource("../ressources/parametre.fxml"));
-					//root.setStyle("ressources/style/menuLight.css");
+					//Pane root = FXMLLoader.load(getClass().getResource("../ressources/menu.fxml"));
+					//rootPane.setStyle("-fx-background-color: white;");
+				}
 
-					if (liste != null) {
+					/*if (liste != null) {
 						for (int i = 0; i < liste.length; i++) {
 
 							System.out.println(liste[i]);
