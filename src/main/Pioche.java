@@ -9,26 +9,22 @@ import carte.CartePiochable;
 public class Pioche {
 	
 	private Stack<CartePiochable> cartesPiochables;
-	private CartePiochable.Type type;
 	
-	public Pioche(List<CartePiochable> cartesPiochables) {
-		
-	}
-
-	public Pioche(CartePiochable.Type type, List<CartePiochable> list1) {
+	public Pioche(List<CartePiochable> list1) {
 		super();
-		this.type = type;
 		this.cartesPiochables = new Stack<CartePiochable>();
-		this.cartesPiochables.addAll(cartesPiochables);
+		this.cartesPiochables.addAll(list1);
 		melanger();
 	}
+
+
 
 	public void melanger()
 	{
 		Collections.shuffle(cartesPiochables);
 	}
 	
-	public CartePiochable piocher() {	
+	public CartePiochable piocher() {
 		return cartesPiochables.pop();
 	}
 }

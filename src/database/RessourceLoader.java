@@ -5,12 +5,15 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.imageio.ImageIO;
 
 import carte.Carte;
+import carte.CarteLieu;
 import carte.CartePiochable;
 import personnage.CartePersonnage;
 
@@ -32,16 +35,16 @@ public class RessourceLoader {
 	private final int ID_DOS_TENEBRE= 59;
 	private final int ID_DOS_VISION= 61;
 	
-	private Map<String, Map<Carte, Image>> ressourcesCartes;
+	private Map<Carte, Image> ressourcesCartes;
 	private Map<String, Image> ressourcesDosCartes;
 	
 	
 	public RessourceLoader() {
-		this.ressourcesCartes = new HashMap<String, Map<Carte,Image>>();
+		this.ressourcesCartes = new HashMap<Carte,Image>();
 		this.ressourcesDosCartes = new HashMap<String, Image>();
 	}
 	
-	private static Map<Integer, Carte> loadCards() throws ClassNotFoundException, IOException{
+	private Map<Integer, Carte> loadCards() throws ClassNotFoundException, IOException{
 		
 		Table t = new Table();
 		Map<Integer, Carte> cartes = new HashMap<Integer,Carte>();
@@ -60,7 +63,7 @@ public class RessourceLoader {
 		return cartes;
 	}
 	
-	private static Map<Integer, Carte> getMapType(CartePiochable.Type t, Map<Integer, Carte> cartes){
+	private Map<Integer, Carte> getMapType(CartePiochable.Type t, Map<Integer, Carte> cartes){
 		
 		Map<Integer, Carte> cartesType = new HashMap<Integer, Carte>();
 		
@@ -80,7 +83,7 @@ public class RessourceLoader {
 		return cartesType;
 	}
 	
-	private static Map<Integer, Carte> getMapPersonnage(Map<Integer, Carte> cartes){
+	private Map<Integer, Carte> getMapPersonnage(Map<Integer, Carte> cartes){
 		
 		Map<Integer, Carte> cartesPersonnage = new HashMap<Integer, Carte>();
 		
@@ -102,15 +105,14 @@ public class RessourceLoader {
 	    return is.readObject();
 	}
 	
-	private static Image loadImage(int id) throws IOException {
+	private Image loadImage(int id) throws IOException {
 		String name = ""+id+".png";
 		String url = "ressources/cartes/"+name;
-		System.out.println(url);
 		Image picture = ImageIO.read(new File(url));
 		return picture;
 	}
 	
-	private static Map<Carte, Image> getMapImageCarte(Map<Integer, Carte> cartes) throws IOException{
+	private Map<Carte, Image> getMapImageCarte(Map<Integer, Carte> cartes) throws IOException{
 		
 		Map<Carte, Image> mapCarteImage = new HashMap<Carte, Image>();
 		
@@ -123,8 +125,7 @@ public class RessourceLoader {
 		
 		return mapCarteImage;
 	}
-	
-	
+
 	public void loadRessources() {
 		
 		try {
@@ -134,17 +135,14 @@ public class RessourceLoader {
 			Map<Integer, Carte> mapL = getMapType(CartePiochable.Type.LUMIERE, cartes);
 			Map<Integer, Carte> mapV = getMapType(CartePiochable.Type.VISION, cartes);
 			Map<Integer, Carte> mapP = getMapPersonnage(cartes);
-			
+			/*
 			Map<Carte, Image> mapIT = getMapImageCarte(mapT);
-			Map<Carte, Image> mapIL = getMapImageCarte(mapT);
-			Map<Carte, Image> mapIV = getMapImageCarte(mapT);
-			Map<Carte, Image> mapIP = getMapImageCarte(mapT);
+			Map<Carte, Image> mapIL = getMapImageCarte(mapL);
+			Map<Carte, Image> mapIV = getMapImageCarte(mapV);
+			Map<Carte, Image> mapIP = getMapImageCarte(mapP);
+			*/
 			
-			
-			this.ressourcesCartes.put(CARTES_TENEBRE, mapIT);
-			this.ressourcesCartes.put(CARTES_LUMIERE, mapIL);
-			this.ressourcesCartes.put(CARTES_LUMIERE, mapIV);
-			this.ressourcesCartes.put(CARTES_LUMIERE, mapIP);
+			this.ressourcesCartes = (getMapImageCarte(cartes));
 			
 			this.ressourcesDosCartes.put(DOS_TENEBRE, loadImage(ID_DOS_TENEBRE));
 			this.ressourcesDosCartes.put(DOS_LUMIERE, loadImage(ID_DOS_LUMIERE));
@@ -155,11 +153,59 @@ public class RessourceLoader {
 			e.printStackTrace();
 		}
 	}
-	
-	public static void main(String[] args) {
-		RessourceLoader rl = new RessourceLoader();
-		rl.loadRessources();
+
+	public List<Carte> getCartes() {
+		return new ArrayList<Carte>(this.ressourcesCartes.keySet());
 	}
 	
+	
+	public static List<CartePiochable> getCartesType(CartePiochable.Type t, List<Carte> cartes){
+		
+		List<CartePiochable> cartesType = new ArrayList<CartePiochable>();
+		
+		for(Carte c : cartes) {
+			
+			
+			if(c instanceof CartePiochable) {
+				
+				CartePiochable carte = (CartePiochable) c;
+				
+				CartePiochable.Type type = carte.getType();
+				if(t == type) {
+					cartesType.add(carte);
+				}
+			}
+		}
+		return cartesType;
+	}
+	
+	public static List<CarteLieu> getCartesType(List<Carte> cartes){
+		
+		List<CarteLieu> cartesLieu = new ArrayList<CarteLieu>();
+		
+		for(Carte c : cartes) {
+		
+			if(c instanceof CarteLieu) {
+				
+				CarteLieu carte = (CarteLieu) c;
+				cartesLieu.add(carte);
+			}
+		}
+		return cartesLieu;
+	}
+
+	public static List<CartePersonnage> getCartesPersonnages(List<Carte> cartes) {
+		List<CartePersonnage> cartesLieu = new ArrayList<CartePersonnage>();
+		
+		for(Carte c : cartes) {
+		
+			if(c instanceof CartePersonnage) {
+				
+				CartePersonnage carte = (CartePersonnage) c;
+				cartesLieu.add(carte);
+			}
+		}
+		return cartesLieu;
+	}
 	
 }

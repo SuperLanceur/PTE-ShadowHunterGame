@@ -13,12 +13,18 @@ public class CarteLieu extends CarteEffet{
 	private Point coordinates;
 	private CarteLieu voisin;
 	
+	public CarteLieu(Point point) {
+		this("","",point);
+	}
+	
 	public CarteLieu(String nom, String description, Point p) {
 		super(nom, description);
 		this.coordinates = p;
 		this.listeJoueurs = new ArrayList<Joueur>();
 	}
 	
+	
+
 	/*
 	 * 	@param j Appel la méthode utiliser de effet sur le joueur j
 	 */
