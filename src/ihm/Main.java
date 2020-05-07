@@ -20,7 +20,7 @@ public class Main extends Application {
 	    final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
 	    final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 	    Pane root = fxmlLoader.load();
-
+	        
 		primaryStage.setTitle("Shadow Hunters");
 		primaryStage.setScene(new Scene(root));
 		primaryStage.centerOnScreen();
@@ -35,8 +35,13 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) {
-		//System.err.close();
+		
 		GestionnaireJeu gj = GestionnaireJeu.getGestionnaireJeu();
+		/*
+		RessourceLoader rl = new RessourceLoader();
+		rl.loadRessources();
+		gj.setRessourceLoader(rl);
+		*/
 		launch(args);
 	}
 }

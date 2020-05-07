@@ -8,6 +8,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
+import database.RessourceLoader;
 import effet.Effet;
 import ihm.controller.PlateauController;
 import javafx.application.Platform;
@@ -17,6 +18,8 @@ public class GestionnaireJeu {
 	private static GestionnaireJeu gj;	
 	
 	private Map<Integer, Joueur> mapJoueurs;
+
+	private RessourceLoader ressourceLoader;
 	
 	private static Plateau plateau;
 	private static PlateauController pc;
@@ -38,15 +41,6 @@ public class GestionnaireJeu {
 	public void lancerPartie() {
 		plateau.start();
 	}
-	
-	public void jouer(Configuration c) {
-		
-	}
-	
-	public static Configuration lancerConfiguration() {	
-		//TODO
-		return null;
-	}
 
 	public Joueur choisirParmisTous(Joueur joueur, List<Joueur> joueurs) {
 		return joueurs.get(0);
@@ -66,6 +60,13 @@ public class GestionnaireJeu {
 		Platform.runLater(() -> {
 			pc.deplacer(currentJoueur);
 		});		
+	}
+	
+	public void updateVieJoueur(Joueur joueur, int damage) {
+		
+		Platform.runLater(() -> {
+			pc.updateVieJoueur(joueur, damage);
+		});
 	}
 	
 	public boolean choisir(Joueur joueur) {
@@ -132,8 +133,8 @@ public class GestionnaireJeu {
 		for(Joueur j : mapJoueurs.values()) {
 			joueurs.add(j);
 		}
-		
 		plateau = new Plateau(joueurs);
+		//plateau = new Plateau(joueurs,ressourceLoader.getCartes());
 		
 	}
 
@@ -151,13 +152,12 @@ public class GestionnaireJeu {
 		
 	}
 
-	public void updateVieJoueur(Joueur joueur, int damage) {
-		pc.updateVieJoueur(joueur, damage);
-		
-	}
-
 	public static void endGame() {
 		plateau.stop();
+	}
+
+	public void setRessourceLoader(RessourceLoader rl) {
+		this.ressourceLoader = rl;
 	}
 
 	

@@ -69,8 +69,8 @@ class PlateauTest {
 		}
 	
 		
-		Pioche piocheLumiere = new Pioche(CartePiochable.Type.LUMIERE,list1);
-		Pioche piocheTenebre = new Pioche(CartePiochable.Type.TENEBRE,list2);
+		Pioche piocheLumiere = new Pioche(list1);
+		Pioche piocheTenebre = new Pioche(list2);
 		
 		
 		CarteLieu lieu1 = new CarteLieuType(CartePiochable.Type.TENEBRE,"Antre de l'Ermite","desc",new Point(2,3),piocheTenebre);

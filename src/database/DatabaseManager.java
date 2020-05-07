@@ -85,6 +85,8 @@ public class DatabaseManager {
 				table = QueryGenerator.getTable("CartesPersonnage");
 			} else if(id <= 61) {
 				table = QueryGenerator.getTable("CartesDos");
+			} else if(id <= 67) {
+				table = QueryGenerator.getTable("CartesLieu");
 			}
 			
 			String query = null;

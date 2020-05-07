@@ -1,9 +1,13 @@
 package database;
 
+import java.awt.Point;
 import java.io.IOException;
 import java.sql.SQLException;
 
 import carte.CarteEquipementStat;
+import carte.CarteLieu;
+import carte.CarteLieuMultiple;
+import carte.CarteLieuType;
 import carte.CartePiochable;
 import condition.ConditionClassPersonnage;
 import condition.ConditionEquipe;
@@ -21,9 +25,6 @@ import effet.action.ActionMultiple;
 import effet.action.ActionReveal;
 import effet.action.ActionVoler;
 import main.Joueur;
-import main.TypeLumiere;
-import main.TypeTenebre;
-import main.TypeVision;
 import personnage.Allie;
 import personnage.Bob;
 import personnage.CartePersonnage;
@@ -44,6 +45,7 @@ public class CreatingCardsTest {
 		
 		//Ange gardien
 		try {
+			/*
 			DatabaseManager.queryInsertObject(2,new CartePiochable(CartePiochable.Type.LUMIERE,
 			new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_IMMUNITY, 1, true))));
 			
@@ -237,10 +239,47 @@ public class CreatingCardsTest {
 			DatabaseManager.queryInsertObject(55,new LoupGarou());
 			DatabaseManager.queryInsertObject(56,new Metamorphe());
 			DatabaseManager.queryInsertObject(57,new Vampire());
+			
+			*/
+			//62
+			
+		
+			//CarteLieu lieu1 = new CarteLieuType(CartePiochable.Type.VISION,new Point(2,3));
+			
+			DatabaseManager.queryInsertObject(62,new CarteLieuType(CartePiochable.Type.VISION,new Point(2,3)));
+			
+			//63
+			CarteLieu lieu2 = new CarteLieuType(CartePiochable.Type.TENEBRE,new Point(-1,8));
+			
+			DatabaseManager.queryInsertObject(63,lieu2);
+			
+			// 64
+			CarteLieu lieu3 = new CarteLieu(new Point(-1,9));
+			lieu3.setEffet(new EffetChoisirEffet(new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-2,true)),
+				
+					
+					new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,1,true))));
+		
+			DatabaseManager.queryInsertObject(64,lieu3);
+			// 65
+			CarteLieu lieu4 = new CarteLieuType(CartePiochable.Type.LUMIERE,new Point(-1,6));
+			
+			DatabaseManager.queryInsertObject(65,lieu4);
+			
+			CarteLieu lieu5 = new CarteLieuMultiple(new Point(4,5));
+			
+			DatabaseManager.queryInsertObject(66,lieu5);
+			// 66
+			CarteLieu lieu6 = new CarteLieu(new Point(-1,9));
+			lieu6.setEffet(new EffetChoisirCible(new ActionVoler(ActionVoler.VOLER)));
+			
+			DatabaseManager.queryInsertObject(67,lieu6);
+			
 		} catch (IOException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 	}
-}
+	}
+

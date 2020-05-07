@@ -38,7 +38,7 @@ public class ActionVoler extends Action{
 			List<CarteEquipement> equipements = j2.getEquipements();
 			
 			// J1 choisit quel équipement voler
-			CarteEquipement equipement = j1.choisir(equipements);
+			CarteEquipement equipement = (CarteEquipement) j1.choisir(equipements);
 			
 			j1.voler(j2,equipement);
 		}else {
@@ -46,7 +46,7 @@ public class ActionVoler extends Action{
 			List<CarteEquipement> equipements = j1.getEquipements();
 			
 			// J1 choisit quel équipement voler
-			CarteEquipement equipement = j1.choisir(equipements);
+			CarteEquipement equipement = (CarteEquipement) j1.choisir(equipements);
 			
 			j2.voler(j1,equipement);
 			

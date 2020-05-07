@@ -7,9 +7,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import carte.Carte;
 import carte.CarteLieu;
+import carte.CarteLieuMultiple;
 import carte.CarteLieuType;
 import carte.CartePiochable;
+import database.RessourceLoader;
 import effet.Effet;
 import effet.EffetChoisirCible;
 import effet.EffetChoisirEffet;
@@ -121,6 +124,66 @@ public class Plateau extends Thread{
 		
 	}	
 	
+	public Plateau(List<Joueur> joueurs, List<Carte> cartes) {
+		
+		this.gj = GestionnaireJeu.getGestionnaireJeu();
+		this.lieux = new ArrayList<>();
+		this.stats = new HashMap<>();
+		
+		this.joueurs = joueurs;
+		
+		this.stats.put(NB_MORTS, 0);
+		this.stats.put(NB_MORTS_NEUTRAL, 0);
+		this.stats.put(NB_MORTS_HUNTER, 0);
+		this.stats.put(NB_MORTS_SHADOW, 0);
+		this.stats.put(PARTIE_FINIE, 0);
+		this.stats.put(NB_HUNTERS, 0);
+		this.stats.put(NB_SHADOWS, 0);
+		this.stats.put(NB_NEUTRES, 0);
+		
+		
+		joueurs.forEach(x -> x.setPlateau(this));
+		
+		
+		List<CartePiochable> lumiere = RessourceLoader.getCartesType(CartePiochable.Type.LUMIERE, cartes);
+		List<CartePiochable> tenebre = RessourceLoader.getCartesType(CartePiochable.Type.TENEBRE, cartes);
+		List<CartePiochable> vision = RessourceLoader.getCartesType(CartePiochable.Type.VISION, cartes);
+
+		Map<CartePiochable.Type, List<CartePiochable>> map = new HashMap<CartePiochable.Type, List<CartePiochable>>();
+		map.put(CartePiochable.Type.LUMIERE,lumiere);
+		map.put(CartePiochable.Type.TENEBRE,tenebre);
+		map.put(CartePiochable.Type.VISION,vision);
+		
+		List<CarteLieu> lieux = RessourceLoader.getCartesType(cartes);
+		
+		lieux.forEach(x -> {
+			
+			if(x instanceof CarteLieuType) {
+				CarteLieuType clt = (CarteLieuType)x;
+				clt.setPioche(new Pioche(map.get(clt.getType())));
+			}
+			
+			if(x instanceof CarteLieuMultiple) {
+				CarteLieuMultiple clm = (CarteLieuMultiple)x;
+				
+				List<Pioche> lp = new ArrayList<Pioche>();
+				lp.add(new Pioche(map.get(CartePiochable.Type.LUMIERE)));
+				lp.add(new Pioche(map.get(CartePiochable.Type.TENEBRE)));
+				lp.add(new Pioche(map.get(CartePiochable.Type.VISION)));
+				clm.setPioches(lp);
+			}
+		});
+
+		
+		List<CartePersonnage> personnages = RessourceLoader.getCartesPersonnages(cartes);
+				
+		try {
+			initCartePersonnage(personnages);
+		} catch (Exception e) {
+		
+		}
+		setLieux(lieux);
+	}
 
 	public void initCartePersonnage(List<CartePersonnage> cps) throws Exception {
 		
@@ -211,12 +274,7 @@ public class Plateau extends Thread{
 				System.out.println("Vous passez a "+currentJoueur.getStat(Joueur.PLAYER_HP)+" pv");
 				if(isPartieTerminee()) break;
 			}
-			try {
-				Thread.sleep(2000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+	
 			System.out.println("\n");
 			
 			System.out.println("Souhaitez vous attaquer quelqu'un ?");
@@ -229,12 +287,6 @@ public class Plateau extends Thread{
 					System.out.println("Il n'y a personne a attaquer.");
 				}
 				
-				try {
-					Thread.sleep(2000);
-				} catch (InterruptedException e) {
-			
-					e.printStackTrace();
-				}
 			}
 			
 			i++;

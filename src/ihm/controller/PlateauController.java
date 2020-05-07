@@ -291,8 +291,8 @@ public class PlateauController implements Initializable {
 	}
 
 	public void updateVieJoueur(Joueur joueur, int damage) {
-		/*JoueurIHM jIHM = getJoueurIHM(joueur);
-		jIHM.deplacerPionVie(damage);*/
+		JoueurIHM jIHM = getJoueurIHM(joueur);
+		jIHM.deplacerPionVie(damage);
 		
 	}
 	

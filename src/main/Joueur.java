@@ -4,8 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import carte.CarteLieu;
+import carte.Carte;
 import carte.CarteEquipement;
+import carte.CarteLieu;
 import effet.Effet;
 import personnage.CartePersonnage;
 import personnage.CartePersonnage.Equipe;
@@ -64,6 +65,9 @@ public class Joueur {
 		return this.cartePersonnage.getEquipe();
 	}
 	
+	private void changeStat(String key, int valeur) {
+		this.stats.put(key, valeur);
+	}
 	public void setStat(String key, int valeur) {
 		this.stats.put(key, valeur);
 		updateVictoirePlateau();
@@ -87,10 +91,10 @@ public class Joueur {
 	private void updateVie() {
 		int damage = damageTaken();
 		this.plateau.updateVieJoueur(this, damage);
-		
 	}
 
 	public int damageTaken() {
+		System.out.println(this.cartePersonnage.getPv()+ " "+this.getStat(PLAYER_HP));
 		return this.cartePersonnage.getPv() - this.getStat(PLAYER_HP);
 	}
 	
@@ -130,7 +134,7 @@ public class Joueur {
 		j2.gestionnaireEquipements.retirer(equipement);
 		this.gestionnaireEquipements.ajouter(equipement);	}
 
-	public CarteEquipement choisir(List<CarteEquipement> equipements) {
+	public Object choisir(List<?> equipements) {
 		return null;
 	}
 
@@ -193,6 +197,7 @@ public class Joueur {
 
 	public void setCartePersonnage(CartePersonnage cp) {
 		this.cartePersonnage = cp;
+		this.changeStat(PLAYER_HP, cp.getPv());
 	}
 
 	public void setPlateau(Plateau plateau2) {
