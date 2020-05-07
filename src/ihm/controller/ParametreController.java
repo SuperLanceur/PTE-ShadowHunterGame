@@ -28,6 +28,7 @@ public class ParametreController implements Initializable {
 	private CheckBox clair;
 	@FXML
 	private ComboBox<String> langues;
+	public static Locale LaLangue = Locale.FRANCE;
 	public static boolean cbMusiqueCoche = false; // verifi si la checbox musical est coche
 	public static boolean cbSonCoche = false;
 	public static boolean cbClair = false;
@@ -63,6 +64,12 @@ public class ParametreController implements Initializable {
 		
 		InputStream fileSound1 =  getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
 
+		if(langues.getValue()=="Anglais") {
+			LaLangue=Locale.ENGLISH;
+		}
+		else if(langues.getValue()=="Français") {
+			LaLangue=Locale.FRANCE;
+		}
 		//Pour la musique
 		if (fileMusique!=null) {
 
@@ -138,7 +145,7 @@ public class ParametreController implements Initializable {
 		
 		// Quitter les paramètres		
 	    final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 		
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane pane = fxmlLoader.load();
