@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" style="-fx-border-color: white; -fx-background-color: black;" stylesheets="@style/popUp.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.PauseController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="480.0" prefWidth="640.0">
@@ -45,6 +44,29 @@
                      <VBox.margin>
                         <Insets bottom="5.0" />
                      </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="38.0" prefWidth="337.0">
+                     <children>
+                        <Button mnemonicParsing="false" onMouseClicked="#monterVolume" text="Volume +">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onMouseClicked="#baisserVolume" text="Volume -">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
                   </HBox>
                   <HBox alignment="CENTER_LEFT">
                      <children>
