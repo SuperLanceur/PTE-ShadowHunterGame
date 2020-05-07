@@ -157,6 +157,16 @@ public class ParametreController implements Initializable {
 	}
 	
 	@FXML
+	public void slideVolumeMusique(MouseEvent mouseEvent) throws IOException{
+		
+		if(Musique.musiqueEnCours == true) {
+			Musique.setVolume(sliderMusique.getValue());
+			slideValue = sliderMusique.getValue();
+			
+		}
+	/*
+	
+	@FXML
 	public void monterVolume(MouseEvent mouseEvent) throws IOException{
 		Musique.volumeUp(5.f);
 		System.out.println("on monte le son");
@@ -167,15 +177,9 @@ public class ParametreController implements Initializable {
 		Musique.volumeDown(5.f);
 		System.out.println("on baisse le son");
 	}
+	*/
 	
-	@FXML
-	public void slideVolumeMusique(MouseEvent mouseEvent) throws IOException{
-		
-		if(Musique.musiqueEnCours == true) {
-			Musique.setVolume(sliderMusique.getValue());
-			slideValue = sliderMusique.getValue();
-			
-		}
+
 		
 	}
 

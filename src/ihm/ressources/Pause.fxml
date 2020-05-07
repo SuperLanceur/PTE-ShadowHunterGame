@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -45,28 +46,10 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox prefHeight="38.0" prefWidth="337.0">
+                  <HBox prefHeight="0.0" prefWidth="540.0">
                      <children>
-                        <Button mnemonicParsing="false" onMouseClicked="#monterVolume" text="Volume +">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets right="10.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" onMouseClicked="#baisserVolume" text="Volume -">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </Button>
+                        <Slider fx:id="sliderMusiquePause" blockIncrement="1.0" majorTickUnit="1.0" max="1.0" minorTickCount="10" onMouseClicked="#slideVolumeMusique" prefHeight="14.0" prefWidth="194.0" showTickLabels="true" showTickMarks="true" value="0.1" />
                      </children>
-                     <padding>
-                        <Insets bottom="10.0" top="10.0" />
-                     </padding>
                   </HBox>
                   <HBox alignment="CENTER_LEFT">
                      <children>
