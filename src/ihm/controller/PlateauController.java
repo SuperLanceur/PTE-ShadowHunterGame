@@ -306,7 +306,7 @@ public class PlateauController implements Initializable {
 		EffetSonore.playSoundEffect(fileSound1);
 		
 		System.out.println("Jeu en pause ...");
-		final URL fxmlURL = getClass().getResource("../ressources/Pause.fxml");
+		final URL fxmlURL = getClass().getResource("/ihm/ressources/Pause.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane root = (Pane)fxmlLoader.load();
