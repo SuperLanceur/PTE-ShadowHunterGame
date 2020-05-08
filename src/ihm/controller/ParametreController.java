@@ -32,10 +32,13 @@ public class ParametreController implements Initializable {
 	@FXML
 	private Slider sliderMusique;
 	
+	
+	
 	public static boolean cbMusiqueCoche = false; // verifi si la checbox musical est coche
 	public static boolean cbSonCoche = false;
 	public static boolean cbClair = false;
 	public static double slideValue;
+	public static String langueChoisi;
 
 	boolean MusiqueLancee = false; //verifi si la musique a déja été lancé une première fois
 	
@@ -67,7 +70,6 @@ public class ParametreController implements Initializable {
 	public void enregistre(MouseEvent mouseEvent) throws IOException, Exception {
 		
 		InputStream fileSound1 =  getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
-
 		//Pour la musique
 		if (fileMusique!=null) {
 
@@ -116,9 +118,12 @@ public class ParametreController implements Initializable {
 				
 				if (clair.isSelected()) {
 					//Pane root = FXMLLoader.load(getClass().getResource("../ressources/menu.fxml"));
-					//rootPane.setStyle("-fx-background-color: white;");
+					
+					rootPane.setStyle("-fx-background-color: white;");
+					rootPane.applyCss();
 				}
-
+				rootPane.setStyle("-fx-background-color: white;");
+				rootPane.applyCss();
 					/*if (liste != null) {
 						for (int i = 0; i < liste.length; i++) {
 
@@ -142,6 +147,7 @@ public class ParametreController implements Initializable {
 				}*/
 
 		EffetSonore.playSoundEffect(fileSound1); //emet un bruit sur le bouton si les effets sonores sont activés
+		
 		
 		// Quitter les paramètres		
 	    final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
