@@ -27,4 +27,10 @@ public class Pioche {
 	public CartePiochable piocher() {
 		return cartesPiochables.pop();
 	}
+
+
+
+	public Stack<CartePiochable> getStack() {
+		return cartesPiochables;
+	}
 }

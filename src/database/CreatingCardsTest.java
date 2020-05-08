@@ -45,7 +45,7 @@ public class CreatingCardsTest {
 		
 		//Ange gardien
 		try {
-			/*
+			
 			DatabaseManager.queryInsertObject(2,new CartePiochable(CartePiochable.Type.LUMIERE,
 			new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_IMMUNITY, 1, true))));
 			
@@ -240,7 +240,7 @@ public class CreatingCardsTest {
 			DatabaseManager.queryInsertObject(56,new Metamorphe());
 			DatabaseManager.queryInsertObject(57,new Vampire());
 			
-			*/
+	
 			//62
 			
 		

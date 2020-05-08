@@ -25,6 +25,8 @@ public class CarteLieuMultiple extends CarteLieu{
 	 */
 	public void utiliser(Joueur j) {
 		Pioche p = (Pioche) j.choisir(pioches);
+		System.out.println(pioches+ " "+p);
+		System.out.println(p.getStack());
 		Carte c = p.piocher();
 		c.utiliser(j);
 	}

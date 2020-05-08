@@ -148,7 +148,8 @@ public class Plateau extends Thread{
 		List<CartePiochable> lumiere = RessourceLoader.getCartesType(CartePiochable.Type.LUMIERE, cartes);
 		List<CartePiochable> tenebre = RessourceLoader.getCartesType(CartePiochable.Type.TENEBRE, cartes);
 		List<CartePiochable> vision = RessourceLoader.getCartesType(CartePiochable.Type.VISION, cartes);
-
+		
+		System.out.println("VISION "+vision);
 		Map<CartePiochable.Type, List<CartePiochable>> map = new HashMap<CartePiochable.Type, List<CartePiochable>>();
 		map.put(CartePiochable.Type.LUMIERE,lumiere);
 		map.put(CartePiochable.Type.TENEBRE,tenebre);
@@ -160,6 +161,8 @@ public class Plateau extends Thread{
 			
 			if(x instanceof CarteLieuType) {
 				CarteLieuType clt = (CarteLieuType)x;
+				System.out.println(clt.getType());
+				System.out.println("Oui "+ map.get(clt.getType()));
 				clt.setPioche(new Pioche(map.get(clt.getType())));
 			}
 			
@@ -173,7 +176,8 @@ public class Plateau extends Thread{
 				clm.setPioches(lp);
 			}
 		});
-
+	
+		
 		
 		List<CartePersonnage> personnages = RessourceLoader.getCartesPersonnages(cartes);
 				
@@ -264,6 +268,7 @@ public class Plateau extends Thread{
 			System.out.println("Au tour de "+currentJoueur.getNom());
 			System.out.println("Lancement des dés.");
 			deplacer(currentJoueur);
+			System.out.println("OUI");
 			if(isPartieTerminee()) break;
 			System.out.println("Vous êtes désormais sur le lieu "+currentJoueur.getCarteLieu().getNom());
 			System.out.println("Voulez vous activer l'effet du lieu ?");
@@ -318,14 +323,12 @@ public class Plateau extends Thread{
 			for(CarteLieu cl : lieux) {
 				
 				if(cl.coordinatesContains(roll) && currentJoueur.getCarteLieu() != cl){
-					
 					currentJoueur.deplacer(cl);
 					attributed = true;
 					break;
 				}
 			}
 		}
-		
 		gj.deplacer(currentJoueur);
 	}
 	
@@ -338,7 +341,6 @@ public class Plateau extends Thread{
 			System.out.println(joueur2.getNom()+" a "+joueur2.getStat(Joueur.PLAYER_HP)+" pv");
 			joueur1.attaquer(joueur2,attaque);
 			System.out.println(joueur2.getNom()+" passe à "+joueur2.getStat(Joueur.PLAYER_HP)+" pv");
-			
 		}
 	}
 	

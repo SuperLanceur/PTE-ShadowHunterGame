@@ -1,6 +1,7 @@
 package ihm.controller;
 
 
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -11,20 +12,31 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Set;
 
+import carte.Carte;
+import carte.CarteLieu;
+import database.RessourceLoader;
 import ihm.EffetSonore;
 import ihm.PopUp;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import main.GestionnaireJeu;
@@ -41,7 +53,9 @@ public class PlateauController implements Initializable {
 
 	
 	private ChoisirBoolean cb;
-
+	
+	
+	private Map<Carte,BufferedImage> mapRessourcesCartes;
 	public static int DICE_SIX = 2;
 	public static int DICE_QUATRE = 1;
 	public static int DICE_BOTH = 0;
@@ -55,6 +69,8 @@ public class PlateauController implements Initializable {
 	
 		this.joueursIHM = new ArrayList<JoueurIHM>();
 		GestionnaireJeu gj  = GestionnaireJeu.getGestionnaireJeu();
+		RessourceLoader rl = gj.getRessourceLoader();
+		
 		Map<Integer, Joueur> map = gj.getMapJoueurs();
 		
 		for(int i = 0 ; i < gridPaneVie.getChildren().size();i++) {
@@ -75,7 +91,12 @@ public class PlateauController implements Initializable {
 		}
 		
 		
+		mapRessourcesCartes = rl.getRessourceCartes();
+		
+		List<CarteLieu> cl = gj.getCartesLieux();
+		List<ImageView> ivs = this.getLieux();
 
+		applyImages(cl,ivs);
 		
 		// BUTTONS ETC
 		//System.out.println(this.joueursPane);
@@ -162,6 +183,31 @@ public class PlateauController implements Initializable {
 	}
 	
 	
+	private void applyImages(List<CarteLieu> cls, List<ImageView> ivs) {
+		
+		int size = cls.size();
+		if(cls.size() == ivs.size()) {
+			
+			for(int i = 0; i < size; i++) {
+				
+				CarteLieu cl = cls.get(i);
+				ImageView iv = ivs.get(i);
+				
+				BufferedImage bi = mapRessourcesCartes.get(cl);
+				Image image = RessourceLoader.toJavaFX(bi);
+				applyImageLieu(iv,image);
+			}	
+		}	
+	}
+
+	private void applyImageLieu(ImageView iv, Image im) {
+		
+		StackPane sp = (StackPane) iv.getParent();
+		iv.setImage(im);
+		iv.fitHeightProperty().bind(sp.heightProperty());
+	}
+	
+
 	private Pane getPaneJoueur(int i) {	
 		
 		System.out.println("i "+i);
@@ -195,6 +241,21 @@ public class PlateauController implements Initializable {
 		
 		
 		return (Pane) gp.getChildren().get(i%2);
+	}
+	
+	private List<ImageView> getLieux() {
+		
+		List<ImageView> views = new ArrayList<ImageView>();
+		for(int i = 0 ; i < gridPaneLieux.getChildren().size(); i++) {
+			
+			HBox p = (HBox) gridPaneLieux.getChildren().get(i);
+			for(int j = 0; j < p.getChildren().size(); j++) {
+				StackPane sp = (StackPane) p.getChildren().get(j);
+				ImageView iv = (ImageView) sp.getChildren().get(0);
+				views.add(iv);
+			}
+		}
+		return views;
 	}
 	
 	/**

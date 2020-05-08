@@ -134,8 +134,8 @@ public class Joueur {
 		j2.gestionnaireEquipements.retirer(equipement);
 		this.gestionnaireEquipements.ajouter(equipement);	}
 
-	public Object choisir(List<?> equipements) {
-		return null;
+	public Object choisir(List<?> list) {
+		return list.get(0);
 	}
 
 	public void attaquer(Joueur j2, int attaqueDice) {

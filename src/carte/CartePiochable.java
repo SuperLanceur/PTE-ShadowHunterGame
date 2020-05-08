@@ -20,10 +20,12 @@ public class CartePiochable extends CarteCondition implements Serializable{
 	
 	public CartePiochable(Type t, String nom, String description) {
 		super(nom, description);
+		this.type = t;
 	}
 	
 	public CartePiochable(Type t, Effet e, Condition c) {
 		super();
+		this.type = t;
 		this.setEffet(e);
 		this.setCondition(c);
 	}

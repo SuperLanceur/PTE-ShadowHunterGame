@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+import database.RessourceLoader;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -44,11 +45,11 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		
 		GestionnaireJeu gj = GestionnaireJeu.getGestionnaireJeu();
-		/*
+		
 		RessourceLoader rl = new RessourceLoader();
 		rl.loadRessources();
 		gj.setRessourceLoader(rl);
-		*/
+		
 		launch(args);
 	}
 }

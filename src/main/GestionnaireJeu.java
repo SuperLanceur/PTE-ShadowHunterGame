@@ -8,6 +8,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
+import carte.CarteLieu;
 import database.RessourceLoader;
 import effet.Effet;
 import ihm.controller.PlateauController;
@@ -70,12 +71,10 @@ public class GestionnaireJeu {
 	}
 	
 	public boolean choisir(Joueur joueur) {
-		
 		Platform.runLater(() -> {
-			try {
+			try {	
 				pc.afficherChoisir(joueur);
 			} catch (IOException e) {
-			
 				e.printStackTrace();
 			}
 		});
@@ -133,8 +132,8 @@ public class GestionnaireJeu {
 		for(Joueur j : mapJoueurs.values()) {
 			joueurs.add(j);
 		}
-		plateau = new Plateau(joueurs);
-		//plateau = new Plateau(joueurs,ressourceLoader.getCartes());
+		//plateau = new Plateau(joueurs);
+		plateau = new Plateau(joueurs,ressourceLoader.getCartes());
 		
 	}
 
@@ -160,6 +159,13 @@ public class GestionnaireJeu {
 		this.ressourceLoader = rl;
 	}
 
+	public List<CarteLieu> getCartesLieux() {
+		return plateau.getLieux();
+	}
+
+	public RessourceLoader getRessourceLoader() {
+		return this.ressourceLoader;
+	}
 	
 
 	
