@@ -42,7 +42,7 @@ public class MenuController  implements Initializable{
 		
 		System.out.println("Passage à l'écran de choix des joueurs");
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Choix_joueur.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
         AnchorPane pane = fxmlLoader.load();
         Scene scene = new Scene(pane);
@@ -60,7 +60,7 @@ public class MenuController  implements Initializable{
 			
 		System.out.println("Passage à l'écran des paramètres");		
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/parametre.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane pane = fxmlLoader.load();
 
@@ -82,7 +82,7 @@ public class MenuController  implements Initializable{
     	EffetSonore.playSoundEffect(fileSound1);
     	System.out.println("Passage à l'écran des règles");
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Regles.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
         AnchorPane pane = fxmlLoader.load();
         Scene scene = new Scene(pane);
