@@ -15,12 +15,20 @@
    <children>
       <HBox alignment="TOP_CENTER" layoutX="146.0" layoutY="171.0" prefHeight="242.0" prefWidth="507.0" spacing="10.0">
          <children>
-            <VBox prefHeight="348.0" prefWidth="195.0" spacing="40.0">
+            <VBox prefHeight="348.0" prefWidth="195.0" spacing="35.0">
                <children>
                   <CheckBox fx:id="clair" mnemonicParsing="false" styleClass="checkBox" text="%mode.claire" />
                   <CheckBox fx:id="cmusique" mnemonicParsing="false" styleClass="checkBox" text="%musique" />
-                  <Slider fx:id="sliderMusique" blockIncrement="1.0" majorTickUnit="1.0" max="1.0" minorTickCount="10" onMouseClicked="#slideVolumeMusique" showTickLabels="true" showTickMarks="true" value="0.1" />
+                  <Slider fx:id="sliderMusique" blockIncrement="1.0" majorTickUnit="1.0" max="1.0" minorTickCount="10" onMouseClicked="#slideVolumeMusique" value="0.1">
+                     <padding>
+                        <Insets top="-20.0" />
+                     </padding></Slider>
                   <CheckBox fx:id="cbEffetSonore" mnemonicParsing="false" styleClass="checkBox" text="%effet" />
+                  <Slider fx:id="sliderEffets" blockIncrement="1.0" layoutX="10.0" layoutY="125.0" majorTickUnit="1.0" max="0.0" min="-20.0" minorTickCount="10" onMouseClicked="#slideVolumeEffet" value="-10.0">
+                     <padding>
+                        <Insets top="-20.0" />
+                     </padding>
+                  </Slider>
                   <VBox prefHeight="86.0" prefWidth="195.0" spacing="10.0">
                      <children>
                         <Label styleClass="titre" text="%langue">
