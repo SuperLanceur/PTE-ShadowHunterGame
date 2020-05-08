@@ -12,17 +12,16 @@ import org.junit.jupiter.api.Test;
 public class TestDatabse {
 	
 	Table t;
-	
 	@BeforeEach
 	private void initialize() {
-		System.out.println("=====Initialisation du test=====");
+		System.out.println("=====Initialisation du test======");
 		t = new Table("Table de Test");
 	}
 	
 	@AfterEach
 	private void free() {
 		System.gc();
-		System.out.println("=====Fin du test=====\n\n\n");
+		System.out.println("===========Fin du test===========\n\n\n");
 	}
 	
 	@Test
