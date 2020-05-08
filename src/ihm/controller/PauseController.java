@@ -26,13 +26,16 @@ public class PauseController implements Initializable {
 	private CheckBox cbEffet;
 	@FXML
 	private Slider sliderMusiquePause;
+	@FXML
+	private Slider sliderEffetsPause;
 
 	String filepathMusique = "src//ihm//ressources//musique//The_Red_Fox_Tavern.wav";
 	InputStream fileMusique = getClass().getResourceAsStream("/ihm/ressources/musique/The_Red_Fox_Tavern.wav");
 
 	boolean MusiqueLancee = ParametreController.cbMusiqueCoche;
 	boolean SonLance = ParametreController.cbSonCoche;
-	public static double slideValuePause;
+	public static double slideValueMusiquePause;
+	public static double slideValueEffetPause;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -40,6 +43,7 @@ public class PauseController implements Initializable {
 		cbMusique.setSelected(ParametreController.cbMusiqueCoche);
 		cbEffet.setSelected(ParametreController.cbSonCoche);
 		sliderMusiquePause.setValue(ParametreController.slideValue);
+		sliderEffetsPause.setValue(ParametreController.slideValueEffets);
 	}
 
 	@FXML
@@ -83,7 +87,8 @@ public class PauseController implements Initializable {
 
 		ParametreController.cbSonCoche = cbEffet.isSelected();
 		ParametreController.cbMusiqueCoche = cbMusique.isSelected();
-		ParametreController.slideValue = slideValuePause;
+		ParametreController.slideValue = slideValueMusiquePause;
+		ParametreController.slideValueEffets = slideValueEffetPause;
 
 		EffetSonore.playSoundEffect(fileSound1); // met un bruit sur le bouton si les effets sonores sont activés
 
@@ -122,11 +127,20 @@ public class PauseController implements Initializable {
 		if (Musique.musiqueEnCours == true) {
 			System.out.println("slide");
 			Musique.setVolume(sliderMusiquePause.getValue());
-			slideValuePause = sliderMusiquePause.getValue();
+			slideValueMusiquePause = sliderMusiquePause.getValue();
 
 		}else {
-			System.out.println("probleme");
+			System.out.println("probleme de slider musique");
 		}
+	}
+	
+	@FXML
+	public void slideVolumeEffets(MouseEvent mouseEvent) throws IOException {
+
+			System.out.println("slide effet");
+			EffetSonore.setVolumeEffets(sliderEffetsPause.getValue());
+			slideValueEffetPause = sliderEffetsPause.getValue();
+
 	}
 
 	/*
