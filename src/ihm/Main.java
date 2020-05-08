@@ -16,9 +16,9 @@ import javafx.stage.WindowEvent;
 import main.GestionnaireJeu;
 
 public class Main extends Application {
-	GraphicsDevice Gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+	/*GraphicsDevice Gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 	int width = Gd.getDisplayMode().getWidth();
-	int height = Gd.getDisplayMode().getHeight();
+	int height = Gd.getDisplayMode().getHeight(); */
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -28,7 +28,7 @@ public class Main extends Application {
 	    Pane root = fxmlLoader.load();
 	        
 		primaryStage.setTitle("Shadow Hunters");
-		primaryStage.setScene(new Scene(root,width,height));
+		primaryStage.setScene(new Scene(root));
 		primaryStage.setMaximized(true);
 		primaryStage.centerOnScreen();
 		primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
