@@ -33,7 +33,7 @@ public class Daniel extends CartePersonnage{
 		conditions.add(new ConditionMultiple(conditions2));
 		
 		Condition winCondition = new ConditionMultipleOR(conditions);
-		
+		this.setEquipe(CartePersonnage.Equipe.NEUTRE);
 		this.setCondition(winCondition);
 	}
 	
@@ -50,7 +50,7 @@ public class Daniel extends CartePersonnage{
 		conditions.add(new ConditionMultiple(conditions2));
 		
 		Condition winCondition = new ConditionMultipleOR(conditions);
-		
+		this.setEquipe(CartePersonnage.Equipe.NEUTRE);
 		this.setCondition(winCondition);
 	}
 	

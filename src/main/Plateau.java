@@ -191,6 +191,7 @@ public class Plateau extends Thread{
 
 	public void initCartePersonnage(List<CartePersonnage> cps) throws Exception {
 		
+		System.out.println(cps);
 		int nbJoueurs = this.joueurs.size();
 		List<CartePersonnage> lcp = new ArrayList<>(nbJoueurs);
 		
@@ -215,6 +216,7 @@ public class Plateau extends Thread{
 			throw new Exception();
 		}
 		
+		System.out.println(lcp);
 		for(int i = 0; i< nbJoueurs; i++) {
 			
 			Joueur j = joueurs.get(i);
@@ -228,7 +230,6 @@ public class Plateau extends Thread{
 		List<CartePersonnage> lcp = new ArrayList<CartePersonnage>();
 		
 		Collections.shuffle(cps);
-		
 		
 		int nbShadow = nbEquipeShadowHunter;
 		int nbHunter = nbEquipeShadowHunter;
@@ -252,6 +253,7 @@ public class Plateau extends Thread{
 				lcp.add(cp);
 			}
 		}
+		System.out.println(lcp);
 		return lcp;
 	}
 
@@ -260,7 +262,6 @@ public class Plateau extends Thread{
 		int nbJoueurs = this.joueurs.size();
 		int i = 0;
 		
-		System.out.println(nbJoueurs);
 		while(true) {
 			
 			Joueur currentJoueur = this.joueurs.get(i % nbJoueurs);

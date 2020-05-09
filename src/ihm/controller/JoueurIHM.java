@@ -2,6 +2,7 @@ package ihm.controller;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Border;
@@ -21,14 +22,16 @@ public class JoueurIHM {
 	private Pane zoneJoueur;
 	private GestionnaireDePions gestionnaireDePions;
 	private Color color;
+	private PlateauController pc;
 	
-	public JoueurIHM(int i, Joueur joueur, Pane zoneJoueur, Color color, GridPane gridPaneVie, GridPane gridPaneLieux) {
+	public JoueurIHM(int i, Joueur joueur, Pane zoneJoueur, Color color, GridPane gridPaneVie, GridPane gridPaneLieux, PlateauController pc) {
 		
 		this.setPosition(i);
 		this.setJoueur(joueur);
 		this.zoneJoueur = zoneJoueur;
 		this.color = color;
 		this.gestionnaireDePions = new GestionnaireDePions(this.color,gridPaneVie, gridPaneLieux);
+		this.pc = pc;
 		
 		zoneJoueur.setBorder(new Border(new BorderStroke(color, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(5))));
 		
@@ -43,10 +46,11 @@ public class JoueurIHM {
 			
 			this.joueur.reveal();
 			ImageView iv = this.getCartePersonnage();
-			// TODO		
-			//this.joueur.getCartePersonnage().getId();
-			//iv.setImage(arg0);
-			System.out.println(joueur.getRevele());
+			System.out.println(this.joueur.getCartePersonnage());
+			Image im = this.pc.getImageCarte(this.joueur.getCartePersonnage());
+			GridPane gp = (GridPane) iv.getParent();
+			iv.setImage(im);
+			iv.fitHeightProperty().bind(gp.heightProperty());
 			btn.setDisable(true);
 		});
 		
@@ -77,7 +81,6 @@ public class JoueurIHM {
 		AnchorPane.setLeftAnchor(p,0.0);
 		AnchorPane.setRightAnchor(p,0.0);
 		AnchorPane.setTopAnchor(p,0.0);
-		
 	}
 	
 	

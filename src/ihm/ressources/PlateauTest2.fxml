@@ -127,13 +127,13 @@
             </Group>
             <VBox alignment="CENTER" spacing="100.0">
                <children>
-                  <GridPane hgap="50.0" rotate="180.0">
+                  <GridPane hgap="50.0" rotate="180.0" VBox.vgrow="ALWAYS">
                      <columnConstraints>
                         <ColumnConstraints hgrow="ALWAYS" />
                         <ColumnConstraints hgrow="ALWAYS" />
                      </columnConstraints>
                      <rowConstraints>
-                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="ALWAYS" />
                      </rowConstraints>
                      <children>
                         <GridPane nodeOrientation="LEFT_TO_RIGHT">
@@ -611,13 +611,13 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <GridPane hgap="50.0">
+                  <GridPane hgap="50.0" VBox.vgrow="ALWAYS">
                      <columnConstraints>
                         <ColumnConstraints hgrow="ALWAYS" />
                         <ColumnConstraints hgrow="ALWAYS" />
                      </columnConstraints>
                      <rowConstraints>
-                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="ALWAYS" />
                      </rowConstraints>
                      <children>
                         <GridPane nodeOrientation="LEFT_TO_RIGHT">

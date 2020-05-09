@@ -9,7 +9,7 @@ public class Emi extends CartePersonnage{
 	
 	public Emi() {
 		super("EMI","desc", HP, null);
-		
+		this.setEquipe(CartePersonnage.Equipe.HUNTER);
 		this.setCondition(new WinConditionHunter());
 	}
 	
@@ -22,7 +22,7 @@ public class Emi extends CartePersonnage{
 	//constructeur
 	public Emi(String nom, String desc ,int hp, Joueur joueur) {
 		super(nom,desc, hp, joueur);
-		
+		this.setEquipe(CartePersonnage.Equipe.HUNTER);
 		this.setCondition(new WinConditionHunter());
 	}
 	

@@ -41,6 +41,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import main.GestionnaireJeu;
 import main.Joueur;
+import personnage.CartePersonnage;
 
 public class PlateauController implements Initializable {
 	
@@ -83,7 +84,7 @@ public class PlateauController implements Initializable {
 	
 		for(int i : map.keySet()) {
 			System.out.println(i);
-			joueursIHM.add(new JoueurIHM(i,map.get(i),getPaneJoueur(i),new Color(Math.random(), Math.random(), Math.random(),1),gridPaneVie, gridPaneLieux));
+			joueursIHM.add(new JoueurIHM(i,map.get(i),getPaneJoueur(i),new Color(Math.random(), Math.random(), Math.random(),1),gridPaneVie, gridPaneLieux,this));
 		}
 		
 		for(int i = 0; i<joueursIHM.size(); i++) {
@@ -199,6 +200,8 @@ public class PlateauController implements Initializable {
 			}	
 		}	
 	}
+
+	
 
 	private void applyImageLieu(ImageView iv, Image im) {
 		
@@ -374,5 +377,11 @@ public class PlateauController implements Initializable {
 		
 		PopUp pu = new PopUp(root, "Pause");
 		pu.display();
+	}
+
+
+	public Image getImageCarte(Carte carte) {
+		BufferedImage bi = this.mapRessourcesCartes.get(carte);
+		return RessourceLoader.toJavaFX(bi);
 	}
 }

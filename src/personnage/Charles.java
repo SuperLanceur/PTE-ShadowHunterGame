@@ -11,7 +11,7 @@ public class Charles extends CartePersonnage{
 	
 	public Charles(Joueur joueur) {
 		super("Charles", "desc", 11, joueur);
-		
+		this.setEquipe(CartePersonnage.Equipe.NEUTRE);
 		Action action = new ActionAltererStatistiquesJoueur("HP",-2,true);
 		Effet effet = new EffetSelf(action);
 		this.setEffet(effet);
@@ -20,7 +20,7 @@ public class Charles extends CartePersonnage{
 
 	public Charles() {
 		super("Charles", "desc", 11, null);
-		
+		this.setEquipe(CartePersonnage.Equipe.NEUTRE);
 		Action action = new ActionAltererStatistiquesJoueur("HP",-2,true);
 		Effet effet = new EffetSelf(action);
 		this.setEffet(effet);
