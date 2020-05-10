@@ -216,6 +216,9 @@ public class PlayersController implements Initializable{
 	}
 	@FXML
 	public void retour(MouseEvent me) throws IOException {
+		InputStream fileSound1 =  getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
+		EffetSonore.playSoundEffect(fileSound1);
+		
 		 final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
 			final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
 			
