@@ -110,4 +110,17 @@ public class ReglesControlleur implements Initializable {
 
 	}
 
+	@FXML
+	public void retourEnJeu(MouseEvent me) throws IOException {
+
+		InputStream fileSound1 = getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
+
+		EffetSonore.playSoundEffect(fileSound1);
+		System.out.println("Retour au jeu");
+
+		Stage appStage = (Stage) ((Node) me.getSource()).getScene().getWindow();
+		appStage.close();
+
+	}
+
 }

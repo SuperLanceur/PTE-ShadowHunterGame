@@ -69,6 +69,14 @@
                         <Slider fx:id="sliderEffetsPause" blockIncrement="1.0" majorTickUnit="1.0" max="0.0" min="-20.0" minorTickCount="10" onMouseClicked="#slideVolumeEffets" prefHeight="14.0" prefWidth="194.0" />
                      </children>
                   </HBox>
+                  <Button fx:id="règlesPause" mnemonicParsing="false" onMouseClicked="#afficherReglePause" text="Règles">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </Button>
                   <Label style="-fx-border-width: 0 0 0.5 0; -fx-border-color: #e2e2e2;" text="Jeux">
                      <VBox.margin>
                         <Insets top="50.0" />

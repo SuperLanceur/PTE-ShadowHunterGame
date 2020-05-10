@@ -91,15 +91,15 @@ public class ParametreController implements Initializable {
 			LaLangue = Locale.FRANCE;
 			langueChoisi = tabLangues[3];
 		}
-		
+
 		// Pour la musique
 		if (fileMusique != null) {
 
 			if (cmusique.isSelected() == true) {
 				cbMusiqueCoche = true;
-				
-				//si lamusique n'a jamais été lancé:
-				if (Musique.clipTimePosition == 0 && MusiqueLancee == false && Musique.musiqueEnCours != true) { 
+
+				// si la musique n'a jamais été lancé:
+				if (Musique.clipTimePosition == 0 && MusiqueLancee == false && Musique.musiqueEnCours != true) {
 					Musique.playMusique(fileMusique);
 					Musique.musiqueEnCours = true;
 					MusiqueLancee = true;
@@ -164,11 +164,11 @@ public class ParametreController implements Initializable {
 		 * }
 		 */
 
+		// Quitter les paramètres
 		EffetSonore.playSoundEffect(fileSound1); // emet un bruit sur le bouton si les effets sonores sont activés
 
 		System.out.println("slidevalueeffet enregistre = " + slideValueEffets);
 
-		// Quitter les paramètres
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue",
 				ParametreController.LaLangue);

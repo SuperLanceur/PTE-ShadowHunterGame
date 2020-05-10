@@ -12,6 +12,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
@@ -28,6 +30,9 @@ public class PauseController implements Initializable {
 	private Slider sliderMusiquePause;
 	@FXML
 	private Slider sliderEffetsPause;
+	@FXML
+	private Button reglesPause;
+	
 
 	String filepathMusique = "src//ihm//ressources//musique//The_Red_Fox_Tavern.wav";
 	InputStream fileMusique = getClass().getResourceAsStream("/ihm/ressources/musique/The_Red_Fox_Tavern.wav");
@@ -142,6 +147,24 @@ public class PauseController implements Initializable {
 			slideValueEffetPause = sliderEffetsPause.getValue();
 
 	}
+	
+	@FXML
+    public void afficherReglePause(MouseEvent mouseEvent) throws IOException {
+    	
+    	InputStream fileSound1 =  getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
+
+    	EffetSonore.playSoundEffect(fileSound1);
+    	System.out.println("Passage à l'écran des règles");
+		final URL fxmlURL = getClass().getResource("/ihm/ressources/ReglesPause.fxml");
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
+		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+        AnchorPane pane = fxmlLoader.load();
+        Scene scene = new Scene(pane);
+        Stage appStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        appStage.setScene(scene);
+        appStage.show();
+    
+    }
 
 	/*
 	@FXML
