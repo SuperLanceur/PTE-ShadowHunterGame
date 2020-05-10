@@ -33,7 +33,7 @@ public class ParametreController implements Initializable {
 	private Slider sliderMusique;
 	@FXML
 	private Slider sliderEffets;
-	
+
 	public static Locale LaLangue = Locale.FRANCE;
 	public static boolean cbMusiqueCoche = false; // verifi si la checbox musical est coche
 	public static boolean cbSonCoche = false;
@@ -42,6 +42,7 @@ public class ParametreController implements Initializable {
 	public static double slideValueEffets;
 	public static String langueChoisi;
 
+	private String tabLangues[] = { "Anglais", "Allemand", "Espagnol", "Français" };
 
 	boolean MusiqueLancee = false; // verifi si la musique a déja été lancé une première fois
 
@@ -61,13 +62,19 @@ public class ParametreController implements Initializable {
 		clair.setSelected(cbClair);
 		sliderMusique.setValue(slideValue);
 		sliderEffets.setValue(slideValueEffets);
-		
-		System.out.println("slidevalueeffet init = "+ slideValueEffets);
 
-		langues.getItems().add("Anglais");
-		langues.getItems().add("Allemand");
-		langues.getItems().add("Espagnol");
-		langues.getItems().add("Français");
+		System.out.println("slidevalueeffet init = " + slideValueEffets);
+
+		langues.getItems().add(tabLangues[0]);
+		langues.getItems().add(tabLangues[1]);
+		langues.getItems().add(tabLangues[2]);
+		langues.getItems().add(tabLangues[3]);
+
+		if (langueChoisi == null) {
+			langues.setValue("Français");
+		} else {
+			langues.setValue(langueChoisi);
+		}
 
 	}
 
@@ -75,25 +82,31 @@ public class ParametreController implements Initializable {
 	public void enregistre(MouseEvent mouseEvent) throws IOException, Exception {
 
 		InputStream fileSound1 = getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
+
+		// Pour les langues
+		if (langues.getValue() == "Anglais") {
+			LaLangue = Locale.ENGLISH;
+			langueChoisi = tabLangues[0];
+		} else if (langues.getValue() == "Français") {
+			LaLangue = Locale.FRANCE;
+			langueChoisi = tabLangues[3];
+		}
 		
-		if(langues.getValue()=="Anglais") {
-			LaLangue=Locale.ENGLISH;
-		}
-		else if(langues.getValue()=="Français") {
-			LaLangue=Locale.FRANCE;
-		}
 		// Pour la musique
 		if (fileMusique != null) {
 
 			if (cmusique.isSelected() == true) {
 				cbMusiqueCoche = true;
-				if (Musique.clipTimePosition == 0 && MusiqueLancee == false && Musique.musiqueEnCours != true) { //si la musique n'a jamais été lancé																												
+				
+				//si lamusique n'a jamais été lancé:
+				if (Musique.clipTimePosition == 0 && MusiqueLancee == false && Musique.musiqueEnCours != true) { 
 					Musique.playMusique(fileMusique);
 					Musique.musiqueEnCours = true;
 					MusiqueLancee = true;
 
 				} else if (Musique.musiqueEnCours != true) {
-					Musique.resumeMusique(Musique.clip); // si elle a deja été lancé mais mis en pause, reprend a partir du point d'arret
+					Musique.resumeMusique(Musique.clip); // si elle a deja été lancé mais mis en pause, reprend a partir
+															// du point d'arret
 					Musique.musiqueEnCours = true;
 				}
 
@@ -152,12 +165,13 @@ public class ParametreController implements Initializable {
 		 */
 
 		EffetSonore.playSoundEffect(fileSound1); // emet un bruit sur le bouton si les effets sonores sont activés
-		
-		System.out.println("slidevalueeffet enregistre = "+ slideValueEffets);
+
+		System.out.println("slidevalueeffet enregistre = " + slideValueEffets);
 
 		// Quitter les paramètres
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue",
+				ParametreController.LaLangue);
 
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane pane = fxmlLoader.load();
