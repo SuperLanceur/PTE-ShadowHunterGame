@@ -103,11 +103,14 @@ public class ParametreController implements Initializable {
 					Musique.playMusique(fileMusique);
 					Musique.musiqueEnCours = true;
 					MusiqueLancee = true;
+					Musique.setVolume(sliderMusique.getValue());
 
-				} else if (Musique.musiqueEnCours != true) {
-					Musique.resumeMusique(Musique.clip); // si elle a deja été lancé mais mis en pause, reprend a partir
-															// du point d'arret
+				} 
+				// si elle a deja été lancé mais mis en pause, reprend a partir du point d'arret :
+				else if (Musique.musiqueEnCours != true) {
+					Musique.resumeMusique(Musique.clip); 															
 					Musique.musiqueEnCours = true;
+					Musique.setVolume(sliderMusique.getValue());
 				}
 
 			} else {
@@ -166,9 +169,7 @@ public class ParametreController implements Initializable {
 
 		// Quitter les paramètres
 		EffetSonore.playSoundEffect(fileSound1); // emet un bruit sur le bouton si les effets sonores sont activés
-
-		System.out.println("slidevalueeffet enregistre = " + slideValueEffets);
-
+	
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue",
 				ParametreController.LaLangue);
@@ -188,6 +189,10 @@ public class ParametreController implements Initializable {
 			slideValue = sliderMusique.getValue();
 
 		}
+		else {
+			slideValue = sliderMusique.getValue();
+		}
+
 	}
 
 	public void slideVolumeEffet(MouseEvent mouseEvent) throws IOException {

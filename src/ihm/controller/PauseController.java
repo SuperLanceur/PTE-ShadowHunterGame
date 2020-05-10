@@ -49,6 +49,8 @@ public class PauseController implements Initializable {
 		cbEffet.setSelected(ParametreController.cbSonCoche);
 		sliderMusiquePause.setValue(ParametreController.slideValue);
 		sliderEffetsPause.setValue(ParametreController.slideValueEffets);
+		
+		slideValueMusiquePause = ParametreController.slideValue;
 	}
 
 	@FXML
@@ -61,13 +63,19 @@ public class PauseController implements Initializable {
 			if (cbMusique.isSelected()) {
 				System.out.println("\tLancement de la musique");
 
-				if (Musique.clipTimePosition == 0 && MusiqueLancee == false && Musique.musiqueEnCours != true) { // si la musique n'a jamais été lancé
+				// si la musique n'a jamais été lancé
+				if (Musique.clipTimePosition == 0 && MusiqueLancee == false && Musique.musiqueEnCours != true) { 
 					Musique.playMusique(fileMusique);
 					Musique.musiqueEnCours = true;
 					MusiqueLancee = true;
-				} else if (MusiqueLancee == false && Musique.musiqueEnCours != true) {
-					Musique.resumeMusique(Musique.clip); // si elle a deja été lancé mais mis en pause, reprend a partir du point d'arret
+					Musique.setVolume(sliderMusiquePause.getValue());
+				} 
+				
+				// si elle a deja été lancé mais mis en pause, reprend a partir du point d'arret
+				else if (MusiqueLancee == false && Musique.musiqueEnCours != true) {
+					Musique.resumeMusique(Musique.clip); 
 					Musique.musiqueEnCours  = true;
+					Musique.setVolume(sliderMusiquePause.getValue());
 				}
 
 			} else if (MusiqueLancee == true) {
@@ -94,7 +102,7 @@ public class PauseController implements Initializable {
 		ParametreController.cbMusiqueCoche = cbMusique.isSelected();
 		ParametreController.slideValue = slideValueMusiquePause;
 		ParametreController.slideValueEffets = slideValueEffetPause;
-
+		
 		EffetSonore.playSoundEffect(fileSound1); // met un bruit sur le bouton si les effets sonores sont activés
 
 		System.out.println("Retour au jeu");
@@ -135,7 +143,7 @@ public class PauseController implements Initializable {
 			slideValueMusiquePause = sliderMusiquePause.getValue();
 
 		}else {
-			System.out.println("probleme de slider musique");
+			slideValueMusiquePause = sliderMusiquePause.getValue();
 		}
 	}
 	
