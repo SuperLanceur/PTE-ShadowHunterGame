@@ -109,7 +109,18 @@ public class GestionnaireJeu {
 		return false;
 	}
 	
-	public CarteEquipement choisirEquipementVole(Joueur joueur) {
+	@SuppressWarnings("unchecked")
+	public Object choisir(Joueur joueur, List<?> list, Class<?> cls) {
+		
+		
+		
+		if(cls == CarteEquipement.class) {
+			return choisirEquipementVole(joueur, (List<CarteEquipement>) list);
+		}	
+		return list.get(0);
+	}
+	
+	public CarteEquipement choisirEquipementVole(Joueur joueur, List<CarteEquipement> lce) {
 		Platform.runLater(() -> {
 			try {	
 				pc.afficherChoisirEquipementVole(joueur);
@@ -140,7 +151,6 @@ public class GestionnaireJeu {
 	}
 	
 	public void waitPlateau() {
-		
 		synchronized(plateau) {
 			try {
 				plateau.wait();
@@ -204,10 +214,5 @@ public class GestionnaireJeu {
 
 	public RessourceLoader getRessourceLoader() {
 		return this.ressourceLoader;
-	}
-
-	
-	
-
-	
+	}	
 }

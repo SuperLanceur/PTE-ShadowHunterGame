@@ -43,8 +43,7 @@ class ConditionClassPersonnageTest {
 	
 	@Test
 	public void conditionClass_ListClassVide_RenvoieFalse() throws Exception {
-		
-		
+			
 		List<Class<? extends CartePersonnage>> classes = new ArrayList<Class<? extends CartePersonnage>>();
 	
 		ConditionClassPersonnage cc = new ConditionClassPersonnage(classes);
@@ -54,7 +53,4 @@ class ConditionClassPersonnageTest {
 		assertFalse(cc.isTrue(j));
 		
 	}
-	
-	
-
 }

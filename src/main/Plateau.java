@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import carte.Carte;
+import carte.CarteEquipement;
 import carte.CarteLieu;
 import carte.CarteLieuMultiple;
 import carte.CarteLieuType;
@@ -265,6 +266,7 @@ public class Plateau extends Thread{
 		while(true) {
 			
 			Joueur currentJoueur = this.joueurs.get(i % nbJoueurs);
+			currentJoueur.choisir(new ArrayList<CarteEquipement>(), CarteEquipement.class);
 			System.out.println("\n\n\n\n\n");
 			System.out.println("Au tour de "+currentJoueur.getNom());
 			System.out.println("Lancement des dés.");
@@ -287,8 +289,8 @@ public class Plateau extends Thread{
 			System.out.println("Souhaitez vous attaquer quelqu'un ?");
 			if(currentJoueur.choisir()){
 				if(currentJoueur.hasOpponents()) {
-					List<Joueur> adjacents = currentJoueur.getJoueursAdjacents();
-					Joueur cible = (Joueur) currentJoueur.choisir(adjacents);
+					List<Joueur> adjacents = currentJoueur.getJoueursRange();
+					Joueur cible = (Joueur) currentJoueur.choisir(adjacents,Joueur.class);
 					attaquer(currentJoueur,cible);
 					if(isPartieTerminee()) break;
 				}else {
@@ -458,5 +460,9 @@ public class Plateau extends Thread{
 	public void updateVieJoueur(Joueur joueur, int damage) {
 		gj.updateVieJoueur(joueur,damage);
 		
+	}
+
+	public Object choisir(Joueur joueur, List<?> list, Class cls) {
+		return gj.choisir(joueur,list,cls);
 	}
 }

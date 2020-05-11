@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import carte.Carte;
 import carte.CarteEquipement;
 import carte.CarteLieu;
 import effet.Effet;
@@ -226,24 +225,25 @@ public class Joueur {
 	}
 
 	public boolean hasOpponents() {
+		List<Joueur> joueursRange = this.getJoueursRange();
+		return !joueursRange.isEmpty();
+	}
+	
+	public List<Joueur> getJoueursRange() {
 		CarteLieu cl = this.carteLieu;
 		List<Joueur> joueurs = new ArrayList<Joueur>();
-				
 		joueurs.addAll(cl.getJoueurs());
 		joueurs.addAll(cl.getJoueursAdjacents());
 		joueurs.remove(this);
-		
-		return !joueurs.isEmpty();
+		return joueurs;
 	}
-	
-	
-	
+
 	public boolean choisir() {
 		return this.plateau.choisir(this);
 	}
 	
-	public Object choisir(List<?> list) {
-		return list.get(0);
+	public Object choisir(List<?> adjacents,Class cls) {
+		return this.plateau.choisir(this,adjacents, cls);
 	}
 
 	public Joueur choisirAdjacents() {
@@ -254,4 +254,5 @@ public class Joueur {
 		return this.plateau.choisirParmisTous(this);
 	}
 
+	
 }

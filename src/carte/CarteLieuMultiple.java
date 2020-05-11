@@ -24,7 +24,7 @@ public class CarteLieuMultiple extends CarteLieu{
 	 * 	@param j Appel la méthode utiliser de effet sur le joueur j
 	 */
 	public void utiliser(Joueur j) {
-		Pioche p = (Pioche) j.choisir(pioches);
+		Pioche p = (Pioche) j.choisir(pioches, Pioche.class);
 		System.out.println(pioches+ " "+p);
 		System.out.println(p.getStack());
 		Carte c = p.piocher();
