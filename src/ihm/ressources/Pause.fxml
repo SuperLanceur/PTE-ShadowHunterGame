@@ -69,7 +69,7 @@
                         <Slider fx:id="sliderEffetsPause" blockIncrement="1.0" majorTickUnit="1.0" max="0.0" min="-20.0" minorTickCount="10" onMouseClicked="#slideVolumeEffets" prefHeight="14.0" prefWidth="194.0" />
                      </children>
                   </HBox>
-                  <Button fx:id="règlesPause" mnemonicParsing="false" onMouseClicked="#afficherReglePause" text="Règles">
+                  <Button fx:id="reglesPause" mnemonicParsing="false" onMouseClicked="#afficherReglePause" text="Règles">
                      <font>
                         <Font size="14.0" />
                      </font>

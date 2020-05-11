@@ -8,6 +8,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
+import carte.CarteEquipement;
 import carte.CarteLieu;
 import database.RessourceLoader;
 import effet.Effet;
@@ -98,6 +99,36 @@ public class GestionnaireJeu {
 		}
 		
 		return false;
+	}
+	
+	public CarteEquipement choisirEquipementVole(Joueur joueur) {
+		Platform.runLater(() -> {
+			try {	
+				pc.afficherChoisirEquipementVole(joueur);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		});
+		
+		this.waitPlateau();
+	
+		final FutureTask<CarteEquipement> query = new FutureTask<CarteEquipement>(new Callable<CarteEquipement>() {
+		    @Override
+		    public CarteEquipement call() throws Exception {
+		    	return pc.getChoixEquipementVole(joueur);
+		    }
+		});
+		
+		Platform.runLater(query);
+		
+		try {
+			return query.get();
+		} catch (InterruptedException | ExecutionException e) {
+		
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 	
 	public void waitPlateau() {

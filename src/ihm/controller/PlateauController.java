@@ -13,6 +13,7 @@ import java.util.ResourceBundle;
 import java.util.Set;
 
 import carte.Carte;
+import carte.CarteEquipement;
 import carte.CarteLieu;
 import database.RessourceLoader;
 import ihm.EffetSonore;
@@ -54,6 +55,7 @@ public class PlateauController implements Initializable {
 
 	
 	private ChoisirBoolean cb;
+	private ChoisirEquipement ce;
 	
 	
 	private Map<Carte,BufferedImage> mapRessourcesCartes;
@@ -342,7 +344,25 @@ public class PlateauController implements Initializable {
 		JoueurIHM jihm = getJoueurIHM(j);
 		jihm.setZoneJoueur(root);
 	}
+	
+	public void afficherChoisirEquipementVole(Joueur j) throws IOException {
+		final URL fxmlURL = getClass().getResource("/ihm/ressources/Jouer_tour(2a)voler_equipement.fxml");
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+		Pane root = (Pane)fxmlLoader.load();
+		this.ce = fxmlLoader.getController();
+		JoueurIHM jihm = getJoueurIHM(j);
+		jihm.setZoneJoueur(root);
+	}
 
+	public CarteEquipement getChoixEquipementVole(Joueur joueur) {
+		JoueurIHM jihm = getJoueurIHM(joueur);
+		CarteEquipement result = this.ce.getResult();
+		this.ce = null;
+		jihm.getZoneJoueur().getChildren().setAll();
+		return result;
+	}
+	
 	public boolean getChoix(Joueur joueur) {
 		JoueurIHM jihm = getJoueurIHM(joueur);
 		boolean result = this.cb.getResult();

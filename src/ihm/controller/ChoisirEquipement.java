@@ -58,5 +58,9 @@ public class ChoisirEquipement implements Initializable{
 	public void setGrilleEquipement(GridPane grilleEquipement) {
 		this.grilleEquipement = grilleEquipement;
 	}
+	
+	public CarteEquipement getResult() {
+		return equipementSelected;
+	}
 
 }

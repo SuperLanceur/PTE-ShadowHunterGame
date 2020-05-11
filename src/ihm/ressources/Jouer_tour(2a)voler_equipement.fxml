@@ -4,48 +4,21 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="255.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.ChoisirEquipement">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="260.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.ChoisirEquipement">
    <children>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="255.0" stylesheets="@style/popUp.css">
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@style/popUp.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label layoutX="58.0" layoutY="14.0" text="%voler.equipement.joueur" />
-            <ScrollPane layoutX="28.0" layoutY="38.0" prefHeight="128.0" prefWidth="200.0">
+            <ScrollPane layoutX="28.0" layoutY="38.0">
                <content>
-                  <GridPane fx:id="grilleEquipement">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" />
-                      <ColumnConstraints hgrow="SOMETIMES" />
-                        <ColumnConstraints hgrow="SOMETIMES" />
-                        <ColumnConstraints hgrow="SOMETIMES" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints vgrow="SOMETIMES" />
-                        <RowConstraints vgrow="SOMETIMES" />
-                        <RowConstraints vgrow="SOMETIMES" />
-                      <RowConstraints vgrow="SOMETIMES" />
-                      <RowConstraints vgrow="SOMETIMES" />
-                        <RowConstraints vgrow="SOMETIMES" />
-                    </rowConstraints>
+                  <HBox>
                      <children>
-                        <ImageView fitHeight="60.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fitHeight="60.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
-                        <ImageView fitHeight="60.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
-                        <ImageView fitHeight="60.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
-                        <ImageView fitHeight="60.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
-                        <ImageView fitHeight="60.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <ImageView fitHeight="60.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <ImageView fitHeight="60.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                        <ImageView fitHeight="60.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" />
-                        <ImageView fitHeight="60.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <ImageView fitHeight="60.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <ImageView fitHeight="60.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
-                  </GridPane>
+                  </HBox>
                </content>
             </ScrollPane>
          </children>
