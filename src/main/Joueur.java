@@ -68,6 +68,10 @@ public class Joueur {
 		this.stats.put(key, valeur);
 	}
 	public void setStat(String key, int valeur) {
+		System.out.println(this.nom+" "+this);
+		if(key.contentEquals(PLAYER_HP)) {	
+			this.plateau.alerationVie(this,valeur);
+		}
 		this.stats.put(key, valeur);
 		updateVictoirePlateau();
 		updateVie();
@@ -250,9 +254,23 @@ public class Joueur {
 		return this.plateau.choisirAdjacents(this);
 	}
 
+	public void ajouterEquipementIHM(CarteEquipement e) {
+		this.plateau.ajouterEquipementIHM(this,e);
+		
+	}
+	
+	public void removeEquipementIHM(CarteEquipement e) {
+		this.plateau.retirerEquipementIHM(this,e);
+		
+	}
+	
 	public Joueur choisiParmisTous() {
 		return this.plateau.choisirParmisTous(this);
 	}
+
+	
+
+	
 
 	
 }

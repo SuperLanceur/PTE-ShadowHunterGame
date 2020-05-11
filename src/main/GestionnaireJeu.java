@@ -153,6 +153,21 @@ public class GestionnaireJeu {
 		return null;
 	}
 	
+	public void alterationVie(Joueur joueur, int valeur) {
+		
+		Platform.runLater(() -> {
+			try {
+				pc.afficherAlterationVie(joueur,valeur);
+				
+			} catch (IOException | InterruptedException e1) {
+				e1.printStackTrace();
+			}
+
+		});
+		
+		this.waitPlateau();
+	}	
+	
 	public Joueur choisirJoueur(Joueur joueur, List<Joueur> joueurs, Contexte contexte) {
 		Platform.runLater(() -> {
 			try {	
@@ -246,5 +261,17 @@ public class GestionnaireJeu {
 
 	public RessourceLoader getRessourceLoader() {
 		return this.ressourceLoader;
-	}	
+	}
+
+	public void ajouterEquipement(Joueur joueur, CarteEquipement e) {
+		pc.ajouterEquipement(joueur,e);
+		
+	}
+
+	public void retirerEquipement(Joueur joueur, CarteEquipement e) {
+		pc.retirerEquipement(joueur,e);
+		
+	}
+
+	
 }
