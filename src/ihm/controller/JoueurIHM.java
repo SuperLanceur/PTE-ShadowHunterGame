@@ -81,6 +81,7 @@ public class JoueurIHM {
 		AnchorPane.setLeftAnchor(p,0.0);
 		AnchorPane.setRightAnchor(p,0.0);
 		AnchorPane.setTopAnchor(p,0.0);
+
 	}
 	
 	

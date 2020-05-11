@@ -3,16 +3,26 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" minHeight="0.0" minWidth="0.0" prefHeight="129.0" prefWidth="201.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.ChoisirBoolean">
+<AnchorPane fx:id="root" minHeight="0.0" minWidth="0.0" prefHeight="289.0" prefWidth="450.0" styleClass="background" stylesheets="@style/plateau.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.ChoisirBoolean">
    <children>
-      <Label fx:id="titre" layoutX="8.0" layoutY="-11.0" prefHeight="26.0" prefWidth="128.0" text="Voulez vous faire cette action ?" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="-11.0">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <Button fx:id="ouiButton" layoutX="34.0" layoutY="85.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="45.0" text="Oui" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="34.0" AnchorPane.rightAnchor="122.0" AnchorPane.topAnchor="85.0" />
-      <Button fx:id="nonButton" layoutX="126.0" layoutY="85.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="45.0" text="Non" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="126.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="85.0" />
+      <VBox alignment="CENTER" layoutX="37.0" layoutY="14.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="titre" alignment="CENTER" prefHeight="88.0" prefWidth="158.0" styleClass="text" text="Voulez vous faire cette action ?" wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER">
+               <children>
+                  <Button fx:id="ouiButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="45.0" styleClass="bouton" text="Oui" />
+                  <Button fx:id="nonButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="45.0" styleClass="bouton" text="Non" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

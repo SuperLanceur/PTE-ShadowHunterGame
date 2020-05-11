@@ -43,7 +43,7 @@ public class GestionnaireJeu {
 		plateau.start();
 	}
 
-	public Joueur choisirParmisTous(Joueur joueur, List<Joueur> joueurs) {
+	public Joueur choisirParmisListe(Joueur joueur, List<Joueur> joueurs) {
 		return joueurs.get(0);
 		
 	}
@@ -51,16 +51,24 @@ public class GestionnaireJeu {
 	public Effet choisirEffet(Joueur joueur, Effet[] effets) {
 		return effets[0];
 	}
-
-	public Joueur choisirAdjacents(Joueur joueur, List<Joueur> joueurs) {
-		return joueurs.get(0);
-	}
+	
 
 	public void deplacer(Joueur currentJoueur) {
 		
 		Platform.runLater(() -> {
 			pc.deplacer(currentJoueur);
-		});		
+		});	
+	}
+	
+	public void afficherLieu(Joueur currentJoueur) {
+		Platform.runLater(() -> {
+			try {
+				pc.afficherLieu(currentJoueur);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		});
+		this.waitPlateau();
 	}
 	
 	public void updateVieJoueur(Joueur joueur, int damage) {
@@ -71,6 +79,7 @@ public class GestionnaireJeu {
 	}
 	
 	public boolean choisir(Joueur joueur) {
+		
 		Platform.runLater(() -> {
 			try {	
 				pc.afficherChoisir(joueur);
@@ -93,7 +102,6 @@ public class GestionnaireJeu {
 		try {
 			return query.get().booleanValue();
 		} catch (InterruptedException | ExecutionException e) {
-		
 			e.printStackTrace();
 		}
 		
@@ -166,6 +174,8 @@ public class GestionnaireJeu {
 	public RessourceLoader getRessourceLoader() {
 		return this.ressourceLoader;
 	}
+
+	
 	
 
 	

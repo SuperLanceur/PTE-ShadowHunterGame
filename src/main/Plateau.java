@@ -269,10 +269,11 @@ public class Plateau extends Thread{
 			System.out.println("Au tour de "+currentJoueur.getNom());
 			System.out.println("Lancement des dés.");
 			deplacer(currentJoueur);
-			System.out.println("OUI");
 			if(isPartieTerminee()) break;
 			System.out.println("Vous êtes désormais sur le lieu "+currentJoueur.getCarteLieu().getNom());
 			System.out.println("Voulez vous activer l'effet du lieu ?");
+			gj.afficherLieu(currentJoueur);
+			
 			if(currentJoueur.choisir()) {
 				System.out.println("Vous activez l'effet du lieu.");
 				System.out.println("Vous avez "+currentJoueur.getStat(Joueur.PLAYER_HP)+" pv");
@@ -286,7 +287,8 @@ public class Plateau extends Thread{
 			System.out.println("Souhaitez vous attaquer quelqu'un ?");
 			if(currentJoueur.choisir()){
 				if(currentJoueur.hasOpponents()) {
-					Joueur cible = currentJoueur.choisirAdjacents();
+					List<Joueur> adjacents = currentJoueur.getJoueursAdjacents();
+					Joueur cible = (Joueur) currentJoueur.choisir(adjacents);
 					attaquer(currentJoueur,cible);
 					if(isPartieTerminee()) break;
 				}else {
@@ -439,9 +441,9 @@ public class Plateau extends Thread{
 		joueurs.remove(joueur);
 		joueurs.addAll(cl.getJoueursAdjacents());
 		
-		return gj.choisirAdjacents(joueur, joueurs);
+		return gj.choisirParmisListe(joueur, joueurs);
 			
-		}
+	}
 
 	public Effet choisirEffet(Joueur joueur, Effet[] effets) {
 		return gj.choisirEffet(joueur,effets);
@@ -449,7 +451,7 @@ public class Plateau extends Thread{
 
 	public Joueur choisirParmisTous(Joueur joueur) {
 		List<Joueur> joueurs = this.getJoueurs();
-		return gj.choisirParmisTous(joueur,joueurs);
+		return gj.choisirParmisListe(joueur,joueurs);
 	}
 
 
