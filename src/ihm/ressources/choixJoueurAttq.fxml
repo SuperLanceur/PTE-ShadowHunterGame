@@ -14,20 +14,12 @@
          <children>
             <HBox fx:id="joueurHaut" layoutX="4.0" layoutY="14.0">
                <children>
-                  <Button mnemonicParsing="false" text="%joueur1">
+                  <Button fx:id="btn1" mnemonicParsing="false" text="%joueur1">
                      <font>
                         <Font size="10.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" text="%joueur2">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="2.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" text="%joueur3">
+                  <Button fx:id="btn2" mnemonicParsing="false" text="%joueur2">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -35,7 +27,15 @@
                         <Insets left="2.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="%joueur4">
+                  <Button fx:id="btn3" mnemonicParsing="false" text="%joueur3">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="2.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="btn4" mnemonicParsing="false" text="%joueur4">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -47,7 +47,7 @@
             </HBox>
             <HBox fx:id="joueurBas" layoutX="4.0" layoutY="139.0">
                <children>
-                  <Button mnemonicParsing="false" text="%joueur5">
+                  <Button fx:id="btn5" mnemonicParsing="false" text="%joueur5">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -55,7 +55,7 @@
                         <Insets right="2.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="%joueur6">
+                  <Button fx:id="btn6" mnemonicParsing="false" text="%joueur6">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -63,7 +63,7 @@
                         <Insets right="2.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="%joueur7">
+                  <Button fx:id="btn7" mnemonicParsing="false" text="%joueur7">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -71,7 +71,7 @@
                         <Insets right="2.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="%joueur8">
+                  <Button fx:id="btn8" mnemonicParsing="false" text="%joueur8">
                      <font>
                         <Font size="10.0" />
                      </font>

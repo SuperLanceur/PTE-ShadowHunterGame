@@ -31,6 +31,7 @@ public class Plateau extends Thread{
 	private GestionnaireJeu gj;
 	private List<Joueur> joueurs;
 	private List<CarteLieu> lieux;
+	public static List<Joueur> jselectionne;
 	
 
 	public static final String NB_HUNTERS = "nb_hunters";
@@ -266,7 +267,7 @@ public class Plateau extends Thread{
 		while(true) {
 			
 			Joueur currentJoueur = this.joueurs.get(i % nbJoueurs);
-			currentJoueur.choisir(new ArrayList<Joueur>(), Joueur.class);
+			currentJoueur.choisir(joueurs, Joueur.class);
 			System.out.println("\n\n\n\n\n");
 			System.out.println("Au tour de "+currentJoueur.getNom());
 			System.out.println("Lancement des dés.");
