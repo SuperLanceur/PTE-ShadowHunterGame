@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane styleClass="background" stylesheets="@style/plateau.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.AlterationVieZJ">
+   <children>
+      <Pane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="label" alignment="CENTER" contentDisplay="CENTER" layoutX="86.0" layoutY="92.0" styleClass="text" text="Label" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

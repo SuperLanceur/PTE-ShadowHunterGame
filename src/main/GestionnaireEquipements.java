@@ -19,6 +19,7 @@ public class GestionnaireEquipements {
 		this.equipements.add(e);
 		e.utiliser(this.j);
 		this.j.addToStat(Joueur.PLAYER_NB_EQUIPEMENTS, 1);
+		this.j.ajouterEquipementIHM(e);
 	}
 	
 	public void retirer(CarteEquipement e) {
@@ -26,7 +27,11 @@ public class GestionnaireEquipements {
 			e.reverse(j);
 			this.equipements.remove(e);
 			this.j.addToStat(Joueur.PLAYER_NB_EQUIPEMENTS, -1);
+			this.j.removeEquipementIHM(e);
 		}
+		
+		
+		
 	}
 	
 	public List<CarteEquipement> getEquipements() {

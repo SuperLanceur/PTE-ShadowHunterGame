@@ -23,6 +23,21 @@
                      <padding>
                         <Insets top="-20.0" />
                      </padding></Slider>
+                  <HBox prefHeight="18.0" prefWidth="249.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="198.0" styleClass="text" stylesheets="@style/plateau.css" text="The Red Fox Tavern - Curran Son">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="-35.0" />
+                     </VBox.margin>
+                  </HBox>
                   <CheckBox fx:id="cbEffetSonore" mnemonicParsing="false" styleClass="checkBox" text="%effet" />
                   <Slider fx:id="sliderEffets" blockIncrement="1.0" layoutX="10.0" layoutY="125.0" majorTickUnit="1.0" max="0.0" min="-20.0" minorTickCount="10" onMouseClicked="#slideVolumeEffet" value="-10.0">
                      <padding>

@@ -18,6 +18,8 @@ import carte.CarteLieu;
 import database.RessourceLoader;
 import ihm.EffetSonore;
 import ihm.PopUp;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -28,22 +30,16 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.BackgroundPosition;
-import javafx.scene.layout.BackgroundRepeat;
-import javafx.scene.layout.BackgroundSize;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.util.Duration;
 import main.Contexte;
 import main.GestionnaireJeu;
 import main.Joueur;
-import personnage.CartePersonnage;
 
 public class PlateauController implements Initializable {
 	
@@ -357,6 +353,26 @@ public class PlateauController implements Initializable {
 		jihm.setZoneJoueur(root);
 	}
 
+	public void afficherAlterationVie(Joueur j, int valeur) throws IOException, InterruptedException {
+		
+		final URL fxmlURL = getClass().getResource("/ihm/ressources/AlterationVieZJ.fxml");
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+		Pane root = (Pane)fxmlLoader.load();
+		AlterationVieZJ avzj =  fxmlLoader.getController();
+		avzj.changeLabel(valeur);
+		JoueurIHM jihm = getJoueurIHM(j);
+		jihm.setZoneJoueur(root);
+		
+		Timeline timeline = new Timeline(new KeyFrame(
+		        Duration.millis(2500),
+		        ae ->  {
+		        	jihm.resetZoneJoueur();
+		        	GestionnaireJeu.notifyPlateau(); 
+		}));
+		timeline.play();
+	}
+	
 	public void afficherLieu(Joueur j) throws IOException {
 		
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/LieuZJ.fxml");
@@ -367,20 +383,16 @@ public class PlateauController implements Initializable {
 		lzj.setImageView(this.getImageCarte(j.getCarteLieu()));
 		JoueurIHM jihm = getJoueurIHM(j);
 		jihm.setZoneJoueur(root);
-		
-
 	}
 	public void afficherChoisirJoueur(Joueur j, List<Joueur> joueurs, Contexte contexte) throws IOException {
-			final URL fxmlURL = getClass().getResource("/ihm/ressources/choixJoueurAttq.fxml");
-
-			final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
-			final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
-			Pane root = (Pane)fxmlLoader.load();
-			this.cj = fxmlLoader.getController();
-
-			JoueurIHM jihm = getJoueurIHM(j);
-			jihm.setZoneJoueur(root);
-		}
+		final URL fxmlURL = getClass().getResource("/ihm/ressources/choixJoueurAttq.fxml");
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+		Pane root = (Pane)fxmlLoader.load();
+		this.cj = fxmlLoader.getController();
+		JoueurIHM jihm = getJoueurIHM(j);
+		jihm.setZoneJoueur(root);
+	}
 
 	public CarteEquipement getChoixEquipementVole(Joueur joueur) {
 		JoueurIHM jihm = getJoueurIHM(joueur);
@@ -439,6 +451,22 @@ public class PlateauController implements Initializable {
 		BufferedImage bi = this.mapRessourcesCartes.get(carte);
 		return RessourceLoader.toJavaFX(bi);
 	}
+
+
+	public void ajouterEquipement(Joueur j, CarteEquipement e) {
+		JoueurIHM jihm = getJoueurIHM(j);
+		jihm.ajouterEquipement(e);
+	}
+
+
+	public void retirerEquipement(Joueur j, CarteEquipement e) {
+		JoueurIHM jihm = getJoueurIHM(j);
+		jihm.retirerEquipement(e);
+		
+	}
+
+
+	
 
 
 	

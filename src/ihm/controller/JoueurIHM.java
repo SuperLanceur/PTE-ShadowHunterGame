@@ -1,7 +1,11 @@
 package ihm.controller;
 
+import carte.CarteEquipement;
+import ihm.ImageViewEquipement;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -11,6 +15,7 @@ import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import main.Joueur;
@@ -71,6 +76,7 @@ public class JoueurIHM {
 	}
 	
 	public void setZoneJoueur(Pane p) {
+		
 		AnchorPane ap = (AnchorPane) zoneJoueur.getChildren().get(1);
 		ap.getChildren().setAll(p);
 		
@@ -93,11 +99,6 @@ public class JoueurIHM {
 	public void setLabelJoueur(String name) {
 		Label label = getLabelJoueur();
 		label.setText(name);
-	}
-	
-	public Label getPaneEquipement() {
-		Pane p = (Pane) zoneJoueur.getChildren().get(2);
-		return (Label) p.getChildren().get(1);
 	}
 
 	public int getPosition() {
@@ -126,6 +127,38 @@ public class JoueurIHM {
 
 	public void choisir() {
 	
+		
+	}
+
+	public void resetZoneJoueur() {
+		this.getZoneJoueur().getChildren().setAll();
+	}
+	
+	public HBox getPaneEquipement(){
+		ScrollPane sp = (ScrollPane) this.zoneJoueur.getChildren().get(3);
+		HBox p = (HBox) sp.getContent();
+		return p;
+	}
+
+	public void ajouterEquipement(CarteEquipement e) {
+		HBox hb = getPaneEquipement();
+		ImageViewEquipement ive = new ImageViewEquipement(e);
+		hb.getChildren().add(new ImageViewEquipement(e));
+		ive.fitHeightProperty().bind(hb.heightProperty());
+		
+	}
+
+	public void retirerEquipement(CarteEquipement e) {
+		HBox hb = getPaneEquipement();
+		for(Node n : hb.getChildren()) {
+			if(n instanceof ImageViewEquipement) {
+				ImageViewEquipement ive = (ImageViewEquipement) n;
+				if(ive.contains(e)) {
+					hb.getChildren().remove(ive);
+				}
+			}
+		}
+		
 		
 	}
 

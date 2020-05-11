@@ -41,6 +41,7 @@ public class CartePiochable extends CarteCondition implements Serializable{
 	 * 	@param j Appel la méthode utiliser de effet sur le joueur j
 	 */
 	public void utiliser(Joueur j) {
+		System.out.println("CartePiochable "+this + " Condition : "+this.getCondition()+" Effet : "+this.getEffet()+" Action : "+this.getEffet().getAction());
 		super.utiliser(j);
 	}
 	

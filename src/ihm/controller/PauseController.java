@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 
 import ihm.EffetSonore;
 import ihm.Musique;
+import ihm.PopUp;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -167,10 +168,17 @@ public class PauseController implements Initializable {
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
         AnchorPane pane = fxmlLoader.load();
+        
+        
         Scene scene = new Scene(pane);
         Stage appStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         appStage.setScene(scene);
         appStage.show();
+        
+        /*
+		PopUp pu = new PopUp(pane, "Regles");
+		pu.display();
+		*/
     
     }
 

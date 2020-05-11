@@ -297,9 +297,7 @@ public class Plateau extends Thread{
 				}else {
 					System.out.println("Il n'y a personne a attaquer.");
 				}
-				
 			}
-			
 			i++;
 		}
 		
@@ -465,5 +463,19 @@ public class Plateau extends Thread{
 
 	public Object choisir(Joueur joueur, List<?> list, Class cls) {
 		return gj.choisir(joueur,list,cls);
+	}
+
+	public void alerationVie(Joueur joueur, int valeur) {
+		gj.alterationVie(joueur,valeur);
+	}
+
+	public void ajouterEquipementIHM(Joueur joueur, CarteEquipement e) {
+		gj.ajouterEquipement(joueur,e);
+		
+	}
+
+	public void retirerEquipementIHM(Joueur joueur, CarteEquipement e) {
+		gj.retirerEquipement(joueur,e);
+		
 	}
 }
