@@ -56,6 +56,8 @@ public class PlateauController implements Initializable {
 	
 	private ChoisirBoolean cb;
 	private ChoisirEquipement ce;
+	private ChoisirJoueur cj;
+
 	
 	
 	private Map<Carte,BufferedImage> mapRessourcesCartes;
@@ -367,6 +369,17 @@ public class PlateauController implements Initializable {
 		
 
 	}
+	public void afficherChoisirJoueur(Joueur j) throws IOException {
+			final URL fxmlURL = getClass().getResource("/ihm/ressources/choixJoueurAttq.fxml");
+
+			final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+			final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+			Pane root = (Pane)fxmlLoader.load();
+			this.cj = fxmlLoader.getController();
+
+			JoueurIHM jihm = getJoueurIHM(j);
+			jihm.setZoneJoueur(root);
+		}
 
 	public CarteEquipement getChoixEquipementVole(Joueur joueur) {
 		JoueurIHM jihm = getJoueurIHM(joueur);
@@ -382,6 +395,14 @@ public class PlateauController implements Initializable {
 		this.cb = null;
 		jihm.getZoneJoueur().getChildren().setAll();
 		return result;
+	} 
+	public Joueur getChoixJoueur(Joueur joueur) {
+		JoueurIHM jihm = getJoueurIHM(joueur);
+        int result = this.cj.getJoueurSelected();
+        this.cj = null;
+
+        jihm.getZoneJoueur().getChildren().setAll();
+        return listJoueur.get(result);
 	}
 
 	public void deplacer(Joueur currentJoueur) {
