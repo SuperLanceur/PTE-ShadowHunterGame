@@ -266,7 +266,7 @@ public class Plateau extends Thread{
 		while(true) {
 			
 			Joueur currentJoueur = this.joueurs.get(i % nbJoueurs);
-			//currentJoueur.choisir(new ArrayList<CarteEquipement>(), CarteEquipement.class);
+			//currentJoueur.choisir(new ArrayList<Joueur>(), Joueur.class);
 			System.out.println("\n\n\n\n\n");
 			System.out.println("Au tour de "+currentJoueur.getNom());
 			System.out.println("Lancement des dés.");

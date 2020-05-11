@@ -370,7 +370,7 @@ public class PlateauController implements Initializable {
 		
 
 	}
-	public void afficherChoisirJoueur(Joueur j) throws IOException {
+	public void afficherChoisirJoueur(Joueur j, List<Joueur> joueurs, Contexte contexte) throws IOException {
 			final URL fxmlURL = getClass().getResource("/ihm/ressources/choixJoueurAttq.fxml");
 
 			final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);

@@ -116,7 +116,10 @@ public class GestionnaireJeu {
 		
 		if(cls == CarteEquipement.class) {
 			return choisirEquipementVole(joueur, (List<CarteEquipement>) list);
-		}	
+		}else if(cls == Joueur.class) {
+			
+			return choisirJoueur(joueur, (List<Joueur>) list, Contexte.ACTIVER_EFFET_LIEU);
+		}
 		return list.get(0);
 	}
 	
@@ -150,17 +153,15 @@ public class GestionnaireJeu {
 		return null;
 	}
 	
-	public Joueur choisirJoueur(Joueur joueur, Contexte contexte) {
+	public Joueur choisirJoueur(Joueur joueur, List<Joueur> joueurs, Contexte contexte) {
 		Platform.runLater(() -> {
 			try {	
-				pc.afficherChoisir(joueur, contexte);
+				pc.afficherChoisirJoueur(joueur,joueurs, contexte);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		});
-		
-		
-		
+	
 		this.waitPlateau();
 	
 		final FutureTask<Joueur> query = new FutureTask<Joueur>(new Callable<Joueur>() {
