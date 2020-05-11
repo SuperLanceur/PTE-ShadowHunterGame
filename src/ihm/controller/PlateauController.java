@@ -369,6 +369,17 @@ public class PlateauController implements Initializable {
 		
 
 	}
+	public void afficherChoisirJoueur(Joueur j) throws IOException {
+			final URL fxmlURL = getClass().getResource("/ihm/ressources/choixJoueurAttq.fxml");
+
+			final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+			final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+			Pane root = (Pane)fxmlLoader.load();
+			this.cj = fxmlLoader.getController();
+
+			JoueurIHM jihm = getJoueurIHM(j);
+			jihm.setZoneJoueur(root);
+		}
 
 	public CarteEquipement getChoixEquipementVole(Joueur joueur) {
 		JoueurIHM jihm = getJoueurIHM(joueur);
