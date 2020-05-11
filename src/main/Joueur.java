@@ -238,8 +238,8 @@ public class Joueur {
 		return joueurs;
 	}
 
-	public boolean choisir() {
-		return this.plateau.choisir(this);
+	public boolean choisir(Contexte activerEffetLieu) {
+		return this.plateau.choisir(this, activerEffetLieu);
 	}
 	
 	public Object choisir(List<?> adjacents,Class cls) {

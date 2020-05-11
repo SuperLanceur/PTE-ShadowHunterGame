@@ -4,6 +4,7 @@ import condition.Condition;
 import condition.ConditionStatistiques;
 import effet.EffetTarget;
 import effet.action.ActionVoler;
+import main.Contexte;
 import main.Joueur;
 
 public class Bob extends CartePersonnage{
@@ -40,7 +41,7 @@ public class Bob extends CartePersonnage{
 			
 			Joueur thisJoueur = this.getJoueur();
 			
-			if(thisJoueur.choisir()) {
+			if(thisJoueur.choisir(Contexte.EFFET_BOB)) {
 				((EffetTarget)this.getEffet()).setTarget(j);
 				this.utiliser(thisJoueur);
 			}else {

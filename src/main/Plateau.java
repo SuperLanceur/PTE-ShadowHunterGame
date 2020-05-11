@@ -266,7 +266,7 @@ public class Plateau extends Thread{
 		while(true) {
 			
 			Joueur currentJoueur = this.joueurs.get(i % nbJoueurs);
-			currentJoueur.choisir(new ArrayList<CarteEquipement>(), CarteEquipement.class);
+			//currentJoueur.choisir(new ArrayList<CarteEquipement>(), CarteEquipement.class);
 			System.out.println("\n\n\n\n\n");
 			System.out.println("Au tour de "+currentJoueur.getNom());
 			System.out.println("Lancement des dés.");
@@ -276,7 +276,7 @@ public class Plateau extends Thread{
 			System.out.println("Voulez vous activer l'effet du lieu ?");
 			gj.afficherLieu(currentJoueur);
 			
-			if(currentJoueur.choisir()) {
+			if(currentJoueur.choisir(Contexte.ACTIVER_EFFET_LIEU)) {
 				System.out.println("Vous activez l'effet du lieu.");
 				System.out.println("Vous avez "+currentJoueur.getStat(Joueur.PLAYER_HP)+" pv");
 				currentJoueur.utiliserEffetLieu();
@@ -287,7 +287,7 @@ public class Plateau extends Thread{
 			System.out.println("\n");
 			
 			System.out.println("Souhaitez vous attaquer quelqu'un ?");
-			if(currentJoueur.choisir()){
+			if(currentJoueur.choisir(Contexte.ATTAQUER)){
 				if(currentJoueur.hasOpponents()) {
 					List<Joueur> adjacents = currentJoueur.getJoueursRange();
 					Joueur cible = (Joueur) currentJoueur.choisir(adjacents,Joueur.class);
@@ -431,8 +431,8 @@ public class Plateau extends Thread{
 	}
 	
 
-	public boolean choisir(Joueur joueur) {
-		return gj.choisir(joueur);
+	public boolean choisir(Joueur joueur, Contexte contexte) {
+		return gj.choisir(joueur, contexte);
 	}
 
 	public Joueur choisirAdjacents(Joueur joueur) {

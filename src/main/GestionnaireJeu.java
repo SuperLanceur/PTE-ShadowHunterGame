@@ -79,11 +79,11 @@ public class GestionnaireJeu {
 		});
 	}
 	
-	public boolean choisir(Joueur joueur) {
+	public boolean choisir(Joueur joueur, Contexte contexte) {
 		
 		Platform.runLater(() -> {
 			try {	
-				pc.afficherChoisir(joueur);
+				pc.afficherChoisir(joueur, contexte);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -150,10 +150,10 @@ public class GestionnaireJeu {
 		return null;
 	}
 	
-	public Joueur choisirJoueur(Joueur joueur) {
+	public Joueur choisirJoueur(Joueur joueur, Contexte contexte) {
 		Platform.runLater(() -> {
 			try {	
-				pc.afficherChoisir(joueur);
+				pc.afficherChoisir(joueur, contexte);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

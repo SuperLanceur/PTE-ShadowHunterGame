@@ -40,6 +40,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import main.Contexte;
 import main.GestionnaireJeu;
 import main.Joueur;
 import personnage.CartePersonnage;
@@ -335,7 +336,7 @@ public class PlateauController implements Initializable {
 		
 	}
 
-	public void afficherChoisir(Joueur j) throws IOException {
+	public void afficherChoisir(Joueur j, Contexte contexte) throws IOException {
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/choisirBoolean.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
