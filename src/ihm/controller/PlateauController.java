@@ -56,6 +56,8 @@ public class PlateauController implements Initializable {
 	
 	private ChoisirBoolean cb;
 	private ChoisirEquipement ce;
+	private ChoisirJoueur cj;
+
 	
 	
 	private Map<Carte,BufferedImage> mapRessourcesCartes;
@@ -382,6 +384,14 @@ public class PlateauController implements Initializable {
 		this.cb = null;
 		jihm.getZoneJoueur().getChildren().setAll();
 		return result;
+	} 
+	public Joueur getChoixJoueur(Joueur joueur) {
+		JoueurIHM jihm = getJoueurIHM(joueur);
+        int result = this.cj.getJoueurSelected();
+        this.cj = null;
+
+        jihm.getZoneJoueur().getChildren().setAll();
+        return listJoueur.get(result);
 	}
 
 	public void deplacer(Joueur currentJoueur) {

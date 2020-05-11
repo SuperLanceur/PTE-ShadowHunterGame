@@ -139,6 +139,37 @@ public class GestionnaireJeu {
 		return null;
 	}
 	
+	public Joueur choisirJoueur(Joueur joueur) {
+		Platform.runLater(() -> {
+			try {	
+				pc.afficherChoisir(joueur);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		});
+		
+		
+		
+		this.waitPlateau();
+	
+		final FutureTask<Joueur> query = new FutureTask<Joueur>(new Callable<Joueur>() {
+		    @Override
+		    public Joueur call() throws Exception {
+		    	return pc.getChoixJoueur(joueur);
+		    }
+		});
+		
+		Platform.runLater(query);
+		
+		try {
+			return query.get();
+		} catch (InterruptedException | ExecutionException e) {
+		
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 	public void waitPlateau() {
 		
 		synchronized(plateau) {
