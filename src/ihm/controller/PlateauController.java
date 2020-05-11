@@ -289,7 +289,6 @@ public class PlateauController implements Initializable {
 		for(JoueurIHM joueurIHM : joueursIHM) {
 			if(joueurIHM.getJoueur().equals(j)) return joueurIHM;
 		}
-		
 		return null;
 	}
 	
@@ -327,7 +326,6 @@ public class PlateauController implements Initializable {
 				getPaneJoueur(i).getChildren().setAll();
 			}
 		}
-		
 	}
 
 	public void rollDice(Joueur joueur, int typeDice, int[] rolls) {
@@ -345,6 +343,7 @@ public class PlateauController implements Initializable {
 		jihm.setZoneJoueur(root);
 	}
 	
+
 	public void afficherChoisirEquipementVole(Joueur j) throws IOException {
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Jouer_tour(2a)voler_equipement.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
@@ -353,6 +352,20 @@ public class PlateauController implements Initializable {
 		this.ce = fxmlLoader.getController();
 		JoueurIHM jihm = getJoueurIHM(j);
 		jihm.setZoneJoueur(root);
+	}
+
+	public void afficherLieu(Joueur j) throws IOException {
+		
+		final URL fxmlURL = getClass().getResource("/ihm/ressources/LieuZJ.fxml");
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+		Pane root = (Pane)fxmlLoader.load();
+		LieuZJ lzj =  fxmlLoader.getController();
+		lzj.setImageView(this.getImageCarte(j.getCarteLieu()));
+		JoueurIHM jihm = getJoueurIHM(j);
+		jihm.setZoneJoueur(root);
+		
+
 	}
 
 	public CarteEquipement getChoixEquipementVole(Joueur joueur) {
@@ -404,4 +417,7 @@ public class PlateauController implements Initializable {
 		BufferedImage bi = this.mapRessourcesCartes.get(carte);
 		return RessourceLoader.toJavaFX(bi);
 	}
+
+
+	
 }

@@ -134,10 +134,8 @@ public class Joueur {
 		j2.gestionnaireEquipements.retirer(equipement);
 		this.gestionnaireEquipements.ajouter(equipement);	}
 
-	public Object choisir(List<?> list) {
-		return list.get(0);
-	}
-
+	
+	
 	public void attaquer(Joueur j2, int attaqueDice) {
 		
 		int blessure = evaluerImmunite(j2)*(this.evaluerAttaque(j2) + attaqueDice);
@@ -169,22 +167,6 @@ public class Joueur {
 
 	public Plateau getPlateau() {
 		return this.plateau;
-	}
-	
-	public boolean choisir() {
-		return this.plateau.choisir(this);
-	}
-	
-	public Joueur choisirAdjacents() {
-		return this.plateau.choisirAdjacents(this);
-	}
-
-	public Effet choisir(Effet[] effets) {
-		return this.plateau.choisirEffet(this,effets);
-	}
-	
-	public Joueur choisiParmisTous() {
-		return this.plateau.choisirParmisTous(this);
 	}
 
 	public boolean getRevele() {
@@ -220,8 +202,6 @@ public class Joueur {
 		cl.ajouterJoueur(this);
 	}
 
-	
-
 	public CarteLieu getCarteLieu() {
 		return this.carteLieu;
 	}
@@ -254,6 +234,24 @@ public class Joueur {
 		joueurs.remove(this);
 		
 		return !joueurs.isEmpty();
+	}
+	
+	
+	
+	public boolean choisir() {
+		return this.plateau.choisir(this);
+	}
+	
+	public Object choisir(List<?> list) {
+		return list.get(0);
+	}
+
+	public Joueur choisirAdjacents() {
+		return this.plateau.choisirAdjacents(this);
+	}
+
+	public Joueur choisiParmisTous() {
+		return this.plateau.choisirParmisTous(this);
 	}
 
 }
