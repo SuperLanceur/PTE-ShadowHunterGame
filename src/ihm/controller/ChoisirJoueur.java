@@ -18,7 +18,7 @@ public class ChoisirJoueur implements Initializable{
 	@FXML private HBox joueurHaut;
 	@FXML private HBox joueurBas;
 	@FXML private Label titre;
-/*	@FXML private Button btn1;
+    @FXML private Button btn1;
 	@FXML private Button btn2;
 	@FXML private Button btn3;
     @FXML private Button btn4;
@@ -26,16 +26,27 @@ public class ChoisirJoueur implements Initializable{
     @FXML private Button btn6;
     @FXML private Button btn7;
     @FXML private Button btn8;
-*/
+
 
 
 	
 	private int joueurSelected;
-	private List<Joueur> joueurs = Plateau.jselectionne;
+     private List<Joueur> joueurs = Plateau.jselectionne;
+	//private List<Joueur> joueurs = new ArrayList();
+
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-	/*	List<Button> buttons = new ArrayList();
+	/*	Joueur j1= new Joueur("Belthield");
+		Joueur j2= new Joueur("test2");
+		Joueur j3= new Joueur("test3");
+
+
+		joueurs.add(j1);
+		joueurs.add(j2);
+		joueurs.add(j3);*/
+
+	List<Button> buttons = new ArrayList();
 		buttons.add(btn1);
 		buttons.add(btn2);
       	buttons.add(btn3);
@@ -51,11 +62,11 @@ public class ChoisirJoueur implements Initializable{
         	for(int i=0;i<joueurs.size();i++) {
         		buttons.get(i).setText(joueurs.get(i).getNom());
         	}
-        }*/
+        }
 
 
 		
-		for (int i=0; i<joueurHaut.getChildren().size(); i++) {
+	/*	for (int i=0; i<joueurHaut.getChildren().size(); i++) {
 			int numJoueur = i;
 			joueurHaut.getChildren().get(i).setOnMouseClicked(e -> {
 				System.out.println("Vous avez choisi le joueur " + (numJoueur+1));
@@ -69,7 +80,7 @@ public class ChoisirJoueur implements Initializable{
 				System.out.println("Vous avez choisi le joueur " + (numJoueur+1));
 				this.joueurSelected = numJoueur;
 			});
-		} 
+		}  */
 	}
 
 	//GETTERS AND SETTERS

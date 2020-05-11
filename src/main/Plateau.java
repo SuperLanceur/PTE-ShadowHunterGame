@@ -31,7 +31,16 @@ public class Plateau extends Thread{
 	private GestionnaireJeu gj;
 	private List<Joueur> joueurs;
 	private List<CarteLieu> lieux;
-	public static List<Joueur> jselectionne;
+	public static ArrayList<Joueur> jselectionne=new ArrayList<Joueur>() {/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	{
+	add(new Joueur("Joueur1"));
+	 add(new Joueur("Joueur2"));
+	 add(new Joueur("Joueur3"));}};
+	
 	
 
 	public static final String NB_HUNTERS = "nb_hunters";
