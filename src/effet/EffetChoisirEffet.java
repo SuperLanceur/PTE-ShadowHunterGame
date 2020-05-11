@@ -7,6 +7,8 @@ import main.Joueur;
 
 public class EffetChoisirEffet extends Effet{
 
+
+	private static final long serialVersionUID = -1412748549517929474L;
 	private List<Effet> effets;
 	
 	public EffetChoisirEffet(Effet ...effets) {
@@ -18,6 +20,7 @@ public class EffetChoisirEffet extends Effet{
 	public void utiliser(Joueur joueur) {
 
 		Effet effet = (Effet) joueur.choisir(effets,Effet.class);
+		
 		effet.utiliser(joueur);
 	}
 

@@ -1,17 +1,15 @@
 package ihm.controller;
 
-import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import carte.CarteEquipement;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import carte.CarteEquipement;
 
 public class ChoisirEquipement implements Initializable{
 	@FXML private GridPane grilleEquipement;
