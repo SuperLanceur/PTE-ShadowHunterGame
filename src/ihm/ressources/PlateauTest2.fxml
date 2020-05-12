@@ -64,11 +64,11 @@
                                     <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" GridPane.rowIndex="1" />
                                  </children>
                               </GridPane>
-                              <ScrollPane hbarPolicy="NEVER" prefHeight="144.0" prefWidth="144.0" styleClass="pane" vbarPolicy="NEVER" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                              <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="144.0" prefWidth="144.0" styleClass="pane" vbarPolicy="NEVER" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                  <content>
-                                    <AnchorPane prefHeight="143.0" prefWidth="270.0">
+                                    <AnchorPane>
                                        <children>
-                                          <HBox prefHeight="144.0" prefWidth="270.0" styleClass="background" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <HBox styleClass="background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -112,11 +112,11 @@
                                     <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" GridPane.rowIndex="1" />
                                  </children>
                               </GridPane>
-                              <ScrollPane hbarPolicy="NEVER" prefHeight="144.0" prefWidth="144.0" styleClass="pane" vbarPolicy="NEVER" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                              <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="144.0" prefWidth="144.0" styleClass="pane" vbarPolicy="NEVER" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                  <content>
-                                    <AnchorPane prefHeight="143.0" prefWidth="270.0">
+                                    <AnchorPane>
                                        <children>
-                                          <HBox prefHeight="144.0" prefWidth="270.0" styleClass="background" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <HBox styleClass="background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -181,11 +181,11 @@
                                     <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" GridPane.rowIndex="1" />
                                  </children>
                               </GridPane>
-                              <ScrollPane hbarPolicy="NEVER" prefHeight="144.0" prefWidth="144.0" styleClass="pane" vbarPolicy="NEVER" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                              <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="144.0" prefWidth="144.0" styleClass="pane" vbarPolicy="NEVER" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                  <content>
-                                    <AnchorPane prefHeight="143.0" prefWidth="270.0">
+                                    <AnchorPane>
                                        <children>
-                                          <HBox prefHeight="144.0" prefWidth="270.0" styleClass="background" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <HBox styleClass="background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -229,11 +229,11 @@
                                     <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" GridPane.rowIndex="1" />
                                  </children>
                               </GridPane>
-                              <ScrollPane hbarPolicy="NEVER" prefHeight="144.0" prefWidth="144.0" styleClass="pane" vbarPolicy="NEVER" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                              <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="144.0" prefWidth="144.0" styleClass="pane" vbarPolicy="NEVER" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                  <content>
-                                    <AnchorPane prefHeight="143.0" prefWidth="270.0">
+                                    <AnchorPane>
                                        <children>
-                                          <HBox prefHeight="144.0" prefWidth="270.0" styleClass="background" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <HBox styleClass="background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -679,9 +679,9 @@
                                     <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" GridPane.rowIndex="1" />
                                  </children>
                               </GridPane>
-                              <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="144.0" prefWidth="144.0" styleClass="pane" vbarPolicy="NEVER" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                              <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="144.0" prefWidth="144.0" styleClass="pane" vbarPolicy="NEVER" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                 <content>
-                                  <AnchorPane prefHeight="143.0" prefWidth="270.0">
+                                  <AnchorPane>
                                        <children>
                                           <HBox styleClass="background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
@@ -730,11 +730,11 @@
                                     <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" GridPane.rowIndex="1" />
                                  </children>
                               </GridPane>
-                              <ScrollPane hbarPolicy="NEVER" prefHeight="144.0" prefWidth="144.0" styleClass="pane" vbarPolicy="NEVER" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                              <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="144.0" prefWidth="144.0" styleClass="pane" vbarPolicy="NEVER" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                  <content>
-                                    <AnchorPane prefHeight="143.0" prefWidth="270.0">
+                                    <AnchorPane>
                                        <children>
-                                          <HBox styleClass="background" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <HBox styleClass="background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -796,15 +796,11 @@
                                     <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" GridPane.rowIndex="1" />
                                  </children>
                               </GridPane>
-                              <ScrollPane hbarPolicy="NEVER" prefHeight="144.0" prefWidth="144.0" styleClass="pane" vbarPolicy="NEVER" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                              <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="144.0" prefWidth="144.0" styleClass="pane" vbarPolicy="NEVER" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                  <content>
-                                    <AnchorPane prefHeight="143.0" prefWidth="270.0">
+                                    <AnchorPane>
                                        <children>
-                                          <HBox prefHeight="144.0" prefWidth="270.0" styleClass="background" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                             <children>
-                                                <ImageView fitHeight="95.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" />
-                                             </children>
-                                          </HBox>
+                                          <HBox styleClass="background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -848,15 +844,11 @@
                                     <Button mnemonicParsing="false" styleClass="bouton" stylesheets="@style/plateau.css" text="%se.reveler" GridPane.rowIndex="1" />
                                  </children>
                               </GridPane>
-                              <ScrollPane hbarPolicy="NEVER" prefHeight="144.0" prefWidth="144.0" styleClass="pane" vbarPolicy="NEVER" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                              <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefHeight="144.0" prefWidth="144.0" styleClass="pane" vbarPolicy="NEVER" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                  <content>
-                                    <AnchorPane prefHeight="143.0" prefWidth="270.0">
+                                    <AnchorPane>
                                        <children>
-                                          <HBox prefHeight="144.0" prefWidth="270.0" styleClass="background" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                             <children>
-                                                <ImageView fitHeight="95.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" />
-                                             </children>
-                                          </HBox>
+                                          <HBox styleClass="background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
                                  </content>

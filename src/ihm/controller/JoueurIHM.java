@@ -43,8 +43,14 @@ public class JoueurIHM {
 		String name = joueur.getNom();
 		setLabelJoueur(name);
 		initRevealButton();
+		initZoneEquipement();
 	}
 	
+	private void initZoneEquipement() {
+		HBox hb = getPaneEquipement();
+		
+	}
+
 	private void initRevealButton() {
 		Button btn = getRevealButton();
 		btn.setOnAction(x -> {
@@ -58,7 +64,6 @@ public class JoueurIHM {
 			iv.fitHeightProperty().bind(gp.heightProperty());
 			btn.setDisable(true);
 		});
-		
 	}
 
 	public Button getRevealButton() {
@@ -87,10 +92,7 @@ public class JoueurIHM {
 		AnchorPane.setLeftAnchor(p,0.0);
 		AnchorPane.setRightAnchor(p,0.0);
 		AnchorPane.setTopAnchor(p,0.0);
-
 	}
-	
-	
 	
 	public Label getLabelJoueur() {
 		return (Label) zoneJoueur.getChildren().get(0);
