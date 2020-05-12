@@ -79,7 +79,7 @@ public class GestionnaireDePions {
 		
 		translate.setByX(x);
 		translate.setByY(y);
-		translate.setDuration(Duration.millis(2000)); 
+		translate.setDuration(Duration.millis(20000)); 
 		translate.setNode(p);
 		translate.play();
 	}

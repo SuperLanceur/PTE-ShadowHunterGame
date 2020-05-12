@@ -26,11 +26,6 @@ public class Emi extends CartePersonnage{
 		this.setCondition(new WinConditionHunter());
 	}
 	
-	
-	
-
-
-	
 
 	public void deplacer() {
 			
@@ -38,5 +33,7 @@ public class Emi extends CartePersonnage{
 
 
 	public void utiliser() {
+		
+		this.getJoueur().deplacer(this.getJoueur().getCarteLieu().getVoisin());
 	}
 }

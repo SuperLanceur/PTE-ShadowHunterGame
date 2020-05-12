@@ -1,6 +1,7 @@
 package ihm.controller;
 
 import carte.CarteEquipement;
+import database.RessourceLoader;
 import ihm.ImageViewEquipement;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -28,33 +29,37 @@ public class JoueurIHM {
 	private GestionnaireDePions gestionnaireDePions;
 	private Color color;
 	private PlateauController pc;
-	
-	public JoueurIHM(int i, Joueur joueur, Pane zoneJoueur, Color color, GridPane gridPaneVie, GridPane gridPaneLieux, PlateauController pc) {
-		
+	private boolean estRevele = false;
+
+	public JoueurIHM(int i, Joueur joueur, Pane zoneJoueur, Color color, GridPane gridPaneVie, GridPane gridPaneLieux,
+			PlateauController pc /* , boolean carteVisible */ ) {
+
 		this.setPosition(i);
 		this.setJoueur(joueur);
 		this.zoneJoueur = zoneJoueur;
 		this.color = color;
-		this.gestionnaireDePions = new GestionnaireDePions(this.color,gridPaneVie, gridPaneLieux);
+		this.gestionnaireDePions = new GestionnaireDePions(this.color, gridPaneVie, gridPaneLieux);
 		this.pc = pc;
-		
-		zoneJoueur.setBorder(new Border(new BorderStroke(color, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(5))));
-		
+
+		zoneJoueur.setBorder(
+				new Border(new BorderStroke(color, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, new BorderWidths(5))));
+
 		String name = joueur.getNom();
 		setLabelJoueur(name);
 		initRevealButton();
+		initCheckIdentity();
 		initZoneEquipement();
 	}
-	
+
 	private void initZoneEquipement() {
 		HBox hb = getPaneEquipement();
-		
+
 	}
 
 	private void initRevealButton() {
 		Button btn = getRevealButton();
 		btn.setOnAction(x -> {
-			
+
 			this.joueur.reveal();
 			ImageView iv = this.getCartePersonnage();
 			System.out.println(this.joueur.getCartePersonnage());
@@ -62,7 +67,10 @@ public class JoueurIHM {
 			GridPane gp = (GridPane) iv.getParent();
 			iv.setImage(im);
 			iv.fitHeightProperty().bind(gp.heightProperty());
+			// initButtonEffect(btn);
 			btn.setDisable(true);
+			btn.setText("Utiliser Effet");
+			estRevele = true;
 		});
 	}
 
@@ -70,34 +78,75 @@ public class JoueurIHM {
 		Pane p = (Pane) zoneJoueur.getChildren().get(2);
 		return (Button) p.getChildren().get(1);
 	}
-	
+
+	private void initCheckIdentity() {
+		ImageView iv = getCartePersonnage();
+
+		iv.setOnMousePressed(press -> {
+
+			if (estRevele == false) {
+
+				Image im = this.pc.getImageCarte(this.joueur.getCartePersonnage());
+				GridPane gp = (GridPane) iv.getParent();
+				iv.setImage(im);
+				iv.fitHeightProperty().bind(gp.heightProperty());
+				iv.fitHeightProperty().bind(gp.heightProperty());
+			}
+
+		});
+
+		iv.setOnMouseReleased(release -> {
+
+			if (estRevele == false) {
+
+				Image im = this.pc.getImageDosCarte(RessourceLoader.DOS_PERSONNAGE);
+				GridPane gp = (GridPane) iv.getParent();
+				iv.setImage(im);
+				iv.fitHeightProperty().bind(gp.heightProperty());
+				iv.fitHeightProperty().bind(gp.heightProperty());
+			}
+
+		});
+
+	}
+
 	public ImageView getCartePersonnage() {
 		Pane p = (Pane) zoneJoueur.getChildren().get(2);
 		return (ImageView) p.getChildren().get(0);
 	}
-	
+
+	public void initButtonEffect(Button btn) {
+
+		btn.setOnAction(click -> {
+			System.out.println(this.joueur.getCartePersonnage().getNom() + " va user de son pouvoir");
+			this.joueur.getCartePersonnage().utiliser();
+			System.out.println(this.joueur.getCartePersonnage().getNom() + " a réussi à utiliser son pouvoir");
+			btn.setDisable(true);
+		});
+	}
+
 	public AnchorPane getZoneJoueur() {
 		return (AnchorPane) zoneJoueur.getChildren().get(1);
 	}
-	
+
 	public void setZoneJoueur(Pane p) {
-		
+
 		AnchorPane ap = (AnchorPane) zoneJoueur.getChildren().get(1);
 		ap.getChildren().setAll(p);
-		
-		//ap.prefWidthProperty().bind(ap.widthProperty());
-		//ap.prefHeightProperty().bind(ap.heightProperty());
-		
-		AnchorPane.setBottomAnchor(p,0.0);
-		AnchorPane.setLeftAnchor(p,0.0);
-		AnchorPane.setRightAnchor(p,0.0);
-		AnchorPane.setTopAnchor(p,0.0);
+
+		// ap.prefWidthProperty().bind(ap.widthProperty());
+		// ap.prefHeightProperty().bind(ap.heightProperty());
+
+		AnchorPane.setBottomAnchor(p, 0.0);
+		AnchorPane.setLeftAnchor(p, 0.0);
+		AnchorPane.setRightAnchor(p, 0.0);
+		AnchorPane.setTopAnchor(p, 0.0);
 	}
-	
+
 	public Label getLabelJoueur() {
 		return (Label) zoneJoueur.getChildren().get(0);
 	}
-	
+
 	public void setLabelJoueur(String name) {
 		Label label = getLabelJoueur();
 		label.setText(name);
@@ -118,25 +167,24 @@ public class JoueurIHM {
 	public void setJoueur(Joueur joueur) {
 		this.joueur = joueur;
 	}
-	
+
 	public void deplacerPionVie(int damage) {
 		this.gestionnaireDePions.deplacerPionVie(damage);
 	}
-	
+
 	public void replacerPionLieu() {
 		this.gestionnaireDePions.deplacerPionLieux(this.joueur);
 	}
 
 	public void choisir() {
-	
-		
+
 	}
 
 	public void resetZoneJoueur() {
 		this.getZoneJoueur().getChildren().setAll();
 	}
-	
-	public HBox getPaneEquipement(){
+
+	public HBox getPaneEquipement() {
 		ScrollPane sp = (ScrollPane) this.zoneJoueur.getChildren().get(3);
 		AnchorPane p = (AnchorPane) sp.getContent();
 		return (HBox) p.getChildren().get(0);
@@ -147,21 +195,20 @@ public class JoueurIHM {
 		ImageViewEquipement ive = new ImageViewEquipement(e);
 		hb.getChildren().add(new ImageViewEquipement(e));
 		ive.fitHeightProperty().bind(hb.heightProperty());
-		
+
 	}
 
 	public void retirerEquipement(CarteEquipement e) {
 		HBox hb = getPaneEquipement();
-		for(Node n : hb.getChildren()) {
-			if(n instanceof ImageViewEquipement) {
+		for (Node n : hb.getChildren()) {
+			if (n instanceof ImageViewEquipement) {
 				ImageViewEquipement ive = (ImageViewEquipement) n;
-				if(ive.contains(e)) {
+				if (ive.contains(e)) {
 					hb.getChildren().remove(ive);
 				}
 			}
 		}
-		
-		
+
 	}
 
 	public String getNom() {

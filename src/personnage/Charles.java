@@ -41,5 +41,11 @@ public class Charles extends CartePersonnage{
 	}
 	
 	public void utiliser() {
+		
+		/*
+		System.out.println("vie avant : " + this.getJoueur().getCartePersonnage().getPv());
+		this.getJoueur().setStat("HP", this.getJoueur().getStat("HP") - 2);
+		System.out.println("vie apres : " + this.getJoueur().getCartePersonnage().getPv());
+		*/
 	}
 }

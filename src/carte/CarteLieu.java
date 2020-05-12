@@ -53,6 +53,11 @@ public class CarteLieu extends CarteEffet{
 		}	
 	}
 
+	
+	public CarteLieu getVoisin() {
+		return voisin;
+	}
+
 	public void setVoisin(CarteLieu cl) {
 		this.voisin = cl;
 	}

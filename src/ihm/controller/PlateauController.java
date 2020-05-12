@@ -474,6 +474,11 @@ public class PlateauController implements Initializable {
 		BufferedImage bi = this.mapRessourcesCartes.get(carte);
 		return RessourceLoader.toJavaFX(bi);
 	}
+	
+	public Image getImageDosCarte(String s) {
+		BufferedImage bi = this.mapRessourcesDosCartes.get(s);
+		return RessourceLoader.toJavaFX(bi);
+	}
 
 
 	public void ajouterEquipement(Joueur j, CarteEquipement e) {
