@@ -17,8 +17,6 @@ public class Pioche {
 		melanger();
 	}
 
-
-
 	public void melanger()
 	{
 		Collections.shuffle(cartesPiochables);
@@ -27,8 +25,6 @@ public class Pioche {
 	public CartePiochable piocher() {
 		return cartesPiochables.pop();
 	}
-
-
 
 	public Stack<CartePiochable> getStack() {
 		return cartesPiochables;

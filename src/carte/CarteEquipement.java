@@ -17,6 +17,7 @@ public abstract class CarteEquipement extends CartePiochable{
 		super(t, effet);
 	}
 
+	@Override
 	public void utiliser(Joueur j) {
 		if(!j.getEquipements().contains(this)) {
 			j.ajouterEquipement(this);	

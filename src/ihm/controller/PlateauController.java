@@ -15,6 +15,8 @@ import java.util.Set;
 import carte.Carte;
 import carte.CarteEquipement;
 import carte.CarteLieu;
+import carte.CartePiochable;
+import carte.CartePiochable.Type;
 import database.RessourceLoader;
 import ihm.EffetSonore;
 import ihm.PopUp;
@@ -25,6 +27,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -36,6 +39,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 import main.Contexte;
 import main.GestionnaireJeu;
@@ -58,6 +62,8 @@ public class PlateauController implements Initializable {
 	
 	
 	private Map<Carte,BufferedImage> mapRessourcesCartes;
+	private Map<String,BufferedImage> mapRessourcesDosCartes;
+	
 	public static int DICE_SIX = 2;
 	public static int DICE_QUATRE = 1;
 	public static int DICE_BOTH = 0;
@@ -94,6 +100,7 @@ public class PlateauController implements Initializable {
 		
 		
 		mapRessourcesCartes = rl.getRessourceCartes();
+	    setMapRessourcesDosCartes(rl.getRessourceDosCartes());
 		
 		List<CarteLieu> cl = gj.getCartesLieux();
 		List<ImageView> ivs = this.getLieux();
@@ -201,8 +208,6 @@ public class PlateauController implements Initializable {
 			}	
 		}	
 	}
-
-	
 
 	private void applyImageLieu(ImageView iv, Image im) {
 		
@@ -427,7 +432,6 @@ public class PlateauController implements Initializable {
 	public void updateVieJoueur(Joueur joueur, int damage) {
 		JoueurIHM jIHM = getJoueurIHM(joueur);
 		jIHM.deplacerPionVie(damage);
-		
 	}
 	
 	@FXML
@@ -468,7 +472,6 @@ public class PlateauController implements Initializable {
 	public void close () throws IOException {
 		final URL fxmlURL = PlateauController.class.getResource("/ihm/ressources/Menu.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
-		
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane pane = fxmlLoader.load();
         rootPane.getChildren().setAll(pane);
@@ -487,6 +490,50 @@ public class PlateauController implements Initializable {
 	public void afficherLancerDes(Joueur j, Contexte c) throws IOException {
 		this.ld=new LancerDes(c);
 		JoueurIHM jihm = getJoueurIHM(j);
-		jihm.setZoneJoueur(ld.initLancer());		
+		jihm.setZoneJoueur(ld.initLancer());	
+	}
+	
+	
+	public void afficherLT(Joueur j, CartePiochable cartePiochable) throws IOException {
+	
+		Image i = getImageCarte(cartePiochable);
+		ImageView iv = new ImageView(i);
+		Pane p = new Pane(iv);
+		PopUp pu = new PopUp(p,"Image");
+		pu.getStage().focusedProperty().addListener((obs,wasFocused,isNowFocused) -> {
+			
+			if(!isNowFocused) {
+				GestionnaireJeu.notifyPlateau();
+				pu.getStage().hide();
+			}
+			
+		});	
+		
+		pu.display();
+	}
+	
+	public void afficherVision(Joueur j, CartePiochable cartePiochable) throws IOException {
+		
+		final URL fxmlURL = getClass().getResource("/ihm/ressources/RecevoirCarte.fxml");
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+		Pane root = (Pane)fxmlLoader.load();
+		RecevoirCarte lzj =  fxmlLoader.getController();
+		Image im = getImageCarte(cartePiochable);
+		lzj.setImageView(im);
+		lzj.setText("Cachez la carte vision");
+		JoueurIHM jihm = getJoueurIHM(j);
+		jihm.setZoneJoueur(root);
+	
+	}
+
+
+	public Map<String,BufferedImage> getMapRessourcesDosCartes() {
+		return mapRessourcesDosCartes;
+	}
+
+
+	public void setMapRessourcesDosCartes(Map<String,BufferedImage> mapRessourcesDosCartes) {
+		this.mapRessourcesDosCartes = mapRessourcesDosCartes;
 	}
 }

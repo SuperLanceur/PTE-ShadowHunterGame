@@ -13,7 +13,7 @@
 
 <AnchorPane fx:id="rootPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.PlayersController">
    <children>
-      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="background" stylesheets="@style/menu.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane styleClass="background" stylesheets="@style/menu.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
             <VBox alignment="CENTER" prefHeight="688.0" prefWidth="240.0" BorderPane.alignment="CENTER">
                <children>
@@ -164,7 +164,7 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </Button>
-                  <Button layoutX="283.0" layoutY="379.0" mnemonicParsing="false" onMouseClicked="#retour" prefHeight="55.0" prefWidth="247.0" styleClass="bouton" stylesheets="@style/menu.css" text="retour">
+                  <Button layoutX="283.0" layoutY="379.0" mnemonicParsing="false" onMouseClicked="#retour" prefHeight="55.0" prefWidth="247.0" styleClass="bouton" stylesheets="@style/menu.css" text="Retour">
                      <font>
                         <Font size="24.0" />
                      </font>

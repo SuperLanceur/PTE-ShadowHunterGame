@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import condition.Condition;
 import effet.Effet;
+import main.GestionnaireJeu;
 import main.Joueur;
 
 public class CartePiochable extends CarteCondition implements Serializable{
@@ -41,6 +42,8 @@ public class CartePiochable extends CarteCondition implements Serializable{
 	 * 	@param j Appel la méthode utiliser de effet sur le joueur j
 	 */
 	public void utiliser(Joueur j) {
+		GestionnaireJeu gj = GestionnaireJeu.getGestionnaireJeu();
+		gj.piocher(j,this);
 		System.out.println("CartePiochable "+this + " Condition : "+this.getCondition()+" Effet : "+this.getEffet()+" Action : "+this.getEffet().getAction());
 		super.utiliser(j);
 	}
