@@ -266,8 +266,9 @@ public class Plateau extends Thread{
 			
 			System.out.println(joueurs.size());
 			Joueur currentJoueur = this.joueurs.get(i % nbJoueurs);
-			currentJoueur.choisir(joueurs, Joueur.class);
+			int lancer = currentJoueur.lancerDes(Contexte.LANCER_DES_4);
 			System.out.println("\n\n\n\n\n");
+			System.out.println(lancer);
 			System.out.println("Au tour de "+currentJoueur.getNom());
 			System.out.println("Lancement des dés.");
 			deplacer(currentJoueur);
@@ -475,5 +476,9 @@ public class Plateau extends Thread{
 	public void retirerEquipementIHM(Joueur joueur, CarteEquipement e) {
 		gj.retirerEquipement(joueur,e);
 		
+	}
+
+	public int lancerDes(Joueur joueur, Contexte typeLancer) {
+		return gj.jouerDes(joueur, typeLancer);
 	}
 }

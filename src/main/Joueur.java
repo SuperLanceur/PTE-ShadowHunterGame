@@ -246,6 +246,10 @@ public class Joueur {
 		return this.plateau.choisir(this, activerEffetLieu);
 	}
 	
+	public int lancerDes(Contexte typeLancer) {
+		return this.plateau.lancerDes(this, typeLancer);
+	}
+	
 	public Object choisir(List<?> list,Class cls) {
 		return this.plateau.choisir(this,list, cls);
 	}

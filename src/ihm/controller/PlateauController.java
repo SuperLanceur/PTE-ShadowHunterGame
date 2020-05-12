@@ -57,6 +57,7 @@ public class PlateauController implements Initializable {
 	private ChoisirBoolean cb;
 	private ChoisirEquipement ce;
 	private ChoisirJoueur cj;
+	private LancerDes ld;
 
 	
 	
@@ -207,8 +208,6 @@ public class PlateauController implements Initializable {
 			}	
 		}	
 	}
-
-	
 
 	private void applyImageLieu(ImageView iv, Image im) {
 		
@@ -479,6 +478,22 @@ public class PlateauController implements Initializable {
 	}
 
 
+	public Integer getChoixLancerDes(Joueur joueur) {
+		JoueurIHM jihm = getJoueurIHM(joueur);
+		int result = this.ld.getResult();
+		this.ld = null;
+		jihm.getZoneJoueur().getChildren().setAll();
+		return result;
+	}
+
+
+	public void afficherLancerDes(Joueur j, Contexte c) throws IOException {
+		this.ld=new LancerDes(c);
+		JoueurIHM jihm = getJoueurIHM(j);
+		jihm.setZoneJoueur(ld.initLancer());	
+	}
+	
+	
 	public void afficherLT(Joueur j, CartePiochable cartePiochable) throws IOException {
 	
 		Image i = getImageCarte(cartePiochable);
