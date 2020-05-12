@@ -241,6 +241,36 @@ public class GestionnaireJeu {
 		}
 	}
 	
+    public Type choisirCarte(Joueur joueur) {
+		
+		Platform.runLater(() -> {
+			try {	
+				pc.afficherPiocher(joueur);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		});
+	
+		this.waitPlateau();
+	
+		final FutureTask<Type> query = new FutureTask<Type>(new Callable<Type>() {
+		    @Override
+		    public Type call() throws Exception {
+		    	return pc.getChoixCarte(joueur);
+		    }
+		});
+		
+		Platform.runLater(query);
+		
+		try {
+			return query.get();
+		} catch (InterruptedException | ExecutionException e) {
+		
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 	public void rollDice(Joueur joueur, int typeDice, int ... rolls){
 		
 		pc.rollDice(joueur,typeDice,rolls);

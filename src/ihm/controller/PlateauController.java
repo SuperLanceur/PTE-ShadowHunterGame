@@ -57,6 +57,7 @@ public class PlateauController implements Initializable {
 	private ChoisirBoolean cb;
 	private ChoisirEquipement ce;
 	private ChoisirJoueur cj;
+	private PiocherCarte pc;
 	private LancerDes ld;
 
 	
@@ -399,6 +400,17 @@ public class PlateauController implements Initializable {
 		JoueurIHM jihm = getJoueurIHM(j);
 		jihm.setZoneJoueur(root);
 	}
+    public void afficherPiocher(Joueur j) throws IOException {
+		
+		final URL fxmlURL = getClass().getResource("/ihm/ressources/Jouer_tour(2b)piocher_carte.fxml");
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+		Pane root = (Pane)fxmlLoader.load();
+		//CartePiochable lzj =  fxmlLoader.getController();
+		//lzj.setImageView(this.getImageCarte(j.getCarteLieu()));
+		JoueurIHM jihm = getJoueurIHM(j);
+		jihm.setZoneJoueur(root);
+	}
 
 	public CarteEquipement getChoixEquipementVole(Joueur joueur) {
 		JoueurIHM jihm = getJoueurIHM(joueur);
@@ -422,6 +434,13 @@ public class PlateauController implements Initializable {
         jihm.getZoneJoueur().getChildren().setAll();
         return result.getJoueur();
 	}
+    public Type getChoixCarte(Joueur joueur) {
+		JoueurIHM jihm = getJoueurIHM(joueur);
+		Type result = this.pc.getCarte();
+		this.pc = null;
+		jihm.getZoneJoueur().getChildren().setAll();
+		return result;
+	} 
 
 	public void deplacer(Joueur currentJoueur) {
 		JoueurIHM jIHM = getJoueurIHM(currentJoueur);
