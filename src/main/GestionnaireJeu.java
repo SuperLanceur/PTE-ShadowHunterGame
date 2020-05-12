@@ -46,11 +46,6 @@ public class GestionnaireJeu {
 		plateau.start();
 	}
 
-	public Joueur choisirParmisListe(Joueur joueur, List<Joueur> joueurs) {
-		return joueurs.get(0);
-		
-	}
-
 	public Effet choisirEffet(Joueur joueur, Effet[] effets) {
 		return effets[0];
 	}

@@ -253,6 +253,10 @@ public class Joueur {
 	public Joueur choisirAdjacents() {
 		return this.plateau.choisirAdjacents(this);
 	}
+	
+	public Joueur choisiParmisTous() {
+		return this.plateau.choisirParmisTous(this);
+	}
 
 	public void ajouterEquipementIHM(CarteEquipement e) {
 		this.plateau.ajouterEquipementIHM(this,e);
@@ -263,12 +267,6 @@ public class Joueur {
 		this.plateau.retirerEquipementIHM(this,e);
 		
 	}
-	
-	public Joueur choisiParmisTous() {
-		return this.plateau.choisirParmisTous(this);
-	}
-
-	
 
 	
 

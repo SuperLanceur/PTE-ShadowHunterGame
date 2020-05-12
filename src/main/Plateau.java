@@ -441,8 +441,7 @@ public class Plateau extends Thread{
 		joueurs.remove(joueur);
 		joueurs.addAll(cl.getJoueursAdjacents());
 		
-		return gj.choisirParmisListe(joueur, joueurs);
-			
+		return (Joueur) gj.choisir(joueur, joueurs, Joueur.class);
 	}
 
 	public Effet choisirEffet(Joueur joueur, Effet[] effets) {
@@ -451,7 +450,7 @@ public class Plateau extends Thread{
 
 	public Joueur choisirParmisTous(Joueur joueur) {
 		List<Joueur> joueurs = this.getJoueurs();
-		return gj.choisirParmisListe(joueur,joueurs);
+		return (Joueur) gj.choisir(joueur, joueurs, Joueur.class);
 	}
 
 
