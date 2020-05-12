@@ -62,6 +62,15 @@ public class PopUp{
 			
 		});		
 	}
+	
+	public Stage getStage() {
+		return popup;
+	}
+	
+	public Scene getScene() {
+		return scene;
+	}
+	
 
 	public void display() {
 		

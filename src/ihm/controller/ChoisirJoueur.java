@@ -42,7 +42,6 @@ public class ChoisirJoueur implements Initializable{
 	    this.buttons.add(btn6);
 	    this.buttons.add(btn7);
 	    this.buttons.add(btn8);
-    
 	}
 	
 	public void initButtons() {

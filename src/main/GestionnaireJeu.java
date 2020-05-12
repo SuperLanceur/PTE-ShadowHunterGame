@@ -10,6 +10,8 @@ import java.util.concurrent.FutureTask;
 
 import carte.CarteEquipement;
 import carte.CarteLieu;
+import carte.CartePiochable;
+import carte.CartePiochable.Type;
 import database.RessourceLoader;
 import effet.Effet;
 import ihm.controller.PlateauController;
@@ -274,6 +276,21 @@ public class GestionnaireJeu {
 		Platform.runLater(() -> {
 			pc.retirerEquipement(joueur,e);
 		});	
+	}
+
+	public void piocher(Joueur j, CartePiochable cartePiochable) {
+		Platform.runLater(() -> {
+			try {
+				if(cartePiochable.getType() == Type.VISION) {
+					pc.afficherVision(j, cartePiochable);
+				}else {
+					pc.afficherLT(j, cartePiochable);
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		});
+		waitPlateau();
 	}
 
 	

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.LieuZJ">
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.RecevoirCarte">
    <children>
       <SplitPane dividerPositions="0.6212121212121212" styleClass="background" stylesheets="@style/plateau.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -16,7 +16,7 @@
                <children>
                   <VBox alignment="CENTER" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label styleClass="text" text="Vous arrivez sur cette Carte Lieu" textOverrun="CLIP" wrapText="true">
+                        <Label fx:id="label" styleClass="text" text="Vous arrivez sur cette Carte Lieu" textOverrun="CLIP" wrapText="true">
                            <font>
                               <Font size="14.0" />
                            </font>
