@@ -117,21 +117,10 @@ public class PauseController implements Initializable {
 		EffetSonore.playSoundEffect(fileSound1);
 		GestionnaireJeu.endGame();
 		System.err.println("Fin de partie");
+		PlateauController platcontr = GestionnaireJeu.pc;
 		Stage appStage = (Stage) ((Node) me.getSource()).getScene().getWindow();
 		appStage.close();
-
-		/*
-		 * final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
-		 * final ResourceBundle bundle =
-		 * ResourceBundle.getBundle("domaine.properties.langue", Locale.FRENCH); final
-		 * FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle); AnchorPane root =
-		 * fxmlLoader.load();
-		 */
-
-		final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRENCH);
-		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
-		AnchorPane root = fxmlLoader.load();
+		platcontr.close();
 
 	}
 	

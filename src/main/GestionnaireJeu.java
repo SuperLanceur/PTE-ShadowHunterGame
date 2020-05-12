@@ -24,7 +24,7 @@ public class GestionnaireJeu {
 	private RessourceLoader ressourceLoader;
 	
 	private static Plateau plateau;
-	private static PlateauController pc;
+	public static PlateauController pc;
 	
 	private GestionnaireJeu() {}
 	

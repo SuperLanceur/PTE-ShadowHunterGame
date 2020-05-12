@@ -50,7 +50,6 @@ public class PlateauController implements Initializable {
 	@FXML private GridPane gridPaneVie;
 	@FXML public GridPane gridPaneLieux;
 
-	
 	private ChoisirBoolean cb;
 	private ChoisirEquipement ce;
 	private ChoisirJoueur cj;
@@ -464,6 +463,16 @@ public class PlateauController implements Initializable {
 		jihm.retirerEquipement(e);
 		
 	}
+	
+	public void close () throws IOException {
+		final URL fxmlURL = PlateauController.class.getResource("/ihm/ressources/Menu.fxml");
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		
+		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+		Pane pane = fxmlLoader.load();
+        rootPane.getChildren().setAll(pane);
+	}
+	
 
 
 	
