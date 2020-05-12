@@ -19,7 +19,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="413.0" prefWidth="1559.0" styleClass="background" stylesheets="@style/plateau.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.PlateauController">
+<AnchorPane fx:id="rootPane" styleClass="background" stylesheets="@style/plateau.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.PlateauController">
    <children>
       <HBox alignment="CENTER" layoutX="14.0" spacing="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -331,14 +331,14 @@
                                              <children>
                                                 <StackPane HBox.hgrow="NEVER">
                                                    <children>
-                                                      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                                                      <FlowPane styleClass="lieu" />
+                                                      <ImageView fitHeight="150.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" />
+                                                      <FlowPane prefHeight="150.0" prefWidth="63.0" styleClass="lieu" />
                                                    </children>
                                                 </StackPane>
                                                 <StackPane layoutX="39.0" layoutY="12.0" HBox.hgrow="NEVER">
                                                    <children>
-                                                      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                                                      <FlowPane />
+                                                      <ImageView fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                                                      <FlowPane prefHeight="150.0" prefWidth="13.0" />
                                                    </children>
                                                 </StackPane>
                                              </children>
@@ -353,14 +353,14 @@
                                              <children>
                                                 <StackPane HBox.hgrow="NEVER">
                                                    <children>
-                                                      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                                                      <FlowPane />
+                                                      <ImageView fitHeight="150.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" />
+                                                      <FlowPane prefHeight="150.0" prefWidth="64.0" />
                                                    </children>
                                                 </StackPane>
                                                 <StackPane HBox.hgrow="NEVER">
                                                    <children>
-                                                      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                                                      <FlowPane />
+                                                      <ImageView fitHeight="150.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true" />
+                                                      <FlowPane prefHeight="150.0" prefWidth="69.0" />
                                                    </children>
                                                 </StackPane>
                                              </children>
@@ -372,14 +372,14 @@
                                              <children>
                                                 <StackPane HBox.hgrow="NEVER">
                                                    <children>
-                                                      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                                                      <FlowPane />
+                                                      <ImageView fitHeight="150.0" fitWidth="111.0" pickOnBounds="true" preserveRatio="true" />
+                                                      <FlowPane prefHeight="150.0" prefWidth="81.0" />
                                                    </children>
                                                 </StackPane>
                                                 <StackPane HBox.hgrow="NEVER">
                                                    <children>
-                                                      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                                                      <FlowPane />
+                                                      <ImageView fitHeight="150.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" />
+                                                      <FlowPane prefHeight="150.0" prefWidth="113.0" />
                                                    </children>
                                                 </StackPane>
                                              </children>
