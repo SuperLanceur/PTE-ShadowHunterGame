@@ -31,18 +31,7 @@ public class Plateau extends Thread{
 	private GestionnaireJeu gj;
 	private List<Joueur> joueurs;
 	private List<CarteLieu> lieux;
-	public static ArrayList<Joueur> jselectionne=new ArrayList<Joueur>() {/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
-	{
-	add(new Joueur("Joueur1"));
-	 add(new Joueur("Joueur2"));
-	 add(new Joueur("Joueur3"));}};
 	
-	
-
 	public static final String NB_HUNTERS = "nb_hunters";
 	public static final String NB_SHADOWS = "nb_shadows";
 	public static final String NB_NEUTRES = "nb_neutres";
@@ -275,6 +264,7 @@ public class Plateau extends Thread{
 		
 		while(true) {
 			
+			System.out.println(joueurs.size());
 			Joueur currentJoueur = this.joueurs.get(i % nbJoueurs);
 			currentJoueur.choisir(joueurs, Joueur.class);
 			System.out.println("\n\n\n\n\n");

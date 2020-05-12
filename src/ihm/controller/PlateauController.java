@@ -362,9 +362,8 @@ public class PlateauController implements Initializable {
 		avzj.changeLabel(valeur);
 		JoueurIHM jihm = getJoueurIHM(j);
 		jihm.setZoneJoueur(root);
-		
 		Timeline timeline = new Timeline(new KeyFrame(
-		        Duration.millis(2500),
+		        Duration.millis(1000),
 		        ae ->  {
 		        	jihm.resetZoneJoueur();
 		        	GestionnaireJeu.notifyPlateau(); 
@@ -389,6 +388,8 @@ public class PlateauController implements Initializable {
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane root = (Pane)fxmlLoader.load();
 		this.cj = fxmlLoader.getController();
+		this.cj.setListJoueursIHM(this.joueursIHM);
+		this.cj.initButtons();
 		JoueurIHM jihm = getJoueurIHM(j);
 		jihm.setZoneJoueur(root);
 	}
@@ -410,11 +411,10 @@ public class PlateauController implements Initializable {
 	} 
 	public Joueur getChoixJoueur(Joueur joueur) {
 		JoueurIHM jihm = getJoueurIHM(joueur);
-        int result = this.cj.getJoueurSelected();
+        JoueurIHM result = this.cj.getJoueurSelected();
         this.cj = null;
-
         jihm.getZoneJoueur().getChildren().setAll();
-        return listJoueur.get(result);
+        return result.getJoueur();
 	}
 
 	public void deplacer(Joueur currentJoueur) {

@@ -5,29 +5,21 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="255.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.ChoisirJoueur">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.ChoisirJoueur">
    <children>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="255.0" stylesheets="@style/popUp.css">
+      <VBox alignment="CENTER" spacing="40.0" styleClass="background" stylesheets="@style/plateau.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox fx:id="joueurHaut" layoutX="4.0" layoutY="14.0">
+            <HBox fx:id="joueurHaut" alignment="TOP_CENTER" spacing="3.0">
                <children>
-                  <Button fx:id="btn1" mnemonicParsing="false" text="%joueur1">
+                  <Button fx:id="btn1" mnemonicParsing="false" styleClass="bouton" text="%joueur1">
                      <font>
                         <Font size="10.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btn2" mnemonicParsing="false" text="%joueur2">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="2.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button fx:id="btn3" mnemonicParsing="false" text="%joueur3">
+                  <Button fx:id="btn2" mnemonicParsing="false" styleClass="bouton" text="%joueur2">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -35,7 +27,15 @@
                         <Insets left="2.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="btn4" mnemonicParsing="false" text="%joueur4">
+                  <Button fx:id="btn3" mnemonicParsing="false" styleClass="bouton" text="%joueur3">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="2.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="btn4" mnemonicParsing="false" styleClass="bouton" text="%joueur4">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -45,9 +45,10 @@
                   </Button>
                </children>
             </HBox>
-            <HBox fx:id="joueurBas" layoutX="4.0" layoutY="139.0">
+            <Label fx:id="titre" alignment="CENTER" contentDisplay="CENTER" styleClass="text" text="Choisir un joueur à attaquer !" />
+            <HBox fx:id="joueurBas" alignment="BOTTOM_CENTER" spacing="3.0">
                <children>
-                  <Button fx:id="btn5" mnemonicParsing="false" text="%joueur5">
+                  <Button fx:id="btn5" mnemonicParsing="false" styleClass="bouton" text="%joueur5">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -55,7 +56,7 @@
                         <Insets right="2.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="btn6" mnemonicParsing="false" text="%joueur6">
+                  <Button fx:id="btn6" mnemonicParsing="false" styleClass="bouton" text="%joueur6">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -63,7 +64,7 @@
                         <Insets right="2.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="btn7" mnemonicParsing="false" text="%joueur7">
+                  <Button fx:id="btn7" mnemonicParsing="false" styleClass="bouton" text="%joueur7">
                      <font>
                         <Font size="10.0" />
                      </font>
@@ -71,15 +72,17 @@
                         <Insets right="2.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="btn8" mnemonicParsing="false" text="%joueur8">
+                  <Button fx:id="btn8" mnemonicParsing="false" styleClass="bouton" text="%joueur8">
                      <font>
                         <Font size="10.0" />
                      </font>
                   </Button>
                </children>
             </HBox>
-            <Label fx:id="titre" layoutX="50.0" layoutY="82.0" text="Choisir un joueur à attaquer !" />
          </children>
-      </Pane>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
    </children>
 </AnchorPane>

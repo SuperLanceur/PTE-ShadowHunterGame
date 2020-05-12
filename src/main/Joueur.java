@@ -246,8 +246,8 @@ public class Joueur {
 		return this.plateau.choisir(this, activerEffetLieu);
 	}
 	
-	public Object choisir(List<?> adjacents,Class cls) {
-		return this.plateau.choisir(this,adjacents, cls);
+	public Object choisir(List<?> list,Class cls) {
+		return this.plateau.choisir(this,list, cls);
 	}
 
 	public Joueur choisirAdjacents() {

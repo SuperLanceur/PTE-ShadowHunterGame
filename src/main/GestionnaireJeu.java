@@ -169,6 +169,7 @@ public class GestionnaireJeu {
 	}	
 	
 	public Joueur choisirJoueur(Joueur joueur, List<Joueur> joueurs, Contexte contexte) {
+		
 		Platform.runLater(() -> {
 			try {	
 				pc.afficherChoisirJoueur(joueur,joueurs, contexte);
@@ -264,13 +265,15 @@ public class GestionnaireJeu {
 	}
 
 	public void ajouterEquipement(Joueur joueur, CarteEquipement e) {
-		pc.ajouterEquipement(joueur,e);
-		
+		Platform.runLater(() -> {
+			pc.ajouterEquipement(joueur,e);
+		});	
 	}
 
 	public void retirerEquipement(Joueur joueur, CarteEquipement e) {
-		pc.retirerEquipement(joueur,e);
-		
+		Platform.runLater(() -> {
+			pc.retirerEquipement(joueur,e);
+		});	
 	}
 
 	

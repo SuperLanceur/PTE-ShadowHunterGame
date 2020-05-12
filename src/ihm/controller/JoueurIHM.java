@@ -136,8 +136,8 @@ public class JoueurIHM {
 	
 	public HBox getPaneEquipement(){
 		ScrollPane sp = (ScrollPane) this.zoneJoueur.getChildren().get(3);
-		HBox p = (HBox) sp.getContent();
-		return p;
+		AnchorPane p = (AnchorPane) sp.getContent();
+		return (HBox) p.getChildren().get(0);
 	}
 
 	public void ajouterEquipement(CarteEquipement e) {
@@ -160,6 +160,10 @@ public class JoueurIHM {
 		}
 		
 		
+	}
+
+	public String getNom() {
+		return this.joueur.getNom();
 	}
 
 }

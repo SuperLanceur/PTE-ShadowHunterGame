@@ -5,14 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import carte.CarteEquipement;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
-import main.Joueur;
-import main.Plateau;
+import main.GestionnaireJeu;
 
 public class ChoisirJoueur implements Initializable{
 	@FXML private HBox joueurHaut;
@@ -27,67 +25,61 @@ public class ChoisirJoueur implements Initializable{
     @FXML private Button btn7;
     @FXML private Button btn8;
 
-
-
+	private JoueurIHM joueurSelected;
+	private List<JoueurIHM> listJoueursIHM;
+	private List<Button> buttons;
 	
-	private int joueurSelected;
-     private List<Joueur> joueurs = Plateau.jselectionne;
-	//private List<Joueur> joueurs = new ArrayList();
-
-
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-	/*	Joueur j1= new Joueur("Belthield");
-		Joueur j2= new Joueur("test2");
-		Joueur j3= new Joueur("test3");
-
-
-		joueurs.add(j1);
-		joueurs.add(j2);
-		joueurs.add(j3);*/
-
-	List<Button> buttons = new ArrayList();
-		buttons.add(btn1);
-		buttons.add(btn2);
-      	buttons.add(btn3);
-        buttons.add(btn4);
-        buttons.add(btn5);
-        buttons.add(btn6);
-        buttons.add(btn7);
-        buttons.add(btn8);
-        if(8-joueurs.size()>0) {
-        	for(int i=0;i<8-joueurs.size();i++) {
-        		buttons.get(buttons.size()-1-i).setVisible(false);
-        	}
-        	for(int i=0;i<joueurs.size();i++) {
-        		buttons.get(i).setText(joueurs.get(i).getNom());
-        	}
-        }
-
-
+	
+		this.buttons = new ArrayList<Button>();
 		
-	/*	for (int i=0; i<joueurHaut.getChildren().size(); i++) {
-			int numJoueur = i;
-			joueurHaut.getChildren().get(i).setOnMouseClicked(e -> {
-				System.out.println("Vous avez choisi le joueur " + (numJoueur+1));
-				this.joueurSelected = numJoueur;
+		this.buttons.add(btn1);
+		this.buttons.add(btn2);
+		this.buttons.add(btn3);
+		this.buttons.add(btn4);
+		this.buttons.add(btn5);
+	    this.buttons.add(btn6);
+	    this.buttons.add(btn7);
+	    this.buttons.add(btn8);
+    
+	}
+	
+	public void initButtons() {
+		
+		int i = 0;
+		
+		while(i <listJoueursIHM.size()) {
+			Button b = this.buttons.get(i);
+			JoueurIHM jihm = listJoueursIHM.get(i);
+			b.setOnAction(e -> {
+				GestionnaireJeu.notifyPlateau();
+				this.joueurSelected = jihm;
 			});
+			b.setText(jihm.getNom());
+			i++;
 		}
 		
-		for (int i=0; i<joueurBas.getChildren().size(); i++) {
-			int numJoueur = i+4;
-			joueurBas.getChildren().get(i).setOnMouseClicked(e -> {
-				System.out.println("Vous avez choisi le joueur " + (numJoueur+1));
-				this.joueurSelected = numJoueur;
-			});
-		}  */
+		for(int j = i; j < buttons.size(); j++) {
+			Button b = this.buttons.get(j);
+			b.setVisible(false);
+		}
 	}
-
+	
 	//GETTERS AND SETTERS
+
 	public HBox getJoueurHaut() {
 		return joueurHaut;
 	}
-
+	
+	public HBox getHBox(int valeur) {
+		if(valeur < 4) {
+			return joueurHaut;
+		}else {
+			return joueurBas;
+		}	
+	}
+	
 	public void setJoueurHaut(HBox joueurHaut) {
 		this.joueurHaut = joueurHaut;
 	}
@@ -108,19 +100,11 @@ public class ChoisirJoueur implements Initializable{
 		this.titre = titre;
 	}
 
-	public int getJoueurSelected() {
+	public JoueurIHM getJoueurSelected() {
 		return joueurSelected;
 	}
 
-	public void setJoueurSelected(int joueurSelected) {
-		this.joueurSelected = joueurSelected;
-	}
-
-	public List<Joueur> getJoueur() {
-		return joueurs;
-	}
-
-	public void setJoueur(List<Joueur> joueur) {
-		this.joueurs = joueur;
+	public void setListJoueursIHM(List<JoueurIHM> joueursIHM) {
+		this.listJoueursIHM = joueursIHM;
 	}
 }
