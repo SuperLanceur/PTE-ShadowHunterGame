@@ -19,13 +19,13 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" styleClass="background" stylesheets="@style/plateau.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.PlateauController">
+<AnchorPane fx:id="rootPane" prefHeight="413.0" prefWidth="1559.0" styleClass="background" stylesheets="@style/plateau.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.PlateauController">
    <children>
       <HBox alignment="CENTER" layoutX="14.0" spacing="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Group>
                <children>
-                  <GridPane hgap="50.0" prefWidth="885.0" rotate="90.0">
+                  <GridPane hgap="50.0" rotate="90.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="ALWAYS" />
                         <ColumnConstraints hgrow="ALWAYS" />
@@ -252,7 +252,7 @@
                         <Insets bottom="25.0" />
                      </padding>
                   </GridPane>
-                  <HBox alignment="CENTER" prefHeight="366.0" prefWidth="810.0" spacing="50.0">
+                  <HBox alignment="CENTER" prefHeight="366.0" prefWidth="1125.0" spacing="50.0">
                      <children>
                         <VBox alignment="TOP_CENTER">
                            <children>
@@ -616,28 +616,6 @@
                               </GridPane>
                            </children>
                         </VBox>
-                        <VBox alignment="TOP_CENTER">
-                           <children>
-                              <HBox prefHeight="100.0" prefWidth="200.0" styleClass="carteLumiere" stylesheets="@style/plateau.css">
-                                 <children>
-                                    <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" />
-                                 </children>
-                              </HBox>
-                              <HBox prefHeight="100.0" prefWidth="200.0" styleClass="carteVision" stylesheets="@style/plateau.css">
-                                 <children>
-                                    <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" />
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets bottom="30.0" top="30.0" />
-                                 </VBox.margin>
-                              </HBox>
-                              <HBox prefHeight="100.0" prefWidth="200.0" styleClass="carteTenebre" stylesheets="@style/plateau.css">
-                                 <children>
-                                    <ImageView fitHeight="97.8" fitWidth="70.05" pickOnBounds="true" preserveRatio="true" />
-                                 </children>
-                              </HBox>
-                           </children>
-                        </VBox>
                      </children>
                   </HBox>
                   <GridPane hgap="50.0" VBox.vgrow="ALWAYS">
@@ -757,7 +735,7 @@
             </VBox>
             <Group>
                <children>
-                  <GridPane hgap="50.0" prefWidth="885.0" rotate="-90.0">
+                  <GridPane hgap="50.0" rotate="-90.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="ALWAYS" />
                         <ColumnConstraints hgrow="ALWAYS" />

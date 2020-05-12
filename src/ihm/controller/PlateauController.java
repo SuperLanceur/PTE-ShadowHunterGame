@@ -61,6 +61,8 @@ public class PlateauController implements Initializable {
 	
 	
 	private Map<Carte,BufferedImage> mapRessourcesCartes;
+	private Map<String,BufferedImage> mapRessourcesDosCartes;
+	
 	public static int DICE_SIX = 2;
 	public static int DICE_QUATRE = 1;
 	public static int DICE_BOTH = 0;
@@ -97,6 +99,7 @@ public class PlateauController implements Initializable {
 		
 		
 		mapRessourcesCartes = rl.getRessourceCartes();
+	    setMapRessourcesDosCartes(rl.getRessourceDosCartes());
 		
 		List<CarteLieu> cl = gj.getCartesLieux();
 		List<ImageView> ivs = this.getLieux();
@@ -507,5 +510,15 @@ public class PlateauController implements Initializable {
 		JoueurIHM jihm = getJoueurIHM(j);
 		jihm.setZoneJoueur(root);
 	
+	}
+
+
+	public Map<String,BufferedImage> getMapRessourcesDosCartes() {
+		return mapRessourcesDosCartes;
+	}
+
+
+	public void setMapRessourcesDosCartes(Map<String,BufferedImage> mapRessourcesDosCartes) {
+		this.mapRessourcesDosCartes = mapRessourcesDosCartes;
 	}
 }
