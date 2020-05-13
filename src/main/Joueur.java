@@ -272,6 +272,12 @@ public class Joueur {
 		
 	}
 
+	public void utiliserCapacite() {
+		if(revele) {
+			this.cartePersonnage.utiliser();
+		}
+	}
+
 	
 
 	

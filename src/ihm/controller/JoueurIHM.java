@@ -3,6 +3,7 @@ package ihm.controller;
 import carte.CarteEquipement;
 import database.RessourceLoader;
 import ihm.ImageViewEquipement;
+import javafx.application.Platform;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -51,6 +52,8 @@ public class JoueurIHM {
 		initZoneEquipement();
 	}
 
+	
+	
 	private void initZoneEquipement() {
 		HBox hb = getPaneEquipement();
 
@@ -67,8 +70,8 @@ public class JoueurIHM {
 			GridPane gp = (GridPane) iv.getParent();
 			iv.setImage(im);
 			iv.fitHeightProperty().bind(gp.heightProperty());
-			// initButtonEffect(btn);
-			btn.setDisable(true);
+			initButtonEffect(btn);
+			//btn.setDisable(true);
 			btn.setText("Utiliser Effet");
 			estRevele = true;
 		});
@@ -119,12 +122,42 @@ public class JoueurIHM {
 
 		btn.setOnAction(click -> {
 			System.out.println(this.joueur.getCartePersonnage().getNom() + " va user de son pouvoir");
-			this.joueur.getCartePersonnage().utiliser();
+			threadUtiliserCapacite();
 			System.out.println(this.joueur.getCartePersonnage().getNom() + " a réussi à utiliser son pouvoir");
 			btn.setDisable(true);
 		});
 	}
+	
+	private void utiliserCapacite() {
 
+		AnchorPane save = getZoneJoueur();
+		joueur.utiliserCapacite();
+		Pane pane = null;
+		Platform.runLater(() -> {
+			Pane p = pane;
+			if(save != null && save.getChildren().size() > 0) {
+				p = (Pane) save.getChildren().get(0);
+			}
+			
+			if(p != null) {
+				setZoneJoueur(p);
+		}});	
+	}
+	
+	private void threadUtiliserCapacite() {
+		Runnable task = new Runnable() {
+
+			@Override
+			public void run() {
+				utiliserCapacite();	
+			}
+		};
+		
+		Thread thread = new Thread(task);
+		thread.setDaemon(true);
+		thread.start();
+	}
+	
 	public AnchorPane getZoneJoueur() {
 		return (AnchorPane) zoneJoueur.getChildren().get(1);
 	}

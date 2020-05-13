@@ -226,9 +226,10 @@ public class GestionnaireJeu {
 		return null;
 	}
 	public void waitPlateau() {
-		synchronized(plateau) {
+		Thread currentThread = Thread.currentThread();
+		synchronized(currentThread) {
 			try {
-				plateau.wait();
+				currentThread.wait();
 			} catch (InterruptedException e) {
 				
 			}
