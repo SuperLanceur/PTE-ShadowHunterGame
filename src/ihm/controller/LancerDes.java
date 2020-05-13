@@ -51,7 +51,7 @@ public class LancerDes {
 	
 
 	private VBox initLancerD4() {
-		DieImages images = new DieImages();
+		DieImages images = new DieImages(4);
 		Die die = new Die(images.getImages());
 		ImageView stackpane = die.getdieFace();
 		stackpane.setFitHeight(100);
@@ -95,7 +95,7 @@ public class LancerDes {
 	}
 
 	private VBox initLancerD6() {
-		DieImages images = new DieImages();
+		DieImages images = new DieImages(6);
 		Die die = new Die(images.getImages());
 		ImageView stackpane = die.getdieFace();
 		stackpane.setFitHeight(100);
@@ -139,9 +139,10 @@ public class LancerDes {
 	}
 	
 	private VBox initLancerBoth() {
-		DieImages images = new DieImages();
+		DieImages images = new DieImages(6);
+		DieImages images2 = new DieImages(4);
 		Die die = new Die(images.getImages());
-		Die die2 = new Die(images.getImages());
+		Die die2 = new Die(images2.getImages());
 		ImageView stackpane = die.getdieFace();
 		ImageView stackpane2 = die2.getdieFace();
 		stackpane.setFitHeight(100);
@@ -158,8 +159,8 @@ public class LancerDes {
 			Random random = new Random();
 			
 			Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(.1), (actionEvent) -> {
-				int tempRandom = random.nextInt(4)+1;
-				int tempRandom2 = random.nextInt(6)+1;
+				int tempRandom = random.nextInt(6)+1;
+				int tempRandom2 = random.nextInt(4)+1;
 				die.setDieFace(tempRandom);
 				die2.setDieFace(tempRandom2);
 			}));
@@ -168,8 +169,8 @@ public class LancerDes {
 			timeline.play();
 			timeline.setOnFinished(actionEvent -> {
 				
-				die.setDieFace(rolls[0]);
-				die2.setDieFace(rolls[1]);
+				die.setDieFace(rolls[1]);
+				die2.setDieFace(rolls[0]);
 				
 				int result = rolls[0]+rolls[1];
 				

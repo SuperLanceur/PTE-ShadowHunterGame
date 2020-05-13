@@ -375,6 +375,7 @@ public class Plateau extends Thread{
 	private int rollRandom(int nb) {
 		
 		int roll = (int) Math.floor(Math.random() * (nb-1))+1;
+		System.out.println("roll" + roll);
 		return roll;
 	}
 
