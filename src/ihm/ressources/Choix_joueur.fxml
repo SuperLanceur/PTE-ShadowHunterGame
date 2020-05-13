@@ -25,11 +25,19 @@
                            <children>
                               <VBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="214.0">
                                  <children>
-                                    <HBox alignment="CENTER" prefHeight="43.0" prefWidth="295.0">
+                                    <HBox fx:id="hbr8" alignment="CENTER" prefHeight="43.0" prefWidth="295.0">
                                        <children>
-                                          <RadioButton mnemonicParsing="false" text="RadioButton" />
-                                          <RadioButton mnemonicParsing="false" text="RadioButton" />
-                                          <RadioButton mnemonicParsing="false" text="RadioButton" />
+                                          <RadioButton mnemonicParsing="false" styleClass="titre" text="Facile">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="tg8" />
+                                             </toggleGroup>
+                                          </RadioButton>
+                                          <RadioButton mnemonicParsing="false" selected="true" styleClass="titre" text="Moyen" toggleGroup="$tg8">
+                                             <padding>
+                                                <Insets left="20.0" right="20.0" />
+                                             </padding>
+                                          </RadioButton>
+                                          <RadioButton mnemonicParsing="false" styleClass="titre" text="Difficile" toggleGroup="$tg8" />
                                        </children>
                                     </HBox>
                                     <HBox fx:id="hb8" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -65,11 +73,19 @@
                            <children>
                               <VBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="214.0">
                                  <children>
-                                    <HBox alignment="CENTER" prefHeight="43.0" prefWidth="295.0">
+                                    <HBox fx:id="hbr7" alignment="CENTER" prefHeight="43.0" prefWidth="295.0">
                                        <children>
-                                          <RadioButton mnemonicParsing="false" text="RadioButton" />
-                                          <RadioButton mnemonicParsing="false" text="RadioButton" />
-                                          <RadioButton mnemonicParsing="false" text="RadioButton" />
+                                          <RadioButton mnemonicParsing="false" styleClass="titre" text="Facile">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="tg7" />
+                                             </toggleGroup>
+                                          </RadioButton>
+                                          <RadioButton mnemonicParsing="false" selected="true" styleClass="titre" text="Moyen" toggleGroup="$tg7">
+                                             <padding>
+                                                <Insets left="20.0" right="20.0" />
+                                             </padding>
+                                          </RadioButton>
+                                          <RadioButton mnemonicParsing="false" styleClass="titre" text="Difficile" toggleGroup="$tg7" />
                                        </children>
                                     </HBox>
                                     <HBox fx:id="hb7" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -113,11 +129,19 @@
                      <children>
                         <VBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="214.0">
                            <children>
-                              <HBox alignment="CENTER" prefHeight="43.0" prefWidth="295.0">
+                              <HBox fx:id="hbr4" alignment="CENTER" prefHeight="43.0" prefWidth="295.0">
                                  <children>
-                                    <RadioButton mnemonicParsing="false" text="RadioButton" />
-                                    <RadioButton mnemonicParsing="false" text="RadioButton" />
-                                    <RadioButton mnemonicParsing="false" text="RadioButton" />
+                                    <RadioButton mnemonicParsing="false" styleClass="titre" text="Facile">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="tg4" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" selected="true" styleClass="titre" text="Moyen" toggleGroup="$tg4">
+                                       <padding>
+                                          <Insets left="20.0" right="20.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" styleClass="titre" text="Difficile" toggleGroup="$tg4" />
                                  </children>
                               </HBox>
                               <HBox fx:id="hb4" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -153,11 +177,19 @@
                      <children>
                         <VBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="214.0">
                            <children>
-                              <HBox alignment="CENTER" prefHeight="43.0" prefWidth="295.0">
+                              <HBox fx:id="hbr3" alignment="CENTER" prefHeight="43.0" prefWidth="295.0">
                                  <children>
-                                    <RadioButton mnemonicParsing="false" text="RadioButton" />
-                                    <RadioButton mnemonicParsing="false" text="RadioButton" />
-                                    <RadioButton mnemonicParsing="false" text="RadioButton" />
+                                    <RadioButton mnemonicParsing="false" styleClass="titre" text="Facile">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="tg3" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" selected="true" styleClass="titre" text="Moyen" toggleGroup="$tg3">
+                                       <padding>
+                                          <Insets left="20.0" right="20.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" styleClass="titre" text="Difficile" toggleGroup="$tg3" />
                                  </children>
                               </HBox>
                               <HBox fx:id="hb3" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -234,7 +266,7 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="110.0" prefWidth="559.0" spacing="10.0">
                      <children>
-                        <HBox fx:id="hb6" alignment="CENTER" prefWidth="754.0">
+                        <HBox fx:id="hb6" alignment="CENTER" prefWidth="754.0" rotate="180.0">
                            <children>
                               <TextField>
                                  <font>
@@ -256,18 +288,24 @@
                               </CheckBox>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="20.0" prefWidth="762.0">
+                        <HBox fx:id="hbr6" alignment="CENTER" prefHeight="20.0" prefWidth="762.0">
                            <children>
-                              <RadioButton contentDisplay="CENTER" mnemonicParsing="false" rotate="180.0" text="RadioButton" />
-                              <RadioButton mnemonicParsing="false" rotate="180.0" text="RadioButton" />
-                              <RadioButton mnemonicParsing="false" rotate="180.0" text="RadioButton" />
+                              <RadioButton contentDisplay="CENTER" mnemonicParsing="false" rotate="180.0" styleClass="titre" text="Difficile">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="tg6" />
+                                 </toggleGroup></RadioButton>
+                              <RadioButton mnemonicParsing="false" rotate="180.0" selected="true" styleClass="titre" text="Moyen" toggleGroup="$tg6">
+                                 <padding>
+                                    <Insets left="20.0" right="20.0" />
+                                 </padding></RadioButton>
+                              <RadioButton mnemonicParsing="false" rotate="180.0" styleClass="titre" text="Facile" toggleGroup="$tg6" />
                            </children>
                         </HBox>
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" spacing="10.0">
                      <children>
-                        <HBox fx:id="hb5" alignment="CENTER" prefHeight="55.0" prefWidth="537.0">
+                        <HBox fx:id="hb5" alignment="CENTER" prefHeight="55.0" prefWidth="537.0" rotate="180.0">
                            <children>
                               <TextField accessibleRole="PARENT">
                                  <font>
@@ -292,11 +330,17 @@
                               </CheckBox>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="6.0" prefWidth="356.0">
+                        <HBox fx:id="hbr5" alignment="CENTER" prefHeight="6.0" prefWidth="356.0">
                            <children>
-                              <RadioButton mnemonicParsing="false" rotate="180.0" text="RadioButton" />
-                              <RadioButton mnemonicParsing="false" rotate="180.0" text="RadioButton" />
-                              <RadioButton mnemonicParsing="false" rotate="180.0" text="RadioButton" />
+                              <RadioButton mnemonicParsing="false" rotate="180.0" styleClass="titre" text="Difficile">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="tg5" />
+                                 </toggleGroup></RadioButton>
+                              <RadioButton mnemonicParsing="false" rotate="180.0" selected="true" styleClass="titre" text="Moyen" toggleGroup="$tg5">
+                                 <padding>
+                                    <Insets left="20.0" right="20.0" />
+                                 </padding></RadioButton>
+                              <RadioButton mnemonicParsing="false" rotate="180.0" styleClass="titre" text="Facile" toggleGroup="$tg5" />
                            </children>
                         </HBox>
                      </children>
@@ -311,14 +355,20 @@
                      <children>
                         <VBox alignment="CENTER" prefHeight="70.0" prefWidth="1338.0" spacing="20.0">
                            <children>
-                              <HBox alignment="CENTER" prefHeight="43.0" prefWidth="688.0">
+                              <HBox fx:id="hbr1" alignment="CENTER" prefHeight="43.0" prefWidth="688.0">
                                  <children>
-                                    <RadioButton mnemonicParsing="false" text="RadioButton">
+                                    <RadioButton mnemonicParsing="false" styleClass="titre" text="Facile">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
                                        <toggleGroup>
                                           <ToggleGroup fx:id="tg1" />
                                        </toggleGroup></RadioButton>
-                                    <RadioButton mnemonicParsing="false" text="RadioButton" toggleGroup="$tg1" />
-                                    <RadioButton mnemonicParsing="false" text="RadioButton" toggleGroup="$tg1" />
+                                    <RadioButton mnemonicParsing="false" selected="true" styleClass="titre" text="Moyen" toggleGroup="$tg1">
+                                       <padding>
+                                          <Insets left="20.0" right="20.0" />
+                                       </padding></RadioButton>
+                                    <RadioButton mnemonicParsing="false" styleClass="titre" text="Difficile" toggleGroup="$tg1" />
                                  </children>
                                  <padding>
                                     <Insets bottom="-5.0" />
@@ -356,11 +406,19 @@
                         </VBox>
                         <VBox alignment="CENTER" prefHeight="70.0" prefWidth="1213.0">
                            <children>
-                              <HBox alignment="CENTER" prefHeight="43.0" prefWidth="688.0">
+                              <HBox fx:id="hbr2" alignment="CENTER" prefHeight="43.0" prefWidth="688.0">
                                  <children>
-                                    <RadioButton mnemonicParsing="false" text="RadioButton" />
-                                    <RadioButton mnemonicParsing="false" text="RadioButton" />
-                                    <RadioButton mnemonicParsing="false" text="RadioButton" />
+                                    <RadioButton mnemonicParsing="false" styleClass="titre" text="Facile">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="tg2" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" selected="true" styleClass="titre" text="Moyen" toggleGroup="$tg2">
+                                       <padding>
+                                          <Insets left="20.0" right="20.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" styleClass="titre" text="Difficile" toggleGroup="$tg2" />
                                  </children>
                                  <padding>
                                     <Insets bottom="10.0" />
