@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Stack;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
@@ -25,7 +26,7 @@ public class GestionnaireJeu {
 
 	private RessourceLoader ressourceLoader;
 
-	private static Thread lastThread;
+	private static Stack<Thread> threads = new Stack<Thread>();
 	
 	private static Plateau plateau;
 	public static PlateauController pc;
@@ -208,10 +209,11 @@ public class GestionnaireJeu {
 		return null;
 	}
 	public void waitPlateau() {
-		lastThread = Thread.currentThread();
-		synchronized(lastThread) {
+		Thread t = Thread.currentThread();
+		threads.add(t);
+		synchronized(t) {
 			try {
-				lastThread.wait();
+				t.wait();
 			} catch (InterruptedException e) {
 				
 			}
@@ -219,10 +221,10 @@ public class GestionnaireJeu {
 	}
 
 	public static void notifyPlateau() {
-		synchronized(lastThread) {	
-			lastThread.notify();
+		Thread t = threads.pop();
+		synchronized(t) {	
+			t.notify();
 		}
-		lastThread = null;
 	}
 	
     public Type choisirCarte(Joueur joueur) {

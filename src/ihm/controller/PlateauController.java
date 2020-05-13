@@ -27,7 +27,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -39,7 +38,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 import main.Contexte;
 import main.GestionnaireJeu;
@@ -60,8 +58,6 @@ public class PlateauController implements Initializable {
 	private PiocherCarte pc;
 	private LancerDes ld;
 
-	
-	
 	private Map<Carte,BufferedImage> mapRessourcesCartes;
 	private Map<String,BufferedImage> mapRessourcesDosCartes;
 	
@@ -369,12 +365,16 @@ public class PlateauController implements Initializable {
 		Pane root = (Pane)fxmlLoader.load();
 		AlterationVieZJ avzj =  fxmlLoader.getController();
 		avzj.changeLabel(valeur);
+	
+		
 		JoueurIHM jihm = getJoueurIHM(j);
+		Pane pane = (Pane) jihm.getZoneJoueur().getChildren().get(0);
 		jihm.setZoneJoueur(root);
 		Timeline timeline = new Timeline(new KeyFrame(
 		        Duration.millis(1000),
 		        ae ->  {
 		        	jihm.resetZoneJoueur();
+		        	jihm.setZoneJoueur(pane);
 		        	GestionnaireJeu.notifyPlateau(); 
 		}));
 		timeline.play();
