@@ -1,6 +1,8 @@
 package ihm;
 
 import carte.CarteEquipement;
+import ihm.controller.PlateauController;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class ImageViewEquipement extends ImageView{
@@ -9,6 +11,8 @@ public class ImageViewEquipement extends ImageView{
 
 	public ImageViewEquipement(CarteEquipement ce) {
 		this.ce = ce;
+		Image im = PlateauController.getImageCarte(ce);
+		this.setImage(im);
 	}
 	
 	public CarteEquipement getCp() {

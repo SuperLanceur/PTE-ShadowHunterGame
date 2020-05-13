@@ -128,12 +128,10 @@ public class Joueur {
 	}
 
 	public void voler(Joueur j2, CarteEquipement equipement) {
-		
 		j2.gestionnaireEquipements.retirer(equipement);
-		this.gestionnaireEquipements.ajouter(equipement);	}
+		this.gestionnaireEquipements.ajouter(equipement);	
+	}
 
-	
-	
 	public void attaquer(Joueur j2, int attaqueDice) {
 		
 		int blessure = evaluerImmunite(j2)*(this.evaluerAttaque(j2) + attaqueDice);

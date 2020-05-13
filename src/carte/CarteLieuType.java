@@ -32,7 +32,7 @@ public class CarteLieuType extends CarteLieu{
 	 */
 	public void utiliser(Joueur j) {
 		System.out.println(pioche);
-		CartePiochable carte = pioche.piocher();
+		CartePiochable carte = pioche.piocher(j);
 		carte.utiliser(j);
 	}
 	

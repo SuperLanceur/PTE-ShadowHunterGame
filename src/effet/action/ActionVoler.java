@@ -32,20 +32,23 @@ public class ActionVoler extends Action{
 	@Override
 	public void affecte(Joueur j1, Joueur j2) {
 		
-		if(this.choix) {
-
-			List<CarteEquipement> equipements = j2.getEquipements();
+		List<CarteEquipement> equipements = j2.getEquipements();
+		
+		if(!equipements.isEmpty()) {
 			
-			// J1 choisit quel équipement voler
-			CarteEquipement equipement = (CarteEquipement) j1.choisir(equipements, CarteEquipement.class);
+			CarteEquipement equipement = null;
+			
+			if(this.choix) {
+				// J1 choisit quel équipement voler
+				equipement = (CarteEquipement) j1.choisir(equipements, CarteEquipement.class);
+			}else {
+				
+				// J1 choisit quel équipement voler
+				equipement = (CarteEquipement) j2.choisir(equipements,CarteEquipement.class);
+			}
+			
 			j1.voler(j2,equipement);
-		}else {
-			
-			List<CarteEquipement> equipements = j2.getEquipements();
-			// J1 choisit quel équipement voler
-			CarteEquipement equipement = (CarteEquipement) j2.choisir(equipements,CarteEquipement.class);
-			j1.voler(j2,equipement);
-			
 		}
+		
 	}
 }

@@ -58,8 +58,8 @@ public class PlateauController implements Initializable {
 	private PiocherCarte pc;
 	private LancerDes ld;
 
-	private Map<Carte,BufferedImage> mapRessourcesCartes;
-	private Map<String,BufferedImage> mapRessourcesDosCartes;
+	private static Map<Carte,BufferedImage> mapRessourcesCartes;
+	private static Map<String,BufferedImage> mapRessourcesDosCartes;
 	
 	public static int DICE_SIX = 1;
 	public static int DICE_QUATRE = 0;
@@ -347,12 +347,14 @@ public class PlateauController implements Initializable {
 	}
 	
 
-	public void afficherChoisirEquipementVole(Joueur j) throws IOException {
+	public void afficherChoisirEquipementVole(Joueur j, List<CarteEquipement> lce) throws IOException {
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Jouer_tour(2a)voler_equipement.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane root = (Pane)fxmlLoader.load();
 		this.ce = fxmlLoader.getController();
+		this.ce.setListCarteEquipements(lce);
+		this.ce.initChoisirEquipement();
 		JoueurIHM jihm = getJoueurIHM(j);
 		jihm.setZoneJoueur(root);
 	}
@@ -369,7 +371,7 @@ public class PlateauController implements Initializable {
 		
 		JoueurIHM jihm = getJoueurIHM(j);
 		Pane p = (Pane) jihm.getZoneJoueur();
-		Pane pane = null;
+		Pane pane = new Pane();
 		
 		if(p.getChildren() != null && p.getChildren().size() > 0) {
 			
@@ -481,13 +483,13 @@ public class PlateauController implements Initializable {
 	}
 
 
-	public Image getImageCarte(Carte carte) {
-		BufferedImage bi = this.mapRessourcesCartes.get(carte);
+	public static Image getImageCarte(Carte carte) {
+		BufferedImage bi = mapRessourcesCartes.get(carte);
 		return RessourceLoader.toJavaFX(bi);
 	}
 	
-	public Image getImageDosCarte(String s) {
-		BufferedImage bi = this.mapRessourcesDosCartes.get(s);
+	public static Image getImageDosCarte(String s) {
+		BufferedImage bi = mapRessourcesDosCartes.get(s);
 		return RessourceLoader.toJavaFX(bi);
 	}
 
@@ -501,7 +503,6 @@ public class PlateauController implements Initializable {
 	public void retirerEquipement(Joueur j, CarteEquipement e) {
 		JoueurIHM jihm = getJoueurIHM(j);
 		jihm.retirerEquipement(e);
-		
 	}
 	
 	public void close() throws IOException {

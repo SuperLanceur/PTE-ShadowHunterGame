@@ -112,12 +112,9 @@ public class GestionnaireJeu {
 	@SuppressWarnings("unchecked")
 	public Object choisir(Joueur joueur, List<?> list, Class<?> cls) {
 		
-		
-		
 		if(cls == CarteEquipement.class) {
 			return choisirEquipementVole(joueur, (List<CarteEquipement>) list);
 		}else if(cls == Joueur.class) {
-			
 			return choisirJoueur(joueur, (List<Joueur>) list, Contexte.ACTIVER_EFFET_LIEU);
 		}
 		return list.get(0);
@@ -126,7 +123,7 @@ public class GestionnaireJeu {
 	public CarteEquipement choisirEquipementVole(Joueur joueur, List<CarteEquipement> lce) {
 		Platform.runLater(() -> {
 			try {	
-				pc.afficherChoisirEquipementVole(joueur);
+				pc.afficherChoisirEquipementVole(joueur,lce);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -307,7 +304,7 @@ public class GestionnaireJeu {
 	public void ajouterEquipement(Joueur joueur, CarteEquipement e) {
 		Platform.runLater(() -> {
 			pc.ajouterEquipement(joueur,e);
-		});	
+		});
 	}
 
 	public void retirerEquipement(Joueur joueur, CarteEquipement e) {
