@@ -68,10 +68,6 @@ public class Joueur {
 		this.stats.put(key, valeur);
 	}
 	public void setStat(String key, int valeur) {
-		System.out.println(this.nom+" "+this);
-		if(key.contentEquals(PLAYER_HP)) {	
-			this.plateau.alerationVie(this,valeur);
-		}
 		this.stats.put(key, valeur);
 		updateVictoirePlateau();
 		updateVie();
@@ -112,7 +108,6 @@ public class Joueur {
 	}
 
 	public int getStat(String key) {
-	
 		if(stats.containsKey(key)) {
 			return stats.get(key);
 		}else {
@@ -164,6 +159,9 @@ public class Joueur {
 	public void addToStat(String key, int valeur)
 	{
 		int valeurBase = this.getStat(key);
+		if(key.contentEquals(PLAYER_HP)) {	
+			this.plateau.alerationVie(this,valeur);
+		}
 		this.setStat(key,valeurBase+valeur);
 	}
 
@@ -188,8 +186,6 @@ public class Joueur {
 	public void setPlateau(Plateau plateau2) {
 		this.plateau = plateau2;
 	}
-
-	
 
 	public void utiliserEffetLieu() {
 		this.carteLieu.utiliser(this);	
@@ -246,10 +242,6 @@ public class Joueur {
 		return this.plateau.choisir(this, activerEffetLieu);
 	}
 	
-	public int lancerDes(Contexte typeLancer) {
-		return this.plateau.lancerDes(this, typeLancer);
-	}
-	
 	public Object choisir(List<?> list,Class cls) {
 		return this.plateau.choisir(this,list, cls);
 	}
@@ -271,14 +263,10 @@ public class Joueur {
 		this.plateau.retirerEquipementIHM(this,e);
 		
 	}
-
+	
 	public void utiliserCapacite() {
 		if(revele) {
 			this.cartePersonnage.utiliser();
 		}
 	}
-
-	
-
-	
 }

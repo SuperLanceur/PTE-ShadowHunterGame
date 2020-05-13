@@ -266,9 +266,7 @@ public class Plateau extends Thread{
 			
 			System.out.println(joueurs.size());
 			Joueur currentJoueur = this.joueurs.get(i % nbJoueurs);
-			int lancer = currentJoueur.lancerDes(Contexte.LANCER_DES_4);
 			System.out.println("\n\n\n\n\n");
-			System.out.println(lancer);
 			System.out.println("Au tour de "+currentJoueur.getNom());
 			System.out.println("Lancement des dés.");
 			deplacer(currentJoueur);
@@ -356,7 +354,6 @@ public class Plateau extends Thread{
 		
 		int roll4 =rollRandom(4);
 		int roll6 = rollRandom(6);
-		
 		gj.rollDice(j, PlateauController.DICE_BOTH, roll4,roll6);
 		return Math.abs(roll4-roll6);
 	}
@@ -383,7 +380,12 @@ public class Plateau extends Thread{
 
 	public int sumRolls(Joueur j)
 	{
-		return roll6(j) + roll4(j);
+		int roll4 =rollRandom(4);
+		int roll6 = rollRandom(6);
+		int sum = Math.abs(roll4+roll6);
+		gj.rollDice(j, PlateauController.DICE_BOTH, roll4,roll6);
+		return 3;
+		//return Math.abs(roll4+roll6);
 	}
 	
 	public List<Joueur> getJoueurs() {
@@ -476,9 +478,5 @@ public class Plateau extends Thread{
 	public void retirerEquipementIHM(Joueur joueur, CarteEquipement e) {
 		gj.retirerEquipement(joueur,e);
 		
-	}
-
-	public int lancerDes(Joueur joueur, Contexte typeLancer) {
-		return gj.jouerDes(joueur, typeLancer);
 	}
 }

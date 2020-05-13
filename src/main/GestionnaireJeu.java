@@ -24,6 +24,8 @@ public class GestionnaireJeu {
 	private Map<Integer, Joueur> mapJoueurs;
 
 	private RessourceLoader ressourceLoader;
+
+	private static Thread lastThread;
 	
 	private static Plateau plateau;
 	public static PlateauController pc;
@@ -165,34 +167,14 @@ public class GestionnaireJeu {
 		this.waitPlateau();
 	}
 	
-	public int jouerDes(Joueur joueur, Contexte c) {
+
+	public void rollDice(Joueur joueur, int typeDice, int ... rolls){
+		
 		Platform.runLater(() -> {
-			try {	
-				pc.afficherLancerDes(joueur, c);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+				pc.rollDice(joueur,typeDice,rolls, null);
 		});
-	
+		
 		this.waitPlateau();
-	
-		final FutureTask<Integer> query = new FutureTask<Integer>(new Callable<Integer>() {
-		    @Override
-		    public Integer call() throws Exception {
-		    	return pc.getChoixLancerDes(joueur);
-		    }
-		});
-		
-		Platform.runLater(query);
-		
-		try {
-			return query.get();
-		} catch (InterruptedException | ExecutionException e) {
-		
-			e.printStackTrace();
-		}
-		
-		return 1;
 	}
 	
 	public Joueur choisirJoueur(Joueur joueur, List<Joueur> joueurs, Contexte contexte) {
@@ -226,10 +208,10 @@ public class GestionnaireJeu {
 		return null;
 	}
 	public void waitPlateau() {
-		Thread currentThread = Thread.currentThread();
-		synchronized(currentThread) {
+		lastThread = Thread.currentThread();
+		synchronized(lastThread) {
 			try {
-				currentThread.wait();
+				lastThread.wait();
 			} catch (InterruptedException e) {
 				
 			}
@@ -237,9 +219,10 @@ public class GestionnaireJeu {
 	}
 
 	public static void notifyPlateau() {
-		synchronized(plateau) {	
-			plateau.notify();
+		synchronized(lastThread) {	
+			lastThread.notify();
 		}
+		lastThread = null;
 	}
 	
     public Type choisirCarte(Joueur joueur) {
@@ -272,10 +255,7 @@ public class GestionnaireJeu {
 		
 		return null;
 	}
-	public void rollDice(Joueur joueur, int typeDice, int ... rolls){
-		
-		pc.rollDice(joueur,typeDice,rolls);
-	}
+
 	
 	public void setConfiguration(Configuration c) {
 	

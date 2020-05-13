@@ -65,9 +65,9 @@ public class PlateauController implements Initializable {
 	private Map<Carte,BufferedImage> mapRessourcesCartes;
 	private Map<String,BufferedImage> mapRessourcesDosCartes;
 	
-	public static int DICE_SIX = 2;
-	public static int DICE_QUATRE = 1;
-	public static int DICE_BOTH = 0;
+	public static int DICE_SIX = 1;
+	public static int DICE_QUATRE = 0;
+	public static int DICE_BOTH = 2;
 	
 	/**
 	 * initialise les données du plateau
@@ -333,9 +333,11 @@ public class PlateauController implements Initializable {
 		}
 	}
 
-	public void rollDice(Joueur joueur, int typeDice, int[] rolls) {
+	public void rollDice(Joueur joueur, int typeDice, int[] rolls, Contexte c) {
 		
-		
+		this.ld=new LancerDes(typeDice,rolls,c);
+		JoueurIHM jihm = getJoueurIHM(joueur);
+		jihm.setZoneJoueur(ld.initLancer());
 	}
 
 	public void afficherChoisir(Joueur j, Contexte contexte) throws IOException {
@@ -493,7 +495,7 @@ public class PlateauController implements Initializable {
 		
 	}
 	
-	public void close () throws IOException {
+	public void close() throws IOException {
 		final URL fxmlURL = PlateauController.class.getResource("/ihm/ressources/Menu.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
@@ -501,36 +503,17 @@ public class PlateauController implements Initializable {
         rootPane.getChildren().setAll(pane);
 	}
 
-
-	public Integer getChoixLancerDes(Joueur joueur) {
-		JoueurIHM jihm = getJoueurIHM(joueur);
-		int result = this.ld.getResult();
-		this.ld = null;
-		jihm.getZoneJoueur().getChildren().setAll();
-		return result;
-	}
-
-
-	public void afficherLancerDes(Joueur j, Contexte c) throws IOException {
-		this.ld=new LancerDes(c);
-		JoueurIHM jihm = getJoueurIHM(j);
-		jihm.setZoneJoueur(ld.initLancer());	
-	}
-	
-	
 	public void afficherLT(Joueur j, CartePiochable cartePiochable) throws IOException {
 	
 		Image i = getImageCarte(cartePiochable);
 		ImageView iv = new ImageView(i);
 		Pane p = new Pane(iv);
 		PopUp pu = new PopUp(p,"Image");
-		pu.getStage().focusedProperty().addListener((obs,wasFocused,isNowFocused) -> {
-			
+		pu.getStage().focusedProperty().addListener((obs,wasFocused,isNowFocused) -> {	
 			if(!isNowFocused) {
 				GestionnaireJeu.notifyPlateau();
 				pu.getStage().hide();
 			}
-			
 		});	
 		
 		pu.display();

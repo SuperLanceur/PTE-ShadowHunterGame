@@ -8,27 +8,27 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.RecevoirCarte">
+<AnchorPane prefHeight="344.0" prefWidth="385.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.RecevoirCarte">
    <children>
-      <SplitPane dividerPositions="0.6212121212121212" styleClass="background" stylesheets="@style/plateau.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.9921671018276762" styleClass="background" stylesheets="@style/plateau.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane>
                <children>
                   <VBox alignment="CENTER" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label fx:id="label" styleClass="text" text="Vous arrivez sur cette Carte Lieu" textOverrun="CLIP" wrapText="true">
+                        <Label fx:id="label" minHeight="0.0" minWidth="0.0" styleClass="text" text="Glissez la barre" textOverrun="CLIP" wrapText="true">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Button fx:id="okButton" mnemonicParsing="false" styleClass="bouton" text="Ok" />
+                        <Button fx:id="okButton" minHeight="0.0" minWidth="0.0" mnemonicParsing="false" styleClass="bouton" text="Ok" />
                      </children>
                   </VBox>
                </children>
             </AnchorPane>
           <AnchorPane>
                <children>
-                  <ImageView fx:id="imageView" fitHeight="158.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <ImageView fx:id="imageView" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
         </items>
