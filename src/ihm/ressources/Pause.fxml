@@ -51,6 +51,14 @@
                         <Slider fx:id="sliderMusiquePause" blockIncrement="1.0" majorTickUnit="1.0" max="1.0" minorTickCount="10" onMouseClicked="#slideVolumeMusique" prefHeight="14.0" prefWidth="194.0" value="0.1" />
                      </children>
                   </HBox>
+                  <Label prefHeight="18.0" prefWidth="198.0" styleClass="text" stylesheets="@style/plateau.css" text="The Red Fox Tavern - Curran Son">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="20.0" left="5.0" />
+                     </padding>
+                  </Label>
                   <HBox alignment="CENTER_LEFT">
                      <children>
                         <Label text="Effet sonores">
