@@ -339,10 +339,5 @@ public class GestionnaireJeu {
 			}
 		});
 		waitPlateau();
-		
-		
-
 	}
-
-	
 }

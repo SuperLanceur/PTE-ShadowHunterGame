@@ -1,6 +1,7 @@
 package ihm.controller;
 
 
+import java.awt.Dimension;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
@@ -65,6 +66,8 @@ public class PlateauController implements Initializable {
 	public static int DICE_QUATRE = 0;
 	public static int DICE_BOTH = 2;
 	
+	private final double RES = 200./2250.;
+	
 	/**
 	 * initialise les données du plateau
 	 */
@@ -103,88 +106,6 @@ public class PlateauController implements Initializable {
 		List<ImageView> ivs = this.getLieux();
 
 		applyImages(cl,ivs);
-		
-		// BUTTONS ETC
-		//System.out.println(this.joueursPane);
-		
-		/*
-		this.hboxJoueur.add(joueur1);
-		this.hboxJoueur.add(joueur2);
-		this.hboxJoueur.add(joueur3);
-		this.hboxJoueur.add(joueur4);
-	
-		for (HBox hbox : hboxJoueur) {
-			tour.add((AnchorPane) hbox.getChildren().get(0));
-			VBox carte = (VBox) hbox.getChildren().get(1);
-			cartePerso.add((ImageView) carte.getChildren().get(0));
-			btnRevelation.add((Button) carte.getChildren().get(1));
-			VBox info = (VBox) hbox.getChildren().get(2);
-			nomJoueur.add((Label) info.getChildren().get(0));
-		}
-		
-		this.vboxJoueur.add(joueur5);
-		this.vboxJoueur.add(joueur6);
-		this.vboxJoueur.add(joueur7);
-		this.vboxJoueur.add(joueur8);
-		
-		for (VBox vbox : vboxJoueur) {
-			tour.add((AnchorPane) vbox.getChildren().get(0));
-			HBox joueur = (HBox) vbox.getChildren().get(1);
-			VBox carte = (VBox) joueur.getChildren().get(1);
-			cartePerso.add((ImageView) carte.getChildren().get(0));
-			btnRevelation.add((Button) carte.getChildren().get(1));
-			VBox info = (VBox) joueur.getChildren().get(0);
-			nomJoueur.add((Label) info.getChildren().get(0));
-		}
-		
-		//initilaisation des boutons se reveler
-		int i = 0;
-		for (Button b : btnRevelation) {
-			int compteur = i;
-			b.setOnAction(e -> {try {seReveler(compteur);} catch (IOException e1) {e1.printStackTrace();}});
-			i++;
-		}
-		//initialisation des bouton carte personnage
-		int j = 0;
-		for (ImageView b : cartePerso) {
-			int compteur = j;
-			b.setOnMouseClicked(e -> {try {consulterSaCarte(compteur);} catch (IOException e1) {e1.printStackTrace();}});
-			j++;
-		}*/
-	
-		/*
-		//initialisation des pions
-		VBox pionLieux14 = (VBox) lieux.getChildren().get(0);
-		VBox pionLieux58 = (VBox) lieux.getChildren().get(4);
-		for (int k=0; k<4; k++) {
-			pionLieux.add((Circle) pionLieux14.getChildren().get(k));
-		}
-		for (int k=0; k<4; k++) {
-			pionLieux.add((Circle) pionLieux58.getChildren().get(k));
-		}
-		
-		VBox pionVie14 = (VBox) lieux.getChildren().get(0);
-		VBox pionVie58 = (VBox) lieux.getChildren().get(4);
-		for (int k=0; k<4; k++) {
-			pionVie.add((Circle) pionVie14.getChildren().get(k));
-		}
-		for (int k=0; k<4; k++) {
-			pionVie.add((Circle) pionVie58.getChildren().get(k));
-		}
-		
-		System.out.println("Tour du joueur 1");
-
-	    try {
-	    	final URL fxmlURL = getClass().getResource("../ressources/Jouer_tour(1)lancer_des.fxml");  
-		    final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.ENGLISH);
-		    final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
-			Pane root = fxmlLoader.load();
-			root.setPrefSize(255, 180);
-			tour.get(2).getChildren().setAll(root);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
 	
 	}
 	
@@ -210,9 +131,14 @@ public class PlateauController implements Initializable {
 		
 		StackPane sp = (StackPane) iv.getParent();
 		iv.setImage(im);
-		iv.fitHeightProperty().bind(sp.heightProperty());
+		Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+		iv.setFitWidth(RES*screenSize.width);
+		//iv.fitHeightProperty().bind(sp.heightProperty());
+		//iv.fitWidthProperty().bind(sp.widthProperty());
+		
+		iv.setPreserveRatio(true);
+		//iv.fitWidthProperty().bind(sp.widthProperty());
 	}
-	
 
 	private Pane getPaneJoueur(int i) {	
 		

@@ -33,7 +33,7 @@ public class ChoisirJoueur implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 	
 		this.buttons = new ArrayList<Button>();
-		
+
 		this.buttons.add(btn1);
 		this.buttons.add(btn2);
 		this.buttons.add(btn3);
