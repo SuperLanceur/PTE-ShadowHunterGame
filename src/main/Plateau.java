@@ -385,7 +385,7 @@ public class Plateau extends Thread{
 		int roll6 = rollRandom(6);
 		int sum = Math.abs(roll4+roll6);
 		gj.rollDice(j, PlateauController.DICE_BOTH, roll4,roll6);
-		return 8;
+		return 3;
 		//return Math.abs(roll4+roll6);
 	}
 	

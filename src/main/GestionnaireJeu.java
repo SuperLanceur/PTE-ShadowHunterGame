@@ -13,6 +13,7 @@ import carte.CarteEquipement;
 import carte.CarteLieu;
 import carte.CartePiochable;
 import carte.CartePiochable.Type;
+import carte.CarteVision;
 import database.RessourceLoader;
 import effet.Effet;
 import ihm.controller.PlateauController;
@@ -326,6 +327,21 @@ public class GestionnaireJeu {
 			}
 		});
 		waitPlateau();
+	}
+
+	public void recevoirCarteVision(Joueur j2, CarteVision carteVision) {
+		
+		Platform.runLater(() -> {
+			try {
+				pc.afficherVision(j2, carteVision);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		});
+		waitPlateau();
+		
+		
+
 	}
 
 	

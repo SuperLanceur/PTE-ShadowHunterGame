@@ -5,6 +5,7 @@ import java.io.Serializable;
 import condition.Condition;
 import effet.EffetChoisirCible;
 import effet.action.Action;
+import main.Contexte;
 import main.GestionnaireJeu;
 import main.Joueur;
 
@@ -31,10 +32,13 @@ public class CarteVision extends CartePiochable implements Serializable{
 		gj.piocher(j1,this);
 	
 		Joueur j2 = j1.choisiParmisTous();
+		boolean M = j2.isMetamorph();
+		boolean Co = this.getCondition().isTrue(j2);
+		gj.recevoirCarteVision(j2,this);
+		boolean C = j2.choisir(Contexte.CHOISIR_VISION);
 		
-		if(this.getCondition().isTrue(j2)) {
+		if((!(M) && Co) || (M && C)) {
 			this.getEffet().getAction().affecte(j1, j2);
 		}
-		
 	}
 }

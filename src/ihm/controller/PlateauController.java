@@ -407,13 +407,28 @@ public class PlateauController implements Initializable {
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane root = (Pane)fxmlLoader.load();
+		
+		List<JoueurIHM> joueursIHM = toJoueursIHM(joueurs);
+		
 		this.cj = fxmlLoader.getController();
-		this.cj.setListJoueursIHM(this.joueursIHM);
+		this.cj.setListJoueursIHM(joueursIHM);
 		this.cj.initButtons();
 		JoueurIHM jihm = getJoueurIHM(j);
 		jihm.setZoneJoueur(root);
 	}
-    public void afficherPiocher(Joueur j) throws IOException {
+    private List<JoueurIHM> toJoueursIHM(List<Joueur> joueurs) {
+		
+    	List<JoueurIHM> list = new ArrayList<JoueurIHM>();
+    	
+    	for(Joueur j : joueurs) {
+    		list.add(getJoueurIHM(j));
+		}
+    	
+    	return list;
+	}
+
+
+	public void afficherPiocher(Joueur j) throws IOException {
 		
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Jouer_tour(2b)piocher_carte.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);

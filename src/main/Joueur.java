@@ -8,6 +8,7 @@ import carte.CarteEquipement;
 import carte.CarteLieu;
 import effet.Effet;
 import personnage.CartePersonnage;
+import personnage.Metamorphe;
 import personnage.CartePersonnage.Equipe;
 
 
@@ -266,5 +267,9 @@ public class Joueur {
 		if(revele) {
 			this.cartePersonnage.utiliser();
 		}
+	}
+
+	public boolean isMetamorph() {
+		return this.cartePersonnage instanceof Metamorphe;
 	}
 }
