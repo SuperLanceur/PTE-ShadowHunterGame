@@ -28,6 +28,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -400,6 +401,18 @@ public class PlateauController implements Initializable {
 		LieuZJ lzj =  fxmlLoader.getController();
 		lzj.setImageView(this.getImageCarte(j.getCarteLieu()));
 		JoueurIHM jihm = getJoueurIHM(j);
+		if(jihm.getPosition()==4 || jihm.getPosition()==5) {
+			SplitPane s=(SplitPane)root.getChildren().get(0);
+		AnchorPane a=(AnchorPane)s.getItems().get(0);
+			VBox v= (VBox)a.getChildren().get(0);
+			AnchorPane b=(AnchorPane)s.getItems().get(1);
+			ImageView i= (ImageView)b.getChildren().get(0);
+
+			v.setRotate(180);
+			i.setRotate(180);
+			s.setRotate(180);
+		}
+		
 		jihm.setZoneJoueur(root);
 	}
 	public void afficherChoisirJoueur(Joueur j, List<Joueur> joueurs, Contexte contexte) throws IOException {
@@ -555,6 +568,18 @@ public class PlateauController implements Initializable {
 		lzj.setImageView(im);
 		lzj.setText("Cachez la carte vision");
 		JoueurIHM jihm = getJoueurIHM(j);
+		if(jihm.getPosition()==4 || jihm.getPosition()==5) {
+			SplitPane s=(SplitPane)root.getChildren().get(0);
+		AnchorPane a=(AnchorPane)s.getItems().get(0);
+			VBox v= (VBox)a.getChildren().get(0);
+			AnchorPane b=(AnchorPane)s.getItems().get(1);
+			ImageView i= (ImageView)b.getChildren().get(0);
+
+			v.setRotate(180);
+			i.setRotate(180);
+			s.setRotate(180);
+		}
+		jihm.getZoneJoueur();
 		jihm.setZoneJoueur(root);
 	
 	}
