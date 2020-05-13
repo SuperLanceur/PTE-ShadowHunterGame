@@ -41,6 +41,7 @@ public class CartePiochable extends CarteCondition implements Serializable{
 	/*
 	 * 	@param j Appel la méthode utiliser de effet sur le joueur j
 	 */
+	
 	public void utiliser(Joueur j) {
 		GestionnaireJeu gj = GestionnaireJeu.getGestionnaireJeu();
 		gj.piocher(j,this);

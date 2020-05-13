@@ -19,9 +19,12 @@ public class EffetChoisirEffet extends Effet{
 	@Override
 	public void utiliser(Joueur joueur) {
 
-		Effet effet = (Effet) joueur.choisir(effets,Effet.class);
-		
-		effet.utiliser(joueur);
+		Effet e = choisirEffet(joueur);
+		e.utiliser(joueur);
+	}
+	
+	public Effet choisirEffet(Joueur joueur) {
+		return (Effet) joueur.choisir(effets,Effet.class);
 	}
 
 }

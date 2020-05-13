@@ -368,13 +368,22 @@ public class PlateauController implements Initializable {
 	
 		
 		JoueurIHM jihm = getJoueurIHM(j);
-		Pane pane = (Pane) jihm.getZoneJoueur().getChildren().get(0);
+		Pane p = (Pane) jihm.getZoneJoueur();
+		Pane pane = null;
+		
+		if(p.getChildren() != null && p.getChildren().size() > 0) {
+			
+			pane = (Pane) p.getChildren().get(0);
+		}
+		
 		jihm.setZoneJoueur(root);
+		Pane pp = pane;
 		Timeline timeline = new Timeline(new KeyFrame(
 		        Duration.millis(1000),
 		        ae ->  {
+		        	
 		        	jihm.resetZoneJoueur();
-		        	jihm.setZoneJoueur(pane);
+		        	jihm.setZoneJoueur(pp);
 		        	GestionnaireJeu.notifyPlateau(); 
 		}));
 		timeline.play();
