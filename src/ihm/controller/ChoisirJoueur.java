@@ -140,13 +140,10 @@ public class ChoisirJoueur implements Initializable {
 			for (JoueurIHM jihm : listJoueursIHM) {
 				joueurs.add(jihm.getJoueur());
 			}
-
 			Joueur jchoisi = jIA.choisirJoueur(joueurs, c);
-			System.out.println(jchoisi+"oof");
 			int i = 0;
 			boolean found = false;
 			while (!found && i < listJoueursIHM.size()) {
-				System.out.println(listJoueursIHM.get(i).getJoueur());
 				if (listJoueursIHM.get(i).getJoueur().equals(jchoisi)) {
 					found = true;
 					buttons.get(i).setDisable(false);

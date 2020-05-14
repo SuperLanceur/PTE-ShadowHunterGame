@@ -16,6 +16,11 @@ public class JoueurVirtuel extends Joueur {
 		super(name);
 	}
 
+	public JoueurVirtuel(String nom, int lvlIa) {
+		super(nom);
+		nvDifficulte = lvlIa;
+	}
+
 	public Effet choisirEffet(List<Effet> effets) {
 		return effets.get((int) Math.floor(Math.random() * effets.size()));
 	}

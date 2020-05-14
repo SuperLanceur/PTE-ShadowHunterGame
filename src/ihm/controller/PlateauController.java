@@ -277,7 +277,7 @@ public class PlateauController implements Initializable {
 				cb.fireBtnIAEffetLieu();
 				break;
 			case ATTAQUER :
-				cb.fireBtnIAattaquer((JoueurVirtuel)j, j.getJoueursAdjacents());
+				cb.fireBtnIAattaquer((JoueurVirtuel)j, j.getJoueursRange());
 				break;
 			default:
 				break;
