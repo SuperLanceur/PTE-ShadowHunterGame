@@ -45,7 +45,16 @@ public class PlayersController implements Initializable{
 	@FXML private HBox hb7;
 	@FXML private HBox hb8;
 	
-	
+	//TextField
+	/*@FXML private TextField txt1;
+	@FXML private TextField txt2;
+	@FXML private TextField txt3;
+	@FXML private TextField txt4;
+	@FXML private TextField txt5;
+	@FXML private TextField txt6;
+	@FXML private TextField txt7;
+	@FXML private TextField txt8;
+*/
 	//pour les radios boutons
 	@FXML private HBox hbr1;
 	@FXML private HBox hbr2;
@@ -99,6 +108,15 @@ public class PlayersController implements Initializable{
 		ligne.add(hb7);
 		ligne.add(hb8);
 		
+		/*txt.add(txt1);
+		txt.add(txt2);
+		txt.add(txt3);
+		txt.add(txt4);
+		txt.add(txt5);
+		txt.add(txt6);
+		txt.add(txt7);
+		txt.add(txt8);*/
+
 		listeHbIA.add(hbr1);
 		listeHbIA.add(hbr2);
 		listeHbIA.add(hbr3);
@@ -117,7 +135,6 @@ public class PlayersController implements Initializable{
 		listeToggleRbIa.add(tg6);
 		listeToggleRbIa.add(tg7);
 		listeToggleRbIa.add(tg8);
-		
 		
 		
 		for (HBox hb : ligne) {
@@ -163,6 +180,9 @@ public class PlayersController implements Initializable{
 	@FXML
 	public void commencerJeux(MouseEvent mouseEvent) throws IOException{
 		if (nbJoueursH + nbJoueursV >= 4) {
+			
+			if(textVide()==false && memeNom()==false) {
+				
 			//ajout des joueurs finalement selectionner
 			int i = 0;
 			for (HBox hb : ligne) {
@@ -205,7 +225,11 @@ public class PlayersController implements Initializable{
 		        appStage.setScene(scene);
 		        appStage.show();
 		        gj.lancerPartie();
-		        
+		}
+		else {
+			System.out.println("On ne peut pas prendre un nom vide ou prendre le même nom");
+			
+		}
 		}
 		
 		else {
@@ -310,10 +334,41 @@ public class PlayersController implements Initializable{
 	
 	public void mettreNomDefaut(int indice) {
 		if (ia.get(indice).isSelected()) {
-			ajoutJoueur(indice);
 			txt.get(indice).setText("Joueur" + indice);
+
+			ajoutJoueur(indice);
 		}else 
 			enleverJoueur(indice);
+	}
+	public boolean textVide() {
+		for(int i=0;i<txt.size();i++) {
+			if(txt.get(i).isEditable() && txt.get(i).getText().equals("")) {
+				return true;
+			}
+		}
+		return false;
+	}
+	public boolean memeNom() {
+		
+		int i=0;
+		
+
+		while(i<txt.size()) {
+			
+			for(int j=0;j<txt.size();j++) {
+				
+				
+
+				if(txt.get(i).getText().equals(txt.get(j).getText()) && txt.get(i).isEditable() && txt.get(j).isEditable() && !(j==i)){
+					
+					return true;
+				}
+				
+			}
+			i++;
+			
+		}
+		return false;
 	}
 	@FXML
 	public void retour(MouseEvent me) throws IOException {
