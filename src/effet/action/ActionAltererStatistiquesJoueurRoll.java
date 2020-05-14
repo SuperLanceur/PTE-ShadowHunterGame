@@ -33,4 +33,9 @@ public class ActionAltererStatistiquesJoueurRoll extends ActionAltererStatistiqu
 		
 		super.affecte(j1, j2);
 	}
+	
+	@Override
+	public String toString(){
+		return "Lancer un dé "+valeurRoll+" pour modifier les "+this.getKey()+" du joueur";
+	}
 }

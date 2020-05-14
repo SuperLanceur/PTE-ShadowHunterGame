@@ -18,5 +18,10 @@ public class ActionAttaquer extends Action {
 		p.attaquer(j1, j2);
 	
 	}
+	
+	@Override
+	public String toString() {
+		return "Attaquer un joueur";
+	}
 
 }

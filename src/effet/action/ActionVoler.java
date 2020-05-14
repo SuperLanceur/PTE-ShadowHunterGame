@@ -3,6 +3,7 @@ package effet.action;
 import java.util.List;
 
 import carte.CarteEquipement;
+import javafx.scene.control.Label;
 import main.Joueur;
 
 public class ActionVoler extends Action{
@@ -51,4 +52,10 @@ public class ActionVoler extends Action{
 		}
 		
 	}
+	
+	@Override
+	public String toString() {
+		return "Voler un autre joueur";
+	}
+	
 }

@@ -66,19 +66,26 @@ public class JoueurIHM {
 	private void initRevealButton() {
 		Button btn = getRevealButton();
 		btn.setOnAction(x -> {
-
-			this.joueur.reveal();
-			ImageView iv = this.getCartePersonnage();
-			System.out.println(this.joueur.getCartePersonnage());
-			Image im = this.pc.getImageCarte(this.joueur.getCartePersonnage());
-			GridPane gp = (GridPane) iv.getParent();
-			iv.setImage(im);
-			iv.fitHeightProperty().bind(gp.heightProperty());
-			initButtonEffect(btn);
-			//btn.setDisable(true);
-			btn.setText("Utiliser Effet");
-			estRevele = true;
+			this.joueur.setRevele(true);;
+			actionReveler(btn);
 		});
+	}
+	
+	public void reveler() {
+		Button btn = getRevealButton();
+		actionReveler(btn);
+	}
+	
+	private void actionReveler(Button btn) {
+		ImageView iv = this.getCartePersonnage();
+		System.out.println(this.joueur.getCartePersonnage());
+		Image im = this.pc.getImageCarte(this.joueur.getCartePersonnage());
+		GridPane gp = (GridPane) iv.getParent();
+		iv.setImage(im);
+		iv.fitHeightProperty().bind(gp.heightProperty());
+		initButtonEffect(btn);
+		btn.setText("Utiliser Effet");
+		estRevele = true;
 	}
 
 	public Button getRevealButton() {
@@ -257,5 +264,9 @@ public class JoueurIHM {
 	public String getNom() {
 		return this.joueur.getNom();
 	}
+
+
+
+	
 
 }
