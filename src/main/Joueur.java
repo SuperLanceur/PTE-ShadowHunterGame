@@ -1,4 +1,5 @@
 package main;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.Map;
 import carte.CarteEquipement;
 import carte.CarteLieu;
 import effet.Effet;
+import ihm.EffetSonore;
 import personnage.CartePersonnage;
 import personnage.Metamorphe;
 import personnage.CartePersonnage.Equipe;
@@ -91,6 +93,8 @@ public class Joueur {
 	private void death() {
 		this.deathState = true;
 		this.plateau.death(this);
+		InputStream fileSound1 =  getClass().getResourceAsStream("/ihm/ressources/musique/cloche.wav");		
+		EffetSonore.playSoundEffect(fileSound1);
 	}
 
 	//pour tests IA
