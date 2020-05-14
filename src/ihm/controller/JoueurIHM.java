@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import carte.CarteEquipement;
 import database.RessourceLoader;
@@ -37,6 +38,8 @@ public class JoueurIHM {
 	private Color color;
 	private PlateauController pc;
 	private boolean estRevele = false;
+	ResourceBundle bundle1 = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
+
 
 	public JoueurIHM(int i, Joueur joueur, Pane zoneJoueur, Color color, GridPane gridPaneVie, GridPane gridPaneLieux,
 			PlateauController pc /* , boolean carteVisible */ ) {
@@ -90,7 +93,7 @@ public class JoueurIHM {
 		iv.setImage(im);
 		iv.fitHeightProperty().bind(gp.heightProperty());
 		initButtonEffect(btn);
-		btn.setText("Utiliser Effet");
+		btn.setText(bundle1.getString("utilier.effet"));
 		estRevele = true;
 	}
 
@@ -137,9 +140,9 @@ public class JoueurIHM {
 	public void initButtonEffect(Button btn) {
 
 		btn.setOnAction(click -> {
-			System.out.println(this.joueur.getCartePersonnage().getNom() + " va user de son pouvoir");
+			System.out.println(this.joueur.getCartePersonnage().getNom() + bundle1.getString("va.user.de.son.pouvoir"));
 			threadUtiliserCapacite();
-			System.out.println(this.joueur.getCartePersonnage().getNom() + " a réussi à utiliser son pouvoir");
+			System.out.println(this.joueur.getCartePersonnage().getNom() + bundle1.getString("a.reussi.a.utiliser.son.pouvoir"));
 			btn.setDisable(true);
 		});
 	}

@@ -170,7 +170,7 @@ public class PlateauControllerTest implements Initializable {
 
 		Parent root = fxmlLoader.load();
         
-		PopUpBoolean popup = new PopUpBoolean(root, "Consulter sa carte");
+		PopUpBoolean popup = new PopUpBoolean(root, bundle.getString("consulter.sa.carte"));
 		return popup.display();
 		
 		

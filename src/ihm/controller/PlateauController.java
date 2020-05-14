@@ -211,7 +211,7 @@ public class PlateauController implements Initializable {
 		RevelationController rc = fxmlLoader.getController();
 		rc.showInformation(listJoueur.get(numJoueur));
 
-		PopUp popup = new PopUp(root, "Consulter sa carte");
+		PopUp popup = new PopUp(root, bundle.getString("consulter.sa.carte"));
 		popup.display();
 	}
 
@@ -239,7 +239,7 @@ public class PlateauController implements Initializable {
 		AfficherCarteController acc = fxmlLoader.getController();
 		acc.showInformation(listJoueur.get(numJoueur));
 
-		PopUp popup = new PopUp(root, "Consulter sa carte");
+		PopUp popup = new PopUp(root, bundle.getString("consulter.sa.carte"));
 		popup.display();
 	}
 
@@ -465,7 +465,7 @@ public class PlateauController implements Initializable {
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane root = (Pane) fxmlLoader.load();
 
-		PopUp pu = new PopUp(root, "Pause");
+		PopUp pu = new PopUp(root, bundle.getString("cacher.carte.vision"));
 		pu.display();
 	}
 
@@ -528,7 +528,7 @@ public class PlateauController implements Initializable {
 		RecevoirCarte lzj = fxmlLoader.getController();
 		Image im = getImageCarte(cartePiochable);
 		lzj.setImageView(im);
-		lzj.setText("Cachez la carte vision");
+		lzj.setText(bundle.getString("cacher.carte.vision"));
 		if (j instanceof JoueurVirtuel)
 			lzj.fireBtnIA();
 		JoueurIHM jihm = getJoueurIHM(j);

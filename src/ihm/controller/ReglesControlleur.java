@@ -18,6 +18,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import sun.util.resources.Bundles;
 
 public class ReglesControlleur implements Initializable {
 
@@ -31,6 +32,8 @@ public class ReglesControlleur implements Initializable {
 	private Button suivant;
 
 	private int index = 1;
+	
+	private ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -58,7 +61,7 @@ public class ReglesControlleur implements Initializable {
 			index++;
 			InputStream fileSound1 = getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
 			EffetSonore.playSoundEffect(fileSound1);
-			System.out.println("Page suivante");
+			System.out.println(bundle.getString("page.suivante"));
 		}
 
 		InputStream input = getClass().getResourceAsStream("/ihm/ressources/img/Regle" + index + ".PNG");
@@ -83,7 +86,7 @@ public class ReglesControlleur implements Initializable {
 			InputStream fileSound1 = getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
 			EffetSonore.playSoundEffect(fileSound1);
 
-			System.out.println("Page précédente");
+			System.out.println(bundle.getString("page.precedente"));
 		}
 
 		InputStream input = getClass().getResourceAsStream("/ihm/ressources/img/Regle" + index + ".PNG");
@@ -98,7 +101,7 @@ public class ReglesControlleur implements Initializable {
 		InputStream fileSound1 = getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
 
 		EffetSonore.playSoundEffect(fileSound1);
-		System.out.println("Retour au Menu");
+		System.out.println(bundle.getString("retour.menu"));
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
@@ -116,7 +119,7 @@ public class ReglesControlleur implements Initializable {
 		InputStream fileSound1 = getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
 
 		EffetSonore.playSoundEffect(fileSound1);
-		System.out.println("Retour au jeu");
+		System.out.println(bundle.getString("retour.jeu"));
 
 		Stage appStage = (Stage) ((Node) me.getSource()).getScene().getWindow();
 		appStage.close();

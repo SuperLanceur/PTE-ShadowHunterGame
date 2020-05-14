@@ -30,6 +30,7 @@ import javafx.stage.Stage;
 import main.Configuration;
 import main.GestionnaireJeu;
 import main.Joueur;
+import sun.util.resources.Bundles;
 
 public class PlayersController implements Initializable{
 
@@ -81,6 +82,7 @@ public class PlayersController implements Initializable{
 	
 	
 	private HashMap<Integer, Couple> joueurs = new HashMap<Integer, Couple>();
+	private ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 	
 	private int nbJoueursH = 0;
 	private int nbJoueursV = 0;
@@ -211,7 +213,7 @@ public class PlayersController implements Initializable{
 		else {
 		InputStream fileSound2 =  getClass().getResourceAsStream("/ihm/ressources/musique/BeepError.wav");
 		EffetSonore.playSoundEffect(fileSound2);
-		System.out.println("Il manque des joueurs pour lancer une partie.");
+		System.out.println(bundle.getString("manque.joueur"));
 		}
 	}
 	
@@ -223,7 +225,7 @@ public class PlayersController implements Initializable{
 	 * @param indice : pour savoir quel bouton a �t� cliqu�
 	 */
 	public void ajoutJoueur(int indice){
-		System.out.println("Ajout du joueur " + (indice+1));
+		System.out.println(bundle.getString("ajout.joueur") + (indice+1));
 		
 		InputStream fileSound3 =  getClass().getResourceAsStream("/ihm/ressources/musique/Beep2.wav");
 		EffetSonore.playSoundEffect(fileSound3);
@@ -258,7 +260,7 @@ public class PlayersController implements Initializable{
 	 * @param indice : pour savoir quel bouton a �t� cliqu�
 	 */
 	public void enleverJoueur(int indice) {
-		System.out.println("Desistement du joueur " + (indice+1));
+		System.out.println(bundle.getString("desistement") + (indice+1));
 		
 		InputStream fileSound3 =  getClass().getResourceAsStream("/ihm/ressources/musique/Beep2.wav");
 		EffetSonore.playSoundEffect(fileSound3);
@@ -291,22 +293,22 @@ public class PlayersController implements Initializable{
 	
 	public int choixDifficulte(ToggleGroup tog) {
 		if(tog.getSelectedToggle() == tog.getToggles().get(0)) {
-			System.out.println("ia facile");
+			System.out.println(bundle.getString("ia.facile"));
 			return 1;
 		}
 		
 		else if (tog.getSelectedToggle() == tog.getToggles().get(1)) {
-			System.out.println("ia moyenne");
+			System.out.println(bundle.getString("ia.moyenne"));
 			return 2;
 		}
 		
 		else if (tog.getSelectedToggle() == tog.getToggles().get(2)) {
-			System.out.println("ia difficile");
+			System.out.println(bundle.getString("ia.difficile"));
 			return 3;
 		}
 		
 		else {
-			System.out.println("erreur choix difficulté de l'ia");
+			System.out.println(bundle.getString("erreur.difficulte"));
 			return -1;
 		}
 	}
@@ -314,7 +316,7 @@ public class PlayersController implements Initializable{
 	public void mettreNomDefaut(int indice) {
 		if (ia.get(indice).isSelected()) {
 			ajoutJoueur(indice);
-			txt.get(indice).setText("Joueur" + indice);
+			txt.get(indice).setText(bundle.getString("joueur") + indice);
 		}else 
 			enleverJoueur(indice);
 	}

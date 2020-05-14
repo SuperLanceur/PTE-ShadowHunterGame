@@ -1,6 +1,7 @@
 package ihm.controller;
 
 import java.util.Random;
+import java.util.ResourceBundle;
 
 import effet.action.Action;
 import ihm.Die;
@@ -32,7 +33,7 @@ public class LancerDes {
 	private final static int LANCER_DE_4 = 0;
 	private final static int LANCER_DE_6 = 1;
 	private final static int LANCER_DES = 2;
-
+  public ResourceBundle bundle1 = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 	public LancerDes(int typeDe, int[] rolls, Contexte c) {
 		this.typeDe = typeDe;
 		this.rolls = rolls;
@@ -69,8 +70,8 @@ public class LancerDes {
 		ImageView stackpane = die.getdieFace();
 		stackpane.setFitHeight(100);
 		stackpane.setFitWidth(100);
-		Button btn = interpret("Lancer dé");
-		Text txt = new Text("Lancez le dé");
+		Button btn = interpret(bundle1.getString("lancer.de.des"));
+		Text txt = new Text(bundle1.getString("lancer.de.des"));
 		txt.setFont(Font.font(null, null, null, 12));
 		txt.setFill(Color.WHITE);
 		btn.setOnAction((ActionEvent event) -> {
@@ -84,9 +85,9 @@ public class LancerDes {
 			timeline.setCycleCount(20);
 			timeline.play();
 			timeline.setOnFinished(actionEvent -> {
-
+				
 				die.setDieFace(rolls[0]);
-				txt.setText("Vous avez obtenu " + rolls[0]);
+				txt.setText(bundle1.getString("vous.avez.obtenu") + " " + rolls[0]);
 				Timeline timeline2 = new Timeline(new KeyFrame(Duration.millis(2000), ae -> {
 
 					GestionnaireJeu.notifyPlateau();
@@ -111,8 +112,8 @@ public class LancerDes {
 		ImageView stackpane = die.getdieFace();
 		stackpane.setFitHeight(100);
 		stackpane.setFitWidth(100);
-		Button btn = interpret("Lancer dé");
-		Text txt = new Text("Lancez le dé");
+		Button btn = interpret(bundle1.getString("lancer.de.des"));
+		Text txt = new Text(bundle1.getString("lancer.de.des"));
 		txt.setFont(Font.font(null, null, null, 12));
 		txt.setFill(Color.WHITE);
 		btn.setOnAction((ActionEvent event) -> {
@@ -128,7 +129,7 @@ public class LancerDes {
 			timeline.setOnFinished(actionEvent -> {
 
 				die.setDieFace(rolls[0]);
-				txt.setText("Vous avez obtenu " + rolls[0]);
+				txt.setText(bundle1.getString("vous.avez.obtenu") + " " + rolls[0]);
 				Timeline timeline2 = new Timeline(new KeyFrame(Duration.millis(2000), ae -> {
 					GestionnaireJeu.notifyPlateau();
 				}));
@@ -157,8 +158,8 @@ public class LancerDes {
 		stackpane2.setFitHeight(100);
 		stackpane.setFitWidth(100);
 		stackpane2.setFitWidth(100);
-		Button btn = interpret("Lancer dés");
-		Text txt = new Text("Lancez les dés");
+		Button btn = interpret(bundle1.getString("lancer.de.des"));
+		Text txt = new Text(bundle1.getString("lancer.de.des"));
 		txt.setFont(Font.font(null, null, null, 12));
 		txt.setFill(Color.WHITE);
 		btn.setOnAction((ActionEvent event) -> {
@@ -181,7 +182,7 @@ public class LancerDes {
 
 				int result = rolls[0] + rolls[1];
 
-				txt.setText("Vous avez obtenu " + result);
+				txt.setText(bundle1.getString("vous.avez.obtenu")+ " " + result);
 				Timeline timeline2 = new Timeline(new KeyFrame(Duration.millis(2000), ae -> {
 					GestionnaireJeu.notifyPlateau();
 
