@@ -409,6 +409,16 @@ public class PlateauController implements Initializable {
 		JoueurIHM jihm = getJoueurIHM(j);
 		jihm.setZoneJoueur(root);
 	}
+	
+	public void afficherFinDePartie(List<Joueur> listeJoueursGagnants) throws IOException {
+		
+		final URL fxmlURL = getClass().getResource("/ihm/ressources/Fin_De_Partie.fxml");
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+		Pane root = (Pane)fxmlLoader.load();
+		
+		FinDePartieControlleur.listeWinner = listeJoueursGagnants;
+	}
 
 	public CarteEquipement getChoixEquipementVole(Joueur joueur) {
 		JoueurIHM jihm = getJoueurIHM(joueur);
