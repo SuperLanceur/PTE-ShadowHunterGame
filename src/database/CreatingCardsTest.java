@@ -269,10 +269,8 @@ public class CreatingCardsTest {
 			
 			// 64
 			CarteLieu lieu3 = new CarteLieu(new Point(-1,9));
-			lieu3.setEffet(new EffetChoisirEffet(new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-2,true)),
-				
-					
-					new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,1,true))));
+			lieu3.setEffet(new EffetChoisirCible(new ActionMultipleChoisir(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-2,true),	
+				new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,1,true))));
 		
 			DatabaseManager.queryInsertObject(64,lieu3);
 			// 65

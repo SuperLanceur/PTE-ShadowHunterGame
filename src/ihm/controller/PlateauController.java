@@ -19,6 +19,7 @@ import carte.CarteLieu;
 import carte.CartePiochable;
 import carte.CartePiochable.Type;
 import database.RessourceLoader;
+import effet.action.Action;
 import ihm.EffetSonore;
 import ihm.PopUp;
 import javafx.animation.KeyFrame;
@@ -28,6 +29,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
@@ -69,6 +71,7 @@ public class PlateauController implements Initializable {
 	public static int DICE_BOTH = 2;
 	
 	private final double RES = 200./2250.;
+	private ResourceBundle resourceBundle;
 	
 	/**
 	 * initialise les données du plateau
@@ -77,6 +80,7 @@ public class PlateauController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		//System.out.println("Création du plateau ...");
 	
+		this.resourceBundle = arg1;
 		this.joueursIHM = new ArrayList<JoueurIHM>();
 		GestionnaireJeu gj  = GestionnaireJeu.getGestionnaireJeu();
 		RessourceLoader rl = gj.getRessourceLoader();
@@ -130,8 +134,7 @@ public class PlateauController implements Initializable {
 	}
 
 	private void applyImageLieu(ImageView iv, Image im) {
-		
-		StackPane sp = (StackPane) iv.getParent();
+	
 		iv.setImage(im);
 		Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
 		iv.setFitWidth(RES*screenSize.width);
@@ -549,4 +552,49 @@ public void afficherEffet(Joueur j) throws IOException {
 	public void setMapRessourcesDosCartes(Map<String,BufferedImage> mapRessourcesDosCartes) {
 		this.mapRessourcesDosCartes = mapRessourcesDosCartes;
 	}
+
+
+	private Action choixAction;
+	
+	public void afficherChoisirAction(Joueur joueur, List<Action> list) {
+		
+		final URL fxmlURL = getClass().getResource("/ihm/ressources/ChoisirAction.fxml");
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+		
+		List<Button> buttons = new ArrayList<Button>();
+		
+		for(Action a : list) {
+				Button button = interpret(a);
+				buttons.add(button);
+				button.setOnAction(x -> {	
+				this.choixAction = a;
+				GestionnaireJeu.notifyPlateau();
+		});
+		}
+		
+		VBox v = new VBox();
+		v.getChildren().addAll(buttons);
+		
+		JoueurIHM jihm = getJoueurIHM(joueur);
+		jihm.setZoneJoueur(v);
+	}
+	
+	public Action getChoixAction(Joueur joueur) {
+		return this.choixAction;
+	}
+	
+
+	private Button interpret(Action a) {
+		String s = a.toString();
+		Button b = new Button(s);
+		return b;
+	}
+
+
+	public void revealJoueur(Joueur joueur) {
+		JoueurIHM jihm = getJoueurIHM(joueur);
+		jihm.reveler();
+	}
+
 }

@@ -16,6 +16,7 @@ import carte.CartePiochable.Type;
 import carte.CarteVision;
 import database.RessourceLoader;
 import effet.Effet;
+import effet.action.Action;
 import ihm.controller.PlateauController;
 import javafx.application.Platform;
 
@@ -48,10 +49,6 @@ public class GestionnaireJeu {
 
 	public void lancerPartie() {
 		plateau.start();
-	}
-
-	public Effet choisirEffet(Joueur joueur, Effet[] effets) {
-		return effets[0];
 	}
 	
 
@@ -117,13 +114,36 @@ public class GestionnaireJeu {
 			return choisirEquipementVole(joueur, (List<CarteEquipement>) list);
 		}else if(cls == Joueur.class) {
 			return choisirJoueur(joueur, (List<Joueur>) list, Contexte.CHOISIR_VISION);
+		}else if(cls == Action.class) {
+			return choisirAction(joueur, (List<Action>) list, Contexte.CHOISIR_ACTION);
 		}
 		return list.get(0);
 	}
 	
-	@SuppressWarnings("unchecked")
-	public Object choisir(Joueur joueur, List<?> list, Contexte c) {
-			return choisirJoueur(joueur, (List<Joueur>) list, c);
+	private Action choisirAction(Joueur joueur, List<Action> list, Contexte choisirAction) {
+		Platform.runLater(() -> {
+			pc.afficherChoisirAction(joueur,list);
+		});
+		
+		this.waitPlateau();
+		
+		final FutureTask<Action> query = new FutureTask<Action>(new Callable<Action>() {
+		    @Override
+		    public Action call() throws Exception {
+		    	return pc.getChoixAction(joueur);
+		    }
+		});
+		
+		Platform.runLater(query);
+		
+		try {
+			return query.get();
+		} catch (InterruptedException | ExecutionException e) {
+		
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 	
 	public CarteEquipement choisirEquipementVole(Joueur joueur, List<CarteEquipement> lce) {
@@ -340,9 +360,14 @@ public class GestionnaireJeu {
 			try {
 				pc.afficherVision(j2, carteVision);
 			} catch (IOException e) {
-				e.printStackTrace();
 			}
 		});
 		waitPlateau();
+	}
+
+	public void reveler(Joueur joueur) {
+		Platform.runLater(() -> {
+			pc.revealJoueur(joueur);
+		});
 	}
 }

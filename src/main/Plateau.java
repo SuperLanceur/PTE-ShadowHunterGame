@@ -448,9 +448,6 @@ public class Plateau extends Thread{
 		return (Joueur) gj.choisir(joueur, joueurs, Joueur.class);
 	}
 
-	public Effet choisirEffet(Joueur joueur, Effet[] effets) {
-		return gj.choisirEffet(joueur,effets);
-	}
 
 	public Joueur choisirParmisTous(Joueur joueur) {
 		List<Joueur> joueurs = new ArrayList<Joueur>();

@@ -58,8 +58,30 @@ public class ActionAltererStatistiquesJoueur extends Action{
 		this.valeur = valeur;
 	}
 	
+	public String getKey() {
+		return this.key;
+	}
+	
 	@Override
 	public String toString(){
-		return this.key+" "+this.valeur+" "+this.ajouter; 
+		
+		String mot1 = "";
+		String mot2 = "";
+		if(this.ajouter) {
+			
+			if(valeur < 0) {
+				mot1 = "Retirer";
+			}else {
+				mot1 = "Ajouter";
+			}
+			
+			mot2 = " au ";
+			
+		}else {
+			mot1 = "Placer à";
+			mot2 = " le ";
+		}
+	
+		return mot1+" "+valeur+" "+key+mot2+"joueur"; 
 	}
 }

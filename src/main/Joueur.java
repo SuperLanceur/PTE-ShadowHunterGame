@@ -207,7 +207,10 @@ public class Joueur {
 	public String getNom() {
 		return this.nom;
 	}
+	
 	public void reveal() {
+		GestionnaireJeu gj = GestionnaireJeu.getGestionnaireJeu();
+		gj.reveler(this);
 		this.revele = true;
 	}
 	
