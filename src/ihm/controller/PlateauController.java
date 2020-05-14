@@ -512,9 +512,7 @@ public void afficherEffet(Joueur j) throws IOException {
 		if(j instanceof JoueurVirtuel) {
 			System.out.println("here");
 			Timeline timeline = new Timeline(new KeyFrame(Duration.millis(3000), ae -> {
-				GestionnaireJeu.notifyPlateau();
 				pu.getStage().hide();
-
 			}));
 			timeline.play();
 		}		
