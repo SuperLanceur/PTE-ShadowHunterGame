@@ -42,7 +42,7 @@ public class ParametreController implements Initializable {
 	public static double slideValueEffets;
 	public static String langueChoisi;
 
-	private String tabLangues[] = { "Anglais", "Allemand", "Espagnol", "Français" };
+	private String tabLangues[] = { "Anglais", "Italien", "Espagnol", "Français" };
 
 	boolean MusiqueLancee = false; // verifi si la musique a déja été lancé une première fois
 
