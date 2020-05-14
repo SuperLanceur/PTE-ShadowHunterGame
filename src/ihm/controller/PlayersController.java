@@ -1,6 +1,7 @@
 package ihm.controller;
 
 import java.io.IOException;
+
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
@@ -45,16 +46,6 @@ public class PlayersController implements Initializable{
 	@FXML private HBox hb7;
 	@FXML private HBox hb8;
 	
-	//TextField
-	/*@FXML private TextField txt1;
-	@FXML private TextField txt2;
-	@FXML private TextField txt3;
-	@FXML private TextField txt4;
-	@FXML private TextField txt5;
-	@FXML private TextField txt6;
-	@FXML private TextField txt7;
-	@FXML private TextField txt8;
-*/
 	//pour les radios boutons
 	@FXML private HBox hbr1;
 	@FXML private HBox hbr2;
@@ -108,14 +99,6 @@ public class PlayersController implements Initializable{
 		ligne.add(hb7);
 		ligne.add(hb8);
 		
-		/*txt.add(txt1);
-		txt.add(txt2);
-		txt.add(txt3);
-		txt.add(txt4);
-		txt.add(txt5);
-		txt.add(txt6);
-		txt.add(txt7);
-		txt.add(txt8);*/
 
 		listeHbIA.add(hbr1);
 		listeHbIA.add(hbr2);
