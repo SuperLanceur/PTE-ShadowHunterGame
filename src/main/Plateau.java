@@ -314,8 +314,7 @@ public class Plateau extends Thread{
 	public boolean isPartieTerminee() {
 		return this.getStat(PARTIE_FINIE) == 1;
 	}
-	
-	
+
 	public void deplacer(Joueur currentJoueur) {
 		
 		boolean attributed = false;
