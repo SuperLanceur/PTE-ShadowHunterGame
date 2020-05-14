@@ -244,7 +244,9 @@ public class GestionnaireJeu {
 	}
 
 	public static void notifyPlateau() {
+
 		Thread t = threads.pop();
+		
 		synchronized(t) {	
 			t.notify();
 		}

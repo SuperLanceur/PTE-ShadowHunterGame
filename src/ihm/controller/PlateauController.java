@@ -27,6 +27,7 @@ import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -559,34 +560,30 @@ public void afficherEffet(Joueur j) throws IOException {
 		return mapRessourcesDosCartes;
 	}
 
-
 	public void setMapRessourcesDosCartes(Map<String,BufferedImage> mapRessourcesDosCartes) {
 		this.mapRessourcesDosCartes = mapRessourcesDosCartes;
 	}
-
 
 	private Action choixAction;
 	
 	public void afficherChoisirAction(Joueur joueur, List<Action> list) {
 		
-		final URL fxmlURL = getClass().getResource("/ihm/ressources/ChoisirAction.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
-		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
-		
+
 		List<Button> buttons = new ArrayList<Button>();
 		
 		for(Action a : list) {
-				Button button = interpret(a);
-				buttons.add(button);
-				button.setOnAction(x -> {	
-				this.choixAction = a;
-				GestionnaireJeu.notifyPlateau();
+			Button button = interpret(a);
+			buttons.add(button);
+			button.setOnAction(x -> {	
+			this.choixAction = a;
+			GestionnaireJeu.notifyPlateau();
 		});
 		}
 		
 		VBox v = new VBox();
 		v.getChildren().addAll(buttons);
-		
+		v.setAlignment(Pos.CENTER);
+		v.setSpacing(20.0);
 		JoueurIHM jihm = getJoueurIHM(joueur);
 		jihm.setZoneJoueur(v);
 	}
@@ -597,8 +594,14 @@ public void afficherEffet(Joueur j) throws IOException {
 	
 
 	private Button interpret(Action a) {
+		
+		String styles = "-fx-border-color: #e2e2e2;"+"-fx-border-width: 2;"+
+		"-fx-background-radius: 0;"+"-fx-background-color: #1d1d1d;"+
+				"-fx-text-fill: #d8d8d8;"+"-fx-background-insets: 0 0 0 0, 0, 1, 2;";
+
 		String s = a.toString();
 		Button b = new Button(s);
+		b.setStyle(styles);
 		return b;
 	}
 

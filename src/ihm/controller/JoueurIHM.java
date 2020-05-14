@@ -106,7 +106,6 @@ public class JoueurIHM {
 				iv.fitHeightProperty().bind(gp.heightProperty());
 				iv.fitHeightProperty().bind(gp.heightProperty());
 			}
-
 		});
 
 		iv.setOnMouseReleased(release -> {

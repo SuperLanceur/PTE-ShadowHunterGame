@@ -322,8 +322,8 @@ public class Plateau extends Thread{
 		
 		while(!attributed) {
 			int roll = sumRolls(currentJoueur);
-			for(CarteLieu cl : lieux) {
-				
+			
+			for(CarteLieu cl : lieux) {	
 				if(cl.coordinatesContains(roll) && currentJoueur.getCarteLieu() != cl){
 					currentJoueur.deplacer(cl);
 					attributed = true;
@@ -374,19 +374,24 @@ public class Plateau extends Thread{
 	
 	private int rollRandom(int nb) {
 		
-		int roll = (int) Math.floor(Math.random() * (nb-1))+1;
+		int roll = (int) Math.floor(Math.random() * (nb))+1;
 		System.out.println("roll" + roll);
 		return roll;
 	}
 
 	public int sumRolls(Joueur j)
 	{
-		int roll4 =rollRandom(4);
-		int roll6 = rollRandom(6);
-		int sum = Math.abs(roll4+roll6);
+		int sum = 0;
+		int roll4 = 0;
+		int roll6 = 0;
+	
+		roll4 =rollRandom(4);
+		roll6 = rollRandom(6);
+		sum = Math.abs(roll4+roll6);
+	
 		gj.rollDice(j, PlateauController.DICE_BOTH, roll4,roll6);
-		return sum;
-		//return Math.abs(roll4+roll6);
+		return 3;
+		//return sum;
 	}
 	
 	public List<Joueur> getJoueurs() {
@@ -403,7 +408,6 @@ public class Plateau extends Thread{
 		{
 			return this.stats.get(key);
 		}else {
-		
 			return -1;
 		}	
 	}
