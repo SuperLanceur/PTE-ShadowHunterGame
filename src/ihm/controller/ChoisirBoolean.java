@@ -74,6 +74,9 @@ public class ChoisirBoolean implements Initializable {
 		case ACTIVER_EFFET_LIEU	:
 			titre.setText("Souhaitez-vous activer l'effet du lieu?");
 			break;
+		case CHOISIR_VISION	:
+			titre.setText("Souhaitez-vous activer l'effet de la carte vision");
+			break;
 		default:
 		}
 		
@@ -85,6 +88,22 @@ public class ChoisirBoolean implements Initializable {
 		nonButton.setDisable(true);
 		Timeline timeline = new Timeline(new KeyFrame(Duration.millis(2000), ae -> {
 			if (cIA.choixUtiliserPouvoirLieu()) {
+				ouiButton.setDisable(false);
+				ouiButton.fire();
+			} else {
+				nonButton.setDisable(false);
+				nonButton.fire();
+			}
+		}));
+		timeline.play();
+	}
+	
+	public void fireBtnIAVision() {
+		ControleurIA cIA = new ControleurIA();
+		ouiButton.setDisable(true);
+		nonButton.setDisable(true);
+		Timeline timeline = new Timeline(new KeyFrame(Duration.millis(2000), ae -> {
+			if (cIA.mentirIAMetamorphe()) {
 				ouiButton.setDisable(false);
 				ouiButton.fire();
 			} else {
