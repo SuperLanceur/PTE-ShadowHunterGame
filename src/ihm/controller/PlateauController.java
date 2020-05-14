@@ -1,6 +1,7 @@
 package ihm.controller;
 
 
+import java.awt.Dimension;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,6 +29,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -65,6 +67,8 @@ public class PlateauController implements Initializable {
 	public static int DICE_SIX = 1;
 	public static int DICE_QUATRE = 0;
 	public static int DICE_BOTH = 2;
+	
+	private final double RES = 200./2250.;
 	
 	/**
 	 * initialise les données du plateau
@@ -104,88 +108,6 @@ public class PlateauController implements Initializable {
 		List<ImageView> ivs = this.getLieux();
 
 		applyImages(cl,ivs);
-		
-		// BUTTONS ETC
-		//System.out.println(this.joueursPane);
-		
-		/*
-		this.hboxJoueur.add(joueur1);
-		this.hboxJoueur.add(joueur2);
-		this.hboxJoueur.add(joueur3);
-		this.hboxJoueur.add(joueur4);
-	
-		for (HBox hbox : hboxJoueur) {
-			tour.add((AnchorPane) hbox.getChildren().get(0));
-			VBox carte = (VBox) hbox.getChildren().get(1);
-			cartePerso.add((ImageView) carte.getChildren().get(0));
-			btnRevelation.add((Button) carte.getChildren().get(1));
-			VBox info = (VBox) hbox.getChildren().get(2);
-			nomJoueur.add((Label) info.getChildren().get(0));
-		}
-		
-		this.vboxJoueur.add(joueur5);
-		this.vboxJoueur.add(joueur6);
-		this.vboxJoueur.add(joueur7);
-		this.vboxJoueur.add(joueur8);
-		
-		for (VBox vbox : vboxJoueur) {
-			tour.add((AnchorPane) vbox.getChildren().get(0));
-			HBox joueur = (HBox) vbox.getChildren().get(1);
-			VBox carte = (VBox) joueur.getChildren().get(1);
-			cartePerso.add((ImageView) carte.getChildren().get(0));
-			btnRevelation.add((Button) carte.getChildren().get(1));
-			VBox info = (VBox) joueur.getChildren().get(0);
-			nomJoueur.add((Label) info.getChildren().get(0));
-		}
-		
-		//initilaisation des boutons se reveler
-		int i = 0;
-		for (Button b : btnRevelation) {
-			int compteur = i;
-			b.setOnAction(e -> {try {seReveler(compteur);} catch (IOException e1) {e1.printStackTrace();}});
-			i++;
-		}
-		//initialisation des bouton carte personnage
-		int j = 0;
-		for (ImageView b : cartePerso) {
-			int compteur = j;
-			b.setOnMouseClicked(e -> {try {consulterSaCarte(compteur);} catch (IOException e1) {e1.printStackTrace();}});
-			j++;
-		}*/
-	
-		/*
-		//initialisation des pions
-		VBox pionLieux14 = (VBox) lieux.getChildren().get(0);
-		VBox pionLieux58 = (VBox) lieux.getChildren().get(4);
-		for (int k=0; k<4; k++) {
-			pionLieux.add((Circle) pionLieux14.getChildren().get(k));
-		}
-		for (int k=0; k<4; k++) {
-			pionLieux.add((Circle) pionLieux58.getChildren().get(k));
-		}
-		
-		VBox pionVie14 = (VBox) lieux.getChildren().get(0);
-		VBox pionVie58 = (VBox) lieux.getChildren().get(4);
-		for (int k=0; k<4; k++) {
-			pionVie.add((Circle) pionVie14.getChildren().get(k));
-		}
-		for (int k=0; k<4; k++) {
-			pionVie.add((Circle) pionVie58.getChildren().get(k));
-		}
-		
-		System.out.println("Tour du joueur 1");
-
-	    try {
-	    	final URL fxmlURL = getClass().getResource("../ressources/Jouer_tour(1)lancer_des.fxml");  
-		    final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.ENGLISH);
-		    final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
-			Pane root = fxmlLoader.load();
-			root.setPrefSize(255, 180);
-			tour.get(2).getChildren().setAll(root);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
 	
 	}
 	
@@ -211,9 +133,14 @@ public class PlateauController implements Initializable {
 		
 		StackPane sp = (StackPane) iv.getParent();
 		iv.setImage(im);
-		iv.fitHeightProperty().bind(sp.heightProperty());
+		Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+		iv.setFitWidth(RES*screenSize.width);
+		//iv.fitHeightProperty().bind(sp.heightProperty());
+		//iv.fitWidthProperty().bind(sp.widthProperty());
+		
+		iv.setPreserveRatio(true);
+		//iv.fitWidthProperty().bind(sp.widthProperty());
 	}
-	
 
 	private Pane getPaneJoueur(int i) {	
 		
@@ -415,6 +342,18 @@ public class PlateauController implements Initializable {
 		lzj.setImageView(this.getImageCarte(j.getCarteLieu()));
 		if(j instanceof JoueurVirtuel) lzj.fireBtnIA();
 		JoueurIHM jihm = getJoueurIHM(j);
+		if(jihm.getPosition()==4 || jihm.getPosition()==5) {
+			SplitPane s=(SplitPane)root.getChildren().get(0);
+		AnchorPane a=(AnchorPane)s.getItems().get(0);
+			VBox v= (VBox)a.getChildren().get(0);
+			AnchorPane b=(AnchorPane)s.getItems().get(1);
+			ImageView i= (ImageView)b.getChildren().get(0);
+
+			v.setRotate(180);
+			i.setRotate(180);
+			s.setRotate(180);
+		}
+		
 		jihm.setZoneJoueur(root);
 	}
 	public void afficherChoisirJoueur(Joueur j, List<Joueur> joueurs, Contexte contexte) throws IOException {
@@ -447,6 +386,17 @@ public class PlateauController implements Initializable {
 
 
 	public void afficherPiocher(Joueur j) throws IOException {
+		
+		final URL fxmlURL = getClass().getResource("/ihm/ressources/Jouer_tour(2b)piocher_carte.fxml");
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+		Pane root = (Pane)fxmlLoader.load();
+		//CartePiochable lzj =  fxmlLoader.getController();
+		//lzj.setImageView(this.getImageCarte(j.getCarteLieu()));
+		JoueurIHM jihm = getJoueurIHM(j);
+		jihm.setZoneJoueur(root);
+	}
+public void afficherEffet(Joueur j) throws IOException {
 		
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Jouer_tour(2b)piocher_carte.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
@@ -574,6 +524,18 @@ public class PlateauController implements Initializable {
 		lzj.setText("Cachez la carte vision");
 		if(j instanceof JoueurVirtuel) lzj.fireBtnIA();
 		JoueurIHM jihm = getJoueurIHM(j);
+		if(jihm.getPosition()==4 || jihm.getPosition()==5) {
+			SplitPane s=(SplitPane)root.getChildren().get(0);
+		AnchorPane a=(AnchorPane)s.getItems().get(0);
+			VBox v= (VBox)a.getChildren().get(0);
+			AnchorPane b=(AnchorPane)s.getItems().get(1);
+			ImageView i= (ImageView)b.getChildren().get(0);
+
+			v.setRotate(180);
+			i.setRotate(180);
+			s.setRotate(180);
+		}
+		jihm.getZoneJoueur();
 		jihm.setZoneJoueur(root);
 	
 	}

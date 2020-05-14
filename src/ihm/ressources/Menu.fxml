@@ -21,7 +21,7 @@
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onMouseClicked="#ouvrirParametres" styleClass="bouton" text="Paramètres">
+            <Button mnemonicParsing="false" onMouseClicked="#ouvrirParametres" styleClass="bouton" text="%parametre">
                <font>
                   <Font size="24.0" />
                </font>

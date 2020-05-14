@@ -252,7 +252,7 @@
                         <Insets bottom="25.0" />
                      </padding>
                   </GridPane>
-                  <HBox alignment="CENTER" prefHeight="366.0" prefWidth="1125.0" spacing="50.0">
+                  <HBox alignment="CENTER" maxWidth="1280.0" spacing="50.0">
                      <children>
                         <VBox alignment="TOP_CENTER">
                            <children>
@@ -290,14 +290,14 @@
                         </VBox>
                         <VBox alignment="CENTER" spacing="50.0">
                            <children>
-                              <GridPane alignment="CENTER" hgap="20.0">
+                              <GridPane alignment="CENTER" hgap="20.0" maxHeight="-Infinity" prefHeight="250.0">
                                  <columnConstraints>
                                     <ColumnConstraints hgrow="ALWAYS" />
                                     <ColumnConstraints />
                                     <ColumnConstraints hgrow="ALWAYS" />
                                  </columnConstraints>
                                  <rowConstraints>
-                                    <RowConstraints />
+                                    <RowConstraints vgrow="ALWAYS" />
                                  </rowConstraints>
                                  <children>
                                     <GridPane>
@@ -324,21 +324,21 @@
                                         <ColumnConstraints />
                                       </columnConstraints>
                                       <rowConstraints>
-                                        <RowConstraints />
+                                        <RowConstraints vgrow="ALWAYS" />
                                       </rowConstraints>
                                        <children>
-                                          <HBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" spacing="5.0" styleClass="lieux" stylesheets="@style/plateau.css">
+                                          <HBox alignment="CENTER" spacing="5.0" styleClass="lieux" stylesheets="@style/plateau.css">
                                              <children>
                                                 <StackPane HBox.hgrow="NEVER">
                                                    <children>
-                                                      <ImageView fitHeight="150.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" />
-                                                      <FlowPane prefHeight="150.0" prefWidth="63.0" styleClass="lieu" />
+                                                      <ImageView pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER" />
+                                                      <FlowPane styleClass="lieu" />
                                                    </children>
                                                 </StackPane>
-                                                <StackPane layoutX="39.0" layoutY="12.0" HBox.hgrow="NEVER">
+                                                <StackPane layoutX="39.0" layoutY="12.0" maxHeight="360.0" HBox.hgrow="NEVER">
                                                    <children>
-                                                      <ImageView fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
-                                                      <FlowPane prefHeight="150.0" prefWidth="13.0" />
+                                                      <ImageView pickOnBounds="true" preserveRatio="true" />
+                                                      <FlowPane />
                                                    </children>
                                                 </StackPane>
                                              </children>
@@ -353,14 +353,14 @@
                                              <children>
                                                 <StackPane HBox.hgrow="NEVER">
                                                    <children>
-                                                      <ImageView fitHeight="150.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true" />
-                                                      <FlowPane prefHeight="150.0" prefWidth="64.0" />
+                                                      <ImageView pickOnBounds="true" preserveRatio="true" />
+                                                      <FlowPane />
                                                    </children>
                                                 </StackPane>
                                                 <StackPane HBox.hgrow="NEVER">
                                                    <children>
-                                                      <ImageView fitHeight="150.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true" />
-                                                      <FlowPane prefHeight="150.0" prefWidth="69.0" />
+                                                      <ImageView pickOnBounds="true" preserveRatio="true" />
+                                                      <FlowPane />
                                                    </children>
                                                 </StackPane>
                                              </children>
@@ -370,16 +370,16 @@
                                           </HBox>
                                           <HBox alignment="TOP_CENTER" spacing="5.0" styleClass="lieux" stylesheets="@style/plateau.css" GridPane.columnIndex="2">
                                              <children>
-                                                <StackPane HBox.hgrow="NEVER">
+                                                <StackPane maxHeight="360.0" HBox.hgrow="NEVER">
                                                    <children>
-                                                      <ImageView fitHeight="150.0" fitWidth="111.0" pickOnBounds="true" preserveRatio="true" />
-                                                      <FlowPane prefHeight="150.0" prefWidth="81.0" />
+                                                      <ImageView pickOnBounds="true" preserveRatio="true" />
+                                                      <FlowPane />
                                                    </children>
                                                 </StackPane>
-                                                <StackPane HBox.hgrow="NEVER">
+                                                <StackPane maxHeight="360.0" HBox.hgrow="NEVER">
                                                    <children>
-                                                      <ImageView fitHeight="150.0" fitWidth="125.0" pickOnBounds="true" preserveRatio="true" />
-                                                      <FlowPane prefHeight="150.0" prefWidth="113.0" />
+                                                      <ImageView pickOnBounds="true" preserveRatio="true" />
+                                                      <FlowPane />
                                                    </children>
                                                 </StackPane>
                                              </children>

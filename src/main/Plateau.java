@@ -453,10 +453,11 @@ public class Plateau extends Thread{
 	}
 
 	public Joueur choisirParmisTous(Joueur joueur) {
-		List<Joueur> joueurs = this.getJoueurs();
+		List<Joueur> joueurs = new ArrayList<Joueur>();
+		joueurs.addAll(this.getJoueurs());
+		joueurs.remove(joueur);
 		return (Joueur) gj.choisir(joueur, joueurs, Joueur.class);
 	}
-
 
 	public void updateVieJoueur(Joueur joueur, int damage) {
 		gj.updateVieJoueur(joueur,damage);
