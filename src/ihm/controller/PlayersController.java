@@ -166,7 +166,7 @@ public class PlayersController implements Initializable{
 	public void commencerJeux(MouseEvent mouseEvent) throws IOException{
 		if (nbJoueursH + nbJoueursV >= 4) {
 			
-			if(textVide()==false && memeNom()==false && nomAutorise()==true) {
+			if(textVide()==false && memeNom()==false) {
 				
 			//ajout des joueurs finalement selectionner
 			int i = 0;
@@ -212,7 +212,7 @@ public class PlayersController implements Initializable{
 		        gj.lancerPartie();
 		}
 		else {
-			System.out.println("On ne peut pas prendre un nom vide ou prendre le même nom");
+			System.out.println("On ne peut pas prendre un nom vide ou prendre le même nom qu'un autre joueur");
 			
 		}
 		}
@@ -256,7 +256,7 @@ public class PlayersController implements Initializable{
 			nbJoueursH++;
 		}
 		
-		if (nbJoueursH + nbJoueursV >= 4 && memeNom()==false && textVide()==false && nomAutorise()==true) {
+		if (nbJoueursH + nbJoueursV >= 4 && memeNom()==false && textVide()==false) {
 			btnCommencer.setStyle("-fx-background-color: #1d1d1d; -fx-text-fill: #d8d8d8;");
 		}
 	}
@@ -330,7 +330,7 @@ public class PlayersController implements Initializable{
 	}
 	public boolean textVide() {
 		for(int i=0;i<txt.size();i++) {
-			if(txt.get(i).isEditable() && txt.get(i).getText().equals("")) {
+			if(txt.get(i).isEditable() && txt.get(i).getText().equals("") || txt.get(i).isEditable() && txt.get(i).getText().isBlank()) {
 				return true;
 			}
 		}
@@ -342,7 +342,7 @@ public class PlayersController implements Initializable{
 		
 		
 
-		if (nbJoueursH + nbJoueursV >= 4 && memeNom()==false && textVide()==false && nomAutorise()==true) {
+		if (nbJoueursH + nbJoueursV >= 4 && memeNom()==false && textVide()==false) {
 		btnCommencer.setStyle("-fx-background-color: #1d1d1d; -fx-text-fill: #d8d8d8;");
 		}
 		else
@@ -375,7 +375,7 @@ public class PlayersController implements Initializable{
 		}
 		return false;
 	}
-	public boolean nomAutorise() {
+/*	public boolean nomAutorise() {
 	
 		int i=0;
 		while(i<txt.size()) {
@@ -387,7 +387,7 @@ public class PlayersController implements Initializable{
 		
 		return true;
 
-	}
+	}*/
 	@FXML
 	public void retour(MouseEvent me) throws IOException {
 		InputStream fileSound1 =  getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
