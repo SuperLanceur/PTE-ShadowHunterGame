@@ -282,7 +282,8 @@ public class PlateauController implements Initializable {
 			case ATTAQUER :
 				cb.fireBtnIAattaquer((JoueurVirtuel)j, j.getJoueursRange());
 				break;
-			default:
+			case CHOISIR_VISION :
+				cb.fireBtnIAVision();;
 				break;
 			}
 		}
@@ -511,8 +512,18 @@ public void afficherEffet(Joueur j) throws IOException {
 				pu.getStage().hide();
 			}
 		});	
-		
+		if(j instanceof JoueurVirtuel) {
+			System.out.println("here");
+			Timeline timeline = new Timeline(new KeyFrame(Duration.millis(3000), ae -> {
+				GestionnaireJeu.notifyPlateau();
+				pu.getStage().hide();
+
+			}));
+			timeline.play();
+		}		
+		System.out.println("j is instance of "+j);
 		pu.display();
+		
 	}
 	
 	public void afficherVision(Joueur j, CartePiochable cartePiochable) throws IOException {
