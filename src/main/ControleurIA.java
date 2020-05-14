@@ -28,6 +28,8 @@ public class ControleurIA {
 	// precondition 2 : on n'appellera pas cette methode si jIA est seul sur le lieu
 	public boolean choixSiAttaquer(JoueurVirtuel jIA, List<Joueur> joueursLieu) {
 		double res = getRandomPercentage();
+		System.out.println(res);
+		System.out.println(joueursLieu);
 		if (getEnnemisJoueurs(jIA, joueursLieu).size() > 0) {
 			int diff = jIA.getDifficulte();
 			switch (diff) {

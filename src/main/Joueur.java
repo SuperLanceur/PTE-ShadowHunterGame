@@ -272,4 +272,8 @@ public class Joueur {
 	public boolean isMetamorph() {
 		return this.cartePersonnage instanceof Metamorphe;
 	}
+
+	public Joueur choisir(List<Joueur> adjacents, Contexte attaquer) {
+		return this.plateau.choisir(this,adjacents, attaquer);
+	}
 }

@@ -49,7 +49,6 @@ public class Main extends Application {
 		RessourceLoader rl = new RessourceLoader();
 		rl.loadRessources();
 		gj.setRessourceLoader(rl);
-		
 		launch(args);
 	}
 }

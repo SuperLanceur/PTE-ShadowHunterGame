@@ -2,6 +2,7 @@ package main;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import carte.CarteEquipement;
 import carte.CarteEquipementStat;
@@ -50,6 +51,9 @@ public class JoueurVirtuel extends Joueur {
 			break;
 		case EFFET_POSITIF_SUR_AUTRES:
 			res = choisirJoueurAmi(joueurs);
+			break;
+		case CHOISIR_VISION:
+			res = joueurs.get((int) Math.floor(Math.random() * joueurs.size())); // a revoir inshallah
 			break;
 		default:
 			res = null; // faire exception?

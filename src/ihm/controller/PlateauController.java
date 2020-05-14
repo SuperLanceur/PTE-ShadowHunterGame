@@ -42,6 +42,7 @@ import javafx.util.Duration;
 import main.Contexte;
 import main.GestionnaireJeu;
 import main.Joueur;
+import main.JoueurVirtuel;
 
 public class PlateauController implements Initializable {
 	
@@ -333,7 +334,7 @@ public class PlateauController implements Initializable {
 		
 		this.ld=new LancerDes(typeDice,rolls,c);
 		JoueurIHM jihm = getJoueurIHM(joueur);
-		jihm.setZoneJoueur(ld.initLancer());
+		jihm.setZoneJoueur(ld.initLancer(joueur));
 	}
 
 	public void afficherChoisir(Joueur j, Contexte contexte) throws IOException {
@@ -342,6 +343,19 @@ public class PlateauController implements Initializable {
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane root = (Pane)fxmlLoader.load();
 		this.cb = fxmlLoader.getController();
+		cb.setTitre(contexte);
+		if(j instanceof JoueurVirtuel) {
+			switch(contexte) {
+			case ACTIVER_EFFET_LIEU :
+				cb.fireBtnIAEffetLieu();
+				break;
+			case ATTAQUER :
+				cb.fireBtnIAattaquer((JoueurVirtuel)j, j.getJoueursAdjacents());
+				break;
+			default:
+				break;
+			}
+		}
 		JoueurIHM jihm = getJoueurIHM(j);
 		jihm.setZoneJoueur(root);
 	}
@@ -399,6 +413,7 @@ public class PlateauController implements Initializable {
 		Pane root = (Pane)fxmlLoader.load();
 		LieuZJ lzj =  fxmlLoader.getController();
 		lzj.setImageView(this.getImageCarte(j.getCarteLieu()));
+		if(j instanceof JoueurVirtuel) lzj.fireBtnIA();
 		JoueurIHM jihm = getJoueurIHM(j);
 		jihm.setZoneJoueur(root);
 	}
@@ -411,8 +426,11 @@ public class PlateauController implements Initializable {
 		List<JoueurIHM> joueursIHM = toJoueursIHM(joueurs);
 		
 		this.cj = fxmlLoader.getController();
+		cj.setTitre(contexte);
 		this.cj.setListJoueursIHM(joueursIHM);
 		this.cj.initButtons();
+		if(j instanceof JoueurVirtuel)
+			cj.fireBtnIA((JoueurVirtuel)j, contexte);
 		JoueurIHM jihm = getJoueurIHM(j);
 		jihm.setZoneJoueur(root);
 	}
@@ -554,6 +572,7 @@ public class PlateauController implements Initializable {
 		Image im = getImageCarte(cartePiochable);
 		lzj.setImageView(im);
 		lzj.setText("Cachez la carte vision");
+		if(j instanceof JoueurVirtuel) lzj.fireBtnIA();
 		JoueurIHM jihm = getJoueurIHM(j);
 		jihm.setZoneJoueur(root);
 	

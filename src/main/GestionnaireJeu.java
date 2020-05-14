@@ -116,9 +116,14 @@ public class GestionnaireJeu {
 		if(cls == CarteEquipement.class) {
 			return choisirEquipementVole(joueur, (List<CarteEquipement>) list);
 		}else if(cls == Joueur.class) {
-			return choisirJoueur(joueur, (List<Joueur>) list, Contexte.ACTIVER_EFFET_LIEU);
+			return choisirJoueur(joueur, (List<Joueur>) list, Contexte.CHOISIR_VISION);
 		}
 		return list.get(0);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public Object choisir(Joueur joueur, List<?> list, Contexte c) {
+			return choisirJoueur(joueur, (List<Joueur>) list, c);
 	}
 	
 	public CarteEquipement choisirEquipementVole(Joueur joueur, List<CarteEquipement> lce) {

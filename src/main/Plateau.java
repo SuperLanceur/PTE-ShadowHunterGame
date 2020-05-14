@@ -289,7 +289,7 @@ public class Plateau extends Thread{
 			if(currentJoueur.choisir(Contexte.ATTAQUER)){
 				if(currentJoueur.hasOpponents()) {
 					List<Joueur> adjacents = currentJoueur.getJoueursRange();
-					Joueur cible = (Joueur) currentJoueur.choisir(adjacents,Joueur.class);
+					Joueur cible = (Joueur) currentJoueur.choisir(adjacents,Contexte.ATTAQUER);
 					attaquer(currentJoueur,cible);
 					if(isPartieTerminee()) break;
 				}else {
@@ -368,7 +368,7 @@ public class Plateau extends Thread{
 	public int roll6(Joueur j) {
 		
 		int roll = this.rollRandom(6);
-		gj.rollDice(j, PlateauController.DICE_QUATRE, roll);
+		gj.rollDice(j, PlateauController.DICE_SIX, roll);
 		return roll;
 	}
 	
@@ -385,7 +385,7 @@ public class Plateau extends Thread{
 		int roll6 = rollRandom(6);
 		int sum = Math.abs(roll4+roll6);
 		gj.rollDice(j, PlateauController.DICE_BOTH, roll4,roll6);
-		return 3;
+		return sum;
 		//return Math.abs(roll4+roll6);
 	}
 	
@@ -479,5 +479,9 @@ public class Plateau extends Thread{
 	public void retirerEquipementIHM(Joueur joueur, CarteEquipement e) {
 		gj.retirerEquipement(joueur,e);
 		
+	}
+
+	public Joueur choisir(Joueur joueur, List<Joueur> adjacents, Contexte attaquer) {
+		return gj.choisirJoueur(joueur, adjacents, attaquer);
 	}
 }
