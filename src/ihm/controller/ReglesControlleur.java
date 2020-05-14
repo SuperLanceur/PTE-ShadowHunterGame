@@ -100,7 +100,7 @@ public class ReglesControlleur implements Initializable {
 		EffetSonore.playSoundEffect(fileSound1);
 		System.out.println("Retour au Menu");
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		AnchorPane pane = fxmlLoader.load();
 		Scene scene = new Scene(pane);

@@ -204,7 +204,7 @@ public class PlateauController implements Initializable {
 	public void seReveler(int numJoueur) throws IOException {
 		System.out.println(listJoueur.get(numJoueur).getNom() + " se revele");
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Reveler_son_identite.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Parent root = fxmlLoader.load();
 
@@ -232,7 +232,7 @@ public class PlateauController implements Initializable {
 	public void consulterSaCarte(int numJoueur) throws IOException {
 		System.out.println(listJoueur.get(numJoueur).getNom() + " consulte sa carte");
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/afficher_carte_perso.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Parent root = fxmlLoader.load();
 
@@ -267,7 +267,7 @@ public class PlateauController implements Initializable {
 
 	public void afficherChoisir(Joueur j, Contexte contexte) throws IOException {
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/choisirBoolean.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane root = (Pane) fxmlLoader.load();
 		this.cb = fxmlLoader.getController();
@@ -292,7 +292,7 @@ public class PlateauController implements Initializable {
 
 	public void afficherChoisirEquipementVole(Joueur j, List<CarteEquipement> lce) throws IOException {
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Jouer_tour(2a)voler_equipement.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane root = (Pane) fxmlLoader.load();
 		this.ce = fxmlLoader.getController();
@@ -307,7 +307,7 @@ public class PlateauController implements Initializable {
 	public void afficherAlterationVie(Joueur j, int valeur) throws IOException, InterruptedException {
 
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/AlterationVieZJ.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane root = (Pane) fxmlLoader.load();
 		AlterationVieZJ avzj = fxmlLoader.getController();
@@ -336,7 +336,7 @@ public class PlateauController implements Initializable {
 	public void afficherLieu(Joueur j) throws IOException {
 
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/LieuZJ.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane root = (Pane) fxmlLoader.load();
 		LieuZJ lzj = fxmlLoader.getController();
@@ -361,7 +361,7 @@ public class PlateauController implements Initializable {
 
 	public void afficherChoisirJoueur(Joueur j, List<Joueur> joueurs, Contexte contexte) throws IOException {
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/choixJoueurAttq.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane root = (Pane) fxmlLoader.load();
 
@@ -391,7 +391,7 @@ public class PlateauController implements Initializable {
 	public void afficherPiocher(Joueur j) throws IOException {
 
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Jouer_tour(2b)piocher_carte.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		
 		Pane root = (Pane)fxmlLoader.load();
@@ -402,7 +402,7 @@ public class PlateauController implements Initializable {
 	public void afficherEffet(Joueur j) throws IOException {
 		
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Jouer_tour(2b)piocher_carte.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane root = (Pane)fxmlLoader.load();
 		
@@ -461,7 +461,7 @@ public class PlateauController implements Initializable {
 
 		System.out.println("Jeu en pause ...");
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Pause.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane root = (Pane) fxmlLoader.load();
 
@@ -491,7 +491,7 @@ public class PlateauController implements Initializable {
 
 	public void close() throws IOException {
 		final URL fxmlURL = PlateauController.class.getResource("/ihm/ressources/Menu.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane pane = fxmlLoader.load();
 		rootPane.getChildren().setAll(pane);
@@ -522,7 +522,7 @@ public class PlateauController implements Initializable {
 	public void afficherVision(Joueur j, CartePiochable cartePiochable) throws IOException {
 
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/RecevoirCarte.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane root = (Pane) fxmlLoader.load();
 		RecevoirCarte lzj = fxmlLoader.getController();

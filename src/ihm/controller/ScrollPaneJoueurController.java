@@ -29,7 +29,7 @@ public class ScrollPaneJoueurController implements Initializable{
 	public void changeZoneJoueurToMenuJoueur(MouseEvent me) throws IOException {
 		
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/MenuJoueur.fxml");
-		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRENCH);
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		BorderPane bp = fxmlLoader.load();
 		ImageView iv = ((ImageView)me.getSource());	
