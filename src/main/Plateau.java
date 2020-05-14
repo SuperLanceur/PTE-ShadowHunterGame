@@ -14,7 +14,6 @@ import carte.CarteLieuMultiple;
 import carte.CarteLieuType;
 import carte.CartePiochable;
 import database.RessourceLoader;
-import effet.Effet;
 import effet.EffetChoisirCible;
 import effet.EffetChoisirEffet;
 import effet.EffetSelf;
@@ -23,6 +22,7 @@ import effet.action.ActionVoler;
 import ihm.controller.PlateauController;
 import personnage.Allie;
 import personnage.CartePersonnage;
+import personnage.CartePersonnage.Equipe;
 import personnage.Franklin;
 import personnage.Vampire;
 
@@ -40,6 +40,7 @@ public class Plateau extends Thread{
 	public static final String NB_MORTS_HUNTER = "nb_morts_hunter";
 	public static final String NB_MORTS_SHADOW = "nb_morts_shadow";
 	public static final String PARTIE_FINIE = "partie_finie";
+	public static final String WIN_CHARLES = "victoire_charles";
 	
 	private Map<String, Integer> stats;
 	
@@ -262,53 +263,44 @@ public class Plateau extends Thread{
 		int nbJoueurs = this.joueurs.size();
 		int i = 0;
 		
-		while(true) {
+		while(!isPartieTerminee()) {
 			
-			System.out.println(joueurs.size());
-			Joueur currentJoueur = this.joueurs.get(i % nbJoueurs);
-			System.out.println("\n\n\n\n\n");
-			System.out.println("Au tour de "+currentJoueur.getNom());
-			System.out.println("Lancement des dés.");
-			deplacer(currentJoueur);
-			if(isPartieTerminee()) break;
-			System.out.println("Vous êtes désormais sur le lieu "+currentJoueur.getCarteLieu().getNom());
-			System.out.println("Voulez vous activer l'effet du lieu ?");
-			gj.afficherLieu(currentJoueur);
+			Joueur currentJoueur = this.joueurs.get(i % nbJoueurs);		
 			
-			if(currentJoueur.choisir(Contexte.ACTIVER_EFFET_LIEU)) {
-				System.out.println("Vous activez l'effet du lieu.");
-				System.out.println("Vous avez "+currentJoueur.getStat(Joueur.PLAYER_HP)+" pv");
-				currentJoueur.utiliserEffetLieu();
-				System.out.println("Vous passez a "+currentJoueur.getStat(Joueur.PLAYER_HP)+" pv");
+			if(!currentJoueur.isDead()) {	
+			
+				deplacer(currentJoueur);
 				if(isPartieTerminee()) break;
-			}
-	
-			System.out.println("\n");
-			
-			System.out.println("Souhaitez vous attaquer quelqu'un ?");
-			if(currentJoueur.choisir(Contexte.ATTAQUER)){
-				if(currentJoueur.hasOpponents()) {
-					List<Joueur> adjacents = currentJoueur.getJoueursRange();
-					Joueur cible = (Joueur) currentJoueur.choisir(adjacents,Contexte.ATTAQUER);
-					attaquer(currentJoueur,cible);
+				gj.afficherLieu(currentJoueur);
+				
+				if(currentJoueur.choisir(Contexte.ACTIVER_EFFET_LIEU)) {
+					currentJoueur.utiliserEffetLieu();
 					if(isPartieTerminee()) break;
-				}else {
-					System.out.println("Il n'y a personne a attaquer.");
 				}
+	
+				if(currentJoueur.choisir(Contexte.ATTAQUER)){
+					if(currentJoueur.hasOpponents()) {
+						List<Joueur> adjacents = currentJoueur.getJoueursRange();
+						Joueur cible = (Joueur) currentJoueur.choisir(adjacents,Contexte.ATTAQUER);
+						attaquer(currentJoueur,cible);
+						if(isPartieTerminee()) break;
+					}else {
+						System.out.println("Il n'y a personne a attaquer.");
+					}
+				}
+				i++;
 			}
-			i++;
 		}
 		
 		List<Joueur> gagnants = new ArrayList<Joueur>();
 		
+		System.out.println(this.stats);
 		for(Joueur j : joueurs) {
 			if(j.victoire()) {
 				gagnants.add(j);
+				System.out.println("CartePersonnage "+j.getCartePersonnage()+" Stats "+j.getStats());
 			}
-		}
-		
-		// TODO Liste des gagnants
-		// TODO Evaluate every winners
+		}	
 	}
 	
 	public boolean isPartieTerminee() {
@@ -445,17 +437,31 @@ public class Plateau extends Thread{
 		CarteLieu cl = joueur.getCarteLieu();
 		
 		joueurs.addAll(cl.getJoueurs());
-		joueurs.remove(joueur);
 		joueurs.addAll(cl.getJoueursAdjacents());
+		joueurs.remove(joueur);
 		
+		removeDeads(joueurs);
 		return (Joueur) gj.choisir(joueur, joueurs, Joueur.class);
 	}
 
+
+	private void removeDeads(List<Joueur> joueurs) {
+		
+		List<Joueur> toRemove = new ArrayList<Joueur>();
+		for(Joueur j : joueurs) {
+		
+			if(j.isDead()) {
+				toRemove.add(j);
+			}		
+		}
+		joueurs.removeAll(toRemove);
+	}
 
 	public Joueur choisirParmisTous(Joueur joueur) {
 		List<Joueur> joueurs = new ArrayList<Joueur>();
 		joueurs.addAll(this.getJoueurs());
 		joueurs.remove(joueur);
+		removeDeads(joueurs);
 		return (Joueur) gj.choisir(joueur, joueurs, Joueur.class);
 	}
 
@@ -484,5 +490,40 @@ public class Plateau extends Thread{
 
 	public Joueur choisir(Joueur joueur, List<Joueur> adjacents, Contexte attaquer) {
 		return gj.choisirJoueur(joueur, adjacents, attaquer);
+	}
+
+	public void death(Joueur joueur) {
+		
+		Equipe ej = joueur.getEquipe();
+		
+		switch(ej) {
+		case SHADOW:
+			this.updateStat(NB_MORTS_SHADOW,1,true);
+			break;
+		case HUNTER:
+			this.updateStat(NB_MORTS_HUNTER,1,true);
+			break;
+		case NEUTRE:
+			this.updateStat(NB_MORTS_NEUTRAL,1,true);
+			break;}
+		
+		this.updateStat(NB_MORTS,1,true);
+		
+		}
+
+	private void updateStat(String key , int value, boolean ajouter) {
+		if(ajouter) {
+			int valeurBase = this.getStat(key);
+			this.setStat(key, valeurBase+value);
+		}else {
+			this.setStat(key, value);
+		}
+		
+	}
+
+	public void victoire(Joueur joueur) {
+		if(joueur.victoire()) {
+			this.updateStat(PARTIE_FINIE, 1, false);
+		}
 	}
 }

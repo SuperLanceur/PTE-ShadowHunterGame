@@ -15,7 +15,6 @@ import carte.CartePiochable;
 import carte.CartePiochable.Type;
 import carte.CarteVision;
 import database.RessourceLoader;
-import effet.Effet;
 import effet.action.Action;
 import ihm.controller.PlateauController;
 import javafx.application.Platform;

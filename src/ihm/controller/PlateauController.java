@@ -396,19 +396,17 @@ public class PlateauController implements Initializable {
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane root = (Pane)fxmlLoader.load();
-		//CartePiochable lzj =  fxmlLoader.getController();
-		//lzj.setImageView(this.getImageCarte(j.getCarteLieu()));
 		JoueurIHM jihm = getJoueurIHM(j);
 		jihm.setZoneJoueur(root);
 	}
-public void afficherEffet(Joueur j) throws IOException {
+	
+	public void afficherEffet(Joueur j) throws IOException {
 		
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Jouer_tour(2b)piocher_carte.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane root = (Pane)fxmlLoader.load();
-		//CartePiochable lzj =  fxmlLoader.getController();
-		//lzj.setImageView(this.getImageCarte(j.getCarteLieu()));
+
 		JoueurIHM jihm = getJoueurIHM(j);
 		jihm.setZoneJoueur(root);
 	}
@@ -460,7 +458,7 @@ public void afficherEffet(Joueur j) throws IOException {
 		
 		InputStream fileSound1 =  getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
 		EffetSonore.playSoundEffect(fileSound1);
-		
+
 		System.out.println("Jeu en pause ...");
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Pause.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
@@ -542,16 +540,14 @@ public void afficherEffet(Joueur j) throws IOException {
 			VBox v= (VBox)a.getChildren().get(0);
 			AnchorPane b=(AnchorPane)s.getItems().get(1);
 			ImageView i= (ImageView)b.getChildren().get(0);
-			
+		
 			v.setRotate(180);
 			i.setRotate(180);
 			s.setRotate(180);
 		}
 		jihm.getZoneJoueur();
 		jihm.setZoneJoueur(root);
-	
 	}
-
 
 	public Map<String,BufferedImage> getMapRessourcesDosCartes() {
 		return mapRessourcesDosCartes;
@@ -565,13 +561,13 @@ public void afficherEffet(Joueur j) throws IOException {
 	
 	public void afficherChoisirAction(Joueur joueur, List<Action> list) {
 		
-
 		List<Button> buttons = new ArrayList<Button>();
 		
 		for(Action a : list) {
 			Button button = interpret(a);
 			buttons.add(button);
 			button.setOnAction(x -> {	
+				
 			this.choixAction = a;
 			GestionnaireJeu.notifyPlateau();
 		});

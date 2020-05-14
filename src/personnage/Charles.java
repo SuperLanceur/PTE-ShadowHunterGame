@@ -1,9 +1,12 @@
 package personnage;
 
+import condition.Condition;
+import condition.ConditionStatistiques;
 import effet.Effet;
 import effet.EffetSelf;
 import effet.action.Action;
 import effet.action.ActionAltererStatistiquesJoueur;
+import main.Contexte;
 import main.Joueur;
 import main.Plateau;
 
@@ -15,7 +18,10 @@ public class Charles extends CartePersonnage{
 		Action action = new ActionAltererStatistiquesJoueur("HP",-2,true);
 		Effet effet = new EffetSelf(action);
 		this.setEffet(effet);
-
+		
+		Condition winCondition = new ConditionStatistiques(ConditionStatistiques.PLATEAU, Plateau.WIN_CHARLES, 1, ConditionStatistiques.EQUAL);
+		this.setCondition(winCondition);
+		
 	}
 
 	public Charles() {
@@ -24,6 +30,9 @@ public class Charles extends CartePersonnage{
 		Action action = new ActionAltererStatistiquesJoueur("HP",-2,true);
 		Effet effet = new EffetSelf(action);
 		this.setEffet(effet);
+		
+		Condition winCondition = new ConditionStatistiques(ConditionStatistiques.PLATEAU, Plateau.WIN_CHARLES, 1, ConditionStatistiques.EQUAL);
+		this.setCondition(winCondition);
 	}
 
 	@Override
@@ -32,20 +41,22 @@ public class Charles extends CartePersonnage{
 		Joueur joueur = this.getJoueur();
 		super.attaquer(j, blessure);
 		
-		if(joueur.getStat(Joueur.PLAYER_HP) > 2 && joueur.getRevele()){
+		if(joueur.getStat(Joueur.PLAYER_HP) > 2 && joueur.getRevele() 
+				&& joueur.choisir(Contexte.EFFET_CHARLES)){
 			
 			Plateau p = j.getPlateau();
 			utiliser(joueur);
 			p.attaquer(this.getJoueur(), j);
-		}	
+		}
+		
+		Plateau p = j.getPlateau();
+		if(j.isDead() && (p.getStat(Plateau.NB_MORTS) >= 3)) {
+			p.setStat(Plateau.WIN_CHARLES, 1);
+		}
 	}
-	
+
+	@Override
 	public void utiliser() {
 		
-		/*
-		System.out.println("vie avant : " + this.getJoueur().getCartePersonnage().getPv());
-		this.getJoueur().setStat("HP", this.getJoueur().getStat("HP") - 2);
-		System.out.println("vie apres : " + this.getJoueur().getCartePersonnage().getPv());
-		*/
 	}
 }
