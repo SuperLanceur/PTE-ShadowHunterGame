@@ -3,6 +3,7 @@ import java.net.URL;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+import database.CreatingCardsTest;
 import database.RessourceLoader;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -40,9 +41,8 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) {
-		
+		CreatingCardsTest.init();
 		GestionnaireJeu gj = GestionnaireJeu.getGestionnaireJeu();
-		
 		RessourceLoader rl = new RessourceLoader();
 		rl.loadRessources();
 		gj.setRessourceLoader(rl);

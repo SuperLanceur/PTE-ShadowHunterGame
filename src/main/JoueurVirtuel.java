@@ -59,10 +59,10 @@ public class JoueurVirtuel extends Joueur {
 			res = choisirJoueurAmi(joueurs);
 			break;
 		case CHOISIR_VISION:
-			res = joueurs.get((int) Math.floor(Math.random() * joueurs.size())); // a revoir inshallah
+			res = choisirJoueurEnnemi(joueurs); // a revoir inshallah
 			break;
 		default:
-			res = null; // faire exception?
+			res = choisirJoueurEnnemi(joueurs); // faire exception?
 		}
 		return res;
 	}

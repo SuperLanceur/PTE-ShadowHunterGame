@@ -41,7 +41,7 @@ import personnage.Vampire;
 
 public class CreatingCardsTest {
 
-	public static void main(String[] args) {
+	public static void init() {
 		
 		// Lumière
 		

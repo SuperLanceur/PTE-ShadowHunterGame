@@ -626,4 +626,9 @@ public class PlateauController implements Initializable {
 		jihm.reveler();
 	}
 
+	public void utiliserCapacite(Joueur joueur) {
+		JoueurIHM jihm = getJoueurIHM(joueur);
+		jihm.getRevealButton().fire();
+	}
+
 }

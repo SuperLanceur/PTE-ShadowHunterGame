@@ -371,4 +371,10 @@ public class GestionnaireJeu {
 			pc.revealJoueur(joueur);
 		});
 	}
+
+	public void utiliserCapacite(Joueur joueur) {
+		Platform.runLater(() -> {
+			pc.utiliserCapacite(joueur);
+		});		
+	}
 }
