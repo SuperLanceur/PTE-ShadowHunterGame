@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import carte.Carte;
 import carte.CarteEquipement;
@@ -364,9 +365,8 @@ public class Plateau extends Thread{
 	}
 	
 	private int rollRandom(int nb) {
-		
-		int roll = (int) Math.floor(Math.random() * (nb))+1;
-		System.out.println("roll" + roll);
+		Random r= new Random();
+		int roll = r.nextInt(nb)+1;
 		return roll;
 	}
 
@@ -376,13 +376,12 @@ public class Plateau extends Thread{
 		int roll4 = 0;
 		int roll6 = 0;
 	
-		roll4 =rollRandom(4);
+		roll4 = rollRandom(4);
 		roll6 = rollRandom(6);
 		sum = Math.abs(roll4+roll6);
 	
 		gj.rollDice(j, PlateauController.DICE_BOTH, roll4,roll6);
-		return 3;
-		//return sum;
+		return sum;
 	}
 	
 	public List<Joueur> getJoueurs() {
