@@ -1,3 +1,4 @@
+
 package personnage;
 
 import condition.WinConditionHunter;

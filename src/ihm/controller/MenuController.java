@@ -66,6 +66,10 @@ public class MenuController  implements Initializable{
     }
 	@FXML
     public void quitterLappli(MouseEvent mouseEvent) throws IOException{
+		
+		InputStream fileSound1 =  getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");		
+		EffetSonore.playSoundEffect(fileSound1);
+		
          System.exit(0);
     }
 	

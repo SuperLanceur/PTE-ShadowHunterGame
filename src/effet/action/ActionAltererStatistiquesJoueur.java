@@ -46,7 +46,7 @@ public class ActionAltererStatistiquesJoueur extends Action{
 		{
 			j2.addToStat(key, valeur);
 		}else {
-			j2.setStat(key, valeur);
+			j2.updateStat(key, valeur);
 		}
 	}
 	
@@ -82,6 +82,6 @@ public class ActionAltererStatistiquesJoueur extends Action{
 			mot2 = " le ";
 		}
 	
-		return mot1+" "+valeur+" "+key+mot2+"joueur"; 
+		return mot1+" "+Math.abs(valeur)+" "+key+mot2+"joueur"; 
 	}
 }

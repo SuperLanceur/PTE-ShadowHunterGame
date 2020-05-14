@@ -239,9 +239,11 @@ public class PlayersController implements Initializable{
 			listeIaLv2.get(indice).setVisible(true);
 			listeIaLv3.get(indice).setVisible(true);
 			
+			plus.get(indice).setDisable(true);
 			
 			nbJoueursV++;
 		}else {
+			ia.get(indice).setVisible(false);
 			nbJoueursH++;
 		}
 		
@@ -275,7 +277,8 @@ public class PlayersController implements Initializable{
 			nbJoueursH--;
 		}
 		
-		
+		ia.get(indice).setVisible(true);
+		plus.get(indice).setDisable(false);
 		listeIaLv1.get(indice).setVisible(false);
 		listeIaLv2.get(indice).setVisible(false);
 		listeIaLv3.get(indice).setVisible(false);

@@ -120,7 +120,7 @@ public class CreatingCardsTest {
 			// Ténèbre
 			
 			// Araignée Sanguinaire
-			/*
+			
 			DatabaseManager.queryInsertObject(17, new CartePiochable(CartePiochable.Type.TENEBRE,new EffetMultiple(new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -2, true)),
 					new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -2, true)))));
 			
@@ -135,18 +135,18 @@ public class CreatingCardsTest {
 			
 			DatabaseManager.queryInsertObject(20, new CartePiochable(CartePiochable.Type.TENEBRE,new EffetMultiple(new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -2, true)),
 					new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, 1, true)))));
-			*/
+			
 			// Dynamite
 			
 			// 21
 			
 			
 			// Hache tueuse
-			for(int i = 0; i <= 2; i++) {
-				DatabaseManager.queryInsertObject(22+i,new CarteEquipementStat(CartePiochable.Type.TENEBRE,
+			
+			DatabaseManager.queryInsertObject(22,new CarteEquipementStat(CartePiochable.Type.TENEBRE,
 						new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_DAMAGE, 1, true))));
-			}
-			/*
+			
+			
 			DatabaseManager.queryInsertObject(22,new CarteEquipementStat(CartePiochable.Type.TENEBRE,
 					new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_DAMAGE, 1, true))));
 			
@@ -171,7 +171,7 @@ public class CreatingCardsTest {
 					));
 
 			// 29
-			*/
+			
 			DatabaseManager.queryInsertObject(30,new CartePiochable(CartePiochable.Type.TENEBRE,
 					new EffetChoisirCible(new ActionVoler(ActionVoler.VOLER))));
 			
