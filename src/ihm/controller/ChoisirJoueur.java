@@ -120,6 +120,9 @@ public class ChoisirJoueur implements Initializable {
 		case CHOISIR_VISION:
 			titre.setText("Choisissez le joueur à qui passer la carte vision!");
 			break;
+		case VOLER_EQUIP:
+			titre.setText("Choisissez le joueur à qui voler un equipement!");
+			break;
 		default:
 		}
 	}

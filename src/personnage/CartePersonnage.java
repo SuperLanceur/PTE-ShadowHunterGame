@@ -1,6 +1,7 @@
 package personnage;
 
 import carte.CarteCondition;
+import condition.Condition;
 import main.Joueur;
 
 public abstract class CartePersonnage extends CarteCondition {
@@ -19,7 +20,6 @@ public abstract class CartePersonnage extends CarteCondition {
 			super(nom, description);
 			this.pv = pv;
 			this.joueur = joueur;
-			
 		}
 
 		public abstract void utiliser();

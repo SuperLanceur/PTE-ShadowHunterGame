@@ -27,7 +27,7 @@
                   <Font size="48.0" />
                </font>
             </Label>
-            <Button fx:id="btnStop" layoutX="105.0" layoutY="144.0" mnemonicParsing="false" text="Stop" />
+            <Button fx:id="btnStop" layoutX="105.0" layoutY="144.0" mnemonicParsing="false" text="%stop" underline="true" />
          </children>
       </Pane>
    </children>

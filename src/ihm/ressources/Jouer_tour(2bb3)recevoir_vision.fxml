@@ -6,12 +6,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="255.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="255.0" stylesheets="@style/popUp.css">
          <children>
-            <Label contentDisplay="CENTER" layoutX="77.0" layoutY="90.0" prefHeight="27.0" prefWidth="102.0" text="Il ne se passe rien." textAlignment="CENTER" />
+            <Label contentDisplay="CENTER" layoutX="77.0" layoutY="90.0" prefHeight="27.0" prefWidth="102.0" text="%se.passe.rien" textAlignment="CENTER" />
             <HBox alignment="CENTER" layoutY="62.0" prefHeight="21.0" prefWidth="255.0">
                <children>
                   <Label text="%joueur" />

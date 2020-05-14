@@ -1,11 +1,13 @@
 package ihm.controller;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import carte.CarteEquipement;
 import database.RessourceLoader;
+import ihm.EffetSonore;
 import ihm.ImageViewEquipement;
 import javafx.application.Platform;
 import javafx.scene.Node;
@@ -77,6 +79,10 @@ public class JoueurIHM {
 	}
 	
 	private void actionReveler(Button btn) {
+		
+		InputStream fileSound1 =  getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");		
+		EffetSonore.playSoundEffect(fileSound1);
+		
 		ImageView iv = this.getCartePersonnage();
 		System.out.println(this.joueur.getCartePersonnage());
 		Image im = this.pc.getImageCarte(this.joueur.getCartePersonnage());
@@ -106,7 +112,6 @@ public class JoueurIHM {
 				iv.fitHeightProperty().bind(gp.heightProperty());
 				iv.fitHeightProperty().bind(gp.heightProperty());
 			}
-
 		});
 
 		iv.setOnMouseReleased(release -> {
@@ -141,6 +146,9 @@ public class JoueurIHM {
 	
 	private void utiliserCapacite() {
 
+		InputStream fileSound1 =  getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");		
+		EffetSonore.playSoundEffect(fileSound1);
+		
 		AnchorPane save = getZoneJoueur();
 		joueur.utiliserCapacite();
 		Pane pane = null;

@@ -31,7 +31,7 @@
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onMouseClicked="#quitterLappli" styleClass="bouton" text="Quitter">
+            <Button mnemonicParsing="false" onMouseClicked="#quitterLappli" styleClass="bouton" text="%quitter">
                <font>
                   <Font size="24.0" />
                </font>

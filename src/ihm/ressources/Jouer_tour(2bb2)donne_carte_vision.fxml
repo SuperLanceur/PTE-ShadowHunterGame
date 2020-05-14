@@ -78,7 +78,7 @@
                   </Button>
                </children>
             </HBox>
-            <Label fx:id="titre" layoutX="9.0" layoutY="82.0" text="Choisir un joueur à qui donner la carte vision" />
+            <Label fx:id="titre" layoutX="9.0" layoutY="82.0" text="%choisir.jouer.a.qui.donner.vision" />
          </children>
       </Pane>
    </children>

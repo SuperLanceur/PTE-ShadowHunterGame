@@ -45,7 +45,7 @@
                   </Button>
                </children>
             </HBox>
-            <Label fx:id="titre" alignment="CENTER" contentDisplay="CENTER" styleClass="text" text="Choisir un joueur à attaquer !" />
+            <Label fx:id="titre" alignment="CENTER" contentDisplay="CENTER" styleClass="text" text="%choisir.joueur.attaquer" />
             <HBox fx:id="joueurBas" alignment="BOTTOM_CENTER" spacing="3.0">
                <children>
                   <Button fx:id="btn5" mnemonicParsing="false" styleClass="bouton" text="%joueur5">

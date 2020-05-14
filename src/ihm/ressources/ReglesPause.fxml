@@ -19,7 +19,7 @@
             </ImageView>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="precedent" layoutX="519.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#pagePrecedente" prefHeight="59.0" prefWidth="225.0" styleClass="bouton" text="Page précédente">
+                  <Button fx:id="precedent" layoutX="519.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#pagePrecedente" prefHeight="59.0" prefWidth="225.0" styleClass="bouton" text="%page.precedente">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -27,7 +27,7 @@
                         <Insets right="20.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onMouseClicked="#retourEnJeu" prefHeight="59.0" prefWidth="117.0" styleClass="bouton" text="Retour">
+                  <Button mnemonicParsing="false" onMouseClicked="#retourEnJeu" prefHeight="59.0" prefWidth="117.0" styleClass="bouton" text="%retour">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -35,7 +35,7 @@
                         <Insets left="20.0" right="20.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="suivant" mnemonicParsing="false" onMouseClicked="#pageSuivante" prefHeight="59.0" prefWidth="195.0" styleClass="bouton" text="Page suivante">
+                  <Button fx:id="suivant" mnemonicParsing="false" onMouseClicked="#pageSuivante" prefHeight="59.0" prefWidth="195.0" styleClass="bouton" text="%page.suivante">
                      <font>
                         <Font size="24.0" />
                      </font>

@@ -15,7 +15,6 @@ import carte.CartePiochable;
 import carte.CartePiochable.Type;
 import carte.CarteVision;
 import database.RessourceLoader;
-import effet.Effet;
 import effet.action.Action;
 import ihm.controller.PlateauController;
 import javafx.application.Platform;
@@ -244,7 +243,9 @@ public class GestionnaireJeu {
 	}
 
 	public static void notifyPlateau() {
+
 		Thread t = threads.pop();
+		
 		synchronized(t) {	
 			t.notify();
 		}

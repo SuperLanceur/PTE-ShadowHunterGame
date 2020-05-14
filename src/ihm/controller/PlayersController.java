@@ -209,7 +209,7 @@ public class PlayersController implements Initializable{
 		        gj.setConfiguration(new Configuration(this.joueurs));
 			
 				final URL fxmlURL = getClass().getResource("/ihm/ressources/PlateauTest2.fxml");
-				final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRENCH);
+				final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 				final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 				AnchorPane root = fxmlLoader.load();
 				PlateauController pc = fxmlLoader.getController();
@@ -263,9 +263,11 @@ public class PlayersController implements Initializable{
 			listeIaLv2.get(indice).setVisible(true);
 			listeIaLv3.get(indice).setVisible(true);
 			
+			plus.get(indice).setDisable(true);
 			
 			nbJoueursV++;
 		}else {
+			ia.get(indice).setVisible(false);
 			nbJoueursH++;
 		}
 		
@@ -299,7 +301,8 @@ public class PlayersController implements Initializable{
 			nbJoueursH--;
 		}
 		
-		
+		ia.get(indice).setVisible(true);
+		plus.get(indice).setDisable(false);
 		listeIaLv1.get(indice).setVisible(false);
 		listeIaLv2.get(indice).setVisible(false);
 		listeIaLv3.get(indice).setVisible(false);
@@ -376,7 +379,7 @@ public class PlayersController implements Initializable{
 		EffetSonore.playSoundEffect(fileSound1);
 		
 		 final URL fxmlURL = getClass().getResource("/ihm/ressources/Menu.fxml");
-			final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+			final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 			
 			final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 			Pane pane = fxmlLoader.load();

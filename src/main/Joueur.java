@@ -1,4 +1,5 @@
 package main;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.Map;
 import carte.CarteEquipement;
 import carte.CarteLieu;
 import effet.Effet;
+import ihm.EffetSonore;
 import personnage.CartePersonnage;
 import personnage.Metamorphe;
 import personnage.CartePersonnage.Equipe;
@@ -33,6 +35,7 @@ public class Joueur {
 	public static final String PLAYER_NB_EQUIPEMENTS = "nb_equipements";
 	
 	private Map<String, Integer> stats;
+	private boolean deathState;
 	
 	
 	
@@ -44,6 +47,7 @@ public class Joueur {
 		this.nom = nom;
 		this.revele = false;
 		this.gestionnaireEquipements = new GestionnaireEquipements(this);
+		this.deathState = false;
 		
 		stats = new HashMap<>();
 		
@@ -65,15 +69,34 @@ public class Joueur {
 		return this.cartePersonnage.getEquipe();
 	}
 	
-	private void changeStat(String key, int valeur) {
-		this.stats.put(key, valeur);
-	}
 	public void setStat(String key, int valeur) {
 		this.stats.put(key, valeur);
+	}
+	
+	public void updateStat(String key, int valeur) {
+		setStat(key, valeur);
+		if(isDeadStat()) {
+			death();
+		}
 		updateVictoirePlateau();
 		updateVie();
 	}
 	
+	public boolean isDeadStat() {
+		return this.stats.get(PLAYER_HP) <= 0;
+	}
+	
+	public boolean isDead() {
+		return this.deathState;
+	}
+	
+	private void death() {
+		this.deathState = true;
+		this.plateau.death(this);
+		InputStream fileSound1 =  getClass().getResourceAsStream("/ihm/ressources/musique/cloche.wav");		
+		EffetSonore.playSoundEffect(fileSound1);
+	}
+
 	//pour tests IA
 	public void setHP(int val) {
 		this.stats.put("HP", val);
@@ -84,9 +107,9 @@ public class Joueur {
 		this.stats.put("nb_equipements", val);
 	}
 	//pour tests IA
-		public void setDamage(int val) {
-			this.stats.put("DAMAGE", val);
-		}
+	public void setDamage(int val) {
+		this.stats.put("DAMAGE", val);
+	}
 	
 	private void updateVie() {
 		int damage = damageTaken();
@@ -99,9 +122,7 @@ public class Joueur {
 	}
 	
 	private void updateVictoirePlateau() {
-
-		int result = victoire() ? 0 : 1;
-		this.plateau.setStat(Plateau.PARTIE_FINIE, result);
+		this.plateau.victoire(this);
 	}
 	
 	public boolean victoire() {
@@ -161,7 +182,7 @@ public class Joueur {
 		if(key.contentEquals(PLAYER_HP)) {	
 			this.plateau.alerationVie(this,valeur);
 		}
-		this.setStat(key,valeurBase+valeur);
+		this.updateStat(key,valeurBase+valeur);
 	}
 
 
@@ -179,7 +200,7 @@ public class Joueur {
 
 	public void setCartePersonnage(CartePersonnage cp) {
 		this.cartePersonnage = cp;
-		this.changeStat(PLAYER_HP, cp.getPv());
+		this.setStat(PLAYER_HP, cp.getPv());
 	}
 
 	public void setPlateau(Plateau plateau2) {
@@ -279,4 +300,10 @@ public class Joueur {
 	public Joueur choisir(List<Joueur> adjacents, Contexte attaquer) {
 		return this.plateau.choisir(this,adjacents, attaquer);
 	}
+
+	public Map<String, Integer> getStats() {
+		return this.stats;
+	}
+
+	
 }
