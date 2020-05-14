@@ -91,7 +91,14 @@ public class ParametreController implements Initializable {
 			LaLangue = Locale.FRANCE;
 			langueChoisi = tabLangues[3];
 		}
-
+		else if (langues.getValue() == "Espagnol") {
+			LaLangue = Locale.GERMAN;
+			langueChoisi = tabLangues[2];
+		}
+		else if (langues.getValue() == "Italien") {
+			LaLangue = Locale.ITALIAN;
+			langueChoisi = tabLangues[1];
+		}
 		// Pour la musique
 		if (fileMusique != null) {
 
