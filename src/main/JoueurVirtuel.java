@@ -7,6 +7,7 @@ import java.util.Random;
 import carte.CarteEquipement;
 import carte.CarteEquipementStat;
 import effet.Effet;
+import javafx.scene.control.Button;
 
 public class JoueurVirtuel extends Joueur {
 
@@ -21,7 +22,7 @@ public class JoueurVirtuel extends Joueur {
 		nvDifficulte = lvlIa;
 	}
 
-	public Effet choisirEffet(List<Effet> effets) {
+	public Button choisirEffet(List<Button> effets) {
 		return effets.get((int) Math.floor(Math.random() * effets.size()));
 	}
 

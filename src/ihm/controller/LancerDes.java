@@ -2,6 +2,7 @@ package ihm.controller;
 
 import java.util.Random;
 
+import effet.action.Action;
 import ihm.Die;
 import ihm.DieImages;
 import javafx.animation.KeyFrame;
@@ -27,17 +28,28 @@ public class LancerDes {
 	private Contexte contexte;
 	private int typeDe;
 	private int[] rolls;
-	
+
 	private final static int LANCER_DE_4 = 0;
 	private final static int LANCER_DE_6 = 1;
 	private final static int LANCER_DES = 2;
-	
-	public LancerDes(int typeDe, int[] rolls, Contexte c){
+
+	public LancerDes(int typeDe, int[] rolls, Contexte c) {
 		this.typeDe = typeDe;
 		this.rolls = rolls;
 		this.contexte = c;
 	}
-	
+
+	private Button interpret(String s) {
+
+		String styles = "-fx-border-color: #e2e2e2;" + "-fx-border-width: 2;" + "-fx-background-radius: 0;"
+				+ "-fx-background-color: #1d1d1d;" + "-fx-text-fill: #d8d8d8;"
+				+ "-fx-background-insets: 0 0 0 0, 0, 1, 2;";
+
+		Button b = new Button(s);
+		b.setStyle(styles);
+		return b;
+	}
+
 	public VBox initLancer(Joueur joueur) {
 		switch (typeDe) {
 		case LANCER_DE_4:
@@ -46,11 +58,10 @@ public class LancerDes {
 			return initLancerD6(joueur);
 		case LANCER_DES:
 			return initLancerBoth(joueur);
-		default :
+		default:
 			return null;
 		}
 	}
-	
 
 	private VBox initLancerD4(Joueur j) {
 		DieImages images = new DieImages(4);
@@ -58,43 +69,39 @@ public class LancerDes {
 		ImageView stackpane = die.getdieFace();
 		stackpane.setFitHeight(100);
 		stackpane.setFitWidth(100);
-		Button btn = new Button();
+		Button btn = interpret("Lancer dé");
 		Text txt = new Text("Lancez le dé");
-	    txt.setFont(Font.font(null, null, null, 12));
-	    txt.setFill(Color.WHITE);
-		btn.setText("Lancer dé");
+		txt.setFont(Font.font(null, null, null, 12));
+		txt.setFill(Color.WHITE);
 		btn.setOnAction((ActionEvent event) -> {
 			btn.setDisable(true);// Disable Button
 			Random random = new Random();
 			Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.1), (actionEvent) -> {
-				int tempRandom = random.nextInt(4)+1;
+				int tempRandom = random.nextInt(4) + 1;
 				die.setDieFace(tempRandom);
 			}));
-			
+
 			timeline.setCycleCount(20);
 			timeline.play();
 			timeline.setOnFinished(actionEvent -> {
-				
+
 				die.setDieFace(rolls[0]);
-				txt.setText("Vous avez obtenu "+rolls[0]);
-			Timeline timeline2 = new Timeline(new KeyFrame(
-			        Duration.millis(2000),
-			        ae ->  {
-			        	
-			  
-			        	GestionnaireJeu.notifyPlateau(); 
-			}));
-			timeline2.play();
+				txt.setText("Vous avez obtenu " + rolls[0]);
+				Timeline timeline2 = new Timeline(new KeyFrame(Duration.millis(2000), ae -> {
+
+					GestionnaireJeu.notifyPlateau();
+				}));
+				timeline2.play();
+			});
 		});
-		});
-		
+
 		HBox des = new HBox(stackpane);
 		des.setAlignment(Pos.CENTER);
-		VBox root = new VBox(txt,des, new StackPane(btn));
+		VBox root = new VBox(txt, des, new StackPane(btn));
 		root.setAlignment(Pos.CENTER);
 		root.setSpacing(20);
-		if(j instanceof JoueurVirtuel)
-		btn.fire();
+		if (j instanceof JoueurVirtuel)
+			btn.fire();
 		return root;
 	}
 
@@ -104,44 +111,41 @@ public class LancerDes {
 		ImageView stackpane = die.getdieFace();
 		stackpane.setFitHeight(100);
 		stackpane.setFitWidth(100);
-		Button btn = new Button();
+		Button btn = interpret("Lancer dé");
 		Text txt = new Text("Lancez le dé");
-	    txt.setFont(Font.font(null, null, null, 12));
-	    txt.setFill(Color.WHITE);
-		btn.setText("Lancer dé");
+		txt.setFont(Font.font(null, null, null, 12));
+		txt.setFill(Color.WHITE);
 		btn.setOnAction((ActionEvent event) -> {
 			btn.setDisable(true);// Disable Button
 			Random random = new Random();
 			Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(.1), (actionEvent) -> {
-				int tempRandom = random.nextInt(6)+1;
+				int tempRandom = random.nextInt(6) + 1;
 				die.setDieFace(tempRandom);
 			}));
-			
+
 			timeline.setCycleCount(20);
 			timeline.play();
 			timeline.setOnFinished(actionEvent -> {
-				
+
 				die.setDieFace(rolls[0]);
-				txt.setText("Vous avez obtenu "+rolls[0]);
-			Timeline timeline2 = new Timeline(new KeyFrame(
-			        Duration.millis(2000),
-			        ae ->  {
-			        	GestionnaireJeu.notifyPlateau(); 
-			}));
-			timeline2.play();
+				txt.setText("Vous avez obtenu " + rolls[0]);
+				Timeline timeline2 = new Timeline(new KeyFrame(Duration.millis(2000), ae -> {
+					GestionnaireJeu.notifyPlateau();
+				}));
+				timeline2.play();
+			});
 		});
-		});
-		
+
 		HBox des = new HBox(stackpane);
 		des.setAlignment(Pos.CENTER);
-		VBox root = new VBox(txt,des, new StackPane(btn));
+		VBox root = new VBox(txt, des, new StackPane(btn));
 		root.setAlignment(Pos.CENTER);
 		root.setSpacing(20);
-		if(j instanceof JoueurVirtuel)
+		if (j instanceof JoueurVirtuel)
 			btn.fire();
 		return root;
 	}
-	
+
 	private VBox initLancerBoth(Joueur j) {
 		DieImages images = new DieImages(6);
 		DieImages images2 = new DieImages(4);
@@ -153,49 +157,46 @@ public class LancerDes {
 		stackpane2.setFitHeight(100);
 		stackpane.setFitWidth(100);
 		stackpane2.setFitWidth(100);
-		Button btn = new Button();
+		Button btn = interpret("Lancer dés");
 		Text txt = new Text("Lancez les dés");
-	    txt.setFont(Font.font(null, null, null, 12));
-	    txt.setFill(Color.WHITE);
-		btn.setText("Lancer dés");
+		txt.setFont(Font.font(null, null, null, 12));
+		txt.setFill(Color.WHITE);
 		btn.setOnAction((ActionEvent event) -> {
 			btn.setDisable(true);// Disable Button
 			Random random = new Random();
-			
+
 			Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(.1), (actionEvent) -> {
-				int tempRandom = random.nextInt(6)+1;
-				int tempRandom2 = random.nextInt(4)+1;
+				int tempRandom = random.nextInt(6) + 1;
+				int tempRandom2 = random.nextInt(4) + 1;
 				die.setDieFace(tempRandom);
 				die2.setDieFace(tempRandom2);
 			}));
-			
+
 			timeline.setCycleCount(20);
 			timeline.play();
 			timeline.setOnFinished(actionEvent -> {
-				
+
 				die.setDieFace(rolls[1]);
 				die2.setDieFace(rolls[0]);
-				
-				int result = rolls[0]+rolls[1];
-				
-				txt.setText("Vous avez obtenu "+result);
-			Timeline timeline2 = new Timeline(new KeyFrame(
-			        Duration.millis(2000),
-			        ae ->  {
-			       GestionnaireJeu.notifyPlateau();
-			       
-			}));
-			timeline2.play();
+
+				int result = rolls[0] + rolls[1];
+
+				txt.setText("Vous avez obtenu " + result);
+				Timeline timeline2 = new Timeline(new KeyFrame(Duration.millis(2000), ae -> {
+					GestionnaireJeu.notifyPlateau();
+
+				}));
+				timeline2.play();
+			});
+
 		});
-		
-		});
-		
+
 		HBox des = new HBox(stackpane, stackpane2);
 		des.setAlignment(Pos.CENTER);
-		VBox root = new VBox(txt,des, new StackPane(btn));
+		VBox root = new VBox(txt, des, new StackPane(btn));
 		root.setAlignment(Pos.CENTER);
 		root.setSpacing(20);
-		if(j instanceof JoueurVirtuel)
+		if (j instanceof JoueurVirtuel)
 			btn.fire();
 		return root;
 	}
