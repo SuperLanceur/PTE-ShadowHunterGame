@@ -282,7 +282,7 @@ public class CreatingCardsTest {
 			
 			DatabaseManager.queryInsertObject(66,lieu5);
 			// 66
-			CarteLieu lieu6 = new CarteLieu(new Point(-1,9));
+			CarteLieu lieu6 = new CarteLieu(new Point(-1,10));
 			lieu6.setEffet(new EffetChoisirCible(new ActionVoler(ActionVoler.VOLER)));
 			
 			DatabaseManager.queryInsertObject(67,lieu6);
