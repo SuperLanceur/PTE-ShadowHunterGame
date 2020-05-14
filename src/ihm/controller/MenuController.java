@@ -44,7 +44,6 @@ public class MenuController  implements Initializable{
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
         AnchorPane pane = fxmlLoader.load();
-        rootPane.getChildren().setAll(pane);
         Scene scene = new Scene(pane);
         Stage appStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         appStage.setScene(scene);

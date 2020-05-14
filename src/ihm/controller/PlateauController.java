@@ -451,6 +451,7 @@ public void afficherEffet(Joueur j) throws IOException {
 
 	public void updateVieJoueur(Joueur joueur, int damage) {
 		JoueurIHM jIHM = getJoueurIHM(joueur);
+		jIHM.getZoneJoueur().getChildren().setAll();
 		jIHM.deplacerPionVie(damage);
 	}
 	
@@ -514,15 +515,11 @@ public void afficherEffet(Joueur j) throws IOException {
 			}
 		});	
 		if(j instanceof JoueurVirtuel) {
-			System.out.println("here");
 			Timeline timeline = new Timeline(new KeyFrame(Duration.millis(3000), ae -> {
-				GestionnaireJeu.notifyPlateau();
 				pu.getStage().hide();
-
 			}));
 			timeline.play();
 		}		
-		System.out.println("j is instance of "+j);
 		pu.display();
 		
 	}
@@ -545,7 +542,7 @@ public void afficherEffet(Joueur j) throws IOException {
 			VBox v= (VBox)a.getChildren().get(0);
 			AnchorPane b=(AnchorPane)s.getItems().get(1);
 			ImageView i= (ImageView)b.getChildren().get(0);
-
+			
 			v.setRotate(180);
 			i.setRotate(180);
 			s.setRotate(180);

@@ -60,12 +60,11 @@ public class ChoisirEquipement implements Initializable{
 		for (CarteEquipement ce : equipements) {
 			
 			ImageView iv = new ImageView(PlateauController.getImageCarte(ce));
-			
-			hbox.getChildren().add(iv);
-			
-			iv.fitHeightProperty().bind(hbox.heightProperty());
-			//iv.fitWidthProperty().bind(scrollpane.widthProperty());
+			iv.setFitHeight(100);
+			iv.setFitHeight(100);
 			iv.setPreserveRatio(true);
+
+			hbox.getChildren().add(iv);
 			iv.setOnMouseClicked(e -> {
 				equipementSelected = ce;
 				GestionnaireJeu.notifyPlateau();
