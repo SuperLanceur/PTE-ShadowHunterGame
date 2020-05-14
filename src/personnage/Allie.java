@@ -32,10 +32,11 @@ public class Allie extends Unique{
 		
 		conditions.add(new ConditionStatistiques(ConditionStatistiques.PLATEAU, Plateau.PARTIE_FINIE, 1, ConditionStatistiques.EQUAL));
 		conditions.add(new ConditionStatistiques(ConditionStatistiques.JOUEUR, Joueur.PLAYER_HP, 0, ConditionStatistiques.LESS));
-		
+
 		Condition winCondition = new ConditionMultiple(conditions);
 		
 		this.setCondition(winCondition);
+			
 		this.setEquipe(CartePersonnage.Equipe.NEUTRE);
 		this.setJoueur(joueur);
 		joueur.setCartePersonnage(this);
