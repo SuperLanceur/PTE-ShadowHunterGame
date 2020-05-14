@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 import ihm.Couple;
 import ihm.EffetSonore;
@@ -147,6 +148,7 @@ public class PlayersController implements Initializable{
 		for (TextField tf : txt) {
 			tf.setEditable(false);
 			tf.setStyle("-fx-background-color: silver;");
+			
 		}
 		
 		int j=0;
@@ -164,7 +166,7 @@ public class PlayersController implements Initializable{
 	public void commencerJeux(MouseEvent mouseEvent) throws IOException{
 		if (nbJoueursH + nbJoueursV >= 4) {
 			
-			if(textVide()==false && memeNom()==false) {
+			if(textVide()==false && memeNom()==false && nomAutorise()==true) {
 				
 			//ajout des joueurs finalement selectionner
 			int i = 0;
@@ -254,7 +256,7 @@ public class PlayersController implements Initializable{
 			nbJoueursH++;
 		}
 		
-		if (nbJoueursH + nbJoueursV >= 4) {
+		if (nbJoueursH + nbJoueursV >= 4 && memeNom()==false && textVide()==false && nomAutorise()==true) {
 			btnCommencer.setStyle("-fx-background-color: #1d1d1d; -fx-text-fill: #d8d8d8;");
 		}
 	}
@@ -334,6 +336,23 @@ public class PlayersController implements Initializable{
 		}
 		return false;
 	}
+	@FXML
+	public void couleurBtnCommencerJeu() {
+		
+		
+		
+
+		if (nbJoueursH + nbJoueursV >= 4 && memeNom()==false && textVide()==false && nomAutorise()==true) {
+		btnCommencer.setStyle("-fx-background-color: #1d1d1d; -fx-text-fill: #d8d8d8;");
+		}
+		else
+		{
+			btnCommencer.setStyle("-fx-background-color: gray; -fx-text-fill: black;");
+
+		}
+			
+		
+	}
 	public boolean memeNom() {
 		
 		int i=0;
@@ -355,6 +374,19 @@ public class PlayersController implements Initializable{
 			
 		}
 		return false;
+	}
+	public boolean nomAutorise() {
+	
+		int i=0;
+		while(i<txt.size()) {
+			if(txt.get(i).isEditable() && txt.get(i).getText().isBlank()) {
+				return false;
+			}
+			i++;
+		}
+		
+		return true;
+
 	}
 	@FXML
 	public void retour(MouseEvent me) throws IOException {
