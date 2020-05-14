@@ -1,5 +1,9 @@
 package ihm.controller;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import carte.CarteEquipement;
 import database.RessourceLoader;
 import ihm.ImageViewEquipement;
@@ -62,19 +66,26 @@ public class JoueurIHM {
 	private void initRevealButton() {
 		Button btn = getRevealButton();
 		btn.setOnAction(x -> {
-
-			this.joueur.reveal();
-			ImageView iv = this.getCartePersonnage();
-			System.out.println(this.joueur.getCartePersonnage());
-			Image im = this.pc.getImageCarte(this.joueur.getCartePersonnage());
-			GridPane gp = (GridPane) iv.getParent();
-			iv.setImage(im);
-			iv.fitHeightProperty().bind(gp.heightProperty());
-			initButtonEffect(btn);
-			//btn.setDisable(true);
-			btn.setText("Utiliser Effet");
-			estRevele = true;
+			this.joueur.setRevele(true);;
+			actionReveler(btn);
 		});
+	}
+	
+	public void reveler() {
+		Button btn = getRevealButton();
+		actionReveler(btn);
+	}
+	
+	private void actionReveler(Button btn) {
+		ImageView iv = this.getCartePersonnage();
+		System.out.println(this.joueur.getCartePersonnage());
+		Image im = this.pc.getImageCarte(this.joueur.getCartePersonnage());
+		GridPane gp = (GridPane) iv.getParent();
+		iv.setImage(im);
+		iv.fitHeightProperty().bind(gp.heightProperty());
+		initButtonEffect(btn);
+		btn.setText("Utiliser Effet");
+		estRevele = true;
 	}
 
 	public Button getRevealButton() {
@@ -226,26 +237,36 @@ public class JoueurIHM {
 	public void ajouterEquipement(CarteEquipement e) {
 		HBox hb = getPaneEquipement();
 		ImageViewEquipement ive = new ImageViewEquipement(e);
-		hb.getChildren().add(new ImageViewEquipement(e));
+		hb.getChildren().add(ive);
+		ive.setPreserveRatio(true);
 		ive.fitHeightProperty().bind(hb.heightProperty());
-
+		//ive.fitWidthProperty().bind(hb.widthProperty());
 	}
 
 	public void retirerEquipement(CarteEquipement e) {
+		
 		HBox hb = getPaneEquipement();
-		for (Node n : hb.getChildren()) {
-			if (n instanceof ImageViewEquipement) {
-				ImageViewEquipement ive = (ImageViewEquipement) n;
-				if (ive.contains(e)) {
-					hb.getChildren().remove(ive);
+		List<ImageView> liv = new ArrayList<ImageView>();
+		for(Iterator<Node> iterator = hb.getChildren().iterator(); iterator.hasNext();) {
+				Node n = iterator.next();
+				
+				if (n instanceof ImageViewEquipement) {
+					ImageViewEquipement ive = (ImageViewEquipement) n;
+					if (ive.contains(e)) {
+						liv.add(ive);
+					}
 				}
 			}
-		}
-
+		
+		hb.getChildren().removeAll(liv);
 	}
 
 	public String getNom() {
 		return this.joueur.getNom();
 	}
+
+
+
+	
 
 }

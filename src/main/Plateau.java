@@ -289,7 +289,7 @@ public class Plateau extends Thread{
 			if(currentJoueur.choisir(Contexte.ATTAQUER)){
 				if(currentJoueur.hasOpponents()) {
 					List<Joueur> adjacents = currentJoueur.getJoueursRange();
-					Joueur cible = (Joueur) currentJoueur.choisir(adjacents,Joueur.class);
+					Joueur cible = (Joueur) currentJoueur.choisir(adjacents,Contexte.ATTAQUER);
 					attaquer(currentJoueur,cible);
 					if(isPartieTerminee()) break;
 				}else {
@@ -314,8 +314,7 @@ public class Plateau extends Thread{
 	public boolean isPartieTerminee() {
 		return this.getStat(PARTIE_FINIE) == 1;
 	}
-	
-	
+
 	public void deplacer(Joueur currentJoueur) {
 		
 		boolean attributed = false;
@@ -368,7 +367,7 @@ public class Plateau extends Thread{
 	public int roll6(Joueur j) {
 		
 		int roll = this.rollRandom(6);
-		gj.rollDice(j, PlateauController.DICE_QUATRE, roll);
+		gj.rollDice(j, PlateauController.DICE_SIX, roll);
 		return roll;
 	}
 	
@@ -385,7 +384,7 @@ public class Plateau extends Thread{
 		int roll6 = rollRandom(6);
 		int sum = Math.abs(roll4+roll6);
 		gj.rollDice(j, PlateauController.DICE_BOTH, roll4,roll6);
-		return 3;
+		return sum;
 		//return Math.abs(roll4+roll6);
 	}
 	
@@ -448,15 +447,13 @@ public class Plateau extends Thread{
 		return (Joueur) gj.choisir(joueur, joueurs, Joueur.class);
 	}
 
-	public Effet choisirEffet(Joueur joueur, Effet[] effets) {
-		return gj.choisirEffet(joueur,effets);
-	}
 
 	public Joueur choisirParmisTous(Joueur joueur) {
-		List<Joueur> joueurs = this.getJoueurs();
+		List<Joueur> joueurs = new ArrayList<Joueur>();
+		joueurs.addAll(this.getJoueurs());
+		joueurs.remove(joueur);
 		return (Joueur) gj.choisir(joueur, joueurs, Joueur.class);
 	}
-
 
 	public void updateVieJoueur(Joueur joueur, int damage) {
 		gj.updateVieJoueur(joueur,damage);
@@ -479,5 +476,9 @@ public class Plateau extends Thread{
 	public void retirerEquipementIHM(Joueur joueur, CarteEquipement e) {
 		gj.retirerEquipement(joueur,e);
 		
+	}
+
+	public Joueur choisir(Joueur joueur, List<Joueur> adjacents, Contexte attaquer) {
+		return gj.choisirJoueur(joueur, adjacents, attaquer);
 	}
 }

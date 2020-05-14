@@ -25,7 +25,7 @@ public class Configuration {
 			Couple c = nomsJoueurs.get(i);
 			
 			if(c.isIa()) {
-				joueurs.put(i,new JoueurVirtuel(c.getNom()));
+				joueurs.put(i,new JoueurVirtuel(c.getNom(),c.getLvlIa()));
 			}else {
 				joueurs.put(i,new Joueur(c.getNom()));
 			}

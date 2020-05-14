@@ -13,8 +13,10 @@ import carte.CarteEquipement;
 import carte.CarteLieu;
 import carte.CartePiochable;
 import carte.CartePiochable.Type;
+import carte.CarteVision;
 import database.RessourceLoader;
 import effet.Effet;
+import effet.action.Action;
 import ihm.controller.PlateauController;
 import javafx.application.Platform;
 
@@ -47,10 +49,6 @@ public class GestionnaireJeu {
 
 	public void lancerPartie() {
 		plateau.start();
-	}
-
-	public Effet choisirEffet(Joueur joueur, Effet[] effets) {
-		return effets[0];
 	}
 	
 
@@ -112,21 +110,46 @@ public class GestionnaireJeu {
 	@SuppressWarnings("unchecked")
 	public Object choisir(Joueur joueur, List<?> list, Class<?> cls) {
 		
-		
-		
 		if(cls == CarteEquipement.class) {
 			return choisirEquipementVole(joueur, (List<CarteEquipement>) list);
 		}else if(cls == Joueur.class) {
-			
-			return choisirJoueur(joueur, (List<Joueur>) list, Contexte.ACTIVER_EFFET_LIEU);
+			return choisirJoueur(joueur, (List<Joueur>) list, Contexte.CHOISIR_VISION);
+		}else if(cls == Action.class) {
+			return choisirAction(joueur, (List<Action>) list, Contexte.CHOISIR_ACTION);
 		}
 		return list.get(0);
+	}
+	
+	private Action choisirAction(Joueur joueur, List<Action> list, Contexte choisirAction) {
+		Platform.runLater(() -> {
+			pc.afficherChoisirAction(joueur,list);
+		});
+		
+		this.waitPlateau();
+		
+		final FutureTask<Action> query = new FutureTask<Action>(new Callable<Action>() {
+		    @Override
+		    public Action call() throws Exception {
+		    	return pc.getChoixAction(joueur);
+		    }
+		});
+		
+		Platform.runLater(query);
+		
+		try {
+			return query.get();
+		} catch (InterruptedException | ExecutionException e) {
+		
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 	
 	public CarteEquipement choisirEquipementVole(Joueur joueur, List<CarteEquipement> lce) {
 		Platform.runLater(() -> {
 			try {	
-				pc.afficherChoisirEquipementVole(joueur);
+				pc.afficherChoisirEquipementVole(joueur,lce);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -307,7 +330,7 @@ public class GestionnaireJeu {
 	public void ajouterEquipement(Joueur joueur, CarteEquipement e) {
 		Platform.runLater(() -> {
 			pc.ajouterEquipement(joueur,e);
-		});	
+		});
 	}
 
 	public void retirerEquipement(Joueur joueur, CarteEquipement e) {
@@ -331,5 +354,20 @@ public class GestionnaireJeu {
 		waitPlateau();
 	}
 
-	
+	public void recevoirCarteVision(Joueur j2, CarteVision carteVision) {
+		
+		Platform.runLater(() -> {
+			try {
+				pc.afficherVision(j2, carteVision);
+			} catch (IOException e) {
+			}
+		});
+		waitPlateau();
+	}
+
+	public void reveler(Joueur joueur) {
+		Platform.runLater(() -> {
+			pc.revealJoueur(joueur);
+		});
+	}
 }

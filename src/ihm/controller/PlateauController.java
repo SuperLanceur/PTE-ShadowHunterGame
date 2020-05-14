@@ -1,6 +1,7 @@
 package ihm.controller;
 
 
+import java.awt.Dimension;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,6 +19,7 @@ import carte.CarteLieu;
 import carte.CartePiochable;
 import carte.CartePiochable.Type;
 import database.RessourceLoader;
+import effet.action.Action;
 import ihm.EffetSonore;
 import ihm.PopUp;
 import javafx.animation.KeyFrame;
@@ -27,7 +29,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -42,6 +46,7 @@ import javafx.util.Duration;
 import main.Contexte;
 import main.GestionnaireJeu;
 import main.Joueur;
+import main.JoueurVirtuel;
 
 public class PlateauController implements Initializable {
 	
@@ -58,12 +63,15 @@ public class PlateauController implements Initializable {
 	private PiocherCarte pc;
 	private LancerDes ld;
 
-	private Map<Carte,BufferedImage> mapRessourcesCartes;
-	private Map<String,BufferedImage> mapRessourcesDosCartes;
+	private static Map<Carte,BufferedImage> mapRessourcesCartes;
+	private static Map<String,BufferedImage> mapRessourcesDosCartes;
 	
 	public static int DICE_SIX = 1;
 	public static int DICE_QUATRE = 0;
 	public static int DICE_BOTH = 2;
+	
+	private final double RES = 200./2250.;
+	private ResourceBundle resourceBundle;
 	
 	/**
 	 * initialise les données du plateau
@@ -72,6 +80,7 @@ public class PlateauController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		//System.out.println("Création du plateau ...");
 	
+		this.resourceBundle = arg1;
 		this.joueursIHM = new ArrayList<JoueurIHM>();
 		GestionnaireJeu gj  = GestionnaireJeu.getGestionnaireJeu();
 		RessourceLoader rl = gj.getRessourceLoader();
@@ -103,88 +112,6 @@ public class PlateauController implements Initializable {
 		List<ImageView> ivs = this.getLieux();
 
 		applyImages(cl,ivs);
-		
-		// BUTTONS ETC
-		//System.out.println(this.joueursPane);
-		
-		/*
-		this.hboxJoueur.add(joueur1);
-		this.hboxJoueur.add(joueur2);
-		this.hboxJoueur.add(joueur3);
-		this.hboxJoueur.add(joueur4);
-	
-		for (HBox hbox : hboxJoueur) {
-			tour.add((AnchorPane) hbox.getChildren().get(0));
-			VBox carte = (VBox) hbox.getChildren().get(1);
-			cartePerso.add((ImageView) carte.getChildren().get(0));
-			btnRevelation.add((Button) carte.getChildren().get(1));
-			VBox info = (VBox) hbox.getChildren().get(2);
-			nomJoueur.add((Label) info.getChildren().get(0));
-		}
-		
-		this.vboxJoueur.add(joueur5);
-		this.vboxJoueur.add(joueur6);
-		this.vboxJoueur.add(joueur7);
-		this.vboxJoueur.add(joueur8);
-		
-		for (VBox vbox : vboxJoueur) {
-			tour.add((AnchorPane) vbox.getChildren().get(0));
-			HBox joueur = (HBox) vbox.getChildren().get(1);
-			VBox carte = (VBox) joueur.getChildren().get(1);
-			cartePerso.add((ImageView) carte.getChildren().get(0));
-			btnRevelation.add((Button) carte.getChildren().get(1));
-			VBox info = (VBox) joueur.getChildren().get(0);
-			nomJoueur.add((Label) info.getChildren().get(0));
-		}
-		
-		//initilaisation des boutons se reveler
-		int i = 0;
-		for (Button b : btnRevelation) {
-			int compteur = i;
-			b.setOnAction(e -> {try {seReveler(compteur);} catch (IOException e1) {e1.printStackTrace();}});
-			i++;
-		}
-		//initialisation des bouton carte personnage
-		int j = 0;
-		for (ImageView b : cartePerso) {
-			int compteur = j;
-			b.setOnMouseClicked(e -> {try {consulterSaCarte(compteur);} catch (IOException e1) {e1.printStackTrace();}});
-			j++;
-		}*/
-	
-		/*
-		//initialisation des pions
-		VBox pionLieux14 = (VBox) lieux.getChildren().get(0);
-		VBox pionLieux58 = (VBox) lieux.getChildren().get(4);
-		for (int k=0; k<4; k++) {
-			pionLieux.add((Circle) pionLieux14.getChildren().get(k));
-		}
-		for (int k=0; k<4; k++) {
-			pionLieux.add((Circle) pionLieux58.getChildren().get(k));
-		}
-		
-		VBox pionVie14 = (VBox) lieux.getChildren().get(0);
-		VBox pionVie58 = (VBox) lieux.getChildren().get(4);
-		for (int k=0; k<4; k++) {
-			pionVie.add((Circle) pionVie14.getChildren().get(k));
-		}
-		for (int k=0; k<4; k++) {
-			pionVie.add((Circle) pionVie58.getChildren().get(k));
-		}
-		
-		System.out.println("Tour du joueur 1");
-
-	    try {
-	    	final URL fxmlURL = getClass().getResource("../ressources/Jouer_tour(1)lancer_des.fxml");  
-		    final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.ENGLISH);
-		    final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
-			Pane root = fxmlLoader.load();
-			root.setPrefSize(255, 180);
-			tour.get(2).getChildren().setAll(root);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
 	
 	}
 	
@@ -207,12 +134,16 @@ public class PlateauController implements Initializable {
 	}
 
 	private void applyImageLieu(ImageView iv, Image im) {
-		
-		StackPane sp = (StackPane) iv.getParent();
-		iv.setImage(im);
-		iv.fitHeightProperty().bind(sp.heightProperty());
-	}
 	
+		iv.setImage(im);
+		Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+		iv.setFitWidth(RES*screenSize.width);
+		//iv.fitHeightProperty().bind(sp.heightProperty());
+		//iv.fitWidthProperty().bind(sp.widthProperty());
+		
+		iv.setPreserveRatio(true);
+		//iv.fitWidthProperty().bind(sp.widthProperty());
+	}
 
 	private Pane getPaneJoueur(int i) {	
 		
@@ -333,7 +264,7 @@ public class PlateauController implements Initializable {
 		
 		this.ld=new LancerDes(typeDice,rolls,c);
 		JoueurIHM jihm = getJoueurIHM(joueur);
-		jihm.setZoneJoueur(ld.initLancer());
+		jihm.setZoneJoueur(ld.initLancer(joueur));
 	}
 
 	public void afficherChoisir(Joueur j, Contexte contexte) throws IOException {
@@ -342,17 +273,33 @@ public class PlateauController implements Initializable {
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane root = (Pane)fxmlLoader.load();
 		this.cb = fxmlLoader.getController();
+		cb.setTitre(contexte);
+		if(j instanceof JoueurVirtuel) {
+			switch(contexte) {
+			case ACTIVER_EFFET_LIEU :
+				cb.fireBtnIAEffetLieu();
+				break;
+			case ATTAQUER :
+				cb.fireBtnIAattaquer((JoueurVirtuel)j, j.getJoueursRange());
+				break;
+			case CHOISIR_VISION :
+				cb.fireBtnIAVision();;
+				break;
+			}
+		}
 		JoueurIHM jihm = getJoueurIHM(j);
 		jihm.setZoneJoueur(root);
 	}
 	
 
-	public void afficherChoisirEquipementVole(Joueur j) throws IOException {
+	public void afficherChoisirEquipementVole(Joueur j, List<CarteEquipement> lce) throws IOException {
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Jouer_tour(2a)voler_equipement.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane root = (Pane)fxmlLoader.load();
 		this.ce = fxmlLoader.getController();
+		this.ce.setListCarteEquipements(lce);
+		this.ce.initChoisirEquipement();
 		JoueurIHM jihm = getJoueurIHM(j);
 		jihm.setZoneJoueur(root);
 	}
@@ -369,7 +316,7 @@ public class PlateauController implements Initializable {
 		
 		JoueurIHM jihm = getJoueurIHM(j);
 		Pane p = (Pane) jihm.getZoneJoueur();
-		Pane pane = null;
+		Pane pane = new Pane();
 		
 		if(p.getChildren() != null && p.getChildren().size() > 0) {
 			
@@ -397,7 +344,20 @@ public class PlateauController implements Initializable {
 		Pane root = (Pane)fxmlLoader.load();
 		LieuZJ lzj =  fxmlLoader.getController();
 		lzj.setImageView(this.getImageCarte(j.getCarteLieu()));
+		if(j instanceof JoueurVirtuel) lzj.fireBtnIA();
 		JoueurIHM jihm = getJoueurIHM(j);
+		if(jihm.getPosition()==4 || jihm.getPosition()==5) {
+			SplitPane s=(SplitPane)root.getChildren().get(0);
+		AnchorPane a=(AnchorPane)s.getItems().get(0);
+			VBox v= (VBox)a.getChildren().get(0);
+			AnchorPane b=(AnchorPane)s.getItems().get(1);
+			ImageView i= (ImageView)b.getChildren().get(0);
+
+			v.setRotate(180);
+			i.setRotate(180);
+			s.setRotate(180);
+		}
+		
 		jihm.setZoneJoueur(root);
 	}
 	public void afficherChoisirJoueur(Joueur j, List<Joueur> joueurs, Contexte contexte) throws IOException {
@@ -405,13 +365,42 @@ public class PlateauController implements Initializable {
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
 		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 		Pane root = (Pane)fxmlLoader.load();
+		
+		List<JoueurIHM> joueursIHM = toJoueursIHM(joueurs);
+		
 		this.cj = fxmlLoader.getController();
-		this.cj.setListJoueursIHM(this.joueursIHM);
+		cj.setTitre(contexte);
+		this.cj.setListJoueursIHM(joueursIHM);
 		this.cj.initButtons();
+		if(j instanceof JoueurVirtuel)
+			cj.fireBtnIA((JoueurVirtuel)j, contexte);
 		JoueurIHM jihm = getJoueurIHM(j);
 		jihm.setZoneJoueur(root);
 	}
-    public void afficherPiocher(Joueur j) throws IOException {
+    private List<JoueurIHM> toJoueursIHM(List<Joueur> joueurs) {
+		
+    	List<JoueurIHM> list = new ArrayList<JoueurIHM>();
+    	
+    	for(Joueur j : joueurs) {
+    		list.add(getJoueurIHM(j));
+		}
+    	
+    	return list;
+	}
+
+
+	public void afficherPiocher(Joueur j) throws IOException {
+		
+		final URL fxmlURL = getClass().getResource("/ihm/ressources/Jouer_tour(2b)piocher_carte.fxml");
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+		Pane root = (Pane)fxmlLoader.load();
+		//CartePiochable lzj =  fxmlLoader.getController();
+		//lzj.setImageView(this.getImageCarte(j.getCarteLieu()));
+		JoueurIHM jihm = getJoueurIHM(j);
+		jihm.setZoneJoueur(root);
+	}
+public void afficherEffet(Joueur j) throws IOException {
 		
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/Jouer_tour(2b)piocher_carte.fxml");
 		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
@@ -461,6 +450,7 @@ public class PlateauController implements Initializable {
 
 	public void updateVieJoueur(Joueur joueur, int damage) {
 		JoueurIHM jIHM = getJoueurIHM(joueur);
+		jIHM.getZoneJoueur().getChildren().setAll();
 		jIHM.deplacerPionVie(damage);
 	}
 	
@@ -481,13 +471,13 @@ public class PlateauController implements Initializable {
 	}
 
 
-	public Image getImageCarte(Carte carte) {
-		BufferedImage bi = this.mapRessourcesCartes.get(carte);
+	public static Image getImageCarte(Carte carte) {
+		BufferedImage bi = mapRessourcesCartes.get(carte);
 		return RessourceLoader.toJavaFX(bi);
 	}
 	
-	public Image getImageDosCarte(String s) {
-		BufferedImage bi = this.mapRessourcesDosCartes.get(s);
+	public static Image getImageDosCarte(String s) {
+		BufferedImage bi = mapRessourcesDosCartes.get(s);
 		return RessourceLoader.toJavaFX(bi);
 	}
 
@@ -501,7 +491,6 @@ public class PlateauController implements Initializable {
 	public void retirerEquipement(Joueur j, CarteEquipement e) {
 		JoueurIHM jihm = getJoueurIHM(j);
 		jihm.retirerEquipement(e);
-		
 	}
 	
 	public void close() throws IOException {
@@ -524,8 +513,14 @@ public class PlateauController implements Initializable {
 				pu.getStage().hide();
 			}
 		});	
-		
+		if(j instanceof JoueurVirtuel) {
+			Timeline timeline = new Timeline(new KeyFrame(Duration.millis(3000), ae -> {
+				pu.getStage().hide();
+			}));
+			timeline.play();
+		}		
 		pu.display();
+		
 	}
 	
 	public void afficherVision(Joueur j, CartePiochable cartePiochable) throws IOException {
@@ -538,7 +533,20 @@ public class PlateauController implements Initializable {
 		Image im = getImageCarte(cartePiochable);
 		lzj.setImageView(im);
 		lzj.setText("Cachez la carte vision");
+		if(j instanceof JoueurVirtuel) lzj.fireBtnIA();
 		JoueurIHM jihm = getJoueurIHM(j);
+		if(jihm.getPosition()==4 || jihm.getPosition()==5) {
+			SplitPane s=(SplitPane)root.getChildren().get(0);
+		AnchorPane a=(AnchorPane)s.getItems().get(0);
+			VBox v= (VBox)a.getChildren().get(0);
+			AnchorPane b=(AnchorPane)s.getItems().get(1);
+			ImageView i= (ImageView)b.getChildren().get(0);
+			
+			v.setRotate(180);
+			i.setRotate(180);
+			s.setRotate(180);
+		}
+		jihm.getZoneJoueur();
 		jihm.setZoneJoueur(root);
 	
 	}
@@ -552,4 +560,49 @@ public class PlateauController implements Initializable {
 	public void setMapRessourcesDosCartes(Map<String,BufferedImage> mapRessourcesDosCartes) {
 		this.mapRessourcesDosCartes = mapRessourcesDosCartes;
 	}
+
+
+	private Action choixAction;
+	
+	public void afficherChoisirAction(Joueur joueur, List<Action> list) {
+		
+		final URL fxmlURL = getClass().getResource("/ihm/ressources/ChoisirAction.fxml");
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+		
+		List<Button> buttons = new ArrayList<Button>();
+		
+		for(Action a : list) {
+				Button button = interpret(a);
+				buttons.add(button);
+				button.setOnAction(x -> {	
+				this.choixAction = a;
+				GestionnaireJeu.notifyPlateau();
+		});
+		}
+		
+		VBox v = new VBox();
+		v.getChildren().addAll(buttons);
+		
+		JoueurIHM jihm = getJoueurIHM(joueur);
+		jihm.setZoneJoueur(v);
+	}
+	
+	public Action getChoixAction(Joueur joueur) {
+		return this.choixAction;
+	}
+	
+
+	private Button interpret(Action a) {
+		String s = a.toString();
+		Button b = new Button(s);
+		return b;
+	}
+
+
+	public void revealJoueur(Joueur joueur) {
+		JoueurIHM jihm = getJoueurIHM(joueur);
+		jihm.reveler();
+	}
+
 }

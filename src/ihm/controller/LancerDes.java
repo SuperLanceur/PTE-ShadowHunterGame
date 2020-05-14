@@ -19,6 +19,8 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 import main.Contexte;
 import main.GestionnaireJeu;
+import main.Joueur;
+import main.JoueurVirtuel;
 
 public class LancerDes {
 	private int resultat;
@@ -36,31 +38,31 @@ public class LancerDes {
 		this.contexte = c;
 	}
 	
-	public VBox initLancer() {
+	public VBox initLancer(Joueur joueur) {
 		switch (typeDe) {
 		case LANCER_DE_4:
-			return initLancerD4();
+			return initLancerD4(joueur);
 		case LANCER_DE_6:
-			return initLancerD6();
+			return initLancerD6(joueur);
 		case LANCER_DES:
-			return initLancerBoth();
+			return initLancerBoth(joueur);
 		default :
 			return null;
 		}
 	}
 	
 
-	private VBox initLancerD4() {
+	private VBox initLancerD4(Joueur j) {
 		DieImages images = new DieImages(4);
 		Die die = new Die(images.getImages());
 		ImageView stackpane = die.getdieFace();
 		stackpane.setFitHeight(100);
 		stackpane.setFitWidth(100);
 		Button btn = new Button();
-		Text txt = new Text("Lancez le dés pour attaquer");
+		Text txt = new Text("Lancez le dé");
 	    txt.setFont(Font.font(null, null, null, 12));
 	    txt.setFill(Color.WHITE);
-		btn.setText("Lancer dés");
+		btn.setText("Lancer dé");
 		btn.setOnAction((ActionEvent event) -> {
 			btn.setDisable(true);// Disable Button
 			Random random = new Random();
@@ -91,20 +93,22 @@ public class LancerDes {
 		VBox root = new VBox(txt,des, new StackPane(btn));
 		root.setAlignment(Pos.CENTER);
 		root.setSpacing(20);
+		if(j instanceof JoueurVirtuel)
+		btn.fire();
 		return root;
 	}
 
-	private VBox initLancerD6() {
+	private VBox initLancerD6(Joueur j) {
 		DieImages images = new DieImages(6);
 		Die die = new Die(images.getImages());
 		ImageView stackpane = die.getdieFace();
 		stackpane.setFitHeight(100);
 		stackpane.setFitWidth(100);
 		Button btn = new Button();
-		Text txt = new Text("Lancez le dés pour attaquer");
+		Text txt = new Text("Lancez le dé");
 	    txt.setFont(Font.font(null, null, null, 12));
 	    txt.setFill(Color.WHITE);
-		btn.setText("Lancer dés");
+		btn.setText("Lancer dé");
 		btn.setOnAction((ActionEvent event) -> {
 			btn.setDisable(true);// Disable Button
 			Random random = new Random();
@@ -122,8 +126,6 @@ public class LancerDes {
 			Timeline timeline2 = new Timeline(new KeyFrame(
 			        Duration.millis(2000),
 			        ae ->  {
-			        	
-			        	
 			        	GestionnaireJeu.notifyPlateau(); 
 			}));
 			timeline2.play();
@@ -135,10 +137,12 @@ public class LancerDes {
 		VBox root = new VBox(txt,des, new StackPane(btn));
 		root.setAlignment(Pos.CENTER);
 		root.setSpacing(20);
+		if(j instanceof JoueurVirtuel)
+			btn.fire();
 		return root;
 	}
 	
-	private VBox initLancerBoth() {
+	private VBox initLancerBoth(Joueur j) {
 		DieImages images = new DieImages(6);
 		DieImages images2 = new DieImages(4);
 		Die die = new Die(images.getImages());
@@ -150,7 +154,7 @@ public class LancerDes {
 		stackpane.setFitWidth(100);
 		stackpane2.setFitWidth(100);
 		Button btn = new Button();
-		Text txt = new Text("Lancez les dés pour vous deplacer");
+		Text txt = new Text("Lancez les dés");
 	    txt.setFont(Font.font(null, null, null, 12));
 	    txt.setFill(Color.WHITE);
 		btn.setText("Lancer dés");
@@ -191,6 +195,8 @@ public class LancerDes {
 		VBox root = new VBox(txt,des, new StackPane(btn));
 		root.setAlignment(Pos.CENTER);
 		root.setSpacing(20);
+		if(j instanceof JoueurVirtuel)
+			btn.fire();
 		return root;
 	}
 

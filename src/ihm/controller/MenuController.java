@@ -46,13 +46,7 @@ public class MenuController  implements Initializable{
         AnchorPane pane = fxmlLoader.load();
         Scene scene = new Scene(pane);
         Stage appStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
-        
-        double width = appStage.getWidth();
-        double height = appStage.getHeight();
-        double X = appStage.getX();
-        double Y = appStage.getY();
-        
-        appStage.setScene(scene);    
+        appStage.setScene(scene);
     }
 	
 	@FXML

@@ -8,6 +8,7 @@ import carte.CarteEquipement;
 import carte.CarteLieu;
 import effet.Effet;
 import personnage.CartePersonnage;
+import personnage.Metamorphe;
 import personnage.CartePersonnage.Equipe;
 
 
@@ -128,12 +129,10 @@ public class Joueur {
 	}
 
 	public void voler(Joueur j2, CarteEquipement equipement) {
-		
 		j2.gestionnaireEquipements.retirer(equipement);
-		this.gestionnaireEquipements.ajouter(equipement);	}
+		this.gestionnaireEquipements.ajouter(equipement);	
+	}
 
-	
-	
 	public void attaquer(Joueur j2, int attaqueDice) {
 		
 		int blessure = evaluerImmunite(j2)*(this.evaluerAttaque(j2) + attaqueDice);
@@ -208,7 +207,10 @@ public class Joueur {
 	public String getNom() {
 		return this.nom;
 	}
+	
 	public void reveal() {
+		GestionnaireJeu gj = GestionnaireJeu.getGestionnaireJeu();
+		gj.reveler(this);
 		this.revele = true;
 	}
 	
@@ -268,5 +270,13 @@ public class Joueur {
 		if(revele) {
 			this.cartePersonnage.utiliser();
 		}
+	}
+
+	public boolean isMetamorph() {
+		return this.cartePersonnage instanceof Metamorphe;
+	}
+
+	public Joueur choisir(List<Joueur> adjacents, Contexte attaquer) {
+		return this.plateau.choisir(this,adjacents, attaquer);
 	}
 }

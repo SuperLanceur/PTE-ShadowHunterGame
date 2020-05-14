@@ -19,15 +19,20 @@ public class DatabaseManager {
 	private final static String url = "jdbc:postgresql://localhost:5432/ShadowHunterDatabase";
     private final static String user = "shManager";
     private final static String password = "shadowhunter1234";
-
-	 public static Connection connect() throws SQLException {
-	        return DriverManager.getConnection(url, user, password);
-	   }
+    private static Connection connection;
+    
+	 public static void connect() throws SQLException {
+		 if(connection == null || connection.isClosed()) {
+			 connection = DriverManager.getConnection(url, user, password);
+	 		}
+	  }
 	 
 	 public static List<Record> remplirTable(String query) {
 		 List<Record> list = new ArrayList<Record>();
-		 	try (Connection connection = connect()) {
-		       	 
+		 	
+		 
+		 	try{
+		 		connect();
 	            //System.out.println("Connected to PostgreSQL database!");
 	            Statement statement = connection.createStatement();
 	            //System.out.println("Reading records...");
@@ -44,8 +49,8 @@ public class DatabaseManager {
 	 
 	 public static List<Record> remplirTableSansImage(String query) {
 		 List<Record> list = new ArrayList<Record>();
-		 	try (Connection connection = connect()) {
-		       	 
+		 	try {
+		 		connect();
 	            //System.out.println("Connected to PostgreSQL database!");
 	            Statement statement = connection.createStatement();
 	            //System.out.println("Reading records...");
@@ -93,8 +98,8 @@ public class DatabaseManager {
 			query = "UPDATE " + table + " SET objet = ? "
 			+ " WHERE id = ? "		;
 			
-			Connection conn = connect();
-			PreparedStatement pst = conn.prepareStatement(query);
+			connect();
+			PreparedStatement pst = connection.prepareStatement(query);
 			pst.setBinaryStream(1, objectIS);
 			pst.setInt(2, id);
 			pst.executeUpdate();

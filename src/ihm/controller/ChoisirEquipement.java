@@ -10,27 +10,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import main.GestionnaireJeu;
 
 public class ChoisirEquipement implements Initializable{
 	@FXML private GridPane grilleEquipement;
+	@FXML private HBox hbox;
 	
 	private List<CarteEquipement> equipements = new ArrayList<CarteEquipement>();
 	private CarteEquipement equipementSelected;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		for (int i=0; i<equipements.size(); i++) {
-			ImageView carte = (ImageView) grilleEquipement.getChildren().get(i);
-			
-			/*InputStream input = getClass().getResourceAsStream("/ihm/ressources/img/" + "nomcarte" + ".png");
-			Image image = new Image(input);
-			carte.setImage(image);*/
-			
-			int numEquipement = i;
-			carte.setOnMouseClicked(e -> {
-				equipementSelected = equipements.get(numEquipement);
-			});
-		}
 	}
 
 	public List<CarteEquipement> getEquipements() {
@@ -61,4 +52,23 @@ public class ChoisirEquipement implements Initializable{
 		return equipementSelected;
 	}
 
+	public void setListCarteEquipements(List<CarteEquipement> lce) {
+		this.equipements = lce;
+	}
+	
+	public void initChoisirEquipement() {
+		for (CarteEquipement ce : equipements) {
+			
+			ImageView iv = new ImageView(PlateauController.getImageCarte(ce));
+			iv.setFitHeight(100);
+			iv.setFitHeight(100);
+			iv.setPreserveRatio(true);
+
+			hbox.getChildren().add(iv);
+			iv.setOnMouseClicked(e -> {
+				equipementSelected = ce;
+				GestionnaireJeu.notifyPlateau();
+			});
+		}
+	}
 }

@@ -58,8 +58,10 @@ public class RessourceLoader {
 		
 			Record r = t.getList().get(i);
 			byte[] obj = r.getObjet();
-			if(obj != null) {
-				Object o = deserialize(obj);
+			Object o = deserialize(obj);
+			if(o != null && o != null) {
+			
+				
 				Carte c = (Carte)o;
 				c.setNom(r.getNom());
 				cartes.put(i+1, c);

@@ -1,7 +1,4 @@
 package ihm;
-
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
 import java.net.URL;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -49,7 +46,6 @@ public class Main extends Application {
 		RessourceLoader rl = new RessourceLoader();
 		rl.loadRessources();
 		gj.setRessourceLoader(rl);
-		
 		launch(args);
 	}
 }

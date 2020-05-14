@@ -48,6 +48,11 @@ public class CreatingCardsTest {
 		//Ange gardien
 		try {
 			
+			for(int i = 0; i < 67; i++) {
+				DatabaseManager.queryInsertObject(i, null);
+			}
+			
+			
 			DatabaseManager.queryInsertObject(2,new CartePiochable(CartePiochable.Type.LUMIERE,
 			new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_IMMUNITY, 1, true))));
 			
@@ -115,28 +120,33 @@ public class CreatingCardsTest {
 			// Ténèbre
 			
 			// Araignée Sanguinaire
-			
-			DatabaseManager.queryInsertObject(17, new CartePiochable(CartePiochable.Type.TENEBRE,new EffetMultiple(new EffetCiblerTous(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -2, true)),
+			/*
+			DatabaseManager.queryInsertObject(17, new CartePiochable(CartePiochable.Type.TENEBRE,new EffetMultiple(new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -2, true)),
 					new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -2, true)))));
 			
 			
 			// Chauve - souris vampire
 			
-			DatabaseManager.queryInsertObject(18, new CartePiochable(CartePiochable.Type.TENEBRE,new EffetMultiple(new EffetCiblerTous(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -2, true)),
+			DatabaseManager.queryInsertObject(18, new CartePiochable(CartePiochable.Type.TENEBRE,new EffetMultiple(new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -2, true)),
 					new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, 1, true)))));
 			
-			DatabaseManager.queryInsertObject(19, new CartePiochable(CartePiochable.Type.TENEBRE,new EffetMultiple(new EffetCiblerTous(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -2, true)),
+			DatabaseManager.queryInsertObject(19, new CartePiochable(CartePiochable.Type.TENEBRE,new EffetMultiple(new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -2, true)),
 					new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, 1, true)))));
 			
-			DatabaseManager.queryInsertObject(20, new CartePiochable(CartePiochable.Type.TENEBRE,new EffetMultiple(new EffetCiblerTous(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -2, true)),
+			DatabaseManager.queryInsertObject(20, new CartePiochable(CartePiochable.Type.TENEBRE,new EffetMultiple(new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -2, true)),
 					new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, 1, true)))));
-			
+			*/
 			// Dynamite
 			
 			// 21
 			
 			
 			// Hache tueuse
+			for(int i = 0; i <= 2; i++) {
+				DatabaseManager.queryInsertObject(22+i,new CarteEquipementStat(CartePiochable.Type.TENEBRE,
+						new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_DAMAGE, 1, true))));
+			}
+			/*
 			DatabaseManager.queryInsertObject(22,new CarteEquipementStat(CartePiochable.Type.TENEBRE,
 					new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_DAMAGE, 1, true))));
 			
@@ -161,17 +171,18 @@ public class CreatingCardsTest {
 					));
 
 			// 29
-			
+			*/
 			DatabaseManager.queryInsertObject(30,new CartePiochable(CartePiochable.Type.TENEBRE,
 					new EffetChoisirCible(new ActionVoler(ActionVoler.VOLER))));
 			
 			DatabaseManager.queryInsertObject(31,new CartePiochable(CartePiochable.Type.TENEBRE,
 					new EffetChoisirCible(new ActionVoler(ActionVoler.VOLER))));
 			
+			/*
 			DatabaseManager.queryInsertObject(32,new CarteEquipementStat(CartePiochable.Type.TENEBRE,
 					new EffetSelf(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_DAMAGE, 1, true))));
 
-			
+			*/
 			// Vision clairvoyante
 			DatabaseManager.queryInsertObject(33, new CarteVision(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP, -1, true), 
 					new ConditionStatistiques(ConditionStatistiques.JOUEUR, Joueur.PLAYER_HP, 11, ConditionStatistiques.LESS)));
@@ -258,10 +269,8 @@ public class CreatingCardsTest {
 			
 			// 64
 			CarteLieu lieu3 = new CarteLieu(new Point(-1,9));
-			lieu3.setEffet(new EffetChoisirEffet(new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-2,true)),
-				
-					
-					new EffetChoisirCible(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,1,true))));
+			lieu3.setEffet(new EffetChoisirCible(new ActionMultipleChoisir(new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,-2,true),	
+				new ActionAltererStatistiquesJoueur(Joueur.PLAYER_HP,1,true))));
 		
 			DatabaseManager.queryInsertObject(64,lieu3);
 			// 65
