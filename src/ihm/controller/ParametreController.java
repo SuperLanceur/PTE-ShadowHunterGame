@@ -25,8 +25,7 @@ public class ParametreController implements Initializable {
 	private CheckBox cmusique;
 	@FXML
 	private CheckBox cbEffetSonore;
-	@FXML
-	private CheckBox clair;
+	
 	@FXML
 	private ComboBox<String> langues;
 	@FXML
@@ -37,7 +36,7 @@ public class ParametreController implements Initializable {
 	public static Locale LaLangue = Locale.FRANCE;
 	public static boolean cbMusiqueCoche = false; // verifi si la checbox musical est coche
 	public static boolean cbSonCoche = false;
-	public static boolean cbClair = false;
+	
 	public static double slideValue;
 	public static double slideValueEffets;
 	public static String langueChoisi;
@@ -59,7 +58,7 @@ public class ParametreController implements Initializable {
 
 		cmusique.setSelected(cbMusiqueCoche);
 		cbEffetSonore.setSelected(cbSonCoche);
-		clair.setSelected(cbClair);
+		
 		sliderMusique.setValue(slideValue);
 		sliderEffets.setValue(slideValueEffets);
 
@@ -145,35 +144,9 @@ public class ParametreController implements Initializable {
 			System.out.println(EffetSonore.isSoundOK());
 		}
 
-		// Pour la couleur du theme
+		
 
-		if (clair.isSelected()) {
-			// Pane root =
-			// FXMLLoader.load(getClass().getResource("../ressources/menu.fxml"));
-
-			rootPane.setStyle("-fx-background-color: white;");
-			rootPane.applyCss();
-		}
-		rootPane.setStyle("-fx-background-color: white;");
-		rootPane.applyCss();
-		/*
-		 * if (liste != null) { for (int i = 0; i < liste.length; i++) {
-		 * 
-		 * System.out.println(liste[i]); System.out.println(i); repertoire2 = new
-		 * File("../ressources/" + liste[i]);
-		 * 
-		 * if (repertoire.isDirectory() == false) { if (liste[i] == "Plateau.fxml") {
-		 * Pane root1 = FXMLLoader.load(getClass().getResource("../ressources/" +
-		 * liste[i])); root1.setStyle("../ressources/style/plateau.css");
-		 * 
-		 * } Pane root1 = FXMLLoader.load(getClass().getResource("../ressources/" +
-		 * liste[i])); root1.setStyle("../ressources/style/menuLight.css"); } }
-		 * 
-		 * }
-		 * 
-		 * }
-		 */
-
+		
 		// Quitter les paramètres
 		EffetSonore.playSoundEffect(fileSound1); // emet un bruit sur le bouton si les effets sonores sont activés
 	

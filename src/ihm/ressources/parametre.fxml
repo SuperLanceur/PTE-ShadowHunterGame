@@ -13,11 +13,10 @@
 
 <Pane fx:id="rootPane" onMouseClicked="#slideVolumeMusique" prefHeight="595.0" prefWidth="758.0" styleClass="background" stylesheets="@style/menu.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.ParametreController">
    <children>
-      <HBox alignment="TOP_CENTER" layoutX="146.0" layoutY="171.0" prefHeight="242.0" prefWidth="507.0" spacing="10.0">
+      <HBox alignment="TOP_CENTER" layoutX="126.0" layoutY="151.0" prefHeight="242.0" prefWidth="507.0" spacing="10.0">
          <children>
             <VBox prefHeight="348.0" prefWidth="195.0" spacing="35.0">
                <children>
-                  <CheckBox fx:id="clair" mnemonicParsing="false" styleClass="checkBox" text="%mode.claire" />
                   <CheckBox fx:id="cmusique" mnemonicParsing="false" styleClass="checkBox" text="%musique" />
                   <Slider fx:id="sliderMusique" blockIncrement="1.0" majorTickUnit="1.0" max="1.0" minorTickCount="10" onMouseClicked="#slideVolumeMusique" value="0.1">
                      <padding>
