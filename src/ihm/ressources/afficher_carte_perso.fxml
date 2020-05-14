@@ -13,7 +13,7 @@
    <children>
       <VBox fx:id="root" alignment="CENTER" layoutY="-1.0" prefHeight="480.0" prefWidth="640.0">
          <children>
-            <Label text="Vous êtes :">
+            <Label text="%vousetes">
                <font>
                   <Font size="24.0" />
                </font>

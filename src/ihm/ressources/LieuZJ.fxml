@@ -16,12 +16,12 @@
                <children>
                   <VBox alignment="CENTER" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label styleClass="text" text="Vous arrivez sur cette Carte Lieu" textOverrun="CLIP" wrapText="true">
+                        <Label styleClass="text" text="%arriver.sur.carte.lieux" textOverrun="CLIP" wrapText="true">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Button fx:id="okButton" mnemonicParsing="false" styleClass="bouton" text="Ok" />
+                        <Button fx:id="okButton" mnemonicParsing="false" styleClass="bouton" text="%ok" />
                      </children>
                   </VBox>
                </children>

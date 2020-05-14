@@ -11,15 +11,15 @@
    <children>
       <VBox alignment="CENTER" layoutX="37.0" layoutY="14.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="titre" alignment="CENTER" prefHeight="88.0" prefWidth="158.0" styleClass="text" text="Voulez vous faire cette action ?" wrapText="true">
+            <Label fx:id="titre" alignment="CENTER" prefHeight="88.0" prefWidth="158.0" styleClass="text" text="%voulez.vous.faire.action" wrapText="true">
                <font>
                   <Font size="13.0" />
                </font>
             </Label>
             <HBox alignment="CENTER">
                <children>
-                  <Button fx:id="ouiButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="45.0" styleClass="bouton" text="Oui" />
-                  <Button fx:id="nonButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="45.0" styleClass="bouton" text="Non" />
+                  <Button fx:id="ouiButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="45.0" styleClass="bouton" text="%oui" />
+                  <Button fx:id="nonButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="45.0" styleClass="bouton" text="%non" />
                </children>
             </HBox>
          </children>
