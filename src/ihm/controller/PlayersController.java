@@ -332,7 +332,7 @@ public class PlayersController implements Initializable{
 	}
 	public boolean textVide() {
 		for(int i=0;i<txt.size();i++) {
-			if(txt.get(i).isEditable() && txt.get(i).getText().equals("") || txt.get(i).isEditable() && txt.get(i).getText().isBlank()) {
+			if(txt.get(i).isEditable() && txt.get(i).getText().equals("") && txt.get(i).getText().isBlank()) {
 				return true;
 			}
 		}
@@ -377,19 +377,7 @@ public class PlayersController implements Initializable{
 		}
 		return false;
 	}
-/*	public boolean nomAutorise() {
-	
-		int i=0;
-		while(i<txt.size()) {
-			if(txt.get(i).isEditable() && txt.get(i).getText().isBlank()) {
-				return false;
-			}
-			i++;
-		}
-		
-		return true;
 
-	}*/
 	@FXML
 	public void retour(MouseEvent me) throws IOException {
 		InputStream fileSound1 =  getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
