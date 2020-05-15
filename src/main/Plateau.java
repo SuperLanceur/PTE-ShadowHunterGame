@@ -317,8 +317,14 @@ public class Plateau extends Thread {
 			if (j.victoire()) {
 				gagnants.add(j);
 				System.out.println("CartePersonnage " + j.getCartePersonnage() + " Stats " + j.getStats());
+				afficherVictoire(gagnants);
 			}
 		}
+	}
+
+	private void afficherVictoire(List<Joueur> gagnants) {
+		gj.afficherVictoire(gagnants);
+		
 	}
 
 	private boolean checkrevealIAtour(JoueurVirtuel jIA) {
@@ -373,7 +379,7 @@ public class Plateau extends Thread {
 
 	public boolean isPartieTerminee() {
 		return false;
-		// return this.getStat(PARTIE_FINIE) == 1;
+		//return this.getStat(PARTIE_FINIE) == 1;
 	}
 
 	public void deplacer(Joueur currentJoueur) {

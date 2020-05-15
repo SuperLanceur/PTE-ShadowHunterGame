@@ -65,6 +65,7 @@ public class PlateauController implements Initializable {
 	private ChoisirJoueur cj;
 	private PiocherCarte pc;
 	private LancerDes ld;
+	private FinDePartieControlleur fdpc;
 
 	private static Map<Carte, BufferedImage> mapRessourcesCartes;
 	private static Map<String, BufferedImage> mapRessourcesDosCartes;
@@ -629,6 +630,16 @@ public class PlateauController implements Initializable {
 	public void utiliserCapacite(Joueur joueur) {
 		JoueurIHM jihm = getJoueurIHM(joueur);
 		jihm.getRevealButton().fire();
+	}
+
+	public void afficherVictoire(List<Joueur> gagnants) throws IOException {
+		final URL fxmlURL = PlateauController.class.getResource("/ihm/ressources/Fin_De_Partie.fxml");
+		final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
+		final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
+		Pane pane = fxmlLoader.load();
+		this.fdpc = fxmlLoader.getController();
+		fdpc.setListeWinner(gagnants);
+		rootPane.getChildren().setAll(pane);		
 	}
 
 }

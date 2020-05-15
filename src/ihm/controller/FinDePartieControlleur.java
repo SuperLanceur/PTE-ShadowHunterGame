@@ -77,7 +77,7 @@ public class FinDePartieControlleur implements Initializable {
 			JVainqueur.getChildren().add(ivJoueur);
 			*/
 			Label nomJoueurGagant = new Label();
-			nomJoueurGagant.setText(listeWinner.get(i).getNom() + "qui était "+ listeWinner.get(i).getCartePersonnage().getNom() + " ("+listeWinner.get(i).getCartePersonnage().getEquipe()+ ")");
+			nomJoueurGagant.setText(listeWinner.get(i).getNom() + " qui était "+ listeWinner.get(i).getCartePersonnage().getNom() + " ("+listeWinner.get(i).getCartePersonnage().getEquipe()+ ")");
 			nomJoueurGagant.setFont(new Font("Arial", 36));
 			nomJoueurGagant.setStyle("-fx-text-fill: white");
 			JVainqueur.getChildren().add(nomJoueurGagant);

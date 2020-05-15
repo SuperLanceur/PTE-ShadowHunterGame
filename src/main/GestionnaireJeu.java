@@ -380,4 +380,14 @@ public class GestionnaireJeu {
 			pc.utiliserCapacite(joueur);
 		});		
 	}
+
+	public void afficherVictoire(List<Joueur> gagnants) {
+		Platform.runLater(() -> {
+			try {
+				pc.afficherVictoire(gagnants);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		});			
+	}
 }
