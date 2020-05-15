@@ -76,6 +76,8 @@ public class ChoisirJoueur implements Initializable {
 				GestionnaireJeu.notifyPlateau();
 				this.joueurSelected = jihm;
 			});
+			System.out.println("b.gettext = " + b.getText());
+			System.out.println("jihm.getnom = " + jihm.getNom());
 			b.setText(jihm.getNom());
 			i++;
 		}
