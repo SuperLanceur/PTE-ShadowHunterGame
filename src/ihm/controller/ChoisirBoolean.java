@@ -16,6 +16,7 @@ import main.ControleurIA;
 import main.GestionnaireJeu;
 import main.Joueur;
 import main.JoueurVirtuel;
+import sun.util.resources.Bundles;
 
 public class ChoisirBoolean implements Initializable {
 	@FXML
@@ -27,6 +28,8 @@ public class ChoisirBoolean implements Initializable {
 
 	private boolean result;
 
+	private ResourceBundle bundle1 = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
@@ -69,13 +72,13 @@ public class ChoisirBoolean implements Initializable {
 	public void setTitre(Contexte c) {
 		switch(c) {
 		case ATTAQUER: 
-			titre.setText("Souhaitez-vous attaquer quelqu'un?");
+			titre.setText(bundle1.getString("souhaiter.vous.attaquer.qq"));
 			break;
 		case ACTIVER_EFFET_LIEU	:
-			titre.setText("Souhaitez-vous activer l'effet du lieu?");
+			titre.setText(bundle1.getString("souhaiter.vous.activer.effet.lieu"));
 			break;
 		case CHOISIR_VISION	:
-			titre.setText("Souhaitez-vous activer l'effet de la carte vision");
+			titre.setText(bundle1.getString("souhaiter.vous.activer.carte.vision"));
 			break;
 		default:
 		}

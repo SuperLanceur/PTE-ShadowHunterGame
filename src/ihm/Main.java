@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import database.CreatingCardsTest;
 import database.RessourceLoader;
+import ihm.controller.ParametreController;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -22,7 +23,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		final URL fxmlURL = getClass().getResource("ressources/Menu.fxml");
-	    final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+	    final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 	    final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 	    Pane root = fxmlLoader.load();
 	        
