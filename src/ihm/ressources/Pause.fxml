@@ -19,111 +19,119 @@
                   <Font size="48.0" />
                </font>
             </Label>
-            <VBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label style="-fx-border-width: 0 0 0.5 0; -fx-border-color: #e2e2e2;" text="%sons">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <HBox alignment="CENTER_LEFT">
+                  <VBox prefHeight="322.0" prefWidth="315.0">
                      <children>
-                        <Label text="%musique">
-                           <HBox.margin>
-                              <Insets right="300.0" />
-                           </HBox.margin>
+                        <Label style="-fx-border-width: 0 0 0.5 0; -fx-border-color: #e2e2e2;" text="%sons">
                            <font>
-                              <Font size="14.0" />
+                              <Font size="18.0" />
                            </font>
                         </Label>
-                        <CheckBox fx:id="cbMusique" mnemonicParsing="false">
-                           <HBox.margin>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Label text="%musique">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
                               <Insets bottom="5.0" />
-                           </HBox.margin>
-                        </CheckBox>
-                     </children>
-                     <VBox.margin>
-                        <Insets bottom="5.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox prefHeight="0.0" prefWidth="540.0">
-                     <children>
-                        <Slider fx:id="sliderMusiquePause" blockIncrement="1.0" majorTickUnit="1.0" max="1.0" minorTickCount="10" onMouseClicked="#slideVolumeMusique" prefHeight="14.0" prefWidth="194.0" value="0.1" />
-                     </children>
-                  </HBox>
-                  <Label prefHeight="18.0" prefWidth="198.0" styleClass="text" stylesheets="@style/plateau.css" text="The Red Fox Tavern - Curran Son">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <padding>
-                        <Insets bottom="20.0" left="5.0" />
-                     </padding>
-                  </Label>
-                  <HBox alignment="CENTER_LEFT">
-                     <children>
-                        <Label text="%effet">
-                           <HBox.margin>
-                              <Insets right="273.0" />
-                           </HBox.margin>
+                           </VBox.margin>
+                        </HBox>
+                        <HBox>
+                           <children>
+                              <Slider fx:id="sliderMusiquePause" blockIncrement="1.0" majorTickUnit="1.0" max="1.0" minorTickCount="10" onMouseClicked="#slideVolumeMusique" prefHeight="14.0" prefWidth="194.0" value="0.1" />
+                           </children>
+                        </HBox>
+                        <Label prefHeight="18.0" prefWidth="198.0" styleClass="text" stylesheets="@style/plateau.css" text="The Red Fox Tavern - Curran Son">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets bottom="20.0" left="5.0" />
+                           </padding>
+                        </Label>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Label text="%effet">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="0.0" prefWidth="540.0">
+                           <children>
+                              <Slider fx:id="sliderEffetsPause" blockIncrement="1.0" majorTickUnit="1.0" max="0.0" min="-20.0" minorTickCount="10" onMouseClicked="#slideVolumeEffets" prefHeight="14.0" prefWidth="194.0" />
+                           </children>
+                        </HBox>
+                        <Button fx:id="reglesPause" mnemonicParsing="false" onMouseClicked="#afficherReglePause" text="%regles">
                            <font>
                               <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Label style="-fx-border-width: 0 0 0.5 0; -fx-border-color: #e2e2e2;" text="%jeux">
+                           <VBox.margin>
+                              <Insets top="50.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="18.0" />
                            </font>
                         </Label>
-                        <CheckBox fx:id="cbEffet" mnemonicParsing="false" />
+                        <HBox>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                           <children>
+                              <Button mnemonicParsing="false" onMouseClicked="#reprendre" text="%reprendre.partie">
+                                 <HBox.margin>
+                                    <Insets right="25.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
                      </children>
-                  </HBox>
-                  <HBox prefHeight="0.0" prefWidth="540.0">
+                     <padding>
+                        <Insets left="100.0" />
+                     </padding>
+                  </VBox>
+                  <VBox prefHeight="325.0" prefWidth="199.0">
                      <children>
-                        <Slider fx:id="sliderEffetsPause" blockIncrement="1.0" majorTickUnit="1.0" max="0.0" min="-20.0" minorTickCount="10" onMouseClicked="#slideVolumeEffets" prefHeight="14.0" prefWidth="194.0" />
-                     </children>
-                  </HBox>
-                  <Button fx:id="reglesPause" mnemonicParsing="false" onMouseClicked="#afficherReglePause" text="%regles">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="30.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Label style="-fx-border-width: 0 0 0.5 0; -fx-border-color: #e2e2e2;" text="%jeux">
-                     <VBox.margin>
-                        <Insets top="50.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <HBox>
-                     <VBox.margin>
-                        <Insets top="5.0" />
-                     </VBox.margin>
-                     <children>
-                        <Button mnemonicParsing="false" onMouseClicked="#reprendre" text="%reprendre.partie">
-                           <HBox.margin>
-                              <Insets right="25.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Button>
+                        <CheckBox fx:id="cbMusique" mnemonicParsing="false">
+                           <VBox.margin>
+                              <Insets bottom="50.0" top="30.0" />
+                           </VBox.margin>
+                        </CheckBox>
+                        <CheckBox fx:id="cbEffet" alignment="CENTER" mnemonicParsing="false" />
                         <Button mnemonicParsing="false" onMouseClicked="#quitter" style="-fx-text-fill: red;" text="%quitter.jeu">
-                           <HBox.margin>
-                              <Insets left="25.0" />
-                           </HBox.margin>
                            <font>
                               <Font size="14.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets top="171.0" />
+                           </VBox.margin>
                         </Button>
                      </children>
-                  </HBox>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
                </children>
-               <VBox.margin>
-                  <Insets top="50.0" />
-               </VBox.margin>
-               <padding>
-                  <Insets left="100.0" />
-               </padding>
-            </VBox>
+            </HBox>
          </children>
       </VBox>
    </children>
