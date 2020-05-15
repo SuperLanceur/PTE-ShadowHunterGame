@@ -198,6 +198,9 @@ public class GestionnaireJeu {
 		});
 		
 		this.waitPlateau();
+		Platform.runLater(() -> {
+			pc.getJoueurIHM(joueur).resetZoneJoueur();;
+	});
 	}
 	
 	public Joueur choisirJoueur(Joueur joueur, List<Joueur> joueurs, Contexte contexte) {
