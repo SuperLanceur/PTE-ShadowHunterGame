@@ -17,6 +17,7 @@ import main.Contexte;
 import main.GestionnaireJeu;
 import main.Joueur;
 import main.JoueurVirtuel;
+import sun.util.resources.Bundles;
 
 public class ChoisirJoueur implements Initializable {
 	@FXML
@@ -45,6 +46,9 @@ public class ChoisirJoueur implements Initializable {
 	private JoueurIHM joueurSelected;
 	private List<JoueurIHM> listJoueursIHM;
 	private List<Button> buttons;
+	
+	private ResourceBundle bundle1 = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
+
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -115,13 +119,13 @@ public class ChoisirJoueur implements Initializable {
 	public void setTitre(Contexte c) {
 		switch (c) {
 		case ATTAQUER:
-			titre.setText("Choisissez le joueur à attaquer!");
+			titre.setText(bundle1.getString("choisir.joueur.attaquer"));
 			break;
 		case CHOISIR_VISION:
-			titre.setText("Choisissez le joueur à qui passer la carte vision!");
+			titre.setText(bundle1.getString("choisir.jouer.a.qui.donner.vision"));
 			break;
 		case VOLER_EQUIP:
-			titre.setText("Choisissez le joueur à qui voler un equipement!");
+			titre.setText(bundle1.getString("choisir.joueur.a.qui.voler.equipement"));
 			break;
 		default:
 		}
