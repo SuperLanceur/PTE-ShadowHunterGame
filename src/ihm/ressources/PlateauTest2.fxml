@@ -447,7 +447,11 @@
                                  <children>
                                     <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="8">
                                        <children>
-                                          <Label styleClass="text" text="Allie" />
+                                          <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                             <children>
+                                                <Label styleClass="text" text="Allie" />
+                                             </children>
+                                          </VBox>
                                        </children>
                                     </StackPane>
                                     <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="10">
@@ -462,12 +466,21 @@
                                     </StackPane>
                                     <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="11">
                                        <children>
-                                          <Label styleClass="text" text="Charles" />
+                                          <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                             <children>
+                                                <Label styleClass="text" text="Charles" />
+                                             </children>
+                                          </VBox>
+                                          <VBox prefHeight="200.0" prefWidth="100.0" />
                                        </children>
                                     </StackPane>
                                     <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="12">
                                        <children>
-                                          <Label styleClass="text" text="Franklin" />
+                                          <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                             <children>
+                                                <Label styleClass="text" text="Franklin" />
+                                             </children>
+                                          </VBox>
                                        </children>
                                     </StackPane>
                                     <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="13">
