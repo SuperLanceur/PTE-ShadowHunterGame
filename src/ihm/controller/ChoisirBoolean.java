@@ -16,7 +16,6 @@ import main.ControleurIA;
 import main.GestionnaireJeu;
 import main.Joueur;
 import main.JoueurVirtuel;
-import sun.util.resources.Bundles;
 
 public class ChoisirBoolean implements Initializable {
 	@FXML

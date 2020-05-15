@@ -3,7 +3,6 @@ package ihm.controller;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 import ihm.EffetSonore;
@@ -18,7 +17,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import sun.util.resources.Bundles;
 
 public class ReglesControlleur implements Initializable {
 

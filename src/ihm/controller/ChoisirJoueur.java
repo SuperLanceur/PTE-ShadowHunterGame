@@ -17,7 +17,6 @@ import main.Contexte;
 import main.GestionnaireJeu;
 import main.Joueur;
 import main.JoueurVirtuel;
-import sun.util.resources.Bundles;
 
 public class ChoisirJoueur implements Initializable {
 	@FXML

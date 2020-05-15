@@ -1,16 +1,13 @@
 package ihm.controller;
 
 import java.io.IOException;
-
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
-import java.util.regex.Pattern;
 
 import ihm.Couple;
 import ihm.EffetSonore;
@@ -32,7 +29,6 @@ import javafx.stage.Stage;
 import main.Configuration;
 import main.GestionnaireJeu;
 import main.Joueur;
-import sun.util.resources.Bundles;
 
 public class PlayersController implements Initializable{
 
