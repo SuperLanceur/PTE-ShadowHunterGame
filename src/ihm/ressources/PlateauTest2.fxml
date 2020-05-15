@@ -16,7 +16,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="rootPane" styleClass="background" stylesheets="@style/plateau.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.PlateauController">
@@ -300,23 +299,6 @@
                                     <RowConstraints vgrow="ALWAYS" />
                                  </rowConstraints>
                                  <children>
-                                    <GridPane>
-                                       <columnConstraints>
-                                          <ColumnConstraints />
-                                       </columnConstraints>
-                                       <rowConstraints>
-                                          <RowConstraints vgrow="SOMETIMES" />
-                                          <RowConstraints vgrow="SOMETIMES" />
-                                          <RowConstraints vgrow="SOMETIMES" />
-                                          <RowConstraints vgrow="SOMETIMES" />
-                                       </rowConstraints>
-                                       <children>
-                                          <Circle fill="#ff1f1f" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-                                          <Circle fill="#ffd71f" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="1" />
-                                          <Circle fill="#ecff1f" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="2" />
-                                          <Circle fill="#64ff1f" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="3" />
-                                       </children>
-                                    </GridPane>
                                     <GridPane fx:id="gridPaneLieux" hgap="20.0" GridPane.columnIndex="1">
                                       <columnConstraints>
                                         <ColumnConstraints />
@@ -387,23 +369,6 @@
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                              </padding>
                                           </HBox>
-                                       </children>
-                                    </GridPane>
-                                    <GridPane GridPane.columnIndex="2">
-                                       <columnConstraints>
-                                          <ColumnConstraints />
-                                       </columnConstraints>
-                                       <rowConstraints>
-                                          <RowConstraints vgrow="SOMETIMES" />
-                                          <RowConstraints vgrow="SOMETIMES" />
-                                          <RowConstraints vgrow="SOMETIMES" />
-                                          <RowConstraints vgrow="SOMETIMES" />
-                                       </rowConstraints>
-                                       <children>
-                                          <Circle fill="#21ffee" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
-                                          <Circle fill="#2168ff" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="1" />
-                                          <Circle fill="#d921ff" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="2" />
-                                          <Circle fill="#ff21ad" radius="10.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="3" />
                                        </children>
                                     </GridPane>
                                  </children>
