@@ -4,6 +4,7 @@ import condition.Condition;
 import condition.ConditionStatistiques;
 import effet.EffetTarget;
 import effet.action.ActionVoler;
+import main.Contexte;
 import main.Joueur;
 
 public class Bob extends CartePersonnage{
@@ -18,7 +19,7 @@ public class Bob extends CartePersonnage{
 		Condition condition = new ConditionStatistiques(ConditionStatistiques.JOUEUR, Joueur.PLAYER_NB_EQUIPEMENTS, 5, ConditionStatistiques.MORE);
 		this.setCondition(condition);
 		
-		
+		this.setEquipe(CartePersonnage.Equipe.NEUTRE);
 		EffetTarget effet = new EffetTarget(new ActionVoler(ActionVoler.VOLER));
 		this.setEffet(effet);
 	}
@@ -28,7 +29,7 @@ public class Bob extends CartePersonnage{
 		Condition condition = new ConditionStatistiques(ConditionStatistiques.JOUEUR, Joueur.PLAYER_NB_EQUIPEMENTS, 5, ConditionStatistiques.MORE);
 		this.setCondition(condition);
 		
-		
+		this.setEquipe(CartePersonnage.Equipe.NEUTRE);
 		EffetTarget effet = new EffetTarget(new ActionVoler(ActionVoler.VOLER));
 		this.setEffet(effet);
 	}
@@ -40,7 +41,7 @@ public class Bob extends CartePersonnage{
 			
 			Joueur thisJoueur = this.getJoueur();
 			
-			if(thisJoueur.choisir()) {
+			if(thisJoueur.choisir(Contexte.EFFET_BOB)) {
 				((EffetTarget)this.getEffet()).setTarget(j);
 				this.utiliser(thisJoueur);
 			}else {

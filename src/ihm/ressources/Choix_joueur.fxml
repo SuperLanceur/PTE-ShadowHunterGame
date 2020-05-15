@@ -4,159 +4,245 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.PlayersController">
+<AnchorPane fx:id="rootPane" stylesheets="@style/menu.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ihm.controller.PlayersController">
    <children>
-      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="background" stylesheets="@style/menu.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane styleClass="background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
             <VBox alignment="CENTER" prefHeight="688.0" prefWidth="240.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox fx:id="hb7" alignment="CENTER_RIGHT" prefHeight="67.0" prefWidth="340.0" rotate="90.0">
+                  <VBox alignment="CENTER" prefHeight="688.0" prefWidth="214.0" rotate="180.0" spacing="150.0">
                      <children>
-                        <TextField prefHeight="51.0" prefWidth="149.0">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </TextField>
-                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="45.0" styleClass="bouton" stylesheets="@style/menu.css" text="+">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" right="10.0" />
-                           </HBox.margin>
-                           <padding>
-                              <Insets right="5.0" />
-                           </padding>
-                        </Button>
-                        <CheckBox mnemonicParsing="false">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </CheckBox>
+                        <HBox alignment="CENTER_RIGHT" prefWidth="274.0" rotate="270.0">
+                           <children>
+                              <VBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="214.0">
+                                 <children>
+                                    <HBox fx:id="hbr8" alignment="CENTER" prefHeight="43.0" prefWidth="295.0">
+                                       <children>
+                                          <RadioButton mnemonicParsing="false" styleClass="titre" text="%ia.facile">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="tg8" />
+                                             </toggleGroup>
+                                          </RadioButton>
+                                          <RadioButton mnemonicParsing="false" selected="true" styleClass="titre" text="%ia.moyenne" toggleGroup="$tg8">
+                                             <padding>
+                                                <Insets left="20.0" right="20.0" />
+                                             </padding>
+                                          </RadioButton>
+                                          <RadioButton mnemonicParsing="false" styleClass="titre" text="%ia.difficile" toggleGroup="$tg8" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="hb8" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <TextField onKeyPressed="#couleurBtnCommencerJeu" onKeyReleased="#couleurBtnCommencerJeu" prefHeight="51.0" prefWidth="149.0">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </TextField>
+                                          <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="45.0" styleClass="bouton" text="+">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets right="5.0" />
+                                             </padding>
+                                             <HBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <CheckBox mnemonicParsing="false">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </CheckBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="304.0" prefHeight="100.0" prefWidth="299.0" rotate="270.0">
+                           <children>
+                              <VBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="214.0">
+                                 <children>
+                                    <HBox fx:id="hbr7" alignment="CENTER" prefHeight="43.0" prefWidth="295.0">
+                                       <children>
+                                          <RadioButton mnemonicParsing="false" styleClass="titre" text="%ia.facile">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="tg7" />
+                                             </toggleGroup>
+                                          </RadioButton>
+                                          <RadioButton mnemonicParsing="false" selected="true" styleClass="titre" text="%ia.moyenne" toggleGroup="$tg7">
+                                             <padding>
+                                                <Insets left="20.0" right="20.0" />
+                                             </padding>
+                                          </RadioButton>
+                                          <RadioButton mnemonicParsing="false" styleClass="titre" text="%ia.difficile" toggleGroup="$tg7" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="hb7" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <TextField onKeyPressed="#couleurBtnCommencerJeu" onKeyReleased="#couleurBtnCommencerJeu" prefHeight="51.0" prefWidth="149.0">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </TextField>
+                                          <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="45.0" styleClass="bouton" text="+">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets right="5.0" />
+                                             </padding>
+                                             <HBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <CheckBox mnemonicParsing="false">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </CheckBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
                      </children>
-                     <VBox.margin>
-                        <Insets bottom="150.0" left="-100.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox fx:id="hb8" alignment="CENTER_LEFT" rotate="90.0">
-                     <children>
-                        <TextField prefHeight="51.0" prefWidth="149.0">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </TextField>
-                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="45.0" styleClass="bouton" stylesheets="@style/menu.css" text="+">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" right="10.0" />
-                           </HBox.margin>
-                           <padding>
-                              <Insets right="5.0" />
-                           </padding>
-                        </Button>
-                        <CheckBox mnemonicParsing="false">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </CheckBox>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="-100.0" top="200.0" />
-                     </VBox.margin>
-                  </HBox>
+                  </VBox>
                </children>
             </VBox>
          </left>
          <right>
-            <VBox alignment="CENTER" prefHeight="688.0" prefWidth="248.0" BorderPane.alignment="CENTER">
+            <VBox alignment="CENTER" prefHeight="688.0" prefWidth="214.0" spacing="150.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox fx:id="hb4" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" rotate="270.0">
+                  <HBox alignment="CENTER_RIGHT" prefWidth="274.0" rotate="270.0">
                      <children>
-                        <TextField prefHeight="51.0" prefWidth="149.0">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </TextField>
-                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="45.0" styleClass="bouton" stylesheets="@style/menu.css" text="+">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" right="10.0" />
-                           </HBox.margin>
-                           <padding>
-                              <Insets right="5.0" />
-                           </padding>
-                        </Button>
-                        <CheckBox mnemonicParsing="false">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </CheckBox>
+                        <VBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="214.0">
+                           <children>
+                              <HBox fx:id="hbr4" alignment="CENTER" prefHeight="43.0" prefWidth="295.0">
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" styleClass="titre" text="%ia.facile">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="tg4" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" selected="true" styleClass="titre" text="%ia.moyenne" toggleGroup="$tg4">
+                                       <padding>
+                                          <Insets left="20.0" right="20.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" styleClass="titre" text="%ia.difficile" toggleGroup="$tg4" />
+                                 </children>
+                              </HBox>
+                              <HBox fx:id="hb4" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField onKeyPressed="#couleurBtnCommencerJeu" onKeyReleased="#couleurBtnCommencerJeu" prefHeight="51.0" prefWidth="149.0">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </TextField>
+                                    <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="45.0" styleClass="bouton" text="+">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets right="5.0" />
+                                       </padding>
+                                       <HBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <CheckBox mnemonicParsing="false">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </CheckBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
                      </children>
-                     <VBox.margin>
-                        <Insets bottom="150.0" right="-100.0" />
-                     </VBox.margin>
                   </HBox>
-                  <HBox fx:id="hb3" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" rotate="270.0">
+                  <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="304.0" prefHeight="100.0" prefWidth="299.0" rotate="270.0">
                      <children>
-                        <TextField prefHeight="51.0" prefWidth="149.0">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </TextField>
-                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="45.0" styleClass="bouton" stylesheets="@style/menu.css" text="+">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                           <padding>
-                              <Insets right="5.0" />
-                           </padding>
-                           <HBox.margin>
-                              <Insets left="10.0" right="10.0" />
-                           </HBox.margin>
-                        </Button>
-                        <CheckBox mnemonicParsing="false">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </CheckBox>
+                        <VBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="214.0">
+                           <children>
+                              <HBox fx:id="hbr3" alignment="CENTER" prefHeight="43.0" prefWidth="295.0">
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" styleClass="titre" text="%ia.facile">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="tg3" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" selected="true" styleClass="titre" text="%ia.moyenne" toggleGroup="$tg3">
+                                       <padding>
+                                          <Insets left="20.0" right="20.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" styleClass="titre" text="%ia.difficile" toggleGroup="$tg3" />
+                                 </children>
+                              </HBox>
+                              <HBox fx:id="hb3" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField onKeyPressed="#couleurBtnCommencerJeu" onKeyReleased="#couleurBtnCommencerJeu" prefHeight="51.0" prefWidth="149.0">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </TextField>
+                                    <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="45.0" styleClass="bouton" text="+">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets right="5.0" />
+                                       </padding>
+                                       <HBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <CheckBox mnemonicParsing="false">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </CheckBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
                      </children>
-                     <VBox.margin>
-                        <Insets right="-100.0" top="150.0" />
-                     </VBox.margin>
                   </HBox>
                </children>
             </VBox>
          </right>
          <center>
-            <VBox alignment="CENTER" prefHeight="486.0" prefWidth="392.0" BorderPane.alignment="CENTER">
+            <VBox alignment="CENTER" prefHeight="486.0" prefWidth="553.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label styleClass="titre" stylesheets="@style/menu.css" text="%entrez.nom.joueur">
+                  <Label styleClass="titre" text="%entrez.nom.joueur">
                      <font>
                         <Font size="48.0" />
                      </font>
                   </Label>
-                  <Label styleClass="titre" stylesheets="@style/menu.css" text="%nombre.joueur.minimum">
+                  <Label styleClass="titre" text="%nombre.joueur.minimum">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
-                  <Label styleClass="titre" stylesheets="@style/menu.css" text="%cocher.case">
+                  <Label styleClass="titre" text="%cocher.case">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnCommencer" mnemonicParsing="false" onMouseClicked="#commencerJeux" styleClass="bouton" stylesheets="@style/menu.css" text="%commencer.partie">
+                  <Button fx:id="btnCommencer" mnemonicParsing="false" onMouseClicked="#commencerJeux" styleClass="bouton" text="%commencer.partie">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -164,7 +250,7 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </Button>
-                  <Button layoutX="283.0" layoutY="379.0" mnemonicParsing="false" onMouseClicked="#retour" prefHeight="55.0" prefWidth="247.0" styleClass="bouton" stylesheets="@style/menu.css" text="retour">
+                  <Button layoutX="283.0" layoutY="379.0" mnemonicParsing="false" onMouseClicked="#retour" prefHeight="55.0" prefWidth="247.0" styleClass="bouton" text="%retour">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -178,114 +264,199 @@
          <top>
             <HBox alignment="CENTER" prefHeight="110.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox fx:id="hb6" alignment="CENTER" rotate="180.0">
+                  <VBox alignment="CENTER" prefHeight="110.0" prefWidth="559.0" spacing="10.0">
                      <children>
-                        <TextField>
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </TextField>
-                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" styleClass="bouton" stylesheets="@style/menu.css" text="+">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" right="10.0" />
-                           </HBox.margin>
-                        </Button>
-                        <CheckBox mnemonicParsing="false">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </CheckBox>
+                        <HBox fx:id="hb6" alignment="CENTER" prefWidth="754.0" rotate="180.0">
+                           <children>
+                              <TextField onKeyPressed="#couleurBtnCommencerJeu" onKeyReleased="#couleurBtnCommencerJeu">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </TextField>
+                              <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" styleClass="bouton" text="+">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <CheckBox mnemonicParsing="false">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </CheckBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="hbr6" alignment="CENTER" prefHeight="20.0" prefWidth="762.0">
+                           <children>
+                              <RadioButton contentDisplay="CENTER" mnemonicParsing="false" rotate="180.0" styleClass="titre" text="%ia.difficile">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="tg6" />
+                                 </toggleGroup></RadioButton>
+                              <RadioButton mnemonicParsing="false" rotate="180.0" selected="true" styleClass="titre" text="%ia.moyenne" toggleGroup="$tg6">
+                                 <padding>
+                                    <Insets left="20.0" right="20.0" />
+                                 </padding></RadioButton>
+                              <RadioButton mnemonicParsing="false" rotate="180.0" styleClass="titre" text="%ia.facile" toggleGroup="$tg6" />
+                           </children>
+                        </HBox>
                      </children>
-                  </HBox>
-                  <HBox fx:id="hb5" alignment="CENTER" rotate="180.0">
+                  </VBox>
+                  <VBox alignment="CENTER" spacing="10.0">
                      <children>
-                        <TextField accessibleRole="PARENT">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </TextField>
-                        <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" styleClass="bouton" stylesheets="@style/menu.css" text="+">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="10.0" right="10.0" />
-                           </HBox.margin>
-                        </Button>
-                        <CheckBox mnemonicParsing="false">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </CheckBox>
+                        <HBox fx:id="hb5" alignment="CENTER" prefHeight="55.0" prefWidth="537.0" rotate="180.0">
+                           <children>
+                              <TextField accessibleRole="PARENT" onKeyPressed="#couleurBtnCommencerJeu" onKeyReleased="#couleurBtnCommencerJeu">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </TextField>
+                              <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" styleClass="bouton" text="+">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <CheckBox mnemonicParsing="false">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </CheckBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="hbr5" alignment="CENTER" prefHeight="6.0" prefWidth="356.0">
+                           <children>
+                              <RadioButton mnemonicParsing="false" rotate="180.0" styleClass="titre" text="%ia.difficile">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="tg5" />
+                                 </toggleGroup></RadioButton>
+                              <RadioButton mnemonicParsing="false" rotate="180.0" selected="true" styleClass="titre" text="Moyen" toggleGroup="$tg5">
+                                 <padding>
+                                    <Insets left="20.0" right="20.0" />
+                                 </padding></RadioButton>
+                              <RadioButton mnemonicParsing="false" rotate="180.0" styleClass="titre" text="%ia.facile" toggleGroup="$tg5" />
+                           </children>
+                        </HBox>
                      </children>
-                     <HBox.margin>
-                        <Insets left="30.0" />
-                     </HBox.margin>
-                  </HBox>
+                  </VBox>
                </children>
             </HBox>
          </top>
          <bottom>
-            <VBox alignment="CENTER" prefHeight="94.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+            <VBox alignment="CENTER" prefHeight="0.0" prefWidth="902.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                  <HBox alignment="CENTER" prefHeight="129.0" prefWidth="1280.0">
                      <children>
-                        <HBox fx:id="hb1" alignment="CENTER">
+                        <VBox alignment="CENTER" prefHeight="70.0" prefWidth="1338.0" spacing="20.0">
                            <children>
-                              <TextField prefHeight="51.0" prefWidth="298.0">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                              </TextField>
-                              <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" styleClass="bouton" stylesheets="@style/menu.css" text="+">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="10.0" right="10.0" />
-                                 </HBox.margin>
-                              </Button>
-                              <CheckBox mnemonicParsing="false">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                              </CheckBox>
+                              <HBox fx:id="hbr1" alignment="CENTER" prefHeight="43.0" prefWidth="688.0">
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" styleClass="titre" text="%ia.facile">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="tg1" />
+                                       </toggleGroup></RadioButton>
+                                    <RadioButton mnemonicParsing="false" selected="true" styleClass="titre" text="%ia.moyenne" toggleGroup="$tg1">
+                                       <padding>
+                                          <Insets left="20.0" right="20.0" />
+                                       </padding></RadioButton>
+                                    <RadioButton mnemonicParsing="false" styleClass="titre" text="%ia.difficile" toggleGroup="$tg1" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="-5.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox fx:id="hb1" alignment="CENTER">
+                                 <children>
+                                    <TextField onKeyPressed="#couleurBtnCommencerJeu" onKeyReleased="#couleurBtnCommencerJeu" prefHeight="51.0" prefWidth="298.0">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </TextField>
+                                    <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" styleClass="bouton" text="+">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <CheckBox mnemonicParsing="false">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </CheckBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" top="-3.0" />
+                                 </padding>
+                              </HBox>
                            </children>
-                        </HBox>
-                        <HBox fx:id="hb2" alignment="CENTER">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="70.0" prefWidth="1213.0">
                            <children>
-                              <TextField>
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                              </TextField>
-                              <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" styleClass="bouton" stylesheets="@style/menu.css" text="+">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="10.0" right="10.0" />
-                                 </HBox.margin>
-                              </Button>
-                              <CheckBox mnemonicParsing="false">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                              </CheckBox>
+                              <HBox fx:id="hbr2" alignment="CENTER" prefHeight="43.0" prefWidth="688.0">
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" styleClass="titre" text="%ia.facile">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="tg2" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" selected="true" styleClass="titre" text="%ia.moyenne" toggleGroup="$tg2">
+                                       <padding>
+                                          <Insets left="20.0" right="20.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" styleClass="titre" text="%ia.difficile" toggleGroup="$tg2" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox fx:id="hb2" alignment="CENTER" prefHeight="63.0" prefWidth="433.0">
+                                 <children>
+                                    <TextField onKeyPressed="#couleurBtnCommencerJeu" onKeyReleased="#couleurBtnCommencerJeu" prefHeight="51.0" prefWidth="310.0">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </TextField>
+                                    <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" styleClass="bouton" text="+">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <CheckBox mnemonicParsing="false">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </CheckBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" />
+                                 </padding>
+                              </HBox>
                            </children>
-                           <HBox.margin>
-                              <Insets left="30.0" />
-                           </HBox.margin>
-                        </HBox>
+                        </VBox>
                      </children>
                   </HBox>
                </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </VBox>
          </bottom>
       </BorderPane>

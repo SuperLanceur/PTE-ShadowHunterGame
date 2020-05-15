@@ -32,20 +32,20 @@ public class ControleurIA {
 			int diff = jIA.getDifficulte();
 			switch (diff) {
 			case 1:
-				if (res < 25)
+				if (res < 60)
 					return true;
 				break;
 			case 2:
-				if (res < 50)
+				if (res < 80)
 					return true;
 				break;
 			case 3:
-				if (res < 75)
+				if (res < 100)
 					return true;
 				break;
 			default:
 			}
-		} else if (res < 10)
+		} else if (res < 30)
 			return true;
 		return false;
 	}

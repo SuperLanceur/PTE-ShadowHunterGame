@@ -33,4 +33,9 @@ public class ActionMultiple extends Action{
 			action.affecte(j1, j2);
 		}
 	}
+	
+	public List<Action> getList(){
+		return this.actions;
+	}
+	
 }

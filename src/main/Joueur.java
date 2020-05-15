@@ -1,14 +1,16 @@
 package main;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import carte.Carte;
 import carte.CarteEquipement;
 import carte.CarteLieu;
 import effet.Effet;
+import ihm.EffetSonore;
 import personnage.CartePersonnage;
+import personnage.Metamorphe;
 import personnage.CartePersonnage.Equipe;
 
 
@@ -33,6 +35,7 @@ public class Joueur {
 	public static final String PLAYER_NB_EQUIPEMENTS = "nb_equipements";
 	
 	private Map<String, Integer> stats;
+	private boolean deathState;
 	
 	
 	
@@ -44,6 +47,7 @@ public class Joueur {
 		this.nom = nom;
 		this.revele = false;
 		this.gestionnaireEquipements = new GestionnaireEquipements(this);
+		this.deathState = false;
 		
 		stats = new HashMap<>();
 		
@@ -65,15 +69,34 @@ public class Joueur {
 		return this.cartePersonnage.getEquipe();
 	}
 	
-	private void changeStat(String key, int valeur) {
-		this.stats.put(key, valeur);
-	}
 	public void setStat(String key, int valeur) {
 		this.stats.put(key, valeur);
+	}
+	
+	public void updateStat(String key, int valeur) {
+		setStat(key, valeur);
+		if(isDeadStat()) {
+			death();
+		}
 		updateVictoirePlateau();
 		updateVie();
 	}
 	
+	public boolean isDeadStat() {
+		return this.stats.get(PLAYER_HP) <= 0;
+	}
+	
+	public boolean isDead() {
+		return this.deathState;
+	}
+	
+	private void death() {
+		this.deathState = true;
+		this.plateau.death(this);
+		InputStream fileSound1 =  getClass().getResourceAsStream("/ihm/ressources/musique/cloche.wav");		
+		EffetSonore.playSoundEffect(fileSound1);
+	}
+
 	//pour tests IA
 	public void setHP(int val) {
 		this.stats.put("HP", val);
@@ -84,9 +107,9 @@ public class Joueur {
 		this.stats.put("nb_equipements", val);
 	}
 	//pour tests IA
-		public void setDamage(int val) {
-			this.stats.put("DAMAGE", val);
-		}
+	public void setDamage(int val) {
+		this.stats.put("DAMAGE", val);
+	}
 	
 	private void updateVie() {
 		int damage = damageTaken();
@@ -99,9 +122,7 @@ public class Joueur {
 	}
 	
 	private void updateVictoirePlateau() {
-
-		int result = victoire() ? 0 : 1;
-		this.plateau.setStat(Plateau.PARTIE_FINIE, result);
+		this.plateau.victoire(this);
 	}
 	
 	public boolean victoire() {
@@ -109,7 +130,6 @@ public class Joueur {
 	}
 
 	public int getStat(String key) {
-	
 		if(stats.containsKey(key)) {
 			return stats.get(key);
 		}else {
@@ -130,12 +150,8 @@ public class Joueur {
 	}
 
 	public void voler(Joueur j2, CarteEquipement equipement) {
-		
 		j2.gestionnaireEquipements.retirer(equipement);
-		this.gestionnaireEquipements.ajouter(equipement);	}
-
-	public Object choisir(List<?> equipements) {
-		return null;
+		this.gestionnaireEquipements.ajouter(equipement);	
 	}
 
 	public void attaquer(Joueur j2, int attaqueDice) {
@@ -163,28 +179,15 @@ public class Joueur {
 	public void addToStat(String key, int valeur)
 	{
 		int valeurBase = this.getStat(key);
-		this.setStat(key,valeurBase+valeur);
+		if(key.contentEquals(PLAYER_HP)) {	
+			this.plateau.alerationVie(this,valeur);
+		}
+		this.updateStat(key,valeurBase+valeur);
 	}
 
 
 	public Plateau getPlateau() {
 		return this.plateau;
-	}
-	
-	public boolean choisir() {
-		return this.plateau.choisir(this);
-	}
-	
-	public Joueur choisirAdjacents() {
-		return this.plateau.choisirAdjacents(this);
-	}
-
-	public Effet choisir(Effet[] effets) {
-		return this.plateau.choisirEffet(this,effets);
-	}
-	
-	public Joueur choisiParmisTous() {
-		return this.plateau.choisirParmisTous(this);
 	}
 
 	public boolean getRevele() {
@@ -197,14 +200,12 @@ public class Joueur {
 
 	public void setCartePersonnage(CartePersonnage cp) {
 		this.cartePersonnage = cp;
-		this.changeStat(PLAYER_HP, cp.getPv());
+		this.setStat(PLAYER_HP, cp.getPv());
 	}
 
 	public void setPlateau(Plateau plateau2) {
 		this.plateau = plateau2;
 	}
-
-	
 
 	public void utiliserEffetLieu() {
 		this.carteLieu.utiliser(this);	
@@ -220,8 +221,6 @@ public class Joueur {
 		cl.ajouterJoueur(this);
 	}
 
-	
-
 	public CarteLieu getCarteLieu() {
 		return this.carteLieu;
 	}
@@ -229,7 +228,10 @@ public class Joueur {
 	public String getNom() {
 		return this.nom;
 	}
+	
 	public void reveal() {
+		GestionnaireJeu gj = GestionnaireJeu.getGestionnaireJeu();
+		gj.reveler(this);
 		this.revele = true;
 	}
 	
@@ -246,14 +248,62 @@ public class Joueur {
 	}
 
 	public boolean hasOpponents() {
+		List<Joueur> joueursRange = this.getJoueursRange();
+		return !joueursRange.isEmpty();
+	}
+	
+	public List<Joueur> getJoueursRange() {
 		CarteLieu cl = this.carteLieu;
 		List<Joueur> joueurs = new ArrayList<Joueur>();
-				
 		joueurs.addAll(cl.getJoueurs());
 		joueurs.addAll(cl.getJoueursAdjacents());
 		joueurs.remove(this);
-		
-		return !joueurs.isEmpty();
+		return joueurs;
 	}
 
+	public boolean choisir(Contexte activerEffetLieu) {
+		return this.plateau.choisir(this, activerEffetLieu);
+	}
+	
+	public Object choisir(List<?> list,Class cls) {
+		return this.plateau.choisir(this,list, cls);
+	}
+
+	public Joueur choisirAdjacents() {
+		return this.plateau.choisirAdjacents(this);
+	}
+	
+	public Joueur choisiParmisTous() {
+		return this.plateau.choisirParmisTous(this);
+	}
+
+	public void ajouterEquipementIHM(CarteEquipement e) {
+		this.plateau.ajouterEquipementIHM(this,e);
+		
+	}
+	
+	public void removeEquipementIHM(CarteEquipement e) {
+		this.plateau.retirerEquipementIHM(this,e);
+		
+	}
+	
+	public void utiliserCapacite() {
+		if(revele) {
+			this.cartePersonnage.utiliser();
+		}
+	}
+
+	public boolean isMetamorph() {
+		return this.cartePersonnage instanceof Metamorphe;
+	}
+
+	public Joueur choisir(List<Joueur> adjacents, Contexte attaquer) {
+		return this.plateau.choisir(this,adjacents, attaquer);
+	}
+
+	public Map<String, Integer> getStats() {
+		return this.stats;
+	}
+
+	
 }

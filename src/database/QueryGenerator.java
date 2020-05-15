@@ -54,6 +54,8 @@ public class QueryGenerator {
 			table = getTable("CartesPersonnage");
 		} else if(id <= 61) {
 			table = getTable("CartesDos");
+		}else if(id <= 67) {
+			table = getTable("CartesLieu");
 		}
 		return "SELECT * FROM " + table + " WHERE id = " + id;
 	}

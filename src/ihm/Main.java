@@ -1,9 +1,11 @@
 package ihm;
-
 import java.net.URL;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+import database.CreatingCardsTest;
+import database.RessourceLoader;
+import ihm.controller.ParametreController;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -14,15 +16,20 @@ import javafx.stage.WindowEvent;
 import main.GestionnaireJeu;
 
 public class Main extends Application {
+	/*GraphicsDevice Gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+	int width = Gd.getDisplayMode().getWidth();
+	int height = Gd.getDisplayMode().getHeight(); */
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		final URL fxmlURL = getClass().getResource("ressources/Menu.fxml");
-	    final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.FRANCE);
+	    final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 	    final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 	    Pane root = fxmlLoader.load();
 	        
 		primaryStage.setTitle("Shadow Hunters");
 		primaryStage.setScene(new Scene(root));
+		primaryStage.setMaximized(true);
 		primaryStage.centerOnScreen();
 		primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 			@Override
@@ -35,13 +42,11 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) {
-		
+		CreatingCardsTest.init();
 		GestionnaireJeu gj = GestionnaireJeu.getGestionnaireJeu();
-		/*
 		RessourceLoader rl = new RessourceLoader();
 		rl.loadRessources();
 		gj.setRessourceLoader(rl);
-		*/
 		launch(args);
 	}
 }

@@ -14,7 +14,7 @@ public class Musique {
 	public static long clipTimePosition = 0;
 	
 	public static boolean musiqueEnCours = false;
-	static FloatControl volume ;
+	public static FloatControl volume ;
 
 	public static void playMusique(InputStream path) {
 
@@ -60,6 +60,15 @@ public class Musique {
 	
 	public static void volumeDown(Float valeur) {
 		volume.setValue(volume.getValue() -valeur);
+	}
+	
+	public static void setVolume(Float fValeur) {
+		volume.setValue(fValeur);
+	}
+	
+	public static void setVolume(double dValeur) {
+		float decibel = (float) (Math.log(dValeur) / Math.log(10) * 20);
+		volume.setValue(decibel);
 	}
 
 }

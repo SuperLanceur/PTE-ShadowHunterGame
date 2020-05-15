@@ -3,7 +3,6 @@ package ihm.controller;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 import ihm.EffetSonore;
@@ -48,9 +47,6 @@ public class MenuController  implements Initializable{
         Scene scene = new Scene(pane);
         Stage appStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         appStage.setScene(scene);
-        appStage.show();
-        
-       
     }
 	
 	@FXML
@@ -70,8 +66,12 @@ public class MenuController  implements Initializable{
     }
 	@FXML
     public void quitterLappli(MouseEvent mouseEvent) throws IOException{
+		
+		InputStream fileSound1 =  getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");		
+		EffetSonore.playSoundEffect(fileSound1);
+		
          System.exit(0);
-         }
+    }
 	
 	
 	@FXML

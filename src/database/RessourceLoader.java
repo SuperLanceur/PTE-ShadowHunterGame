@@ -1,6 +1,7 @@
 package database;
 
-import java.awt.Image;
+
+import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
@@ -15,6 +16,8 @@ import javax.imageio.ImageIO;
 import carte.Carte;
 import carte.CarteLieu;
 import carte.CartePiochable;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.image.Image;
 import personnage.CartePersonnage;
 
 public class RessourceLoader {
@@ -35,28 +38,32 @@ public class RessourceLoader {
 	private final int ID_DOS_TENEBRE= 59;
 	private final int ID_DOS_VISION= 61;
 	
-	private Map<Carte, Image> ressourcesCartes;
-	private Map<String, Image> ressourcesDosCartes;
+	private Map<Carte, BufferedImage> ressourcesCartes;
+	private Map<String, BufferedImage> ressourcesDosCartes;
 	
 	
 	public RessourceLoader() {
-		this.ressourcesCartes = new HashMap<Carte,Image>();
-		this.ressourcesDosCartes = new HashMap<String, Image>();
+		this.ressourcesCartes = new HashMap<Carte,BufferedImage>();
+		this.ressourcesDosCartes = new HashMap<String, BufferedImage>();
 	}
 	
 	private Map<Integer, Carte> loadCards() throws ClassNotFoundException, IOException{
 		
 		Table t = new Table();
 		Map<Integer, Carte> cartes = new HashMap<Integer,Carte>();
-		for(int i = 0; i < 61; i++) {
+		for(int i = 0; i < 67; i++) {
 			
 			String query = QueryGenerator.selectId(i+1);
 			t.remplirTableQuery(query);
 		
-			byte[] obj = t.getList().get(i).getObjet();
-			if(obj != null) {
-				Object o = deserialize(obj);
+			Record r = t.getList().get(i);
+			byte[] obj = r.getObjet();
+			Object o = deserialize(obj);
+			if(o != null && o != null) {
+			
+				
 				Carte c = (Carte)o;
+				c.setNom(r.getNom());
 				cartes.put(i+1, c);
 			}
 		}
@@ -105,21 +112,21 @@ public class RessourceLoader {
 	    return is.readObject();
 	}
 	
-	private Image loadImage(int id) throws IOException {
+	private BufferedImage loadImage(int id) throws IOException {
 		String name = ""+id+".png";
 		String url = "ressources/cartes/"+name;
-		Image picture = ImageIO.read(new File(url));
+		BufferedImage picture = ImageIO.read(new File(url));
 		return picture;
 	}
 	
-	private Map<Carte, Image> getMapImageCarte(Map<Integer, Carte> cartes) throws IOException{
+	private Map<Carte, BufferedImage> getMapImageCarte(Map<Integer, Carte> cartes) throws IOException{
 		
-		Map<Carte, Image> mapCarteImage = new HashMap<Carte, Image>();
+		Map<Carte, BufferedImage> mapCarteImage = new HashMap<Carte, BufferedImage>();
 		
 		for(Integer i : cartes.keySet()) {
 		
 			Carte c = cartes.get(i);
-			Image img = loadImage(i);
+			BufferedImage img = loadImage(i);
 			mapCarteImage.put(c,img);
 		}
 		
@@ -164,13 +171,12 @@ public class RessourceLoader {
 		List<CartePiochable> cartesType = new ArrayList<CartePiochable>();
 		
 		for(Carte c : cartes) {
-			
-			
 			if(c instanceof CartePiochable) {
 				
 				CartePiochable carte = (CartePiochable) c;
-				
+				System.out.println(carte.getNom()+" "+carte.getType());
 				CartePiochable.Type type = carte.getType();
+				
 				if(t == type) {
 					cartesType.add(carte);
 				}
@@ -208,4 +214,16 @@ public class RessourceLoader {
 		return cartesLieu;
 	}
 	
+	public Map<Carte,BufferedImage> getRessourceCartes(){
+		return this.ressourcesCartes;
+	}
+	
+	public Map<String,BufferedImage> getRessourceDosCartes(){
+		return this.ressourcesDosCartes;
+	}
+	
+	public static Image toJavaFX(BufferedImage img) {
+		Image image =  SwingFXUtils.toFXImage(img, null);
+		return image;
+	}	
 }

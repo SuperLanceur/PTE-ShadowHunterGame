@@ -40,7 +40,7 @@ public class PlateauControllerTest implements Initializable {
 			Pane p;
 			try {
 				final URL fxmlURL = getClass().getResource("/ihm/ressources/MenuJoueur.fxml");  
-			    final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.ENGLISH);
+			    final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 			    final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 
 				p = fxmlLoader.load();
@@ -165,12 +165,12 @@ public class PlateauControllerTest implements Initializable {
 	public boolean choisir(Joueur j) throws IOException {
 		
 		final URL fxmlURL = getClass().getResource("/ihm/ressources/choisirBoolean.fxml");  
-	    final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", Locale.ENGLISH);
+	    final ResourceBundle bundle = ResourceBundle.getBundle("domaine.properties.langue", ParametreController.LaLangue);
 	    final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL, bundle);
 
 		Parent root = fxmlLoader.load();
         
-		PopUpBoolean popup = new PopUpBoolean(root, "Consulter sa carte");
+		PopUpBoolean popup = new PopUpBoolean(root, bundle.getString("consulter.sa.carte"));
 		return popup.display();
 		
 		

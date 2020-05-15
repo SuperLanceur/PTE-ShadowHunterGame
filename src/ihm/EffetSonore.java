@@ -6,29 +6,36 @@ import java.io.InputStream;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 
 public class EffetSonore {
-	
-	 static boolean soundOK;
-	 
-	public InputStream fileSound1 =  getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
-	public InputStream fileSound2 =  getClass().getResourceAsStream("/ihm/ressources/musique/BeepError.wav");
-	
+
+	static boolean soundOK;
+
+	public InputStream fileSound1 = getClass().getResourceAsStream("/ihm/ressources/musique/BEEP1.wav");
+	public InputStream fileSound2 = getClass().getResourceAsStream("/ihm/ressources/musique/BeepError.wav");
+	public static FloatControl volumeEffet;
+	public static float lvVolumeEffet;
+
 	public static void playSoundEffect(InputStream path) {
-		
+
 		if (soundOK == true) {
-			
+
 			try {
 
 				InputStream soundPath = path;
 
-				if (soundPath!=null) {
+				if (soundPath != null) {
 
 					InputStream bufferedIn = new BufferedInputStream(soundPath);
-					
+
 					AudioInputStream audioInput = AudioSystem.getAudioInputStream(bufferedIn);
 					Clip clipSound = AudioSystem.getClip();
 					clipSound.open(audioInput);
+
+					volumeEffet = (FloatControl) clipSound.getControl(FloatControl.Type.MASTER_GAIN);
+					volumeEffet.setValue(lvVolumeEffet);
+
 					clipSound.start();
 
 				} else {
@@ -40,7 +47,6 @@ public class EffetSonore {
 			}
 		}
 
-
 	}
 
 	public static boolean isSoundOK() {
@@ -51,10 +57,8 @@ public class EffetSonore {
 		EffetSonore.soundOK = soundOK;
 	}
 
-
-
-
-	
-	
+	public static void setVolumeEffets(double dValeur) {
+		lvVolumeEffet = (float) (dValeur);
+	}
 
 }

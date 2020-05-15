@@ -11,7 +11,7 @@
          <children>
             <Label fx:id="Titre" layoutX="9.0" layoutY="32.0" text="%attaquer.ou.soigner" />
             <Button fx:id="nonButton" layoutX="142.0" layoutY="119.0" mnemonicParsing="false" text="%se.soigner" />
-            <Button fx:id="ouiButton" layoutX="29.0" layoutY="119.0" mnemonicParsing="false" text="Attaquer !" />
+            <Button fx:id="ouiButton" layoutX="29.0" layoutY="119.0" mnemonicParsing="false" text="%attaquer" />
          </children>
       </Pane>
    </children>

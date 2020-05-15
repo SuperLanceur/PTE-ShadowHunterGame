@@ -3,6 +3,7 @@ package effet.action;
 import java.util.List;
 
 import carte.CarteEquipement;
+import javafx.scene.control.Label;
 import main.Joueur;
 
 public class ActionVoler extends Action{
@@ -32,24 +33,29 @@ public class ActionVoler extends Action{
 	@Override
 	public void affecte(Joueur j1, Joueur j2) {
 		
+		List<CarteEquipement> equipements = j2.getEquipements();
 		
-		if(this.choix) {
-
-			List<CarteEquipement> equipements = j2.getEquipements();
+		if(!equipements.isEmpty()) {
 			
-			// J1 choisit quel équipement voler
-			CarteEquipement equipement = (CarteEquipement) j1.choisir(equipements);
+			CarteEquipement equipement = null;
+			
+			if(this.choix) {
+				// J1 choisit quel équipement voler
+				equipement = (CarteEquipement) j1.choisir(equipements, CarteEquipement.class);
+			}else {
+				
+				// J1 choisit quel équipement voler
+				equipement = (CarteEquipement) j2.choisir(equipements,CarteEquipement.class);
+			}
 			
 			j1.voler(j2,equipement);
-		}else {
-			
-			List<CarteEquipement> equipements = j1.getEquipements();
-			
-			// J1 choisit quel équipement voler
-			CarteEquipement equipement = (CarteEquipement) j1.choisir(equipements);
-			
-			j2.voler(j1,equipement);
-			
 		}
+		
 	}
+	
+	@Override
+	public String toString() {
+		return "Voler un autre joueur";
+	}
+	
 }

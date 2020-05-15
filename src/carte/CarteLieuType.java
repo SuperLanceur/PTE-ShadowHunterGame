@@ -31,7 +31,8 @@ public class CarteLieuType extends CarteLieu{
 	 * 	@param j Appel la méthode utiliser de effet sur le joueur j
 	 */
 	public void utiliser(Joueur j) {
-		CartePiochable carte = pioche.piocher();
+		System.out.println(pioche);
+		CartePiochable carte = pioche.piocher(j);
 		carte.utiliser(j);
 	}
 	

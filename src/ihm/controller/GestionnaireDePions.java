@@ -44,8 +44,7 @@ public class GestionnaireDePions {
 		StackPane nNew = (StackPane) gp.getChildren().get(damage);
 		FlowPane fpNew = (FlowPane) nNew.getChildren().get(0);
 		
-		fpNew.getChildren().add(pionVie);
-		
+		if(!fpNew.getChildren().contains(pionVie)) fpNew.getChildren().add(pionVie);
 		
 	}
 	
@@ -66,9 +65,10 @@ public class GestionnaireDePions {
 		}
 		
 		StackPane sp = (StackPane) hbox.getChildren().get(indexCL%2);
-		FlowPane fp = (FlowPane) sp.getChildren().get(0);
+		FlowPane fp = (FlowPane) sp.getChildren().get(1);
 	
-		fp.getChildren().add(this.pionLieu);	
+		if(!fp.getChildren().contains(this.pionLieu)) fp.getChildren().add(this.pionLieu);	
+		
 	}
 	
 	
@@ -79,7 +79,7 @@ public class GestionnaireDePions {
 		
 		translate.setByX(x);
 		translate.setByY(y);
-		translate.setDuration(Duration.millis(2000)); 
+		translate.setDuration(Duration.millis(20000)); 
 		translate.setNode(p);
 		translate.play();
 	}

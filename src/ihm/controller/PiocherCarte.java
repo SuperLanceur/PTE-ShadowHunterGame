@@ -1,16 +1,14 @@
 package ihm.controller;
 
 import java.net.URL;
+
 import java.util.ResourceBundle;
 
+import carte.CartePiochable;
+import carte.CartePiochable.Type;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-
-import main.Type;
-import main.TypeLumiere;
-import main.TypeTenebre;
-import main.TypeVision;
 
 public class PiocherCarte implements Initializable{
 	@FXML private Button lumiere;
@@ -22,15 +20,15 @@ public class PiocherCarte implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		lumiere.setOnAction(e ->{
-			carte = new TypeLumiere();
+			carte = CartePiochable.Type.LUMIERE;
 		});
 		
 		vision.setOnAction(e -> {
-			carte = new TypeVision();
+			carte = CartePiochable.Type.VISION;
 		});
 		
 		tenebre.setOnAction(e -> {
-			carte = new TypeTenebre();
+			carte = CartePiochable.Type.TENEBRE;
 		});
 	}
 

@@ -2,10 +2,12 @@ package main;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import carte.CarteEquipement;
 import carte.CarteEquipementStat;
 import effet.Effet;
+import javafx.scene.control.Button;
 
 public class JoueurVirtuel extends Joueur {
 
@@ -15,7 +17,12 @@ public class JoueurVirtuel extends Joueur {
 		super(name);
 	}
 
-	public Effet choisirEffet(List<Effet> effets) {
+	public JoueurVirtuel(String nom, int lvlIa) {
+		super(nom);
+		nvDifficulte = lvlIa;
+	}
+
+	public Button choisirEffet(List<Button> effets) {
 		return effets.get((int) Math.floor(Math.random() * effets.size()));
 	}
 
@@ -51,8 +58,11 @@ public class JoueurVirtuel extends Joueur {
 		case EFFET_POSITIF_SUR_AUTRES:
 			res = choisirJoueurAmi(joueurs);
 			break;
+		case CHOISIR_VISION:
+			res = choisirJoueurEnnemi(joueurs); // a revoir inshallah
+			break;
 		default:
-			res = null; // faire exception?
+			res = choisirJoueurEnnemi(joueurs); // faire exception?
 		}
 		return res;
 	}
